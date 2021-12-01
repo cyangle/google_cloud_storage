@@ -22,7 +22,7 @@ Add the following to shard.yaml
 ```yaml
 dependencies:
   google_cloud_storage:
-    github: GIT_USER_ID/GIT_REPO_ID
+    github: cyangle/google_cloud_storage
     version: ~> 0.1.0
 ```
 

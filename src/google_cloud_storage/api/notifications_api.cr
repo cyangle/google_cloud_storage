@@ -22,8 +22,8 @@ module GoogleCloudStorage
     # @param bucket [String] The parent bucket of the notification.
     # @param notification [String] ID of the notification to delete.
     # @return [nil]
-    def storage_notifications_delete(*, bucket : String, notification : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil)
-      storage_notifications_delete_with_http_info(bucket: bucket, notification: notification, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, provisional_user_project: provisional_user_project, user_project: user_project)
+    def delete(*, bucket : String, notification : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil)
+      delete_with_http_info(bucket: bucket, notification: notification, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, provisional_user_project: provisional_user_project, user_project: user_project)
       nil
     end
 
@@ -31,13 +31,13 @@ module GoogleCloudStorage
     # @param bucket [String] The parent bucket of the notification.
     # @param notification [String] ID of the notification to delete.
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def storage_notifications_delete_with_http_info(*, bucket : String, notification : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil)
-      request = build_api_request_for_storage_notifications_delete(bucket: bucket, notification: notification, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, provisional_user_project: provisional_user_project, user_project: user_project)
+    def delete_with_http_info(*, bucket : String, notification : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil)
+      request = build_api_request_for_delete(bucket: bucket, notification: notification, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, provisional_user_project: provisional_user_project, user_project: user_project)
 
       data, status_code, headers = @api_client.execute_api_request(request)
 
       if @api_client.config.debugging
-        Log.debug { "API called: NotificationsApi#storage_notifications_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}" }
+        Log.debug { "API called: NotificationsApi#delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}" }
       end
 
       return nil, status_code, headers
@@ -47,14 +47,14 @@ module GoogleCloudStorage
     # @param bucket [String] The parent bucket of the notification.
     # @param notification [String] ID of the notification to delete.
     # @return nil
-    def storage_notifications_delete(*, bucket : String, notification : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, &block : Crest::Response ->)
-      build_api_request_for_storage_notifications_delete(bucket: bucket, notification: notification, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, provisional_user_project: provisional_user_project, user_project: user_project).execute(&block)
+    def delete(*, bucket : String, notification : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, &block : Crest::Response ->)
+      build_api_request_for_delete(bucket: bucket, notification: notification, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, provisional_user_project: provisional_user_project, user_project: user_project).execute(&block)
     end
 
     # @return Crest::Request
-    def build_api_request_for_storage_notifications_delete(*, bucket : String, notification : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil) : Crest::Request
+    def build_api_request_for_delete(*, bucket : String, notification : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil) : Crest::Request
       if @api_client.config.debugging
-        Log.debug { "Calling API: NotificationsApi.storage_notifications_delete ..." }
+        Log.debug { "Calling API: NotificationsApi.delete ..." }
       end
       allowable_values = ["json"]
       if @api_client.config.client_side_validation && !alt.nil? && !alt.null? && !allowable_values.includes?(alt)
@@ -103,8 +103,8 @@ module GoogleCloudStorage
     # @param bucket [String] The parent bucket of the notification.
     # @param notification [String] Notification ID
     # @return [Notification]
-    def storage_notifications_get(*, bucket : String, notification : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil)
-      data, _status_code, _headers = storage_notifications_get_with_http_info(bucket: bucket, notification: notification, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, provisional_user_project: provisional_user_project, user_project: user_project)
+    def get(*, bucket : String, notification : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil)
+      data, _status_code, _headers = get_with_http_info(bucket: bucket, notification: notification, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, provisional_user_project: provisional_user_project, user_project: user_project)
       data
     end
 
@@ -112,13 +112,13 @@ module GoogleCloudStorage
     # @param bucket [String] The parent bucket of the notification.
     # @param notification [String] Notification ID
     # @return [Array<(Notification, Integer, Hash)>] Notification data, response status code and response headers
-    def storage_notifications_get_with_http_info(*, bucket : String, notification : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil)
-      request = build_api_request_for_storage_notifications_get(bucket: bucket, notification: notification, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, provisional_user_project: provisional_user_project, user_project: user_project)
+    def get_with_http_info(*, bucket : String, notification : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil)
+      request = build_api_request_for_get(bucket: bucket, notification: notification, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, provisional_user_project: provisional_user_project, user_project: user_project)
 
       data, status_code, headers = @api_client.execute_api_request(request)
 
       if @api_client.config.debugging
-        Log.debug { "API called: NotificationsApi#storage_notifications_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}" }
+        Log.debug { "API called: NotificationsApi#get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}" }
       end
 
       return Notification.from_nason(data), status_code, headers
@@ -128,14 +128,14 @@ module GoogleCloudStorage
     # @param bucket [String] The parent bucket of the notification.
     # @param notification [String] Notification ID
     # @return nil
-    def storage_notifications_get(*, bucket : String, notification : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, &block : Crest::Response ->)
-      build_api_request_for_storage_notifications_get(bucket: bucket, notification: notification, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, provisional_user_project: provisional_user_project, user_project: user_project).execute(&block)
+    def get(*, bucket : String, notification : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, &block : Crest::Response ->)
+      build_api_request_for_get(bucket: bucket, notification: notification, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, provisional_user_project: provisional_user_project, user_project: user_project).execute(&block)
     end
 
     # @return Crest::Request
-    def build_api_request_for_storage_notifications_get(*, bucket : String, notification : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil) : Crest::Request
+    def build_api_request_for_get(*, bucket : String, notification : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil) : Crest::Request
       if @api_client.config.debugging
-        Log.debug { "Calling API: NotificationsApi.storage_notifications_get ..." }
+        Log.debug { "Calling API: NotificationsApi.get ..." }
       end
       allowable_values = ["json"]
       if @api_client.config.client_side_validation && !alt.nil? && !alt.null? && !allowable_values.includes?(alt)
@@ -185,21 +185,21 @@ module GoogleCloudStorage
     # Creates a notification subscription for a given bucket.
     # @param bucket [String] The parent bucket of the notification.
     # @return [Notification]
-    def storage_notifications_insert(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, notification : Notification? = nil)
-      data, _status_code, _headers = storage_notifications_insert_with_http_info(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, provisional_user_project: provisional_user_project, user_project: user_project, notification: notification)
+    def insert(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, notification : Notification? = nil)
+      data, _status_code, _headers = insert_with_http_info(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, provisional_user_project: provisional_user_project, user_project: user_project, notification: notification)
       data
     end
 
     # Creates a notification subscription for a given bucket.
     # @param bucket [String] The parent bucket of the notification.
     # @return [Array<(Notification, Integer, Hash)>] Notification data, response status code and response headers
-    def storage_notifications_insert_with_http_info(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, notification : Notification? = nil)
-      request = build_api_request_for_storage_notifications_insert(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, provisional_user_project: provisional_user_project, user_project: user_project, notification: notification)
+    def insert_with_http_info(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, notification : Notification? = nil)
+      request = build_api_request_for_insert(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, provisional_user_project: provisional_user_project, user_project: user_project, notification: notification)
 
       data, status_code, headers = @api_client.execute_api_request(request)
 
       if @api_client.config.debugging
-        Log.debug { "API called: NotificationsApi#storage_notifications_insert\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}" }
+        Log.debug { "API called: NotificationsApi#insert\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}" }
       end
 
       return Notification.from_nason(data), status_code, headers
@@ -208,14 +208,14 @@ module GoogleCloudStorage
     # Creates a notification subscription for a given bucket.
     # @param bucket [String] The parent bucket of the notification.
     # @return nil
-    def storage_notifications_insert(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, notification : Notification? = nil, &block : Crest::Response ->)
-      build_api_request_for_storage_notifications_insert(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, provisional_user_project: provisional_user_project, user_project: user_project, notification: notification).execute(&block)
+    def insert(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, notification : Notification? = nil, &block : Crest::Response ->)
+      build_api_request_for_insert(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, provisional_user_project: provisional_user_project, user_project: user_project, notification: notification).execute(&block)
     end
 
     # @return Crest::Request
-    def build_api_request_for_storage_notifications_insert(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, notification : Notification? = nil) : Crest::Request
+    def build_api_request_for_insert(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, notification : Notification? = nil) : Crest::Request
       if @api_client.config.debugging
-        Log.debug { "Calling API: NotificationsApi.storage_notifications_insert ..." }
+        Log.debug { "Calling API: NotificationsApi.insert ..." }
       end
       allowable_values = ["json"]
       if @api_client.config.client_side_validation && !alt.nil? && !alt.null? && !allowable_values.includes?(alt)
@@ -267,21 +267,21 @@ module GoogleCloudStorage
     # Retrieves a list of notification subscriptions for a given bucket.
     # @param bucket [String] Name of a Google Cloud Storage bucket.
     # @return [Notifications]
-    def storage_notifications_list(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil)
-      data, _status_code, _headers = storage_notifications_list_with_http_info(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, provisional_user_project: provisional_user_project, user_project: user_project)
+    def list(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil)
+      data, _status_code, _headers = list_with_http_info(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, provisional_user_project: provisional_user_project, user_project: user_project)
       data
     end
 
     # Retrieves a list of notification subscriptions for a given bucket.
     # @param bucket [String] Name of a Google Cloud Storage bucket.
     # @return [Array<(Notifications, Integer, Hash)>] Notifications data, response status code and response headers
-    def storage_notifications_list_with_http_info(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil)
-      request = build_api_request_for_storage_notifications_list(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, provisional_user_project: provisional_user_project, user_project: user_project)
+    def list_with_http_info(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil)
+      request = build_api_request_for_list(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, provisional_user_project: provisional_user_project, user_project: user_project)
 
       data, status_code, headers = @api_client.execute_api_request(request)
 
       if @api_client.config.debugging
-        Log.debug { "API called: NotificationsApi#storage_notifications_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}" }
+        Log.debug { "API called: NotificationsApi#list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}" }
       end
 
       return Notifications.from_nason(data), status_code, headers
@@ -290,14 +290,14 @@ module GoogleCloudStorage
     # Retrieves a list of notification subscriptions for a given bucket.
     # @param bucket [String] Name of a Google Cloud Storage bucket.
     # @return nil
-    def storage_notifications_list(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, &block : Crest::Response ->)
-      build_api_request_for_storage_notifications_list(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, provisional_user_project: provisional_user_project, user_project: user_project).execute(&block)
+    def list(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, &block : Crest::Response ->)
+      build_api_request_for_list(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, provisional_user_project: provisional_user_project, user_project: user_project).execute(&block)
     end
 
     # @return Crest::Request
-    def build_api_request_for_storage_notifications_list(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil) : Crest::Request
+    def build_api_request_for_list(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil) : Crest::Request
       if @api_client.config.debugging
-        Log.debug { "Calling API: NotificationsApi.storage_notifications_list ..." }
+        Log.debug { "Calling API: NotificationsApi.list ..." }
       end
       allowable_values = ["json"]
       if @api_client.config.client_side_validation && !alt.nil? && !alt.null? && !allowable_values.includes?(alt)

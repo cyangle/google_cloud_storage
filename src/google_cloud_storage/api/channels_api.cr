@@ -20,20 +20,20 @@ module GoogleCloudStorage
 
     # Stop watching resources through this channel
     # @return [nil]
-    def storage_channels_stop(*, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, channel : Channel? = nil)
-      storage_channels_stop_with_http_info(alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, channel: channel)
+    def stop(*, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, channel : Channel? = nil)
+      stop_with_http_info(alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, channel: channel)
       nil
     end
 
     # Stop watching resources through this channel
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def storage_channels_stop_with_http_info(*, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, channel : Channel? = nil)
-      request = build_api_request_for_storage_channels_stop(alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, channel: channel)
+    def stop_with_http_info(*, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, channel : Channel? = nil)
+      request = build_api_request_for_stop(alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, channel: channel)
 
       data, status_code, headers = @api_client.execute_api_request(request)
 
       if @api_client.config.debugging
-        Log.debug { "API called: ChannelsApi#storage_channels_stop\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}" }
+        Log.debug { "API called: ChannelsApi#stop\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}" }
       end
 
       return nil, status_code, headers
@@ -41,14 +41,14 @@ module GoogleCloudStorage
 
     # Stop watching resources through this channel
     # @return nil
-    def storage_channels_stop(*, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, channel : Channel? = nil, &block : Crest::Response ->)
-      build_api_request_for_storage_channels_stop(alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, channel: channel).execute(&block)
+    def stop(*, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, channel : Channel? = nil, &block : Crest::Response ->)
+      build_api_request_for_stop(alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, channel: channel).execute(&block)
     end
 
     # @return Crest::Request
-    def build_api_request_for_storage_channels_stop(*, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, channel : Channel? = nil) : Crest::Request
+    def build_api_request_for_stop(*, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, channel : Channel? = nil) : Crest::Request
       if @api_client.config.debugging
-        Log.debug { "Calling API: ChannelsApi.storage_channels_stop ..." }
+        Log.debug { "Calling API: ChannelsApi.stop ..." }
       end
       allowable_values = ["json"]
       if @api_client.config.client_side_validation && !alt.nil? && !alt.null? && !allowable_values.includes?(alt)

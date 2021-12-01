@@ -21,21 +21,21 @@ module GoogleCloudStorage
     # Permanently deletes an empty bucket.
     # @param bucket [String] Name of a bucket.
     # @return [nil]
-    def storage_buckets_delete(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil)
-      storage_buckets_delete_with_http_info(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, provisional_user_project: provisional_user_project, user_project: user_project)
+    def delete(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil)
+      delete_with_http_info(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, provisional_user_project: provisional_user_project, user_project: user_project)
       nil
     end
 
     # Permanently deletes an empty bucket.
     # @param bucket [String] Name of a bucket.
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def storage_buckets_delete_with_http_info(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil)
-      request = build_api_request_for_storage_buckets_delete(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, provisional_user_project: provisional_user_project, user_project: user_project)
+    def delete_with_http_info(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil)
+      request = build_api_request_for_delete(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, provisional_user_project: provisional_user_project, user_project: user_project)
 
       data, status_code, headers = @api_client.execute_api_request(request)
 
       if @api_client.config.debugging
-        Log.debug { "API called: BucketsApi#storage_buckets_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}" }
+        Log.debug { "API called: BucketsApi#delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}" }
       end
 
       return nil, status_code, headers
@@ -44,14 +44,14 @@ module GoogleCloudStorage
     # Permanently deletes an empty bucket.
     # @param bucket [String] Name of a bucket.
     # @return nil
-    def storage_buckets_delete(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, &block : Crest::Response ->)
-      build_api_request_for_storage_buckets_delete(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, provisional_user_project: provisional_user_project, user_project: user_project).execute(&block)
+    def delete(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, &block : Crest::Response ->)
+      build_api_request_for_delete(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, provisional_user_project: provisional_user_project, user_project: user_project).execute(&block)
     end
 
     # @return Crest::Request
-    def build_api_request_for_storage_buckets_delete(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil) : Crest::Request
+    def build_api_request_for_delete(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil) : Crest::Request
       if @api_client.config.debugging
-        Log.debug { "Calling API: BucketsApi.storage_buckets_delete ..." }
+        Log.debug { "Calling API: BucketsApi.delete ..." }
       end
       allowable_values = ["json"]
       if @api_client.config.client_side_validation && !alt.nil? && !alt.null? && !allowable_values.includes?(alt)
@@ -101,21 +101,21 @@ module GoogleCloudStorage
     # Returns metadata for the specified bucket.
     # @param bucket [String] Name of a bucket.
     # @return [Bucket]
-    def storage_buckets_get(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil)
-      data, _status_code, _headers = storage_buckets_get_with_http_info(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, projection: projection, provisional_user_project: provisional_user_project, user_project: user_project)
+    def get(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil)
+      data, _status_code, _headers = get_with_http_info(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, projection: projection, provisional_user_project: provisional_user_project, user_project: user_project)
       data
     end
 
     # Returns metadata for the specified bucket.
     # @param bucket [String] Name of a bucket.
     # @return [Array<(Bucket, Integer, Hash)>] Bucket data, response status code and response headers
-    def storage_buckets_get_with_http_info(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil)
-      request = build_api_request_for_storage_buckets_get(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, projection: projection, provisional_user_project: provisional_user_project, user_project: user_project)
+    def get_with_http_info(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil)
+      request = build_api_request_for_get(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, projection: projection, provisional_user_project: provisional_user_project, user_project: user_project)
 
       data, status_code, headers = @api_client.execute_api_request(request)
 
       if @api_client.config.debugging
-        Log.debug { "API called: BucketsApi#storage_buckets_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}" }
+        Log.debug { "API called: BucketsApi#get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}" }
       end
 
       return Bucket.from_nason(data), status_code, headers
@@ -124,14 +124,14 @@ module GoogleCloudStorage
     # Returns metadata for the specified bucket.
     # @param bucket [String] Name of a bucket.
     # @return nil
-    def storage_buckets_get(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, &block : Crest::Response ->)
-      build_api_request_for_storage_buckets_get(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, projection: projection, provisional_user_project: provisional_user_project, user_project: user_project).execute(&block)
+    def get(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, &block : Crest::Response ->)
+      build_api_request_for_get(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, projection: projection, provisional_user_project: provisional_user_project, user_project: user_project).execute(&block)
     end
 
     # @return Crest::Request
-    def build_api_request_for_storage_buckets_get(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil) : Crest::Request
+    def build_api_request_for_get(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil) : Crest::Request
       if @api_client.config.debugging
-        Log.debug { "Calling API: BucketsApi.storage_buckets_get ..." }
+        Log.debug { "Calling API: BucketsApi.get ..." }
       end
       allowable_values = ["json"]
       if @api_client.config.client_side_validation && !alt.nil? && !alt.null? && !allowable_values.includes?(alt)
@@ -188,21 +188,21 @@ module GoogleCloudStorage
     # Returns an IAM policy for the specified bucket.
     # @param bucket [String] Name of a bucket.
     # @return [Policy]
-    def storage_buckets_get_iam_policy(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, options_requested_policy_version : Int32? = nil, provisional_user_project : String? = nil, user_project : String? = nil)
-      data, _status_code, _headers = storage_buckets_get_iam_policy_with_http_info(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, options_requested_policy_version: options_requested_policy_version, provisional_user_project: provisional_user_project, user_project: user_project)
+    def get_iam_policy(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, options_requested_policy_version : Int32? = nil, provisional_user_project : String? = nil, user_project : String? = nil)
+      data, _status_code, _headers = get_iam_policy_with_http_info(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, options_requested_policy_version: options_requested_policy_version, provisional_user_project: provisional_user_project, user_project: user_project)
       data
     end
 
     # Returns an IAM policy for the specified bucket.
     # @param bucket [String] Name of a bucket.
     # @return [Array<(Policy, Integer, Hash)>] Policy data, response status code and response headers
-    def storage_buckets_get_iam_policy_with_http_info(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, options_requested_policy_version : Int32? = nil, provisional_user_project : String? = nil, user_project : String? = nil)
-      request = build_api_request_for_storage_buckets_get_iam_policy(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, options_requested_policy_version: options_requested_policy_version, provisional_user_project: provisional_user_project, user_project: user_project)
+    def get_iam_policy_with_http_info(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, options_requested_policy_version : Int32? = nil, provisional_user_project : String? = nil, user_project : String? = nil)
+      request = build_api_request_for_get_iam_policy(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, options_requested_policy_version: options_requested_policy_version, provisional_user_project: provisional_user_project, user_project: user_project)
 
       data, status_code, headers = @api_client.execute_api_request(request)
 
       if @api_client.config.debugging
-        Log.debug { "API called: BucketsApi#storage_buckets_get_iam_policy\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}" }
+        Log.debug { "API called: BucketsApi#get_iam_policy\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}" }
       end
 
       return Policy.from_nason(data), status_code, headers
@@ -211,21 +211,21 @@ module GoogleCloudStorage
     # Returns an IAM policy for the specified bucket.
     # @param bucket [String] Name of a bucket.
     # @return nil
-    def storage_buckets_get_iam_policy(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, options_requested_policy_version : Int32? = nil, provisional_user_project : String? = nil, user_project : String? = nil, &block : Crest::Response ->)
-      build_api_request_for_storage_buckets_get_iam_policy(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, options_requested_policy_version: options_requested_policy_version, provisional_user_project: provisional_user_project, user_project: user_project).execute(&block)
+    def get_iam_policy(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, options_requested_policy_version : Int32? = nil, provisional_user_project : String? = nil, user_project : String? = nil, &block : Crest::Response ->)
+      build_api_request_for_get_iam_policy(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, options_requested_policy_version: options_requested_policy_version, provisional_user_project: provisional_user_project, user_project: user_project).execute(&block)
     end
 
     # @return Crest::Request
-    def build_api_request_for_storage_buckets_get_iam_policy(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, options_requested_policy_version : Int32? = nil, provisional_user_project : String? = nil, user_project : String? = nil) : Crest::Request
+    def build_api_request_for_get_iam_policy(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, options_requested_policy_version : Int32? = nil, provisional_user_project : String? = nil, user_project : String? = nil) : Crest::Request
       if @api_client.config.debugging
-        Log.debug { "Calling API: BucketsApi.storage_buckets_get_iam_policy ..." }
+        Log.debug { "Calling API: BucketsApi.get_iam_policy ..." }
       end
       allowable_values = ["json"]
       if @api_client.config.client_side_validation && !alt.nil? && !alt.null? && !allowable_values.includes?(alt)
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
       if @api_client.config.client_side_validation && !options_requested_policy_version.nil? && options_requested_policy_version < 1
-        raise ArgumentError.new("invalid value for \"options_requested_policy_version\" when calling BucketsApi.storage_buckets_get_iam_policy, must be greater than or equal to 1.")
+        raise ArgumentError.new("invalid value for \"options_requested_policy_version\" when calling BucketsApi.get_iam_policy, must be greater than or equal to 1.")
       end
 
       # resource path
@@ -273,21 +273,21 @@ module GoogleCloudStorage
     # Creates a new bucket.
     # @param project [String] A valid API project identifier.
     # @return [Bucket]
-    def storage_buckets_insert(*, project : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, predefined_acl : String? = nil, predefined_default_object_acl : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, bucket : Bucket? = nil)
-      data, _status_code, _headers = storage_buckets_insert_with_http_info(project: project, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, predefined_acl: predefined_acl, predefined_default_object_acl: predefined_default_object_acl, projection: projection, provisional_user_project: provisional_user_project, user_project: user_project, bucket: bucket)
+    def insert(*, project : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, predefined_acl : String? = nil, predefined_default_object_acl : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, bucket : Bucket? = nil)
+      data, _status_code, _headers = insert_with_http_info(project: project, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, predefined_acl: predefined_acl, predefined_default_object_acl: predefined_default_object_acl, projection: projection, provisional_user_project: provisional_user_project, user_project: user_project, bucket: bucket)
       data
     end
 
     # Creates a new bucket.
     # @param project [String] A valid API project identifier.
     # @return [Array<(Bucket, Integer, Hash)>] Bucket data, response status code and response headers
-    def storage_buckets_insert_with_http_info(*, project : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, predefined_acl : String? = nil, predefined_default_object_acl : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, bucket : Bucket? = nil)
-      request = build_api_request_for_storage_buckets_insert(project: project, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, predefined_acl: predefined_acl, predefined_default_object_acl: predefined_default_object_acl, projection: projection, provisional_user_project: provisional_user_project, user_project: user_project, bucket: bucket)
+    def insert_with_http_info(*, project : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, predefined_acl : String? = nil, predefined_default_object_acl : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, bucket : Bucket? = nil)
+      request = build_api_request_for_insert(project: project, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, predefined_acl: predefined_acl, predefined_default_object_acl: predefined_default_object_acl, projection: projection, provisional_user_project: provisional_user_project, user_project: user_project, bucket: bucket)
 
       data, status_code, headers = @api_client.execute_api_request(request)
 
       if @api_client.config.debugging
-        Log.debug { "API called: BucketsApi#storage_buckets_insert\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}" }
+        Log.debug { "API called: BucketsApi#insert\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}" }
       end
 
       return Bucket.from_nason(data), status_code, headers
@@ -296,14 +296,14 @@ module GoogleCloudStorage
     # Creates a new bucket.
     # @param project [String] A valid API project identifier.
     # @return nil
-    def storage_buckets_insert(*, project : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, predefined_acl : String? = nil, predefined_default_object_acl : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, bucket : Bucket? = nil, &block : Crest::Response ->)
-      build_api_request_for_storage_buckets_insert(project: project, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, predefined_acl: predefined_acl, predefined_default_object_acl: predefined_default_object_acl, projection: projection, provisional_user_project: provisional_user_project, user_project: user_project, bucket: bucket).execute(&block)
+    def insert(*, project : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, predefined_acl : String? = nil, predefined_default_object_acl : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, bucket : Bucket? = nil, &block : Crest::Response ->)
+      build_api_request_for_insert(project: project, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, predefined_acl: predefined_acl, predefined_default_object_acl: predefined_default_object_acl, projection: projection, provisional_user_project: provisional_user_project, user_project: user_project, bucket: bucket).execute(&block)
     end
 
     # @return Crest::Request
-    def build_api_request_for_storage_buckets_insert(*, project : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, predefined_acl : String? = nil, predefined_default_object_acl : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, bucket : Bucket? = nil) : Crest::Request
+    def build_api_request_for_insert(*, project : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, predefined_acl : String? = nil, predefined_default_object_acl : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, bucket : Bucket? = nil) : Crest::Request
       if @api_client.config.debugging
-        Log.debug { "Calling API: BucketsApi.storage_buckets_insert ..." }
+        Log.debug { "Calling API: BucketsApi.insert ..." }
       end
       allowable_values = ["json"]
       if @api_client.config.client_side_validation && !alt.nil? && !alt.null? && !allowable_values.includes?(alt)
@@ -371,21 +371,21 @@ module GoogleCloudStorage
     # Retrieves a list of buckets for a given project.
     # @param project [String] A valid API project identifier.
     # @return [Buckets]
-    def storage_buckets_list(*, project : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, max_results : Int32? = nil, page_token : String? = nil, prefix : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil)
-      data, _status_code, _headers = storage_buckets_list_with_http_info(project: project, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, max_results: max_results, page_token: page_token, prefix: prefix, projection: projection, provisional_user_project: provisional_user_project, user_project: user_project)
+    def list(*, project : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, max_results : Int32? = nil, page_token : String? = nil, prefix : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil)
+      data, _status_code, _headers = list_with_http_info(project: project, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, max_results: max_results, page_token: page_token, prefix: prefix, projection: projection, provisional_user_project: provisional_user_project, user_project: user_project)
       data
     end
 
     # Retrieves a list of buckets for a given project.
     # @param project [String] A valid API project identifier.
     # @return [Array<(Buckets, Integer, Hash)>] Buckets data, response status code and response headers
-    def storage_buckets_list_with_http_info(*, project : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, max_results : Int32? = nil, page_token : String? = nil, prefix : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil)
-      request = build_api_request_for_storage_buckets_list(project: project, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, max_results: max_results, page_token: page_token, prefix: prefix, projection: projection, provisional_user_project: provisional_user_project, user_project: user_project)
+    def list_with_http_info(*, project : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, max_results : Int32? = nil, page_token : String? = nil, prefix : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil)
+      request = build_api_request_for_list(project: project, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, max_results: max_results, page_token: page_token, prefix: prefix, projection: projection, provisional_user_project: provisional_user_project, user_project: user_project)
 
       data, status_code, headers = @api_client.execute_api_request(request)
 
       if @api_client.config.debugging
-        Log.debug { "API called: BucketsApi#storage_buckets_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}" }
+        Log.debug { "API called: BucketsApi#list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}" }
       end
 
       return Buckets.from_nason(data), status_code, headers
@@ -394,21 +394,21 @@ module GoogleCloudStorage
     # Retrieves a list of buckets for a given project.
     # @param project [String] A valid API project identifier.
     # @return nil
-    def storage_buckets_list(*, project : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, max_results : Int32? = nil, page_token : String? = nil, prefix : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, &block : Crest::Response ->)
-      build_api_request_for_storage_buckets_list(project: project, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, max_results: max_results, page_token: page_token, prefix: prefix, projection: projection, provisional_user_project: provisional_user_project, user_project: user_project).execute(&block)
+    def list(*, project : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, max_results : Int32? = nil, page_token : String? = nil, prefix : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, &block : Crest::Response ->)
+      build_api_request_for_list(project: project, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, max_results: max_results, page_token: page_token, prefix: prefix, projection: projection, provisional_user_project: provisional_user_project, user_project: user_project).execute(&block)
     end
 
     # @return Crest::Request
-    def build_api_request_for_storage_buckets_list(*, project : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, max_results : Int32? = nil, page_token : String? = nil, prefix : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil) : Crest::Request
+    def build_api_request_for_list(*, project : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, max_results : Int32? = nil, page_token : String? = nil, prefix : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil) : Crest::Request
       if @api_client.config.debugging
-        Log.debug { "Calling API: BucketsApi.storage_buckets_list ..." }
+        Log.debug { "Calling API: BucketsApi.list ..." }
       end
       allowable_values = ["json"]
       if @api_client.config.client_side_validation && !alt.nil? && !alt.null? && !allowable_values.includes?(alt)
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
       if @api_client.config.client_side_validation && !max_results.nil? && max_results < 0
-        raise ArgumentError.new("invalid value for \"max_results\" when calling BucketsApi.storage_buckets_list, must be greater than or equal to 0.")
+        raise ArgumentError.new("invalid value for \"max_results\" when calling BucketsApi.list, must be greater than or equal to 0.")
       end
 
       allowable_values = ["full", "noAcl"]
@@ -465,8 +465,8 @@ module GoogleCloudStorage
     # @param bucket [String] Name of a bucket.
     # @param if_metageneration_match [String] Makes the operation conditional on whether bucket's current metageneration matches the given value.
     # @return [Bucket]
-    def storage_buckets_lock_retention_policy(*, bucket : String, if_metageneration_match : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil)
-      data, _status_code, _headers = storage_buckets_lock_retention_policy_with_http_info(bucket: bucket, if_metageneration_match: if_metageneration_match, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, provisional_user_project: provisional_user_project, user_project: user_project)
+    def lock_retention_policy(*, bucket : String, if_metageneration_match : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil)
+      data, _status_code, _headers = lock_retention_policy_with_http_info(bucket: bucket, if_metageneration_match: if_metageneration_match, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, provisional_user_project: provisional_user_project, user_project: user_project)
       data
     end
 
@@ -474,13 +474,13 @@ module GoogleCloudStorage
     # @param bucket [String] Name of a bucket.
     # @param if_metageneration_match [String] Makes the operation conditional on whether bucket's current metageneration matches the given value.
     # @return [Array<(Bucket, Integer, Hash)>] Bucket data, response status code and response headers
-    def storage_buckets_lock_retention_policy_with_http_info(*, bucket : String, if_metageneration_match : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil)
-      request = build_api_request_for_storage_buckets_lock_retention_policy(bucket: bucket, if_metageneration_match: if_metageneration_match, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, provisional_user_project: provisional_user_project, user_project: user_project)
+    def lock_retention_policy_with_http_info(*, bucket : String, if_metageneration_match : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil)
+      request = build_api_request_for_lock_retention_policy(bucket: bucket, if_metageneration_match: if_metageneration_match, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, provisional_user_project: provisional_user_project, user_project: user_project)
 
       data, status_code, headers = @api_client.execute_api_request(request)
 
       if @api_client.config.debugging
-        Log.debug { "API called: BucketsApi#storage_buckets_lock_retention_policy\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}" }
+        Log.debug { "API called: BucketsApi#lock_retention_policy\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}" }
       end
 
       return Bucket.from_nason(data), status_code, headers
@@ -490,14 +490,14 @@ module GoogleCloudStorage
     # @param bucket [String] Name of a bucket.
     # @param if_metageneration_match [String] Makes the operation conditional on whether bucket's current metageneration matches the given value.
     # @return nil
-    def storage_buckets_lock_retention_policy(*, bucket : String, if_metageneration_match : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, &block : Crest::Response ->)
-      build_api_request_for_storage_buckets_lock_retention_policy(bucket: bucket, if_metageneration_match: if_metageneration_match, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, provisional_user_project: provisional_user_project, user_project: user_project).execute(&block)
+    def lock_retention_policy(*, bucket : String, if_metageneration_match : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, &block : Crest::Response ->)
+      build_api_request_for_lock_retention_policy(bucket: bucket, if_metageneration_match: if_metageneration_match, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, provisional_user_project: provisional_user_project, user_project: user_project).execute(&block)
     end
 
     # @return Crest::Request
-    def build_api_request_for_storage_buckets_lock_retention_policy(*, bucket : String, if_metageneration_match : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil) : Crest::Request
+    def build_api_request_for_lock_retention_policy(*, bucket : String, if_metageneration_match : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil) : Crest::Request
       if @api_client.config.debugging
-        Log.debug { "Calling API: BucketsApi.storage_buckets_lock_retention_policy ..." }
+        Log.debug { "Calling API: BucketsApi.lock_retention_policy ..." }
       end
       allowable_values = ["json"]
       if @api_client.config.client_side_validation && !alt.nil? && !alt.null? && !allowable_values.includes?(alt)
@@ -548,21 +548,21 @@ module GoogleCloudStorage
     # Patches a bucket. Changes to the bucket will be readable immediately after writing, but configuration changes may take time to propagate.
     # @param bucket [String] Name of a bucket.
     # @return [Bucket]
-    def storage_buckets_patch(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, predefined_acl : String? = nil, predefined_default_object_acl : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, bucket2 : Bucket? = nil)
-      data, _status_code, _headers = storage_buckets_patch_with_http_info(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, predefined_acl: predefined_acl, predefined_default_object_acl: predefined_default_object_acl, projection: projection, provisional_user_project: provisional_user_project, user_project: user_project, bucket2: bucket2)
+    def patch(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, predefined_acl : String? = nil, predefined_default_object_acl : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, bucket2 : Bucket? = nil)
+      data, _status_code, _headers = patch_with_http_info(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, predefined_acl: predefined_acl, predefined_default_object_acl: predefined_default_object_acl, projection: projection, provisional_user_project: provisional_user_project, user_project: user_project, bucket2: bucket2)
       data
     end
 
     # Patches a bucket. Changes to the bucket will be readable immediately after writing, but configuration changes may take time to propagate.
     # @param bucket [String] Name of a bucket.
     # @return [Array<(Bucket, Integer, Hash)>] Bucket data, response status code and response headers
-    def storage_buckets_patch_with_http_info(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, predefined_acl : String? = nil, predefined_default_object_acl : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, bucket2 : Bucket? = nil)
-      request = build_api_request_for_storage_buckets_patch(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, predefined_acl: predefined_acl, predefined_default_object_acl: predefined_default_object_acl, projection: projection, provisional_user_project: provisional_user_project, user_project: user_project, bucket2: bucket2)
+    def patch_with_http_info(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, predefined_acl : String? = nil, predefined_default_object_acl : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, bucket2 : Bucket? = nil)
+      request = build_api_request_for_patch(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, predefined_acl: predefined_acl, predefined_default_object_acl: predefined_default_object_acl, projection: projection, provisional_user_project: provisional_user_project, user_project: user_project, bucket2: bucket2)
 
       data, status_code, headers = @api_client.execute_api_request(request)
 
       if @api_client.config.debugging
-        Log.debug { "API called: BucketsApi#storage_buckets_patch\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}" }
+        Log.debug { "API called: BucketsApi#patch\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}" }
       end
 
       return Bucket.from_nason(data), status_code, headers
@@ -571,14 +571,14 @@ module GoogleCloudStorage
     # Patches a bucket. Changes to the bucket will be readable immediately after writing, but configuration changes may take time to propagate.
     # @param bucket [String] Name of a bucket.
     # @return nil
-    def storage_buckets_patch(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, predefined_acl : String? = nil, predefined_default_object_acl : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, bucket2 : Bucket? = nil, &block : Crest::Response ->)
-      build_api_request_for_storage_buckets_patch(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, predefined_acl: predefined_acl, predefined_default_object_acl: predefined_default_object_acl, projection: projection, provisional_user_project: provisional_user_project, user_project: user_project, bucket2: bucket2).execute(&block)
+    def patch(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, predefined_acl : String? = nil, predefined_default_object_acl : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, bucket2 : Bucket? = nil, &block : Crest::Response ->)
+      build_api_request_for_patch(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, predefined_acl: predefined_acl, predefined_default_object_acl: predefined_default_object_acl, projection: projection, provisional_user_project: provisional_user_project, user_project: user_project, bucket2: bucket2).execute(&block)
     end
 
     # @return Crest::Request
-    def build_api_request_for_storage_buckets_patch(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, predefined_acl : String? = nil, predefined_default_object_acl : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, bucket2 : Bucket? = nil) : Crest::Request
+    def build_api_request_for_patch(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, predefined_acl : String? = nil, predefined_default_object_acl : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, bucket2 : Bucket? = nil) : Crest::Request
       if @api_client.config.debugging
-        Log.debug { "Calling API: BucketsApi.storage_buckets_patch ..." }
+        Log.debug { "Calling API: BucketsApi.patch ..." }
       end
       allowable_values = ["json"]
       if @api_client.config.client_side_validation && !alt.nil? && !alt.null? && !allowable_values.includes?(alt)
@@ -647,21 +647,21 @@ module GoogleCloudStorage
     # Updates an IAM policy for the specified bucket.
     # @param bucket [String] Name of a bucket.
     # @return [Policy]
-    def storage_buckets_set_iam_policy(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, policy : Policy? = nil)
-      data, _status_code, _headers = storage_buckets_set_iam_policy_with_http_info(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, provisional_user_project: provisional_user_project, user_project: user_project, policy: policy)
+    def set_iam_policy(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, policy : Policy? = nil)
+      data, _status_code, _headers = set_iam_policy_with_http_info(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, provisional_user_project: provisional_user_project, user_project: user_project, policy: policy)
       data
     end
 
     # Updates an IAM policy for the specified bucket.
     # @param bucket [String] Name of a bucket.
     # @return [Array<(Policy, Integer, Hash)>] Policy data, response status code and response headers
-    def storage_buckets_set_iam_policy_with_http_info(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, policy : Policy? = nil)
-      request = build_api_request_for_storage_buckets_set_iam_policy(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, provisional_user_project: provisional_user_project, user_project: user_project, policy: policy)
+    def set_iam_policy_with_http_info(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, policy : Policy? = nil)
+      request = build_api_request_for_set_iam_policy(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, provisional_user_project: provisional_user_project, user_project: user_project, policy: policy)
 
       data, status_code, headers = @api_client.execute_api_request(request)
 
       if @api_client.config.debugging
-        Log.debug { "API called: BucketsApi#storage_buckets_set_iam_policy\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}" }
+        Log.debug { "API called: BucketsApi#set_iam_policy\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}" }
       end
 
       return Policy.from_nason(data), status_code, headers
@@ -670,14 +670,14 @@ module GoogleCloudStorage
     # Updates an IAM policy for the specified bucket.
     # @param bucket [String] Name of a bucket.
     # @return nil
-    def storage_buckets_set_iam_policy(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, policy : Policy? = nil, &block : Crest::Response ->)
-      build_api_request_for_storage_buckets_set_iam_policy(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, provisional_user_project: provisional_user_project, user_project: user_project, policy: policy).execute(&block)
+    def set_iam_policy(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, policy : Policy? = nil, &block : Crest::Response ->)
+      build_api_request_for_set_iam_policy(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, provisional_user_project: provisional_user_project, user_project: user_project, policy: policy).execute(&block)
     end
 
     # @return Crest::Request
-    def build_api_request_for_storage_buckets_set_iam_policy(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, policy : Policy? = nil) : Crest::Request
+    def build_api_request_for_set_iam_policy(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, policy : Policy? = nil) : Crest::Request
       if @api_client.config.debugging
-        Log.debug { "Calling API: BucketsApi.storage_buckets_set_iam_policy ..." }
+        Log.debug { "Calling API: BucketsApi.set_iam_policy ..." }
       end
       allowable_values = ["json"]
       if @api_client.config.client_side_validation && !alt.nil? && !alt.null? && !allowable_values.includes?(alt)
@@ -730,8 +730,8 @@ module GoogleCloudStorage
     # @param bucket [String] Name of a bucket.
     # @param permissions [Array(String)] Permissions to test.
     # @return [TestIamPermissionsResponse]
-    def storage_buckets_test_iam_permissions(*, bucket : String, permissions : Array(String), alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil)
-      data, _status_code, _headers = storage_buckets_test_iam_permissions_with_http_info(bucket: bucket, permissions: permissions, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, provisional_user_project: provisional_user_project, user_project: user_project)
+    def test_iam_permissions(*, bucket : String, permissions : Array(String), alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil)
+      data, _status_code, _headers = test_iam_permissions_with_http_info(bucket: bucket, permissions: permissions, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, provisional_user_project: provisional_user_project, user_project: user_project)
       data
     end
 
@@ -739,13 +739,13 @@ module GoogleCloudStorage
     # @param bucket [String] Name of a bucket.
     # @param permissions [Array(String)] Permissions to test.
     # @return [Array<(TestIamPermissionsResponse, Integer, Hash)>] TestIamPermissionsResponse data, response status code and response headers
-    def storage_buckets_test_iam_permissions_with_http_info(*, bucket : String, permissions : Array(String), alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil)
-      request = build_api_request_for_storage_buckets_test_iam_permissions(bucket: bucket, permissions: permissions, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, provisional_user_project: provisional_user_project, user_project: user_project)
+    def test_iam_permissions_with_http_info(*, bucket : String, permissions : Array(String), alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil)
+      request = build_api_request_for_test_iam_permissions(bucket: bucket, permissions: permissions, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, provisional_user_project: provisional_user_project, user_project: user_project)
 
       data, status_code, headers = @api_client.execute_api_request(request)
 
       if @api_client.config.debugging
-        Log.debug { "API called: BucketsApi#storage_buckets_test_iam_permissions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}" }
+        Log.debug { "API called: BucketsApi#test_iam_permissions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}" }
       end
 
       return TestIamPermissionsResponse.from_nason(data), status_code, headers
@@ -755,14 +755,14 @@ module GoogleCloudStorage
     # @param bucket [String] Name of a bucket.
     # @param permissions [Array(String)] Permissions to test.
     # @return nil
-    def storage_buckets_test_iam_permissions(*, bucket : String, permissions : Array(String), alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, &block : Crest::Response ->)
-      build_api_request_for_storage_buckets_test_iam_permissions(bucket: bucket, permissions: permissions, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, provisional_user_project: provisional_user_project, user_project: user_project).execute(&block)
+    def test_iam_permissions(*, bucket : String, permissions : Array(String), alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, &block : Crest::Response ->)
+      build_api_request_for_test_iam_permissions(bucket: bucket, permissions: permissions, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, provisional_user_project: provisional_user_project, user_project: user_project).execute(&block)
     end
 
     # @return Crest::Request
-    def build_api_request_for_storage_buckets_test_iam_permissions(*, bucket : String, permissions : Array(String), alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil) : Crest::Request
+    def build_api_request_for_test_iam_permissions(*, bucket : String, permissions : Array(String), alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil) : Crest::Request
       if @api_client.config.debugging
-        Log.debug { "Calling API: BucketsApi.storage_buckets_test_iam_permissions ..." }
+        Log.debug { "Calling API: BucketsApi.test_iam_permissions ..." }
       end
       allowable_values = ["json"]
       if @api_client.config.client_side_validation && !alt.nil? && !alt.null? && !allowable_values.includes?(alt)
@@ -813,21 +813,21 @@ module GoogleCloudStorage
     # Updates a bucket. Changes to the bucket will be readable immediately after writing, but configuration changes may take time to propagate.
     # @param bucket [String] Name of a bucket.
     # @return [Bucket]
-    def storage_buckets_update(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, predefined_acl : String? = nil, predefined_default_object_acl : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, bucket2 : Bucket? = nil)
-      data, _status_code, _headers = storage_buckets_update_with_http_info(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, predefined_acl: predefined_acl, predefined_default_object_acl: predefined_default_object_acl, projection: projection, provisional_user_project: provisional_user_project, user_project: user_project, bucket2: bucket2)
+    def update(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, predefined_acl : String? = nil, predefined_default_object_acl : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, bucket2 : Bucket? = nil)
+      data, _status_code, _headers = update_with_http_info(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, predefined_acl: predefined_acl, predefined_default_object_acl: predefined_default_object_acl, projection: projection, provisional_user_project: provisional_user_project, user_project: user_project, bucket2: bucket2)
       data
     end
 
     # Updates a bucket. Changes to the bucket will be readable immediately after writing, but configuration changes may take time to propagate.
     # @param bucket [String] Name of a bucket.
     # @return [Array<(Bucket, Integer, Hash)>] Bucket data, response status code and response headers
-    def storage_buckets_update_with_http_info(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, predefined_acl : String? = nil, predefined_default_object_acl : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, bucket2 : Bucket? = nil)
-      request = build_api_request_for_storage_buckets_update(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, predefined_acl: predefined_acl, predefined_default_object_acl: predefined_default_object_acl, projection: projection, provisional_user_project: provisional_user_project, user_project: user_project, bucket2: bucket2)
+    def update_with_http_info(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, predefined_acl : String? = nil, predefined_default_object_acl : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, bucket2 : Bucket? = nil)
+      request = build_api_request_for_update(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, predefined_acl: predefined_acl, predefined_default_object_acl: predefined_default_object_acl, projection: projection, provisional_user_project: provisional_user_project, user_project: user_project, bucket2: bucket2)
 
       data, status_code, headers = @api_client.execute_api_request(request)
 
       if @api_client.config.debugging
-        Log.debug { "API called: BucketsApi#storage_buckets_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}" }
+        Log.debug { "API called: BucketsApi#update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}" }
       end
 
       return Bucket.from_nason(data), status_code, headers
@@ -836,14 +836,14 @@ module GoogleCloudStorage
     # Updates a bucket. Changes to the bucket will be readable immediately after writing, but configuration changes may take time to propagate.
     # @param bucket [String] Name of a bucket.
     # @return nil
-    def storage_buckets_update(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, predefined_acl : String? = nil, predefined_default_object_acl : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, bucket2 : Bucket? = nil, &block : Crest::Response ->)
-      build_api_request_for_storage_buckets_update(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, predefined_acl: predefined_acl, predefined_default_object_acl: predefined_default_object_acl, projection: projection, provisional_user_project: provisional_user_project, user_project: user_project, bucket2: bucket2).execute(&block)
+    def update(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, predefined_acl : String? = nil, predefined_default_object_acl : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, bucket2 : Bucket? = nil, &block : Crest::Response ->)
+      build_api_request_for_update(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, predefined_acl: predefined_acl, predefined_default_object_acl: predefined_default_object_acl, projection: projection, provisional_user_project: provisional_user_project, user_project: user_project, bucket2: bucket2).execute(&block)
     end
 
     # @return Crest::Request
-    def build_api_request_for_storage_buckets_update(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, predefined_acl : String? = nil, predefined_default_object_acl : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, bucket2 : Bucket? = nil) : Crest::Request
+    def build_api_request_for_update(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, predefined_acl : String? = nil, predefined_default_object_acl : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, bucket2 : Bucket? = nil) : Crest::Request
       if @api_client.config.debugging
-        Log.debug { "Calling API: BucketsApi.storage_buckets_update ..." }
+        Log.debug { "Calling API: BucketsApi.update ..." }
       end
       allowable_values = ["json"]
       if @api_client.config.client_side_validation && !alt.nil? && !alt.null? && !allowable_values.includes?(alt)

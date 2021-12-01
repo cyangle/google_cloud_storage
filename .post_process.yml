@@ -1,12 +1,12 @@
 tasks:
   - name: "update api files"
-    file_glob: './src/google_drive/api/*.cr'
+    file_glob: './src/google_cloud_storage/api/*.cr'
     changes:
       -
-        name: 'Remove common method prefix "drive_[api_name]_"'
-        pattern: 'drive_%{api_name}_'
+        name: 'Remove common method prefix "storage_[api_name]_"'
+        pattern: 'storage_%{api_name}_'
         new_value: ''
       -
         name: 'Restore operation name'
         pattern: 'operation: "%{capitalized_api_name}Api.'
-        new_value: 'operation: "%{capitalized_api_name}Api.drive_%{api_name}_'
+        new_value: 'operation: "%{capitalized_api_name}Api.storage_%{api_name}_'

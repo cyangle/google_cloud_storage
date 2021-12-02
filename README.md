@@ -26,6 +26,50 @@ dependencies:
     version: ~> 0.2.0
 ```
 
+## Usage
+
+Check [here](https://cloud.google.com/storage/docs/json_api) for more information about how to use google cloud storage v1 json APIs.
+
+Below lists only a few examples of the most interesting APIs, the client should support all APIs provided by google cloud storage v1 json APIs as it's generated from the OpenAPI v3 specification `./google_cloud_storage_v1.yml`.
+
+### JSON serialization
+
+This shard uses [nason](https://github.com/cyangle/nason) for JSON (de)serialization.
+
+### Require this shard in your project
+
+First you need to require it.
+
+```crystal
+require "google_cloud_storage"
+```
+
+### Get OAuth2 access token
+
+You can get google cloud OAuth2 access token with service account credentials in a json file with shard [google-auth](https://github.com/cyangle/google-auth).
+
+Check [here](https://cloud.google.com/iam/docs/creating-managing-service-accounts) for how to create a service account.
+
+### Configure client with google OAuth2 access token
+
+```crystal
+GoogleDrive.configure do |config|
+  config.access_token = "Google OAuth2 Access Token"
+end
+```
+
+### BucketsApi
+
+```crystal
+buckets_api = GoogleCloudStorage::BucketsApi.new
+```
+
+#### List buckets from a project
+
+```crystal
+buckets : Buckets = buckets_api.list(project: "google-cloud-project-id")
+```
+
 ## Development
 
 Install dependencies

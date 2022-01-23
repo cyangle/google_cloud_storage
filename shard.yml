@@ -1,5 +1,5 @@
 name: google_cloud_storage
-version: 0.2.0
+version: 0.2.1
 authors:
   - cyangle
 description: |
@@ -10,7 +10,7 @@ license: MIT
 dependencies:
   crest:
     github: mamantoha/crest
-    version: ~> 1.0
+    version: ">= 1.1.0"
   nason:
     github: cyangle/nason
     version: ~> 0.3.3

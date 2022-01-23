@@ -63,7 +63,7 @@ module GoogleCloudStorage
       local_var_path = "/b/{bucket}/defaultObjectAcl/{entity}".sub("{" + "bucket" + "}", URI.encode_path(bucket.to_s)).sub("{" + "entity" + "}", URI.encode_path(entity.to_s))
 
       # query parameters
-      query_params = Hash(String, String).new
+      query_params = Hash(String, (String | Array(String))).new
       query_params["alt"] = alt.to_s if !alt.nil? && !alt.null?
       query_params["fields"] = fields.to_s if !fields.nil? && !fields.null?
       query_params["key"] = key.to_s if !key.nil? && !key.null?
@@ -144,7 +144,7 @@ module GoogleCloudStorage
       local_var_path = "/b/{bucket}/defaultObjectAcl/{entity}".sub("{" + "bucket" + "}", URI.encode_path(bucket.to_s)).sub("{" + "entity" + "}", URI.encode_path(entity.to_s))
 
       # query parameters
-      query_params = Hash(String, String).new
+      query_params = Hash(String, (String | Array(String))).new
       query_params["alt"] = alt.to_s if !alt.nil? && !alt.null?
       query_params["fields"] = fields.to_s if !fields.nil? && !fields.null?
       query_params["key"] = key.to_s if !key.nil? && !key.null?
@@ -224,7 +224,7 @@ module GoogleCloudStorage
       local_var_path = "/b/{bucket}/defaultObjectAcl".sub("{" + "bucket" + "}", URI.encode_path(bucket.to_s))
 
       # query parameters
-      query_params = Hash(String, String).new
+      query_params = Hash(String, (String | Array(String))).new
       query_params["alt"] = alt.to_s if !alt.nil? && !alt.null?
       query_params["fields"] = fields.to_s if !fields.nil? && !fields.null?
       query_params["key"] = key.to_s if !key.nil? && !key.null?
@@ -306,7 +306,7 @@ module GoogleCloudStorage
       local_var_path = "/b/{bucket}/defaultObjectAcl".sub("{" + "bucket" + "}", URI.encode_path(bucket.to_s))
 
       # query parameters
-      query_params = Hash(String, String).new
+      query_params = Hash(String, (String | Array(String))).new
       query_params["alt"] = alt.to_s if !alt.nil? && !alt.null?
       query_params["fields"] = fields.to_s if !fields.nil? && !fields.null?
       query_params["key"] = key.to_s if !key.nil? && !key.null?
@@ -391,7 +391,7 @@ module GoogleCloudStorage
       local_var_path = "/b/{bucket}/defaultObjectAcl/{entity}".sub("{" + "bucket" + "}", URI.encode_path(bucket.to_s)).sub("{" + "entity" + "}", URI.encode_path(entity.to_s))
 
       # query parameters
-      query_params = Hash(String, String).new
+      query_params = Hash(String, (String | Array(String))).new
       query_params["alt"] = alt.to_s if !alt.nil? && !alt.null?
       query_params["fields"] = fields.to_s if !fields.nil? && !fields.null?
       query_params["key"] = key.to_s if !key.nil? && !key.null?
@@ -476,7 +476,7 @@ module GoogleCloudStorage
       local_var_path = "/b/{bucket}/defaultObjectAcl/{entity}".sub("{" + "bucket" + "}", URI.encode_path(bucket.to_s)).sub("{" + "entity" + "}", URI.encode_path(entity.to_s))
 
       # query parameters
-      query_params = Hash(String, String).new
+      query_params = Hash(String, (String | Array(String))).new
       query_params["alt"] = alt.to_s if !alt.nil? && !alt.null?
       query_params["fields"] = fields.to_s if !fields.nil? && !fields.null?
       query_params["key"] = key.to_s if !key.nil? && !key.null?

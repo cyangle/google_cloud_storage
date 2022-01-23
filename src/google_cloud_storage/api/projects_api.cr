@@ -63,7 +63,7 @@ module GoogleCloudStorage
       local_var_path = "/projects/{projectId}/hmacKeys".sub("{" + "projectId" + "}", URI.encode_path(project_id.to_s))
 
       # query parameters
-      query_params = Hash(String, String).new
+      query_params = Hash(String, (String | Array(String))).new
       query_params["alt"] = alt.to_s if !alt.nil? && !alt.null?
       query_params["fields"] = fields.to_s if !fields.nil? && !fields.null?
       query_params["key"] = key.to_s if !key.nil? && !key.null?
@@ -146,7 +146,7 @@ module GoogleCloudStorage
       local_var_path = "/projects/{projectId}/hmacKeys/{accessId}".sub("{" + "projectId" + "}", URI.encode_path(project_id.to_s)).sub("{" + "accessId" + "}", URI.encode_path(access_id.to_s))
 
       # query parameters
-      query_params = Hash(String, String).new
+      query_params = Hash(String, (String | Array(String))).new
       query_params["alt"] = alt.to_s if !alt.nil? && !alt.null?
       query_params["fields"] = fields.to_s if !fields.nil? && !fields.null?
       query_params["key"] = key.to_s if !key.nil? && !key.null?
@@ -226,7 +226,7 @@ module GoogleCloudStorage
       local_var_path = "/projects/{projectId}/hmacKeys/{accessId}".sub("{" + "projectId" + "}", URI.encode_path(project_id.to_s)).sub("{" + "accessId" + "}", URI.encode_path(access_id.to_s))
 
       # query parameters
-      query_params = Hash(String, String).new
+      query_params = Hash(String, (String | Array(String))).new
       query_params["alt"] = alt.to_s if !alt.nil? && !alt.null?
       query_params["fields"] = fields.to_s if !fields.nil? && !fields.null?
       query_params["key"] = key.to_s if !key.nil? && !key.null?
@@ -309,7 +309,7 @@ module GoogleCloudStorage
       local_var_path = "/projects/{projectId}/hmacKeys".sub("{" + "projectId" + "}", URI.encode_path(project_id.to_s))
 
       # query parameters
-      query_params = Hash(String, String).new
+      query_params = Hash(String, (String | Array(String))).new
       query_params["alt"] = alt.to_s if !alt.nil? && !alt.null?
       query_params["fields"] = fields.to_s if !fields.nil? && !fields.null?
       query_params["key"] = key.to_s if !key.nil? && !key.null?
@@ -395,7 +395,7 @@ module GoogleCloudStorage
       local_var_path = "/projects/{projectId}/hmacKeys/{accessId}".sub("{" + "projectId" + "}", URI.encode_path(project_id.to_s)).sub("{" + "accessId" + "}", URI.encode_path(access_id.to_s))
 
       # query parameters
-      query_params = Hash(String, String).new
+      query_params = Hash(String, (String | Array(String))).new
       query_params["alt"] = alt.to_s if !alt.nil? && !alt.null?
       query_params["fields"] = fields.to_s if !fields.nil? && !fields.null?
       query_params["key"] = key.to_s if !key.nil? && !key.null?
@@ -476,7 +476,7 @@ module GoogleCloudStorage
       local_var_path = "/projects/{projectId}/serviceAccount".sub("{" + "projectId" + "}", URI.encode_path(project_id.to_s))
 
       # query parameters
-      query_params = Hash(String, String).new
+      query_params = Hash(String, (String | Array(String))).new
       query_params["alt"] = alt.to_s if !alt.nil? && !alt.null?
       query_params["fields"] = fields.to_s if !fields.nil? && !fields.null?
       query_params["key"] = key.to_s if !key.nil? && !key.null?

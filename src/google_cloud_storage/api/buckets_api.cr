@@ -52,7 +52,7 @@ module GoogleCloudStorage
       if @api_client.config.debugging
         Log.debug { "Calling API: BucketsApi.delete ..." }
       end
-      allowable_values = ["json"]
+      allowable_values = ["json", "media"]
       if @api_client.config.client_side_validation && !alt.nil? && !allowable_values.includes?(alt)
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
@@ -132,7 +132,7 @@ module GoogleCloudStorage
       if @api_client.config.debugging
         Log.debug { "Calling API: BucketsApi.get ..." }
       end
-      allowable_values = ["json"]
+      allowable_values = ["json", "media"]
       if @api_client.config.client_side_validation && !alt.nil? && !allowable_values.includes?(alt)
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
@@ -219,7 +219,7 @@ module GoogleCloudStorage
       if @api_client.config.debugging
         Log.debug { "Calling API: BucketsApi.get_iam_policy ..." }
       end
-      allowable_values = ["json"]
+      allowable_values = ["json", "media"]
       if @api_client.config.client_side_validation && !alt.nil? && !allowable_values.includes?(alt)
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
@@ -304,7 +304,7 @@ module GoogleCloudStorage
       if @api_client.config.debugging
         Log.debug { "Calling API: BucketsApi.insert ..." }
       end
-      allowable_values = ["json"]
+      allowable_values = ["json", "media"]
       if @api_client.config.client_side_validation && !alt.nil? && !allowable_values.includes?(alt)
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
@@ -402,7 +402,7 @@ module GoogleCloudStorage
       if @api_client.config.debugging
         Log.debug { "Calling API: BucketsApi.list ..." }
       end
-      allowable_values = ["json"]
+      allowable_values = ["json", "media"]
       if @api_client.config.client_side_validation && !alt.nil? && !allowable_values.includes?(alt)
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
@@ -498,7 +498,7 @@ module GoogleCloudStorage
       if @api_client.config.debugging
         Log.debug { "Calling API: BucketsApi.lock_retention_policy ..." }
       end
-      allowable_values = ["json"]
+      allowable_values = ["json", "media"]
       if @api_client.config.client_side_validation && !alt.nil? && !allowable_values.includes?(alt)
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
@@ -579,7 +579,7 @@ module GoogleCloudStorage
       if @api_client.config.debugging
         Log.debug { "Calling API: BucketsApi.patch ..." }
       end
-      allowable_values = ["json"]
+      allowable_values = ["json", "media"]
       if @api_client.config.client_side_validation && !alt.nil? && !allowable_values.includes?(alt)
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
@@ -678,7 +678,7 @@ module GoogleCloudStorage
       if @api_client.config.debugging
         Log.debug { "Calling API: BucketsApi.set_iam_policy ..." }
       end
-      allowable_values = ["json"]
+      allowable_values = ["json", "media"]
       if @api_client.config.client_side_validation && !alt.nil? && !allowable_values.includes?(alt)
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
@@ -763,7 +763,7 @@ module GoogleCloudStorage
       if @api_client.config.debugging
         Log.debug { "Calling API: BucketsApi.test_iam_permissions ..." }
       end
-      allowable_values = ["json"]
+      allowable_values = ["json", "media"]
       if @api_client.config.client_side_validation && !alt.nil? && !allowable_values.includes?(alt)
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
@@ -844,7 +844,7 @@ module GoogleCloudStorage
       if @api_client.config.debugging
         Log.debug { "Calling API: BucketsApi.update ..." }
       end
-      allowable_values = ["json"]
+      allowable_values = ["json", "media"]
       if @api_client.config.client_side_validation && !alt.nil? && !allowable_values.includes?(alt)
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end

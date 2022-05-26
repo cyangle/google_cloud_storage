@@ -55,7 +55,7 @@ module GoogleCloudStorage
       if @api_client.config.debugging
         Log.debug { "Calling API: ProjectsApi.hmac_keys_create ..." }
       end
-      allowable_values = ["json"]
+      allowable_values = ["json", "media"]
       if @api_client.config.client_side_validation && !alt.nil? && !allowable_values.includes?(alt)
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
@@ -138,7 +138,7 @@ module GoogleCloudStorage
       if @api_client.config.debugging
         Log.debug { "Calling API: ProjectsApi.hmac_keys_delete ..." }
       end
-      allowable_values = ["json"]
+      allowable_values = ["json", "media"]
       if @api_client.config.client_side_validation && !alt.nil? && !allowable_values.includes?(alt)
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
@@ -218,7 +218,7 @@ module GoogleCloudStorage
       if @api_client.config.debugging
         Log.debug { "Calling API: ProjectsApi.hmac_keys_get ..." }
       end
-      allowable_values = ["json"]
+      allowable_values = ["json", "media"]
       if @api_client.config.client_side_validation && !alt.nil? && !allowable_values.includes?(alt)
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
@@ -297,7 +297,7 @@ module GoogleCloudStorage
       if @api_client.config.debugging
         Log.debug { "Calling API: ProjectsApi.hmac_keys_list ..." }
       end
-      allowable_values = ["json"]
+      allowable_values = ["json", "media"]
       if @api_client.config.client_side_validation && !alt.nil? && !allowable_values.includes?(alt)
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
@@ -387,7 +387,7 @@ module GoogleCloudStorage
       if @api_client.config.debugging
         Log.debug { "Calling API: ProjectsApi.hmac_keys_update ..." }
       end
-      allowable_values = ["json"]
+      allowable_values = ["json", "media"]
       if @api_client.config.client_side_validation && !alt.nil? && !allowable_values.includes?(alt)
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
@@ -468,7 +468,7 @@ module GoogleCloudStorage
       if @api_client.config.debugging
         Log.debug { "Calling API: ProjectsApi.service_account_get ..." }
       end
-      allowable_values = ["json"]
+      allowable_values = ["json", "media"]
       if @api_client.config.client_side_validation && !alt.nil? && !allowable_values.includes?(alt)
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end

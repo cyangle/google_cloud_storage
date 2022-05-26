@@ -53,7 +53,7 @@ module GoogleCloudStorage
         Log.debug { "Calling API: BucketsApi.delete ..." }
       end
       allowable_values = ["json"]
-      if @api_client.config.client_side_validation && !alt.nil? && !alt.null? && !allowable_values.includes?(alt)
+      if @api_client.config.client_side_validation && !alt.nil? && !allowable_values.includes?(alt)
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
       # resource path
@@ -61,17 +61,17 @@ module GoogleCloudStorage
 
       # query parameters
       query_params = Hash(String, (String | Array(String))).new
-      query_params["alt"] = alt.to_s if !alt.nil? && !alt.null?
-      query_params["fields"] = fields.to_s if !fields.nil? && !fields.null?
-      query_params["key"] = key.to_s if !key.nil? && !key.null?
-      query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil? && !oauth_token.null?
-      query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil? && !pretty_print.null?
-      query_params["quotaUser"] = quota_user.to_s if !quota_user.nil? && !quota_user.null?
-      query_params["userIp"] = user_ip.to_s if !user_ip.nil? && !user_ip.null?
-      query_params["ifMetagenerationMatch"] = if_metageneration_match.to_s if !if_metageneration_match.nil? && !if_metageneration_match.null?
-      query_params["ifMetagenerationNotMatch"] = if_metageneration_not_match.to_s if !if_metageneration_not_match.nil? && !if_metageneration_not_match.null?
-      query_params["provisionalUserProject"] = provisional_user_project.to_s if !provisional_user_project.nil? && !provisional_user_project.null?
-      query_params["userProject"] = user_project.to_s if !user_project.nil? && !user_project.null?
+      query_params["alt"] = alt.to_s if !alt.nil?
+      query_params["fields"] = fields.to_s if !fields.nil?
+      query_params["key"] = key.to_s if !key.nil?
+      query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil?
+      query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil?
+      query_params["quotaUser"] = quota_user.to_s if !quota_user.nil?
+      query_params["userIp"] = user_ip.to_s if !user_ip.nil?
+      query_params["ifMetagenerationMatch"] = if_metageneration_match.to_s if !if_metageneration_match.nil?
+      query_params["ifMetagenerationNotMatch"] = if_metageneration_not_match.to_s if !if_metageneration_not_match.nil?
+      query_params["provisionalUserProject"] = provisional_user_project.to_s if !provisional_user_project.nil?
+      query_params["userProject"] = user_project.to_s if !user_project.nil?
 
       # header parameters
       header_params = Hash(String, String).new
@@ -117,7 +117,7 @@ module GoogleCloudStorage
         Log.debug { "API called: BucketsApi#get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}" }
       end
 
-      return Bucket.from_nason(data), status_code, headers
+      return Bucket.from_json(data), status_code, headers
     end
 
     # Returns metadata for the specified bucket.
@@ -133,11 +133,11 @@ module GoogleCloudStorage
         Log.debug { "Calling API: BucketsApi.get ..." }
       end
       allowable_values = ["json"]
-      if @api_client.config.client_side_validation && !alt.nil? && !alt.null? && !allowable_values.includes?(alt)
+      if @api_client.config.client_side_validation && !alt.nil? && !allowable_values.includes?(alt)
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
       allowable_values = ["full", "noAcl"]
-      if @api_client.config.client_side_validation && !projection.nil? && !projection.null? && !allowable_values.includes?(projection)
+      if @api_client.config.client_side_validation && !projection.nil? && !allowable_values.includes?(projection)
         raise ArgumentError.new("invalid value for \"projection\", must be one of #{allowable_values}")
       end
       # resource path
@@ -145,18 +145,18 @@ module GoogleCloudStorage
 
       # query parameters
       query_params = Hash(String, (String | Array(String))).new
-      query_params["alt"] = alt.to_s if !alt.nil? && !alt.null?
-      query_params["fields"] = fields.to_s if !fields.nil? && !fields.null?
-      query_params["key"] = key.to_s if !key.nil? && !key.null?
-      query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil? && !oauth_token.null?
-      query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil? && !pretty_print.null?
-      query_params["quotaUser"] = quota_user.to_s if !quota_user.nil? && !quota_user.null?
-      query_params["userIp"] = user_ip.to_s if !user_ip.nil? && !user_ip.null?
-      query_params["ifMetagenerationMatch"] = if_metageneration_match.to_s if !if_metageneration_match.nil? && !if_metageneration_match.null?
-      query_params["ifMetagenerationNotMatch"] = if_metageneration_not_match.to_s if !if_metageneration_not_match.nil? && !if_metageneration_not_match.null?
-      query_params["projection"] = projection.to_s if !projection.nil? && !projection.null?
-      query_params["provisionalUserProject"] = provisional_user_project.to_s if !provisional_user_project.nil? && !provisional_user_project.null?
-      query_params["userProject"] = user_project.to_s if !user_project.nil? && !user_project.null?
+      query_params["alt"] = alt.to_s if !alt.nil?
+      query_params["fields"] = fields.to_s if !fields.nil?
+      query_params["key"] = key.to_s if !key.nil?
+      query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil?
+      query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil?
+      query_params["quotaUser"] = quota_user.to_s if !quota_user.nil?
+      query_params["userIp"] = user_ip.to_s if !user_ip.nil?
+      query_params["ifMetagenerationMatch"] = if_metageneration_match.to_s if !if_metageneration_match.nil?
+      query_params["ifMetagenerationNotMatch"] = if_metageneration_not_match.to_s if !if_metageneration_not_match.nil?
+      query_params["projection"] = projection.to_s if !projection.nil?
+      query_params["provisionalUserProject"] = provisional_user_project.to_s if !provisional_user_project.nil?
+      query_params["userProject"] = user_project.to_s if !user_project.nil?
 
       # header parameters
       header_params = Hash(String, String).new
@@ -204,7 +204,7 @@ module GoogleCloudStorage
         Log.debug { "API called: BucketsApi#get_iam_policy\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}" }
       end
 
-      return Policy.from_nason(data), status_code, headers
+      return Policy.from_json(data), status_code, headers
     end
 
     # Returns an IAM policy for the specified bucket.
@@ -220,7 +220,7 @@ module GoogleCloudStorage
         Log.debug { "Calling API: BucketsApi.get_iam_policy ..." }
       end
       allowable_values = ["json"]
-      if @api_client.config.client_side_validation && !alt.nil? && !alt.null? && !allowable_values.includes?(alt)
+      if @api_client.config.client_side_validation && !alt.nil? && !allowable_values.includes?(alt)
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
       if @api_client.config.client_side_validation && !options_requested_policy_version.nil? && options_requested_policy_version < 1
@@ -232,16 +232,16 @@ module GoogleCloudStorage
 
       # query parameters
       query_params = Hash(String, (String | Array(String))).new
-      query_params["alt"] = alt.to_s if !alt.nil? && !alt.null?
-      query_params["fields"] = fields.to_s if !fields.nil? && !fields.null?
-      query_params["key"] = key.to_s if !key.nil? && !key.null?
-      query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil? && !oauth_token.null?
-      query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil? && !pretty_print.null?
-      query_params["quotaUser"] = quota_user.to_s if !quota_user.nil? && !quota_user.null?
-      query_params["userIp"] = user_ip.to_s if !user_ip.nil? && !user_ip.null?
-      query_params["optionsRequestedPolicyVersion"] = options_requested_policy_version.to_s if !options_requested_policy_version.nil? && !options_requested_policy_version.null?
-      query_params["provisionalUserProject"] = provisional_user_project.to_s if !provisional_user_project.nil? && !provisional_user_project.null?
-      query_params["userProject"] = user_project.to_s if !user_project.nil? && !user_project.null?
+      query_params["alt"] = alt.to_s if !alt.nil?
+      query_params["fields"] = fields.to_s if !fields.nil?
+      query_params["key"] = key.to_s if !key.nil?
+      query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil?
+      query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil?
+      query_params["quotaUser"] = quota_user.to_s if !quota_user.nil?
+      query_params["userIp"] = user_ip.to_s if !user_ip.nil?
+      query_params["optionsRequestedPolicyVersion"] = options_requested_policy_version.to_s if !options_requested_policy_version.nil?
+      query_params["provisionalUserProject"] = provisional_user_project.to_s if !provisional_user_project.nil?
+      query_params["userProject"] = user_project.to_s if !user_project.nil?
 
       # header parameters
       header_params = Hash(String, String).new
@@ -289,7 +289,7 @@ module GoogleCloudStorage
         Log.debug { "API called: BucketsApi#insert\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}" }
       end
 
-      return Bucket.from_nason(data), status_code, headers
+      return Bucket.from_json(data), status_code, headers
     end
 
     # Creates a new bucket.
@@ -305,19 +305,19 @@ module GoogleCloudStorage
         Log.debug { "Calling API: BucketsApi.insert ..." }
       end
       allowable_values = ["json"]
-      if @api_client.config.client_side_validation && !alt.nil? && !alt.null? && !allowable_values.includes?(alt)
+      if @api_client.config.client_side_validation && !alt.nil? && !allowable_values.includes?(alt)
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
       allowable_values = ["authenticatedRead", "private", "projectPrivate", "publicRead", "publicReadWrite"]
-      if @api_client.config.client_side_validation && !predefined_acl.nil? && !predefined_acl.null? && !allowable_values.includes?(predefined_acl)
+      if @api_client.config.client_side_validation && !predefined_acl.nil? && !allowable_values.includes?(predefined_acl)
         raise ArgumentError.new("invalid value for \"predefined_acl\", must be one of #{allowable_values}")
       end
       allowable_values = ["authenticatedRead", "bucketOwnerFullControl", "bucketOwnerRead", "private", "projectPrivate", "publicRead"]
-      if @api_client.config.client_side_validation && !predefined_default_object_acl.nil? && !predefined_default_object_acl.null? && !allowable_values.includes?(predefined_default_object_acl)
+      if @api_client.config.client_side_validation && !predefined_default_object_acl.nil? && !allowable_values.includes?(predefined_default_object_acl)
         raise ArgumentError.new("invalid value for \"predefined_default_object_acl\", must be one of #{allowable_values}")
       end
       allowable_values = ["full", "noAcl"]
-      if @api_client.config.client_side_validation && !projection.nil? && !projection.null? && !allowable_values.includes?(projection)
+      if @api_client.config.client_side_validation && !projection.nil? && !allowable_values.includes?(projection)
         raise ArgumentError.new("invalid value for \"projection\", must be one of #{allowable_values}")
       end
       # resource path
@@ -325,19 +325,19 @@ module GoogleCloudStorage
 
       # query parameters
       query_params = Hash(String, (String | Array(String))).new
-      query_params["alt"] = alt.to_s if !alt.nil? && !alt.null?
-      query_params["fields"] = fields.to_s if !fields.nil? && !fields.null?
-      query_params["key"] = key.to_s if !key.nil? && !key.null?
-      query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil? && !oauth_token.null?
-      query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil? && !pretty_print.null?
-      query_params["quotaUser"] = quota_user.to_s if !quota_user.nil? && !quota_user.null?
-      query_params["userIp"] = user_ip.to_s if !user_ip.nil? && !user_ip.null?
-      query_params["project"] = project.to_s if !project.nil? && !project.null?
-      query_params["predefinedAcl"] = predefined_acl.to_s if !predefined_acl.nil? && !predefined_acl.null?
-      query_params["predefinedDefaultObjectAcl"] = predefined_default_object_acl.to_s if !predefined_default_object_acl.nil? && !predefined_default_object_acl.null?
-      query_params["projection"] = projection.to_s if !projection.nil? && !projection.null?
-      query_params["provisionalUserProject"] = provisional_user_project.to_s if !provisional_user_project.nil? && !provisional_user_project.null?
-      query_params["userProject"] = user_project.to_s if !user_project.nil? && !user_project.null?
+      query_params["alt"] = alt.to_s if !alt.nil?
+      query_params["fields"] = fields.to_s if !fields.nil?
+      query_params["key"] = key.to_s if !key.nil?
+      query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil?
+      query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil?
+      query_params["quotaUser"] = quota_user.to_s if !quota_user.nil?
+      query_params["userIp"] = user_ip.to_s if !user_ip.nil?
+      query_params["project"] = project.to_s if !project.nil?
+      query_params["predefinedAcl"] = predefined_acl.to_s if !predefined_acl.nil?
+      query_params["predefinedDefaultObjectAcl"] = predefined_default_object_acl.to_s if !predefined_default_object_acl.nil?
+      query_params["projection"] = projection.to_s if !projection.nil?
+      query_params["provisionalUserProject"] = provisional_user_project.to_s if !provisional_user_project.nil?
+      query_params["userProject"] = user_project.to_s if !user_project.nil?
 
       # header parameters
       header_params = Hash(String, String).new
@@ -350,7 +350,7 @@ module GoogleCloudStorage
       form_params = nil
 
       # http body (model)
-      post_body = bucket.to_nason
+      post_body = bucket.to_json
 
       # auth_names
       auth_names = ["Oauth2", "Oauth2c"]
@@ -387,7 +387,7 @@ module GoogleCloudStorage
         Log.debug { "API called: BucketsApi#list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}" }
       end
 
-      return Buckets.from_nason(data), status_code, headers
+      return Buckets.from_json(data), status_code, headers
     end
 
     # Retrieves a list of buckets for a given project.
@@ -403,7 +403,7 @@ module GoogleCloudStorage
         Log.debug { "Calling API: BucketsApi.list ..." }
       end
       allowable_values = ["json"]
-      if @api_client.config.client_side_validation && !alt.nil? && !alt.null? && !allowable_values.includes?(alt)
+      if @api_client.config.client_side_validation && !alt.nil? && !allowable_values.includes?(alt)
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
       if @api_client.config.client_side_validation && !max_results.nil? && max_results < 0
@@ -411,7 +411,7 @@ module GoogleCloudStorage
       end
 
       allowable_values = ["full", "noAcl"]
-      if @api_client.config.client_side_validation && !projection.nil? && !projection.null? && !allowable_values.includes?(projection)
+      if @api_client.config.client_side_validation && !projection.nil? && !allowable_values.includes?(projection)
         raise ArgumentError.new("invalid value for \"projection\", must be one of #{allowable_values}")
       end
       # resource path
@@ -419,20 +419,20 @@ module GoogleCloudStorage
 
       # query parameters
       query_params = Hash(String, (String | Array(String))).new
-      query_params["alt"] = alt.to_s if !alt.nil? && !alt.null?
-      query_params["fields"] = fields.to_s if !fields.nil? && !fields.null?
-      query_params["key"] = key.to_s if !key.nil? && !key.null?
-      query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil? && !oauth_token.null?
-      query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil? && !pretty_print.null?
-      query_params["quotaUser"] = quota_user.to_s if !quota_user.nil? && !quota_user.null?
-      query_params["userIp"] = user_ip.to_s if !user_ip.nil? && !user_ip.null?
-      query_params["project"] = project.to_s if !project.nil? && !project.null?
-      query_params["maxResults"] = max_results.to_s if !max_results.nil? && !max_results.null?
-      query_params["pageToken"] = page_token.to_s if !page_token.nil? && !page_token.null?
-      query_params["prefix"] = prefix.to_s if !prefix.nil? && !prefix.null?
-      query_params["projection"] = projection.to_s if !projection.nil? && !projection.null?
-      query_params["provisionalUserProject"] = provisional_user_project.to_s if !provisional_user_project.nil? && !provisional_user_project.null?
-      query_params["userProject"] = user_project.to_s if !user_project.nil? && !user_project.null?
+      query_params["alt"] = alt.to_s if !alt.nil?
+      query_params["fields"] = fields.to_s if !fields.nil?
+      query_params["key"] = key.to_s if !key.nil?
+      query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil?
+      query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil?
+      query_params["quotaUser"] = quota_user.to_s if !quota_user.nil?
+      query_params["userIp"] = user_ip.to_s if !user_ip.nil?
+      query_params["project"] = project.to_s if !project.nil?
+      query_params["maxResults"] = max_results.to_s if !max_results.nil?
+      query_params["pageToken"] = page_token.to_s if !page_token.nil?
+      query_params["prefix"] = prefix.to_s if !prefix.nil?
+      query_params["projection"] = projection.to_s if !projection.nil?
+      query_params["provisionalUserProject"] = provisional_user_project.to_s if !provisional_user_project.nil?
+      query_params["userProject"] = user_project.to_s if !user_project.nil?
 
       # header parameters
       header_params = Hash(String, String).new
@@ -482,7 +482,7 @@ module GoogleCloudStorage
         Log.debug { "API called: BucketsApi#lock_retention_policy\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}" }
       end
 
-      return Bucket.from_nason(data), status_code, headers
+      return Bucket.from_json(data), status_code, headers
     end
 
     # Locks retention policy on a bucket.
@@ -499,7 +499,7 @@ module GoogleCloudStorage
         Log.debug { "Calling API: BucketsApi.lock_retention_policy ..." }
       end
       allowable_values = ["json"]
-      if @api_client.config.client_side_validation && !alt.nil? && !alt.null? && !allowable_values.includes?(alt)
+      if @api_client.config.client_side_validation && !alt.nil? && !allowable_values.includes?(alt)
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
       # resource path
@@ -507,16 +507,16 @@ module GoogleCloudStorage
 
       # query parameters
       query_params = Hash(String, (String | Array(String))).new
-      query_params["alt"] = alt.to_s if !alt.nil? && !alt.null?
-      query_params["fields"] = fields.to_s if !fields.nil? && !fields.null?
-      query_params["key"] = key.to_s if !key.nil? && !key.null?
-      query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil? && !oauth_token.null?
-      query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil? && !pretty_print.null?
-      query_params["quotaUser"] = quota_user.to_s if !quota_user.nil? && !quota_user.null?
-      query_params["userIp"] = user_ip.to_s if !user_ip.nil? && !user_ip.null?
-      query_params["ifMetagenerationMatch"] = if_metageneration_match.to_s if !if_metageneration_match.nil? && !if_metageneration_match.null?
-      query_params["provisionalUserProject"] = provisional_user_project.to_s if !provisional_user_project.nil? && !provisional_user_project.null?
-      query_params["userProject"] = user_project.to_s if !user_project.nil? && !user_project.null?
+      query_params["alt"] = alt.to_s if !alt.nil?
+      query_params["fields"] = fields.to_s if !fields.nil?
+      query_params["key"] = key.to_s if !key.nil?
+      query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil?
+      query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil?
+      query_params["quotaUser"] = quota_user.to_s if !quota_user.nil?
+      query_params["userIp"] = user_ip.to_s if !user_ip.nil?
+      query_params["ifMetagenerationMatch"] = if_metageneration_match.to_s if !if_metageneration_match.nil?
+      query_params["provisionalUserProject"] = provisional_user_project.to_s if !provisional_user_project.nil?
+      query_params["userProject"] = user_project.to_s if !user_project.nil?
 
       # header parameters
       header_params = Hash(String, String).new
@@ -564,7 +564,7 @@ module GoogleCloudStorage
         Log.debug { "API called: BucketsApi#patch\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}" }
       end
 
-      return Bucket.from_nason(data), status_code, headers
+      return Bucket.from_json(data), status_code, headers
     end
 
     # Patches a bucket. Changes to the bucket will be readable immediately after writing, but configuration changes may take time to propagate.
@@ -580,19 +580,19 @@ module GoogleCloudStorage
         Log.debug { "Calling API: BucketsApi.patch ..." }
       end
       allowable_values = ["json"]
-      if @api_client.config.client_side_validation && !alt.nil? && !alt.null? && !allowable_values.includes?(alt)
+      if @api_client.config.client_side_validation && !alt.nil? && !allowable_values.includes?(alt)
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
       allowable_values = ["authenticatedRead", "private", "projectPrivate", "publicRead", "publicReadWrite"]
-      if @api_client.config.client_side_validation && !predefined_acl.nil? && !predefined_acl.null? && !allowable_values.includes?(predefined_acl)
+      if @api_client.config.client_side_validation && !predefined_acl.nil? && !allowable_values.includes?(predefined_acl)
         raise ArgumentError.new("invalid value for \"predefined_acl\", must be one of #{allowable_values}")
       end
       allowable_values = ["authenticatedRead", "bucketOwnerFullControl", "bucketOwnerRead", "private", "projectPrivate", "publicRead"]
-      if @api_client.config.client_side_validation && !predefined_default_object_acl.nil? && !predefined_default_object_acl.null? && !allowable_values.includes?(predefined_default_object_acl)
+      if @api_client.config.client_side_validation && !predefined_default_object_acl.nil? && !allowable_values.includes?(predefined_default_object_acl)
         raise ArgumentError.new("invalid value for \"predefined_default_object_acl\", must be one of #{allowable_values}")
       end
       allowable_values = ["full", "noAcl"]
-      if @api_client.config.client_side_validation && !projection.nil? && !projection.null? && !allowable_values.includes?(projection)
+      if @api_client.config.client_side_validation && !projection.nil? && !allowable_values.includes?(projection)
         raise ArgumentError.new("invalid value for \"projection\", must be one of #{allowable_values}")
       end
       # resource path
@@ -600,20 +600,20 @@ module GoogleCloudStorage
 
       # query parameters
       query_params = Hash(String, (String | Array(String))).new
-      query_params["alt"] = alt.to_s if !alt.nil? && !alt.null?
-      query_params["fields"] = fields.to_s if !fields.nil? && !fields.null?
-      query_params["key"] = key.to_s if !key.nil? && !key.null?
-      query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil? && !oauth_token.null?
-      query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil? && !pretty_print.null?
-      query_params["quotaUser"] = quota_user.to_s if !quota_user.nil? && !quota_user.null?
-      query_params["userIp"] = user_ip.to_s if !user_ip.nil? && !user_ip.null?
-      query_params["ifMetagenerationMatch"] = if_metageneration_match.to_s if !if_metageneration_match.nil? && !if_metageneration_match.null?
-      query_params["ifMetagenerationNotMatch"] = if_metageneration_not_match.to_s if !if_metageneration_not_match.nil? && !if_metageneration_not_match.null?
-      query_params["predefinedAcl"] = predefined_acl.to_s if !predefined_acl.nil? && !predefined_acl.null?
-      query_params["predefinedDefaultObjectAcl"] = predefined_default_object_acl.to_s if !predefined_default_object_acl.nil? && !predefined_default_object_acl.null?
-      query_params["projection"] = projection.to_s if !projection.nil? && !projection.null?
-      query_params["provisionalUserProject"] = provisional_user_project.to_s if !provisional_user_project.nil? && !provisional_user_project.null?
-      query_params["userProject"] = user_project.to_s if !user_project.nil? && !user_project.null?
+      query_params["alt"] = alt.to_s if !alt.nil?
+      query_params["fields"] = fields.to_s if !fields.nil?
+      query_params["key"] = key.to_s if !key.nil?
+      query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil?
+      query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil?
+      query_params["quotaUser"] = quota_user.to_s if !quota_user.nil?
+      query_params["userIp"] = user_ip.to_s if !user_ip.nil?
+      query_params["ifMetagenerationMatch"] = if_metageneration_match.to_s if !if_metageneration_match.nil?
+      query_params["ifMetagenerationNotMatch"] = if_metageneration_not_match.to_s if !if_metageneration_not_match.nil?
+      query_params["predefinedAcl"] = predefined_acl.to_s if !predefined_acl.nil?
+      query_params["predefinedDefaultObjectAcl"] = predefined_default_object_acl.to_s if !predefined_default_object_acl.nil?
+      query_params["projection"] = projection.to_s if !projection.nil?
+      query_params["provisionalUserProject"] = provisional_user_project.to_s if !provisional_user_project.nil?
+      query_params["userProject"] = user_project.to_s if !user_project.nil?
 
       # header parameters
       header_params = Hash(String, String).new
@@ -626,7 +626,7 @@ module GoogleCloudStorage
       form_params = nil
 
       # http body (model)
-      post_body = bucket2.to_nason
+      post_body = bucket2.to_json
 
       # auth_names
       auth_names = ["Oauth2", "Oauth2c"]
@@ -663,7 +663,7 @@ module GoogleCloudStorage
         Log.debug { "API called: BucketsApi#set_iam_policy\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}" }
       end
 
-      return Policy.from_nason(data), status_code, headers
+      return Policy.from_json(data), status_code, headers
     end
 
     # Updates an IAM policy for the specified bucket.
@@ -679,7 +679,7 @@ module GoogleCloudStorage
         Log.debug { "Calling API: BucketsApi.set_iam_policy ..." }
       end
       allowable_values = ["json"]
-      if @api_client.config.client_side_validation && !alt.nil? && !alt.null? && !allowable_values.includes?(alt)
+      if @api_client.config.client_side_validation && !alt.nil? && !allowable_values.includes?(alt)
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
       # resource path
@@ -687,15 +687,15 @@ module GoogleCloudStorage
 
       # query parameters
       query_params = Hash(String, (String | Array(String))).new
-      query_params["alt"] = alt.to_s if !alt.nil? && !alt.null?
-      query_params["fields"] = fields.to_s if !fields.nil? && !fields.null?
-      query_params["key"] = key.to_s if !key.nil? && !key.null?
-      query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil? && !oauth_token.null?
-      query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil? && !pretty_print.null?
-      query_params["quotaUser"] = quota_user.to_s if !quota_user.nil? && !quota_user.null?
-      query_params["userIp"] = user_ip.to_s if !user_ip.nil? && !user_ip.null?
-      query_params["provisionalUserProject"] = provisional_user_project.to_s if !provisional_user_project.nil? && !provisional_user_project.null?
-      query_params["userProject"] = user_project.to_s if !user_project.nil? && !user_project.null?
+      query_params["alt"] = alt.to_s if !alt.nil?
+      query_params["fields"] = fields.to_s if !fields.nil?
+      query_params["key"] = key.to_s if !key.nil?
+      query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil?
+      query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil?
+      query_params["quotaUser"] = quota_user.to_s if !quota_user.nil?
+      query_params["userIp"] = user_ip.to_s if !user_ip.nil?
+      query_params["provisionalUserProject"] = provisional_user_project.to_s if !provisional_user_project.nil?
+      query_params["userProject"] = user_project.to_s if !user_project.nil?
 
       # header parameters
       header_params = Hash(String, String).new
@@ -708,7 +708,7 @@ module GoogleCloudStorage
       form_params = nil
 
       # http body (model)
-      post_body = policy.to_nason
+      post_body = policy.to_json
 
       # auth_names
       auth_names = ["Oauth2", "Oauth2c"]
@@ -747,7 +747,7 @@ module GoogleCloudStorage
         Log.debug { "API called: BucketsApi#test_iam_permissions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}" }
       end
 
-      return TestIamPermissionsResponse.from_nason(data), status_code, headers
+      return TestIamPermissionsResponse.from_json(data), status_code, headers
     end
 
     # Tests a set of permissions on the given bucket to see which, if any, are held by the caller.
@@ -764,7 +764,7 @@ module GoogleCloudStorage
         Log.debug { "Calling API: BucketsApi.test_iam_permissions ..." }
       end
       allowable_values = ["json"]
-      if @api_client.config.client_side_validation && !alt.nil? && !alt.null? && !allowable_values.includes?(alt)
+      if @api_client.config.client_side_validation && !alt.nil? && !allowable_values.includes?(alt)
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
       # resource path
@@ -772,16 +772,16 @@ module GoogleCloudStorage
 
       # query parameters
       query_params = Hash(String, (String | Array(String))).new
-      query_params["alt"] = alt.to_s if !alt.nil? && !alt.null?
-      query_params["fields"] = fields.to_s if !fields.nil? && !fields.null?
-      query_params["key"] = key.to_s if !key.nil? && !key.null?
-      query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil? && !oauth_token.null?
-      query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil? && !pretty_print.null?
-      query_params["quotaUser"] = quota_user.to_s if !quota_user.nil? && !quota_user.null?
-      query_params["userIp"] = user_ip.to_s if !user_ip.nil? && !user_ip.null?
-      query_params["permissions"] = @api_client.build_collection_param(permissions, "multi") if !permissions.nil? && !permissions.null? && !permissions.empty?
-      query_params["provisionalUserProject"] = provisional_user_project.to_s if !provisional_user_project.nil? && !provisional_user_project.null?
-      query_params["userProject"] = user_project.to_s if !user_project.nil? && !user_project.null?
+      query_params["alt"] = alt.to_s if !alt.nil?
+      query_params["fields"] = fields.to_s if !fields.nil?
+      query_params["key"] = key.to_s if !key.nil?
+      query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil?
+      query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil?
+      query_params["quotaUser"] = quota_user.to_s if !quota_user.nil?
+      query_params["userIp"] = user_ip.to_s if !user_ip.nil?
+      query_params["permissions"] = @api_client.build_collection_param(permissions, "multi") if !permissions.nil? && !permissions.empty?
+      query_params["provisionalUserProject"] = provisional_user_project.to_s if !provisional_user_project.nil?
+      query_params["userProject"] = user_project.to_s if !user_project.nil?
 
       # header parameters
       header_params = Hash(String, String).new
@@ -829,7 +829,7 @@ module GoogleCloudStorage
         Log.debug { "API called: BucketsApi#update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}" }
       end
 
-      return Bucket.from_nason(data), status_code, headers
+      return Bucket.from_json(data), status_code, headers
     end
 
     # Updates a bucket. Changes to the bucket will be readable immediately after writing, but configuration changes may take time to propagate.
@@ -845,19 +845,19 @@ module GoogleCloudStorage
         Log.debug { "Calling API: BucketsApi.update ..." }
       end
       allowable_values = ["json"]
-      if @api_client.config.client_side_validation && !alt.nil? && !alt.null? && !allowable_values.includes?(alt)
+      if @api_client.config.client_side_validation && !alt.nil? && !allowable_values.includes?(alt)
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
       allowable_values = ["authenticatedRead", "private", "projectPrivate", "publicRead", "publicReadWrite"]
-      if @api_client.config.client_side_validation && !predefined_acl.nil? && !predefined_acl.null? && !allowable_values.includes?(predefined_acl)
+      if @api_client.config.client_side_validation && !predefined_acl.nil? && !allowable_values.includes?(predefined_acl)
         raise ArgumentError.new("invalid value for \"predefined_acl\", must be one of #{allowable_values}")
       end
       allowable_values = ["authenticatedRead", "bucketOwnerFullControl", "bucketOwnerRead", "private", "projectPrivate", "publicRead"]
-      if @api_client.config.client_side_validation && !predefined_default_object_acl.nil? && !predefined_default_object_acl.null? && !allowable_values.includes?(predefined_default_object_acl)
+      if @api_client.config.client_side_validation && !predefined_default_object_acl.nil? && !allowable_values.includes?(predefined_default_object_acl)
         raise ArgumentError.new("invalid value for \"predefined_default_object_acl\", must be one of #{allowable_values}")
       end
       allowable_values = ["full", "noAcl"]
-      if @api_client.config.client_side_validation && !projection.nil? && !projection.null? && !allowable_values.includes?(projection)
+      if @api_client.config.client_side_validation && !projection.nil? && !allowable_values.includes?(projection)
         raise ArgumentError.new("invalid value for \"projection\", must be one of #{allowable_values}")
       end
       # resource path
@@ -865,20 +865,20 @@ module GoogleCloudStorage
 
       # query parameters
       query_params = Hash(String, (String | Array(String))).new
-      query_params["alt"] = alt.to_s if !alt.nil? && !alt.null?
-      query_params["fields"] = fields.to_s if !fields.nil? && !fields.null?
-      query_params["key"] = key.to_s if !key.nil? && !key.null?
-      query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil? && !oauth_token.null?
-      query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil? && !pretty_print.null?
-      query_params["quotaUser"] = quota_user.to_s if !quota_user.nil? && !quota_user.null?
-      query_params["userIp"] = user_ip.to_s if !user_ip.nil? && !user_ip.null?
-      query_params["ifMetagenerationMatch"] = if_metageneration_match.to_s if !if_metageneration_match.nil? && !if_metageneration_match.null?
-      query_params["ifMetagenerationNotMatch"] = if_metageneration_not_match.to_s if !if_metageneration_not_match.nil? && !if_metageneration_not_match.null?
-      query_params["predefinedAcl"] = predefined_acl.to_s if !predefined_acl.nil? && !predefined_acl.null?
-      query_params["predefinedDefaultObjectAcl"] = predefined_default_object_acl.to_s if !predefined_default_object_acl.nil? && !predefined_default_object_acl.null?
-      query_params["projection"] = projection.to_s if !projection.nil? && !projection.null?
-      query_params["provisionalUserProject"] = provisional_user_project.to_s if !provisional_user_project.nil? && !provisional_user_project.null?
-      query_params["userProject"] = user_project.to_s if !user_project.nil? && !user_project.null?
+      query_params["alt"] = alt.to_s if !alt.nil?
+      query_params["fields"] = fields.to_s if !fields.nil?
+      query_params["key"] = key.to_s if !key.nil?
+      query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil?
+      query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil?
+      query_params["quotaUser"] = quota_user.to_s if !quota_user.nil?
+      query_params["userIp"] = user_ip.to_s if !user_ip.nil?
+      query_params["ifMetagenerationMatch"] = if_metageneration_match.to_s if !if_metageneration_match.nil?
+      query_params["ifMetagenerationNotMatch"] = if_metageneration_not_match.to_s if !if_metageneration_not_match.nil?
+      query_params["predefinedAcl"] = predefined_acl.to_s if !predefined_acl.nil?
+      query_params["predefinedDefaultObjectAcl"] = predefined_default_object_acl.to_s if !predefined_default_object_acl.nil?
+      query_params["projection"] = projection.to_s if !projection.nil?
+      query_params["provisionalUserProject"] = provisional_user_project.to_s if !provisional_user_project.nil?
+      query_params["userProject"] = user_project.to_s if !user_project.nil?
 
       # header parameters
       header_params = Hash(String, String).new
@@ -891,7 +891,7 @@ module GoogleCloudStorage
       form_params = nil
 
       # http body (model)
-      post_body = bucket2.to_nason
+      post_body = bucket2.to_json
 
       # auth_names
       auth_names = ["Oauth2", "Oauth2c"]

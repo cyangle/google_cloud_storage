@@ -39,7 +39,7 @@ module GoogleCloudStorage
         Log.debug { "API called: ProjectsApi#hmac_keys_create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}" }
       end
 
-      return HmacKey.from_nason(data), status_code, headers
+      return HmacKey.from_json(data), status_code, headers
     end
 
     # Creates a new HMAC key for the specified service account.
@@ -56,7 +56,7 @@ module GoogleCloudStorage
         Log.debug { "Calling API: ProjectsApi.hmac_keys_create ..." }
       end
       allowable_values = ["json"]
-      if @api_client.config.client_side_validation && !alt.nil? && !alt.null? && !allowable_values.includes?(alt)
+      if @api_client.config.client_side_validation && !alt.nil? && !allowable_values.includes?(alt)
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
       # resource path
@@ -64,15 +64,15 @@ module GoogleCloudStorage
 
       # query parameters
       query_params = Hash(String, (String | Array(String))).new
-      query_params["alt"] = alt.to_s if !alt.nil? && !alt.null?
-      query_params["fields"] = fields.to_s if !fields.nil? && !fields.null?
-      query_params["key"] = key.to_s if !key.nil? && !key.null?
-      query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil? && !oauth_token.null?
-      query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil? && !pretty_print.null?
-      query_params["quotaUser"] = quota_user.to_s if !quota_user.nil? && !quota_user.null?
-      query_params["userIp"] = user_ip.to_s if !user_ip.nil? && !user_ip.null?
-      query_params["serviceAccountEmail"] = service_account_email.to_s if !service_account_email.nil? && !service_account_email.null?
-      query_params["userProject"] = user_project.to_s if !user_project.nil? && !user_project.null?
+      query_params["alt"] = alt.to_s if !alt.nil?
+      query_params["fields"] = fields.to_s if !fields.nil?
+      query_params["key"] = key.to_s if !key.nil?
+      query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil?
+      query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil?
+      query_params["quotaUser"] = quota_user.to_s if !quota_user.nil?
+      query_params["userIp"] = user_ip.to_s if !user_ip.nil?
+      query_params["serviceAccountEmail"] = service_account_email.to_s if !service_account_email.nil?
+      query_params["userProject"] = user_project.to_s if !user_project.nil?
 
       # header parameters
       header_params = Hash(String, String).new
@@ -139,7 +139,7 @@ module GoogleCloudStorage
         Log.debug { "Calling API: ProjectsApi.hmac_keys_delete ..." }
       end
       allowable_values = ["json"]
-      if @api_client.config.client_side_validation && !alt.nil? && !alt.null? && !allowable_values.includes?(alt)
+      if @api_client.config.client_side_validation && !alt.nil? && !allowable_values.includes?(alt)
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
       # resource path
@@ -147,14 +147,14 @@ module GoogleCloudStorage
 
       # query parameters
       query_params = Hash(String, (String | Array(String))).new
-      query_params["alt"] = alt.to_s if !alt.nil? && !alt.null?
-      query_params["fields"] = fields.to_s if !fields.nil? && !fields.null?
-      query_params["key"] = key.to_s if !key.nil? && !key.null?
-      query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil? && !oauth_token.null?
-      query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil? && !pretty_print.null?
-      query_params["quotaUser"] = quota_user.to_s if !quota_user.nil? && !quota_user.null?
-      query_params["userIp"] = user_ip.to_s if !user_ip.nil? && !user_ip.null?
-      query_params["userProject"] = user_project.to_s if !user_project.nil? && !user_project.null?
+      query_params["alt"] = alt.to_s if !alt.nil?
+      query_params["fields"] = fields.to_s if !fields.nil?
+      query_params["key"] = key.to_s if !key.nil?
+      query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil?
+      query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil?
+      query_params["quotaUser"] = quota_user.to_s if !quota_user.nil?
+      query_params["userIp"] = user_ip.to_s if !user_ip.nil?
+      query_params["userProject"] = user_project.to_s if !user_project.nil?
 
       # header parameters
       header_params = Hash(String, String).new
@@ -202,7 +202,7 @@ module GoogleCloudStorage
         Log.debug { "API called: ProjectsApi#hmac_keys_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}" }
       end
 
-      return HmacKeyMetadata.from_nason(data), status_code, headers
+      return HmacKeyMetadata.from_json(data), status_code, headers
     end
 
     # Retrieves an HMAC key&#39;s metadata
@@ -219,7 +219,7 @@ module GoogleCloudStorage
         Log.debug { "Calling API: ProjectsApi.hmac_keys_get ..." }
       end
       allowable_values = ["json"]
-      if @api_client.config.client_side_validation && !alt.nil? && !alt.null? && !allowable_values.includes?(alt)
+      if @api_client.config.client_side_validation && !alt.nil? && !allowable_values.includes?(alt)
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
       # resource path
@@ -227,14 +227,14 @@ module GoogleCloudStorage
 
       # query parameters
       query_params = Hash(String, (String | Array(String))).new
-      query_params["alt"] = alt.to_s if !alt.nil? && !alt.null?
-      query_params["fields"] = fields.to_s if !fields.nil? && !fields.null?
-      query_params["key"] = key.to_s if !key.nil? && !key.null?
-      query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil? && !oauth_token.null?
-      query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil? && !pretty_print.null?
-      query_params["quotaUser"] = quota_user.to_s if !quota_user.nil? && !quota_user.null?
-      query_params["userIp"] = user_ip.to_s if !user_ip.nil? && !user_ip.null?
-      query_params["userProject"] = user_project.to_s if !user_project.nil? && !user_project.null?
+      query_params["alt"] = alt.to_s if !alt.nil?
+      query_params["fields"] = fields.to_s if !fields.nil?
+      query_params["key"] = key.to_s if !key.nil?
+      query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil?
+      query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil?
+      query_params["quotaUser"] = quota_user.to_s if !quota_user.nil?
+      query_params["userIp"] = user_ip.to_s if !user_ip.nil?
+      query_params["userProject"] = user_project.to_s if !user_project.nil?
 
       # header parameters
       header_params = Hash(String, String).new
@@ -282,7 +282,7 @@ module GoogleCloudStorage
         Log.debug { "API called: ProjectsApi#hmac_keys_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}" }
       end
 
-      return HmacKeysMetadata.from_nason(data), status_code, headers
+      return HmacKeysMetadata.from_json(data), status_code, headers
     end
 
     # Retrieves a list of HMAC keys matching the criteria.
@@ -298,7 +298,7 @@ module GoogleCloudStorage
         Log.debug { "Calling API: ProjectsApi.hmac_keys_list ..." }
       end
       allowable_values = ["json"]
-      if @api_client.config.client_side_validation && !alt.nil? && !alt.null? && !allowable_values.includes?(alt)
+      if @api_client.config.client_side_validation && !alt.nil? && !allowable_values.includes?(alt)
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
       if @api_client.config.client_side_validation && !max_results.nil? && max_results < 0
@@ -310,18 +310,18 @@ module GoogleCloudStorage
 
       # query parameters
       query_params = Hash(String, (String | Array(String))).new
-      query_params["alt"] = alt.to_s if !alt.nil? && !alt.null?
-      query_params["fields"] = fields.to_s if !fields.nil? && !fields.null?
-      query_params["key"] = key.to_s if !key.nil? && !key.null?
-      query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil? && !oauth_token.null?
-      query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil? && !pretty_print.null?
-      query_params["quotaUser"] = quota_user.to_s if !quota_user.nil? && !quota_user.null?
-      query_params["userIp"] = user_ip.to_s if !user_ip.nil? && !user_ip.null?
-      query_params["maxResults"] = max_results.to_s if !max_results.nil? && !max_results.null?
-      query_params["pageToken"] = page_token.to_s if !page_token.nil? && !page_token.null?
-      query_params["serviceAccountEmail"] = service_account_email.to_s if !service_account_email.nil? && !service_account_email.null?
-      query_params["showDeletedKeys"] = show_deleted_keys.to_s if !show_deleted_keys.nil? && !show_deleted_keys.null?
-      query_params["userProject"] = user_project.to_s if !user_project.nil? && !user_project.null?
+      query_params["alt"] = alt.to_s if !alt.nil?
+      query_params["fields"] = fields.to_s if !fields.nil?
+      query_params["key"] = key.to_s if !key.nil?
+      query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil?
+      query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil?
+      query_params["quotaUser"] = quota_user.to_s if !quota_user.nil?
+      query_params["userIp"] = user_ip.to_s if !user_ip.nil?
+      query_params["maxResults"] = max_results.to_s if !max_results.nil?
+      query_params["pageToken"] = page_token.to_s if !page_token.nil?
+      query_params["serviceAccountEmail"] = service_account_email.to_s if !service_account_email.nil?
+      query_params["showDeletedKeys"] = show_deleted_keys.to_s if !show_deleted_keys.nil?
+      query_params["userProject"] = user_project.to_s if !user_project.nil?
 
       # header parameters
       header_params = Hash(String, String).new
@@ -371,7 +371,7 @@ module GoogleCloudStorage
         Log.debug { "API called: ProjectsApi#hmac_keys_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}" }
       end
 
-      return HmacKeyMetadata.from_nason(data), status_code, headers
+      return HmacKeyMetadata.from_json(data), status_code, headers
     end
 
     # Updates the state of an HMAC key. See the HMAC Key resource descriptor for valid states.
@@ -388,7 +388,7 @@ module GoogleCloudStorage
         Log.debug { "Calling API: ProjectsApi.hmac_keys_update ..." }
       end
       allowable_values = ["json"]
-      if @api_client.config.client_side_validation && !alt.nil? && !alt.null? && !allowable_values.includes?(alt)
+      if @api_client.config.client_side_validation && !alt.nil? && !allowable_values.includes?(alt)
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
       # resource path
@@ -396,14 +396,14 @@ module GoogleCloudStorage
 
       # query parameters
       query_params = Hash(String, (String | Array(String))).new
-      query_params["alt"] = alt.to_s if !alt.nil? && !alt.null?
-      query_params["fields"] = fields.to_s if !fields.nil? && !fields.null?
-      query_params["key"] = key.to_s if !key.nil? && !key.null?
-      query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil? && !oauth_token.null?
-      query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil? && !pretty_print.null?
-      query_params["quotaUser"] = quota_user.to_s if !quota_user.nil? && !quota_user.null?
-      query_params["userIp"] = user_ip.to_s if !user_ip.nil? && !user_ip.null?
-      query_params["userProject"] = user_project.to_s if !user_project.nil? && !user_project.null?
+      query_params["alt"] = alt.to_s if !alt.nil?
+      query_params["fields"] = fields.to_s if !fields.nil?
+      query_params["key"] = key.to_s if !key.nil?
+      query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil?
+      query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil?
+      query_params["quotaUser"] = quota_user.to_s if !quota_user.nil?
+      query_params["userIp"] = user_ip.to_s if !user_ip.nil?
+      query_params["userProject"] = user_project.to_s if !user_project.nil?
 
       # header parameters
       header_params = Hash(String, String).new
@@ -416,7 +416,7 @@ module GoogleCloudStorage
       form_params = nil
 
       # http body (model)
-      post_body = hmac_key_metadata.to_nason
+      post_body = hmac_key_metadata.to_json
 
       # auth_names
       auth_names = ["Oauth2", "Oauth2c"]
@@ -453,7 +453,7 @@ module GoogleCloudStorage
         Log.debug { "API called: ProjectsApi#service_account_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}" }
       end
 
-      return ServiceAccount.from_nason(data), status_code, headers
+      return ServiceAccount.from_json(data), status_code, headers
     end
 
     # Get the email address of this project&#39;s Google Cloud Storage service account.
@@ -469,7 +469,7 @@ module GoogleCloudStorage
         Log.debug { "Calling API: ProjectsApi.service_account_get ..." }
       end
       allowable_values = ["json"]
-      if @api_client.config.client_side_validation && !alt.nil? && !alt.null? && !allowable_values.includes?(alt)
+      if @api_client.config.client_side_validation && !alt.nil? && !allowable_values.includes?(alt)
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
       # resource path
@@ -477,15 +477,15 @@ module GoogleCloudStorage
 
       # query parameters
       query_params = Hash(String, (String | Array(String))).new
-      query_params["alt"] = alt.to_s if !alt.nil? && !alt.null?
-      query_params["fields"] = fields.to_s if !fields.nil? && !fields.null?
-      query_params["key"] = key.to_s if !key.nil? && !key.null?
-      query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil? && !oauth_token.null?
-      query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil? && !pretty_print.null?
-      query_params["quotaUser"] = quota_user.to_s if !quota_user.nil? && !quota_user.null?
-      query_params["userIp"] = user_ip.to_s if !user_ip.nil? && !user_ip.null?
-      query_params["provisionalUserProject"] = provisional_user_project.to_s if !provisional_user_project.nil? && !provisional_user_project.null?
-      query_params["userProject"] = user_project.to_s if !user_project.nil? && !user_project.null?
+      query_params["alt"] = alt.to_s if !alt.nil?
+      query_params["fields"] = fields.to_s if !fields.nil?
+      query_params["key"] = key.to_s if !key.nil?
+      query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil?
+      query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil?
+      query_params["quotaUser"] = quota_user.to_s if !quota_user.nil?
+      query_params["userIp"] = user_ip.to_s if !user_ip.nil?
+      query_params["provisionalUserProject"] = provisional_user_project.to_s if !provisional_user_project.nil?
+      query_params["userProject"] = user_project.to_s if !user_project.nil?
 
       # header parameters
       header_params = Hash(String, String).new

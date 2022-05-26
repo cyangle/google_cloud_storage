@@ -56,7 +56,7 @@ module GoogleCloudStorage
         Log.debug { "Calling API: BucketAccessControlsApi.delete ..." }
       end
       allowable_values = ["json"]
-      if @api_client.config.client_side_validation && !alt.nil? && !alt.null? && !allowable_values.includes?(alt)
+      if @api_client.config.client_side_validation && !alt.nil? && !allowable_values.includes?(alt)
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
       # resource path
@@ -64,15 +64,15 @@ module GoogleCloudStorage
 
       # query parameters
       query_params = Hash(String, (String | Array(String))).new
-      query_params["alt"] = alt.to_s if !alt.nil? && !alt.null?
-      query_params["fields"] = fields.to_s if !fields.nil? && !fields.null?
-      query_params["key"] = key.to_s if !key.nil? && !key.null?
-      query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil? && !oauth_token.null?
-      query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil? && !pretty_print.null?
-      query_params["quotaUser"] = quota_user.to_s if !quota_user.nil? && !quota_user.null?
-      query_params["userIp"] = user_ip.to_s if !user_ip.nil? && !user_ip.null?
-      query_params["provisionalUserProject"] = provisional_user_project.to_s if !provisional_user_project.nil? && !provisional_user_project.null?
-      query_params["userProject"] = user_project.to_s if !user_project.nil? && !user_project.null?
+      query_params["alt"] = alt.to_s if !alt.nil?
+      query_params["fields"] = fields.to_s if !fields.nil?
+      query_params["key"] = key.to_s if !key.nil?
+      query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil?
+      query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil?
+      query_params["quotaUser"] = quota_user.to_s if !quota_user.nil?
+      query_params["userIp"] = user_ip.to_s if !user_ip.nil?
+      query_params["provisionalUserProject"] = provisional_user_project.to_s if !provisional_user_project.nil?
+      query_params["userProject"] = user_project.to_s if !user_project.nil?
 
       # header parameters
       header_params = Hash(String, String).new
@@ -89,7 +89,7 @@ module GoogleCloudStorage
       @api_client.build_api_request(
         http_method: :"DELETE",
         path: local_var_path,
-        operation: "BucketAccessControlsApi.delete",
+        operation: "BucketAccessControlsApi.storage_bucket_access_controls_delete",
         post_body: post_body,
         auth_names: auth_names,
         header_params: header_params,
@@ -120,7 +120,7 @@ module GoogleCloudStorage
         Log.debug { "API called: BucketAccessControlsApi#get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}" }
       end
 
-      return BucketAccessControl.from_nason(data), status_code, headers
+      return BucketAccessControl.from_json(data), status_code, headers
     end
 
     # Returns the ACL entry for the specified entity on the specified bucket.
@@ -137,7 +137,7 @@ module GoogleCloudStorage
         Log.debug { "Calling API: BucketAccessControlsApi.get ..." }
       end
       allowable_values = ["json"]
-      if @api_client.config.client_side_validation && !alt.nil? && !alt.null? && !allowable_values.includes?(alt)
+      if @api_client.config.client_side_validation && !alt.nil? && !allowable_values.includes?(alt)
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
       # resource path
@@ -145,15 +145,15 @@ module GoogleCloudStorage
 
       # query parameters
       query_params = Hash(String, (String | Array(String))).new
-      query_params["alt"] = alt.to_s if !alt.nil? && !alt.null?
-      query_params["fields"] = fields.to_s if !fields.nil? && !fields.null?
-      query_params["key"] = key.to_s if !key.nil? && !key.null?
-      query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil? && !oauth_token.null?
-      query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil? && !pretty_print.null?
-      query_params["quotaUser"] = quota_user.to_s if !quota_user.nil? && !quota_user.null?
-      query_params["userIp"] = user_ip.to_s if !user_ip.nil? && !user_ip.null?
-      query_params["provisionalUserProject"] = provisional_user_project.to_s if !provisional_user_project.nil? && !provisional_user_project.null?
-      query_params["userProject"] = user_project.to_s if !user_project.nil? && !user_project.null?
+      query_params["alt"] = alt.to_s if !alt.nil?
+      query_params["fields"] = fields.to_s if !fields.nil?
+      query_params["key"] = key.to_s if !key.nil?
+      query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil?
+      query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil?
+      query_params["quotaUser"] = quota_user.to_s if !quota_user.nil?
+      query_params["userIp"] = user_ip.to_s if !user_ip.nil?
+      query_params["provisionalUserProject"] = provisional_user_project.to_s if !provisional_user_project.nil?
+      query_params["userProject"] = user_project.to_s if !user_project.nil?
 
       # header parameters
       header_params = Hash(String, String).new
@@ -172,7 +172,7 @@ module GoogleCloudStorage
       @api_client.build_api_request(
         http_method: :"GET",
         path: local_var_path,
-        operation: "BucketAccessControlsApi.get",
+        operation: "BucketAccessControlsApi.storage_bucket_access_controls_get",
         post_body: post_body,
         auth_names: auth_names,
         header_params: header_params,
@@ -201,7 +201,7 @@ module GoogleCloudStorage
         Log.debug { "API called: BucketAccessControlsApi#insert\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}" }
       end
 
-      return BucketAccessControl.from_nason(data), status_code, headers
+      return BucketAccessControl.from_json(data), status_code, headers
     end
 
     # Creates a new ACL entry on the specified bucket.
@@ -217,7 +217,7 @@ module GoogleCloudStorage
         Log.debug { "Calling API: BucketAccessControlsApi.insert ..." }
       end
       allowable_values = ["json"]
-      if @api_client.config.client_side_validation && !alt.nil? && !alt.null? && !allowable_values.includes?(alt)
+      if @api_client.config.client_side_validation && !alt.nil? && !allowable_values.includes?(alt)
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
       # resource path
@@ -225,15 +225,15 @@ module GoogleCloudStorage
 
       # query parameters
       query_params = Hash(String, (String | Array(String))).new
-      query_params["alt"] = alt.to_s if !alt.nil? && !alt.null?
-      query_params["fields"] = fields.to_s if !fields.nil? && !fields.null?
-      query_params["key"] = key.to_s if !key.nil? && !key.null?
-      query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil? && !oauth_token.null?
-      query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil? && !pretty_print.null?
-      query_params["quotaUser"] = quota_user.to_s if !quota_user.nil? && !quota_user.null?
-      query_params["userIp"] = user_ip.to_s if !user_ip.nil? && !user_ip.null?
-      query_params["provisionalUserProject"] = provisional_user_project.to_s if !provisional_user_project.nil? && !provisional_user_project.null?
-      query_params["userProject"] = user_project.to_s if !user_project.nil? && !user_project.null?
+      query_params["alt"] = alt.to_s if !alt.nil?
+      query_params["fields"] = fields.to_s if !fields.nil?
+      query_params["key"] = key.to_s if !key.nil?
+      query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil?
+      query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil?
+      query_params["quotaUser"] = quota_user.to_s if !quota_user.nil?
+      query_params["userIp"] = user_ip.to_s if !user_ip.nil?
+      query_params["provisionalUserProject"] = provisional_user_project.to_s if !provisional_user_project.nil?
+      query_params["userProject"] = user_project.to_s if !user_project.nil?
 
       # header parameters
       header_params = Hash(String, String).new
@@ -246,7 +246,7 @@ module GoogleCloudStorage
       form_params = nil
 
       # http body (model)
-      post_body = bucket_access_control.to_nason
+      post_body = bucket_access_control.to_json
 
       # auth_names
       auth_names = ["Oauth2", "Oauth2c"]
@@ -254,7 +254,7 @@ module GoogleCloudStorage
       @api_client.build_api_request(
         http_method: :"POST",
         path: local_var_path,
-        operation: "BucketAccessControlsApi.insert",
+        operation: "BucketAccessControlsApi.storage_bucket_access_controls_insert",
         post_body: post_body,
         auth_names: auth_names,
         header_params: header_params,
@@ -283,7 +283,7 @@ module GoogleCloudStorage
         Log.debug { "API called: BucketAccessControlsApi#list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}" }
       end
 
-      return BucketAccessControls.from_nason(data), status_code, headers
+      return BucketAccessControls.from_json(data), status_code, headers
     end
 
     # Retrieves ACL entries on the specified bucket.
@@ -299,7 +299,7 @@ module GoogleCloudStorage
         Log.debug { "Calling API: BucketAccessControlsApi.list ..." }
       end
       allowable_values = ["json"]
-      if @api_client.config.client_side_validation && !alt.nil? && !alt.null? && !allowable_values.includes?(alt)
+      if @api_client.config.client_side_validation && !alt.nil? && !allowable_values.includes?(alt)
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
       # resource path
@@ -307,15 +307,15 @@ module GoogleCloudStorage
 
       # query parameters
       query_params = Hash(String, (String | Array(String))).new
-      query_params["alt"] = alt.to_s if !alt.nil? && !alt.null?
-      query_params["fields"] = fields.to_s if !fields.nil? && !fields.null?
-      query_params["key"] = key.to_s if !key.nil? && !key.null?
-      query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil? && !oauth_token.null?
-      query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil? && !pretty_print.null?
-      query_params["quotaUser"] = quota_user.to_s if !quota_user.nil? && !quota_user.null?
-      query_params["userIp"] = user_ip.to_s if !user_ip.nil? && !user_ip.null?
-      query_params["provisionalUserProject"] = provisional_user_project.to_s if !provisional_user_project.nil? && !provisional_user_project.null?
-      query_params["userProject"] = user_project.to_s if !user_project.nil? && !user_project.null?
+      query_params["alt"] = alt.to_s if !alt.nil?
+      query_params["fields"] = fields.to_s if !fields.nil?
+      query_params["key"] = key.to_s if !key.nil?
+      query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil?
+      query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil?
+      query_params["quotaUser"] = quota_user.to_s if !quota_user.nil?
+      query_params["userIp"] = user_ip.to_s if !user_ip.nil?
+      query_params["provisionalUserProject"] = provisional_user_project.to_s if !provisional_user_project.nil?
+      query_params["userProject"] = user_project.to_s if !user_project.nil?
 
       # header parameters
       header_params = Hash(String, String).new
@@ -334,7 +334,7 @@ module GoogleCloudStorage
       @api_client.build_api_request(
         http_method: :"GET",
         path: local_var_path,
-        operation: "BucketAccessControlsApi.list",
+        operation: "BucketAccessControlsApi.storage_bucket_access_controls_list",
         post_body: post_body,
         auth_names: auth_names,
         header_params: header_params,
@@ -365,7 +365,7 @@ module GoogleCloudStorage
         Log.debug { "API called: BucketAccessControlsApi#patch\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}" }
       end
 
-      return BucketAccessControl.from_nason(data), status_code, headers
+      return BucketAccessControl.from_json(data), status_code, headers
     end
 
     # Patches an ACL entry on the specified bucket.
@@ -382,7 +382,7 @@ module GoogleCloudStorage
         Log.debug { "Calling API: BucketAccessControlsApi.patch ..." }
       end
       allowable_values = ["json"]
-      if @api_client.config.client_side_validation && !alt.nil? && !alt.null? && !allowable_values.includes?(alt)
+      if @api_client.config.client_side_validation && !alt.nil? && !allowable_values.includes?(alt)
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
       # resource path
@@ -390,15 +390,15 @@ module GoogleCloudStorage
 
       # query parameters
       query_params = Hash(String, (String | Array(String))).new
-      query_params["alt"] = alt.to_s if !alt.nil? && !alt.null?
-      query_params["fields"] = fields.to_s if !fields.nil? && !fields.null?
-      query_params["key"] = key.to_s if !key.nil? && !key.null?
-      query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil? && !oauth_token.null?
-      query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil? && !pretty_print.null?
-      query_params["quotaUser"] = quota_user.to_s if !quota_user.nil? && !quota_user.null?
-      query_params["userIp"] = user_ip.to_s if !user_ip.nil? && !user_ip.null?
-      query_params["provisionalUserProject"] = provisional_user_project.to_s if !provisional_user_project.nil? && !provisional_user_project.null?
-      query_params["userProject"] = user_project.to_s if !user_project.nil? && !user_project.null?
+      query_params["alt"] = alt.to_s if !alt.nil?
+      query_params["fields"] = fields.to_s if !fields.nil?
+      query_params["key"] = key.to_s if !key.nil?
+      query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil?
+      query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil?
+      query_params["quotaUser"] = quota_user.to_s if !quota_user.nil?
+      query_params["userIp"] = user_ip.to_s if !user_ip.nil?
+      query_params["provisionalUserProject"] = provisional_user_project.to_s if !provisional_user_project.nil?
+      query_params["userProject"] = user_project.to_s if !user_project.nil?
 
       # header parameters
       header_params = Hash(String, String).new
@@ -411,7 +411,7 @@ module GoogleCloudStorage
       form_params = nil
 
       # http body (model)
-      post_body = bucket_access_control.to_nason
+      post_body = bucket_access_control.to_json
 
       # auth_names
       auth_names = ["Oauth2", "Oauth2c"]
@@ -419,7 +419,7 @@ module GoogleCloudStorage
       @api_client.build_api_request(
         http_method: :"PATCH",
         path: local_var_path,
-        operation: "BucketAccessControlsApi.patch",
+        operation: "BucketAccessControlsApi.storage_bucket_access_controls_patch",
         post_body: post_body,
         auth_names: auth_names,
         header_params: header_params,
@@ -450,7 +450,7 @@ module GoogleCloudStorage
         Log.debug { "API called: BucketAccessControlsApi#update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}" }
       end
 
-      return BucketAccessControl.from_nason(data), status_code, headers
+      return BucketAccessControl.from_json(data), status_code, headers
     end
 
     # Updates an ACL entry on the specified bucket.
@@ -467,7 +467,7 @@ module GoogleCloudStorage
         Log.debug { "Calling API: BucketAccessControlsApi.update ..." }
       end
       allowable_values = ["json"]
-      if @api_client.config.client_side_validation && !alt.nil? && !alt.null? && !allowable_values.includes?(alt)
+      if @api_client.config.client_side_validation && !alt.nil? && !allowable_values.includes?(alt)
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
       # resource path
@@ -475,15 +475,15 @@ module GoogleCloudStorage
 
       # query parameters
       query_params = Hash(String, (String | Array(String))).new
-      query_params["alt"] = alt.to_s if !alt.nil? && !alt.null?
-      query_params["fields"] = fields.to_s if !fields.nil? && !fields.null?
-      query_params["key"] = key.to_s if !key.nil? && !key.null?
-      query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil? && !oauth_token.null?
-      query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil? && !pretty_print.null?
-      query_params["quotaUser"] = quota_user.to_s if !quota_user.nil? && !quota_user.null?
-      query_params["userIp"] = user_ip.to_s if !user_ip.nil? && !user_ip.null?
-      query_params["provisionalUserProject"] = provisional_user_project.to_s if !provisional_user_project.nil? && !provisional_user_project.null?
-      query_params["userProject"] = user_project.to_s if !user_project.nil? && !user_project.null?
+      query_params["alt"] = alt.to_s if !alt.nil?
+      query_params["fields"] = fields.to_s if !fields.nil?
+      query_params["key"] = key.to_s if !key.nil?
+      query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil?
+      query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil?
+      query_params["quotaUser"] = quota_user.to_s if !quota_user.nil?
+      query_params["userIp"] = user_ip.to_s if !user_ip.nil?
+      query_params["provisionalUserProject"] = provisional_user_project.to_s if !provisional_user_project.nil?
+      query_params["userProject"] = user_project.to_s if !user_project.nil?
 
       # header parameters
       header_params = Hash(String, String).new
@@ -496,7 +496,7 @@ module GoogleCloudStorage
       form_params = nil
 
       # http body (model)
-      post_body = bucket_access_control.to_nason
+      post_body = bucket_access_control.to_json
 
       # auth_names
       auth_names = ["Oauth2", "Oauth2c"]
@@ -504,7 +504,7 @@ module GoogleCloudStorage
       @api_client.build_api_request(
         http_method: :"PUT",
         path: local_var_path,
-        operation: "BucketAccessControlsApi.update",
+        operation: "BucketAccessControlsApi.storage_bucket_access_controls_update",
         post_body: post_body,
         auth_names: auth_names,
         header_params: header_params,

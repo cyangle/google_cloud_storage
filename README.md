@@ -72,6 +72,12 @@ buckets : Buckets = buckets_api.list(project: "google-cloud-project-id")
 objects_api = GoogleCloudStorage::ObjectsApi.new
 ```
 
+#### List objects from bucket
+
+```crystal
+objects : GoogleCloudStorage::Objects = objects_api.list(bucket: "my_bucket", prefix: "test")
+```
+
 #### Get object metadata
 
 ```crystal

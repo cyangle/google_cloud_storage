@@ -13,14 +13,16 @@ require "log"
 
 module GoogleCloudStorage
   # The bucket's versioning configuration.
+  @[JSON::Serializable::Options(emit_nulls: true)]
   class BucketVersioning
     include JSON::Serializable
     include JSON::Serializable::Unmapped
 
     # Optional properties
     # While set to true, versioning is fully enabled for this bucket.
-    @[JSON::Field(key: "enabled", type: Bool?, presence: true, ignore_serialize: enabled.nil? && !enabled_present?, emit_null: true)]
+    @[JSON::Field(key: "enabled", type: Bool?, presence: true, ignore_serialize: enabled.nil? && !enabled_present?)]
     property enabled : Bool?
+
     @[JSON::Field(ignore: true)]
     property? enabled_present : Bool = false
 

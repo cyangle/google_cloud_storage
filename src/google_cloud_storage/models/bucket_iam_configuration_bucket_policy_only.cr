@@ -13,20 +13,23 @@ require "log"
 
 module GoogleCloudStorage
   # The bucket's uniform bucket-level access configuration. The feature was formerly known as Bucket Policy Only. For backward compatibility, this field will be populated with identical information as the uniformBucketLevelAccess field. We recommend using the uniformBucketLevelAccess field to enable and disable the feature.
+  @[JSON::Serializable::Options(emit_nulls: true)]
   class BucketIamConfigurationBucketPolicyOnly
     include JSON::Serializable
     include JSON::Serializable::Unmapped
 
     # Optional properties
     # If set, access is controlled only by bucket-level or above IAM policies.
-    @[JSON::Field(key: "enabled", type: Bool?, presence: true, ignore_serialize: enabled.nil? && !enabled_present?, emit_null: true)]
+    @[JSON::Field(key: "enabled", type: Bool?, presence: true, ignore_serialize: enabled.nil? && !enabled_present?)]
     property enabled : Bool?
+
     @[JSON::Field(ignore: true)]
     property? enabled_present : Bool = false
 
     # The deadline for changing iamConfiguration.bucketPolicyOnly.enabled from true to false in RFC 3339 format. iamConfiguration.bucketPolicyOnly.enabled may be changed from true to false until the locked time, after which the field is immutable.
-    @[JSON::Field(key: "lockedTime", type: Time?, converter: Time::RFC3339Converter, presence: true, ignore_serialize: locked_time.nil? && !locked_time_present?, emit_null: true)]
+    @[JSON::Field(key: "lockedTime", type: Time?, converter: Time::RFC3339Converter, presence: true, ignore_serialize: locked_time.nil? && !locked_time_present?)]
     property locked_time : Time?
+
     @[JSON::Field(ignore: true)]
     property? locked_time_present : Bool = false
 

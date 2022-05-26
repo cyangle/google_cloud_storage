@@ -13,14 +13,16 @@ require "log"
 
 module GoogleCloudStorage
   # Conditions that must be met for this operation to execute.
+  @[JSON::Serializable::Options(emit_nulls: true)]
   class ComposeRequestSourceObjectsInnerObjectPreconditions
     include JSON::Serializable
     include JSON::Serializable::Unmapped
 
     # Optional properties
     # Only perform the composition if the generation of the source object that would be used matches this value. If this value and a generation are both specified, they must be the same value or the call will fail.
-    @[JSON::Field(key: "ifGenerationMatch", type: String?, presence: true, ignore_serialize: if_generation_match.nil? && !if_generation_match_present?, emit_null: true)]
+    @[JSON::Field(key: "ifGenerationMatch", type: String?, presence: true, ignore_serialize: if_generation_match.nil? && !if_generation_match_present?)]
     property if_generation_match : String?
+
     @[JSON::Field(ignore: true)]
     property? if_generation_match_present : Bool = false
 

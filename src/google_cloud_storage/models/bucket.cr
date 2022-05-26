@@ -13,177 +13,208 @@ require "log"
 
 module GoogleCloudStorage
   # A bucket.
+  @[JSON::Serializable::Options(emit_nulls: true)]
   class Bucket
     include JSON::Serializable
     include JSON::Serializable::Unmapped
 
     # Optional properties
     # Access controls on the bucket.
-    @[JSON::Field(key: "acl", type: Array(BucketAccessControl)?, presence: true, ignore_serialize: acl.nil? && !acl_present?, emit_null: true)]
+    @[JSON::Field(key: "acl", type: Array(BucketAccessControl)?, presence: true, ignore_serialize: acl.nil? && !acl_present?)]
     property acl : Array(BucketAccessControl)?
+
     @[JSON::Field(ignore: true)]
     property? acl_present : Bool = false
 
-    @[JSON::Field(key: "autoclass", type: BucketAutoclass?, presence: true, ignore_serialize: autoclass.nil? && !autoclass_present?, emit_null: true)]
+    @[JSON::Field(key: "autoclass", type: BucketAutoclass?, presence: true, ignore_serialize: autoclass.nil? && !autoclass_present?)]
     property autoclass : BucketAutoclass?
+
     @[JSON::Field(ignore: true)]
     property? autoclass_present : Bool = false
 
-    @[JSON::Field(key: "billing", type: BucketBilling?, presence: true, ignore_serialize: billing.nil? && !billing_present?, emit_null: true)]
+    @[JSON::Field(key: "billing", type: BucketBilling?, presence: true, ignore_serialize: billing.nil? && !billing_present?)]
     property billing : BucketBilling?
+
     @[JSON::Field(ignore: true)]
     property? billing_present : Bool = false
 
     # The bucket's Cross-Origin Resource Sharing (CORS) configuration.
-    @[JSON::Field(key: "cors", type: Array(BucketCorsInner)?, presence: true, ignore_serialize: cors.nil? && !cors_present?, emit_null: true)]
+    @[JSON::Field(key: "cors", type: Array(BucketCorsInner)?, presence: true, ignore_serialize: cors.nil? && !cors_present?)]
     property cors : Array(BucketCorsInner)?
+
     @[JSON::Field(ignore: true)]
     property? cors_present : Bool = false
 
-    @[JSON::Field(key: "customPlacementConfig", type: BucketCustomPlacementConfig?, presence: true, ignore_serialize: custom_placement_config.nil? && !custom_placement_config_present?, emit_null: true)]
+    @[JSON::Field(key: "customPlacementConfig", type: BucketCustomPlacementConfig?, presence: true, ignore_serialize: custom_placement_config.nil? && !custom_placement_config_present?)]
     property custom_placement_config : BucketCustomPlacementConfig?
+
     @[JSON::Field(ignore: true)]
     property? custom_placement_config_present : Bool = false
 
     # The default value for event-based hold on newly created objects in this bucket. Event-based hold is a way to retain objects indefinitely until an event occurs, signified by the hold's release. After being released, such objects will be subject to bucket-level retention (if any). One sample use case of this flag is for banks to hold loan documents for at least 3 years after loan is paid in full. Here, bucket-level retention is 3 years and the event is loan being paid in full. In this example, these objects will be held intact for any number of years until the event has occurred (event-based hold on the object is released) and then 3 more years after that. That means retention duration of the objects begins from the moment event-based hold transitioned from true to false. Objects under event-based hold cannot be deleted, overwritten or archived until the hold is removed.
-    @[JSON::Field(key: "defaultEventBasedHold", type: Bool?, presence: true, ignore_serialize: default_event_based_hold.nil? && !default_event_based_hold_present?, emit_null: true)]
+    @[JSON::Field(key: "defaultEventBasedHold", type: Bool?, presence: true, ignore_serialize: default_event_based_hold.nil? && !default_event_based_hold_present?)]
     property default_event_based_hold : Bool?
+
     @[JSON::Field(ignore: true)]
     property? default_event_based_hold_present : Bool = false
 
     # Default access controls to apply to new objects when no ACL is provided.
-    @[JSON::Field(key: "defaultObjectAcl", type: Array(ObjectAccessControl)?, presence: true, ignore_serialize: default_object_acl.nil? && !default_object_acl_present?, emit_null: true)]
+    @[JSON::Field(key: "defaultObjectAcl", type: Array(ObjectAccessControl)?, presence: true, ignore_serialize: default_object_acl.nil? && !default_object_acl_present?)]
     property default_object_acl : Array(ObjectAccessControl)?
+
     @[JSON::Field(ignore: true)]
     property? default_object_acl_present : Bool = false
 
-    @[JSON::Field(key: "encryption", type: BucketEncryption?, presence: true, ignore_serialize: encryption.nil? && !encryption_present?, emit_null: true)]
+    @[JSON::Field(key: "encryption", type: BucketEncryption?, presence: true, ignore_serialize: encryption.nil? && !encryption_present?)]
     property encryption : BucketEncryption?
+
     @[JSON::Field(ignore: true)]
     property? encryption_present : Bool = false
 
     # HTTP 1.1 Entity tag for the bucket.
-    @[JSON::Field(key: "etag", type: String?, presence: true, ignore_serialize: etag.nil? && !etag_present?, emit_null: true)]
+    @[JSON::Field(key: "etag", type: String?, presence: true, ignore_serialize: etag.nil? && !etag_present?)]
     property etag : String?
+
     @[JSON::Field(ignore: true)]
     property? etag_present : Bool = false
 
-    @[JSON::Field(key: "iamConfiguration", type: BucketIamConfiguration?, presence: true, ignore_serialize: iam_configuration.nil? && !iam_configuration_present?, emit_null: true)]
+    @[JSON::Field(key: "iamConfiguration", type: BucketIamConfiguration?, presence: true, ignore_serialize: iam_configuration.nil? && !iam_configuration_present?)]
     property iam_configuration : BucketIamConfiguration?
+
     @[JSON::Field(ignore: true)]
     property? iam_configuration_present : Bool = false
 
     # The ID of the bucket. For buckets, the id and name properties are the same.
-    @[JSON::Field(key: "id", type: String?, presence: true, ignore_serialize: id.nil? && !id_present?, emit_null: true)]
+    @[JSON::Field(key: "id", type: String?, presence: true, ignore_serialize: id.nil? && !id_present?)]
     property id : String?
+
     @[JSON::Field(ignore: true)]
     property? id_present : Bool = false
 
     # The kind of item this is. For buckets, this is always storage#bucket.
-    @[JSON::Field(key: "kind", type: String?, default: "storage#bucket", presence: true, ignore_serialize: kind.nil? && !kind_present?, emit_null: true)]
+    @[JSON::Field(key: "kind", type: String?, default: "storage#bucket", presence: true, ignore_serialize: kind.nil? && !kind_present?)]
     property kind : String?
+
     @[JSON::Field(ignore: true)]
     property? kind_present : Bool = false
 
     # User-provided labels, in key/value pairs.
-    @[JSON::Field(key: "labels", type: Hash(String, String)?, presence: true, ignore_serialize: labels.nil? && !labels_present?, emit_null: true)]
+    @[JSON::Field(key: "labels", type: Hash(String, String)?, presence: true, ignore_serialize: labels.nil? && !labels_present?)]
     property labels : Hash(String, String)?
+
     @[JSON::Field(ignore: true)]
     property? labels_present : Bool = false
 
-    @[JSON::Field(key: "lifecycle", type: BucketLifecycle?, presence: true, ignore_serialize: lifecycle.nil? && !lifecycle_present?, emit_null: true)]
+    @[JSON::Field(key: "lifecycle", type: BucketLifecycle?, presence: true, ignore_serialize: lifecycle.nil? && !lifecycle_present?)]
     property lifecycle : BucketLifecycle?
+
     @[JSON::Field(ignore: true)]
     property? lifecycle_present : Bool = false
 
     # The location of the bucket. Object data for objects in the bucket resides in physical storage within this region. Defaults to US. See the developer's guide for the authoritative list.
-    @[JSON::Field(key: "location", type: String?, presence: true, ignore_serialize: location.nil? && !location_present?, emit_null: true)]
+    @[JSON::Field(key: "location", type: String?, presence: true, ignore_serialize: location.nil? && !location_present?)]
     property location : String?
+
     @[JSON::Field(ignore: true)]
     property? location_present : Bool = false
 
     # The type of the bucket location.
-    @[JSON::Field(key: "locationType", type: String?, presence: true, ignore_serialize: location_type.nil? && !location_type_present?, emit_null: true)]
+    @[JSON::Field(key: "locationType", type: String?, presence: true, ignore_serialize: location_type.nil? && !location_type_present?)]
     property location_type : String?
+
     @[JSON::Field(ignore: true)]
     property? location_type_present : Bool = false
 
-    @[JSON::Field(key: "logging", type: BucketLogging?, presence: true, ignore_serialize: logging.nil? && !logging_present?, emit_null: true)]
+    @[JSON::Field(key: "logging", type: BucketLogging?, presence: true, ignore_serialize: logging.nil? && !logging_present?)]
     property logging : BucketLogging?
+
     @[JSON::Field(ignore: true)]
     property? logging_present : Bool = false
 
     # The metadata generation of this bucket.
-    @[JSON::Field(key: "metageneration", type: String?, presence: true, ignore_serialize: metageneration.nil? && !metageneration_present?, emit_null: true)]
+    @[JSON::Field(key: "metageneration", type: String?, presence: true, ignore_serialize: metageneration.nil? && !metageneration_present?)]
     property metageneration : String?
+
     @[JSON::Field(ignore: true)]
     property? metageneration_present : Bool = false
 
     # The name of the bucket.
-    @[JSON::Field(key: "name", type: String?, presence: true, ignore_serialize: name.nil? && !name_present?, emit_null: true)]
+    @[JSON::Field(key: "name", type: String?, presence: true, ignore_serialize: name.nil? && !name_present?)]
     property name : String?
+
     @[JSON::Field(ignore: true)]
     property? name_present : Bool = false
 
-    @[JSON::Field(key: "owner", type: BucketOwner?, presence: true, ignore_serialize: owner.nil? && !owner_present?, emit_null: true)]
+    @[JSON::Field(key: "owner", type: BucketOwner?, presence: true, ignore_serialize: owner.nil? && !owner_present?)]
     property owner : BucketOwner?
+
     @[JSON::Field(ignore: true)]
     property? owner_present : Bool = false
 
     # The project number of the project the bucket belongs to.
-    @[JSON::Field(key: "projectNumber", type: String?, presence: true, ignore_serialize: project_number.nil? && !project_number_present?, emit_null: true)]
+    @[JSON::Field(key: "projectNumber", type: String?, presence: true, ignore_serialize: project_number.nil? && !project_number_present?)]
     property project_number : String?
+
     @[JSON::Field(ignore: true)]
     property? project_number_present : Bool = false
 
-    @[JSON::Field(key: "retentionPolicy", type: BucketRetentionPolicy?, presence: true, ignore_serialize: retention_policy.nil? && !retention_policy_present?, emit_null: true)]
+    @[JSON::Field(key: "retentionPolicy", type: BucketRetentionPolicy?, presence: true, ignore_serialize: retention_policy.nil? && !retention_policy_present?)]
     property retention_policy : BucketRetentionPolicy?
+
     @[JSON::Field(ignore: true)]
     property? retention_policy_present : Bool = false
 
     # The Recovery Point Objective (RPO) of this bucket. Set to ASYNC_TURBO to turn on Turbo Replication on a bucket.
-    @[JSON::Field(key: "rpo", type: String?, presence: true, ignore_serialize: rpo.nil? && !rpo_present?, emit_null: true)]
+    @[JSON::Field(key: "rpo", type: String?, presence: true, ignore_serialize: rpo.nil? && !rpo_present?)]
     property rpo : String?
+
     @[JSON::Field(ignore: true)]
     property? rpo_present : Bool = false
 
     # Reserved for future use.
-    @[JSON::Field(key: "satisfiesPZS", type: Bool?, presence: true, ignore_serialize: satisfies_pzs.nil? && !satisfies_pzs_present?, emit_null: true)]
+    @[JSON::Field(key: "satisfiesPZS", type: Bool?, presence: true, ignore_serialize: satisfies_pzs.nil? && !satisfies_pzs_present?)]
     property satisfies_pzs : Bool?
+
     @[JSON::Field(ignore: true)]
     property? satisfies_pzs_present : Bool = false
 
     # The URI of this bucket.
-    @[JSON::Field(key: "selfLink", type: String?, presence: true, ignore_serialize: self_link.nil? && !self_link_present?, emit_null: true)]
+    @[JSON::Field(key: "selfLink", type: String?, presence: true, ignore_serialize: self_link.nil? && !self_link_present?)]
     property self_link : String?
+
     @[JSON::Field(ignore: true)]
     property? self_link_present : Bool = false
 
     # The bucket's default storage class, used whenever no storageClass is specified for a newly-created object. This defines how objects in the bucket are stored and determines the SLA and the cost of storage. Values include MULTI_REGIONAL, REGIONAL, STANDARD, NEARLINE, COLDLINE, ARCHIVE, and DURABLE_REDUCED_AVAILABILITY. If this value is not specified when the bucket is created, it will default to STANDARD. For more information, see storage classes.
-    @[JSON::Field(key: "storageClass", type: String?, presence: true, ignore_serialize: storage_class.nil? && !storage_class_present?, emit_null: true)]
+    @[JSON::Field(key: "storageClass", type: String?, presence: true, ignore_serialize: storage_class.nil? && !storage_class_present?)]
     property storage_class : String?
+
     @[JSON::Field(ignore: true)]
     property? storage_class_present : Bool = false
 
     # The creation time of the bucket in RFC 3339 format.
-    @[JSON::Field(key: "timeCreated", type: Time?, converter: Time::RFC3339Converter, presence: true, ignore_serialize: time_created.nil? && !time_created_present?, emit_null: true)]
+    @[JSON::Field(key: "timeCreated", type: Time?, converter: Time::RFC3339Converter, presence: true, ignore_serialize: time_created.nil? && !time_created_present?)]
     property time_created : Time?
+
     @[JSON::Field(ignore: true)]
     property? time_created_present : Bool = false
 
     # The modification time of the bucket in RFC 3339 format.
-    @[JSON::Field(key: "updated", type: Time?, converter: Time::RFC3339Converter, presence: true, ignore_serialize: updated.nil? && !updated_present?, emit_null: true)]
+    @[JSON::Field(key: "updated", type: Time?, converter: Time::RFC3339Converter, presence: true, ignore_serialize: updated.nil? && !updated_present?)]
     property updated : Time?
+
     @[JSON::Field(ignore: true)]
     property? updated_present : Bool = false
 
-    @[JSON::Field(key: "versioning", type: BucketVersioning?, presence: true, ignore_serialize: versioning.nil? && !versioning_present?, emit_null: true)]
+    @[JSON::Field(key: "versioning", type: BucketVersioning?, presence: true, ignore_serialize: versioning.nil? && !versioning_present?)]
     property versioning : BucketVersioning?
+
     @[JSON::Field(ignore: true)]
     property? versioning_present : Bool = false
 
-    @[JSON::Field(key: "website", type: BucketWebsite?, presence: true, ignore_serialize: website.nil? && !website_present?, emit_null: true)]
+    @[JSON::Field(key: "website", type: BucketWebsite?, presence: true, ignore_serialize: website.nil? && !website_present?)]
     property website : BucketWebsite?
+
     @[JSON::Field(ignore: true)]
     property? website_present : Bool = false
 

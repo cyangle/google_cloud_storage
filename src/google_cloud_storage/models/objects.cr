@@ -13,32 +13,37 @@ require "log"
 
 module GoogleCloudStorage
   # A list of objects.
+  @[JSON::Serializable::Options(emit_nulls: true)]
   class Objects
     include JSON::Serializable
     include JSON::Serializable::Unmapped
 
     # Optional properties
     # The list of items.
-    @[JSON::Field(key: "items", type: Array(Object)?, presence: true, ignore_serialize: items.nil? && !items_present?, emit_null: true)]
+    @[JSON::Field(key: "items", type: Array(Object)?, presence: true, ignore_serialize: items.nil? && !items_present?)]
     property items : Array(Object)?
+
     @[JSON::Field(ignore: true)]
     property? items_present : Bool = false
 
     # The kind of item this is. For lists of objects, this is always storage#objects.
-    @[JSON::Field(key: "kind", type: String?, default: "storage#objects", presence: true, ignore_serialize: kind.nil? && !kind_present?, emit_null: true)]
+    @[JSON::Field(key: "kind", type: String?, default: "storage#objects", presence: true, ignore_serialize: kind.nil? && !kind_present?)]
     property kind : String?
+
     @[JSON::Field(ignore: true)]
     property? kind_present : Bool = false
 
     # The continuation token, used to page through large result sets. Provide this value in a subsequent request to return the next page of results.
-    @[JSON::Field(key: "nextPageToken", type: String?, presence: true, ignore_serialize: next_page_token.nil? && !next_page_token_present?, emit_null: true)]
+    @[JSON::Field(key: "nextPageToken", type: String?, presence: true, ignore_serialize: next_page_token.nil? && !next_page_token_present?)]
     property next_page_token : String?
+
     @[JSON::Field(ignore: true)]
     property? next_page_token_present : Bool = false
 
     # The list of prefixes of objects matching-but-not-listed up to and including the requested delimiter.
-    @[JSON::Field(key: "prefixes", type: Array(String)?, presence: true, ignore_serialize: prefixes.nil? && !prefixes_present?, emit_null: true)]
+    @[JSON::Field(key: "prefixes", type: Array(String)?, presence: true, ignore_serialize: prefixes.nil? && !prefixes_present?)]
     property prefixes : Array(String)?
+
     @[JSON::Field(ignore: true)]
     property? prefixes_present : Bool = false
 

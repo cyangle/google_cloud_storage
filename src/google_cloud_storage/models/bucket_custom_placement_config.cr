@@ -13,14 +13,16 @@ require "log"
 
 module GoogleCloudStorage
   # The bucket's custom placement configuration for Custom Dual Regions.
+  @[JSON::Serializable::Options(emit_nulls: true)]
   class BucketCustomPlacementConfig
     include JSON::Serializable
     include JSON::Serializable::Unmapped
 
     # Optional properties
     # The list of regional locations in which data is placed.
-    @[JSON::Field(key: "dataLocations", type: Array(String)?, presence: true, ignore_serialize: data_locations.nil? && !data_locations_present?, emit_null: true)]
+    @[JSON::Field(key: "dataLocations", type: Array(String)?, presence: true, ignore_serialize: data_locations.nil? && !data_locations_present?)]
     property data_locations : Array(String)?
+
     @[JSON::Field(ignore: true)]
     property? data_locations_present : Bool = false
 

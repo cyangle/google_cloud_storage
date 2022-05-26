@@ -13,20 +13,23 @@ require "log"
 
 module GoogleCloudStorage
   # The bucket's logging configuration, which defines the destination bucket and optional name prefix for the current bucket's logs.
+  @[JSON::Serializable::Options(emit_nulls: true)]
   class BucketLogging
     include JSON::Serializable
     include JSON::Serializable::Unmapped
 
     # Optional properties
     # The destination bucket where the current bucket's logs should be placed.
-    @[JSON::Field(key: "logBucket", type: String?, presence: true, ignore_serialize: log_bucket.nil? && !log_bucket_present?, emit_null: true)]
+    @[JSON::Field(key: "logBucket", type: String?, presence: true, ignore_serialize: log_bucket.nil? && !log_bucket_present?)]
     property log_bucket : String?
+
     @[JSON::Field(ignore: true)]
     property? log_bucket_present : Bool = false
 
     # A prefix for log object names.
-    @[JSON::Field(key: "logObjectPrefix", type: String?, presence: true, ignore_serialize: log_object_prefix.nil? && !log_object_prefix_present?, emit_null: true)]
+    @[JSON::Field(key: "logObjectPrefix", type: String?, presence: true, ignore_serialize: log_object_prefix.nil? && !log_object_prefix_present?)]
     property log_object_prefix : String?
+
     @[JSON::Field(ignore: true)]
     property? log_object_prefix_present : Bool = false
 

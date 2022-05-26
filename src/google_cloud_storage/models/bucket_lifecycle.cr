@@ -13,14 +13,16 @@ require "log"
 
 module GoogleCloudStorage
   # The bucket's lifecycle configuration. See lifecycle management for more information.
+  @[JSON::Serializable::Options(emit_nulls: true)]
   class BucketLifecycle
     include JSON::Serializable
     include JSON::Serializable::Unmapped
 
     # Optional properties
     # A lifecycle management rule, which is made of an action to take and the condition(s) under which the action will be taken.
-    @[JSON::Field(key: "rule", type: Array(BucketLifecycleRuleInner)?, presence: true, ignore_serialize: rule.nil? && !rule_present?, emit_null: true)]
+    @[JSON::Field(key: "rule", type: Array(BucketLifecycleRuleInner)?, presence: true, ignore_serialize: rule.nil? && !rule_present?)]
     property rule : Array(BucketLifecycleRuleInner)?
+
     @[JSON::Field(ignore: true)]
     property? rule_present : Bool = false
 

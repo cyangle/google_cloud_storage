@@ -13,43 +13,50 @@ require "log"
 
 module GoogleCloudStorage
   # A rewrite response.
+  @[JSON::Serializable::Options(emit_nulls: true)]
   class RewriteResponse
     include JSON::Serializable
     include JSON::Serializable::Unmapped
 
     # Optional properties
     # true if the copy is finished; otherwise, false if the copy is in progress. This property is always present in the response.
-    @[JSON::Field(key: "done", type: Bool?, presence: true, ignore_serialize: done.nil? && !done_present?, emit_null: true)]
+    @[JSON::Field(key: "done", type: Bool?, presence: true, ignore_serialize: done.nil? && !done_present?)]
     property done : Bool?
+
     @[JSON::Field(ignore: true)]
     property? done_present : Bool = false
 
     # The kind of item this is.
-    @[JSON::Field(key: "kind", type: String?, default: "storage#rewriteResponse", presence: true, ignore_serialize: kind.nil? && !kind_present?, emit_null: true)]
+    @[JSON::Field(key: "kind", type: String?, default: "storage#rewriteResponse", presence: true, ignore_serialize: kind.nil? && !kind_present?)]
     property kind : String?
+
     @[JSON::Field(ignore: true)]
     property? kind_present : Bool = false
 
     # The total size of the object being copied in bytes. This property is always present in the response.
-    @[JSON::Field(key: "objectSize", type: String?, presence: true, ignore_serialize: object_size.nil? && !object_size_present?, emit_null: true)]
+    @[JSON::Field(key: "objectSize", type: String?, presence: true, ignore_serialize: object_size.nil? && !object_size_present?)]
     property object_size : String?
+
     @[JSON::Field(ignore: true)]
     property? object_size_present : Bool = false
 
-    @[JSON::Field(key: "resource", type: Object?, presence: true, ignore_serialize: resource.nil? && !resource_present?, emit_null: true)]
+    @[JSON::Field(key: "resource", type: Object?, presence: true, ignore_serialize: resource.nil? && !resource_present?)]
     property resource : Object?
+
     @[JSON::Field(ignore: true)]
     property? resource_present : Bool = false
 
     # A token to use in subsequent requests to continue copying data. This token is present in the response only when there is more data to copy.
-    @[JSON::Field(key: "rewriteToken", type: String?, presence: true, ignore_serialize: rewrite_token.nil? && !rewrite_token_present?, emit_null: true)]
+    @[JSON::Field(key: "rewriteToken", type: String?, presence: true, ignore_serialize: rewrite_token.nil? && !rewrite_token_present?)]
     property rewrite_token : String?
+
     @[JSON::Field(ignore: true)]
     property? rewrite_token_present : Bool = false
 
     # The total bytes written so far, which can be used to provide a waiting user with a progress indicator. This property is always present in the response.
-    @[JSON::Field(key: "totalBytesRewritten", type: String?, presence: true, ignore_serialize: total_bytes_rewritten.nil? && !total_bytes_rewritten_present?, emit_null: true)]
+    @[JSON::Field(key: "totalBytesRewritten", type: String?, presence: true, ignore_serialize: total_bytes_rewritten.nil? && !total_bytes_rewritten_present?)]
     property total_bytes_rewritten : String?
+
     @[JSON::Field(ignore: true)]
     property? total_bytes_rewritten_present : Bool = false
 

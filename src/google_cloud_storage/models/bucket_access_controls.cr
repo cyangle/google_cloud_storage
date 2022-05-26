@@ -13,20 +13,23 @@ require "log"
 
 module GoogleCloudStorage
   # An access-control list.
+  @[JSON::Serializable::Options(emit_nulls: true)]
   class BucketAccessControls
     include JSON::Serializable
     include JSON::Serializable::Unmapped
 
     # Optional properties
     # The list of items.
-    @[JSON::Field(key: "items", type: Array(BucketAccessControl)?, presence: true, ignore_serialize: items.nil? && !items_present?, emit_null: true)]
+    @[JSON::Field(key: "items", type: Array(BucketAccessControl)?, presence: true, ignore_serialize: items.nil? && !items_present?)]
     property items : Array(BucketAccessControl)?
+
     @[JSON::Field(ignore: true)]
     property? items_present : Bool = false
 
     # The kind of item this is. For lists of bucket access control entries, this is always storage#bucketAccessControls.
-    @[JSON::Field(key: "kind", type: String?, default: "storage#bucketAccessControls", presence: true, ignore_serialize: kind.nil? && !kind_present?, emit_null: true)]
+    @[JSON::Field(key: "kind", type: String?, default: "storage#bucketAccessControls", presence: true, ignore_serialize: kind.nil? && !kind_present?)]
     property kind : String?
+
     @[JSON::Field(ignore: true)]
     property? kind_present : Bool = false
 

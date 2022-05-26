@@ -13,24 +13,28 @@ require "log"
 
 module GoogleCloudStorage
   # The bucket's IAM configuration.
+  @[JSON::Serializable::Options(emit_nulls: true)]
   class BucketIamConfiguration
     include JSON::Serializable
     include JSON::Serializable::Unmapped
 
     # Optional properties
-    @[JSON::Field(key: "bucketPolicyOnly", type: BucketIamConfigurationBucketPolicyOnly?, presence: true, ignore_serialize: bucket_policy_only.nil? && !bucket_policy_only_present?, emit_null: true)]
+    @[JSON::Field(key: "bucketPolicyOnly", type: BucketIamConfigurationBucketPolicyOnly?, presence: true, ignore_serialize: bucket_policy_only.nil? && !bucket_policy_only_present?)]
     property bucket_policy_only : BucketIamConfigurationBucketPolicyOnly?
+
     @[JSON::Field(ignore: true)]
     property? bucket_policy_only_present : Bool = false
 
     # The bucket's Public Access Prevention configuration. Currently, 'unspecified' and 'enforced' are supported.
-    @[JSON::Field(key: "publicAccessPrevention", type: String?, presence: true, ignore_serialize: public_access_prevention.nil? && !public_access_prevention_present?, emit_null: true)]
+    @[JSON::Field(key: "publicAccessPrevention", type: String?, presence: true, ignore_serialize: public_access_prevention.nil? && !public_access_prevention_present?)]
     property public_access_prevention : String?
+
     @[JSON::Field(ignore: true)]
     property? public_access_prevention_present : Bool = false
 
-    @[JSON::Field(key: "uniformBucketLevelAccess", type: BucketIamConfigurationUniformBucketLevelAccess?, presence: true, ignore_serialize: uniform_bucket_level_access.nil? && !uniform_bucket_level_access_present?, emit_null: true)]
+    @[JSON::Field(key: "uniformBucketLevelAccess", type: BucketIamConfigurationUniformBucketLevelAccess?, presence: true, ignore_serialize: uniform_bucket_level_access.nil? && !uniform_bucket_level_access_present?)]
     property uniform_bucket_level_access : BucketIamConfigurationUniformBucketLevelAccess?
+
     @[JSON::Field(ignore: true)]
     property? uniform_bucket_level_access_present : Bool = false
 

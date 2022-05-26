@@ -13,38 +13,44 @@ require "log"
 
 module GoogleCloudStorage
   # A bucket/object IAM policy.
+  @[JSON::Serializable::Options(emit_nulls: true)]
   class Policy
     include JSON::Serializable
     include JSON::Serializable::Unmapped
 
     # Optional properties
     # An association between a role, which comes with a set of permissions, and members who may assume that role.
-    @[JSON::Field(key: "bindings", type: Array(PolicyBindingsInner)?, presence: true, ignore_serialize: bindings.nil? && !bindings_present?, emit_null: true)]
+    @[JSON::Field(key: "bindings", type: Array(PolicyBindingsInner)?, presence: true, ignore_serialize: bindings.nil? && !bindings_present?)]
     property bindings : Array(PolicyBindingsInner)?
+
     @[JSON::Field(ignore: true)]
     property? bindings_present : Bool = false
 
     # HTTP 1.1  Entity tag for the policy.
-    @[JSON::Field(key: "etag", type: String?, presence: true, ignore_serialize: etag.nil? && !etag_present?, emit_null: true)]
+    @[JSON::Field(key: "etag", type: String?, presence: true, ignore_serialize: etag.nil? && !etag_present?)]
     property etag : String?
+
     @[JSON::Field(ignore: true)]
     property? etag_present : Bool = false
 
     # The kind of item this is. For policies, this is always storage#policy. This field is ignored on input.
-    @[JSON::Field(key: "kind", type: String?, default: "storage#policy", presence: true, ignore_serialize: kind.nil? && !kind_present?, emit_null: true)]
+    @[JSON::Field(key: "kind", type: String?, default: "storage#policy", presence: true, ignore_serialize: kind.nil? && !kind_present?)]
     property kind : String?
+
     @[JSON::Field(ignore: true)]
     property? kind_present : Bool = false
 
     # The ID of the resource to which this policy belongs. Will be of the form projects/_/buckets/bucket for buckets, and projects/_/buckets/bucket/objects/object for objects. A specific generation may be specified by appending #generationNumber to the end of the object name, e.g. projects/_/buckets/my-bucket/objects/data.txt#17. The current generation can be denoted with #0. This field is ignored on input.
-    @[JSON::Field(key: "resourceId", type: String?, presence: true, ignore_serialize: resource_id.nil? && !resource_id_present?, emit_null: true)]
+    @[JSON::Field(key: "resourceId", type: String?, presence: true, ignore_serialize: resource_id.nil? && !resource_id_present?)]
     property resource_id : String?
+
     @[JSON::Field(ignore: true)]
     property? resource_id_present : Bool = false
 
     # The IAM policy format version.
-    @[JSON::Field(key: "version", type: Int32?, presence: true, ignore_serialize: version.nil? && !version_present?, emit_null: true)]
+    @[JSON::Field(key: "version", type: Int32?, presence: true, ignore_serialize: version.nil? && !version_present?)]
     property version : Int32?
+
     @[JSON::Field(ignore: true)]
     property? version_present : Bool = false
 

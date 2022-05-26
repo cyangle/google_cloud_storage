@@ -12,18 +12,21 @@ require "time"
 require "log"
 
 module GoogleCloudStorage
+  @[JSON::Serializable::Options(emit_nulls: true)]
   class BucketLifecycleRuleInner
     include JSON::Serializable
     include JSON::Serializable::Unmapped
 
     # Optional properties
-    @[JSON::Field(key: "action", type: BucketLifecycleRuleInnerAction?, presence: true, ignore_serialize: action.nil? && !action_present?, emit_null: true)]
+    @[JSON::Field(key: "action", type: BucketLifecycleRuleInnerAction?, presence: true, ignore_serialize: action.nil? && !action_present?)]
     property action : BucketLifecycleRuleInnerAction?
+
     @[JSON::Field(ignore: true)]
     property? action_present : Bool = false
 
-    @[JSON::Field(key: "condition", type: BucketLifecycleRuleInnerCondition?, presence: true, ignore_serialize: condition.nil? && !condition_present?, emit_null: true)]
+    @[JSON::Field(key: "condition", type: BucketLifecycleRuleInnerCondition?, presence: true, ignore_serialize: condition.nil? && !condition_present?)]
     property condition : BucketLifecycleRuleInnerCondition?
+
     @[JSON::Field(ignore: true)]
     property? condition_present : Bool = false
 

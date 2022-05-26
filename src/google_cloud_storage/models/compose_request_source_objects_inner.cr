@@ -12,25 +12,29 @@ require "time"
 require "log"
 
 module GoogleCloudStorage
+  @[JSON::Serializable::Options(emit_nulls: true)]
   class ComposeRequestSourceObjectsInner
     include JSON::Serializable
     include JSON::Serializable::Unmapped
 
     # Optional properties
     # The generation of this object to use as the source.
-    @[JSON::Field(key: "generation", type: String?, presence: true, ignore_serialize: generation.nil? && !generation_present?, emit_null: true)]
+    @[JSON::Field(key: "generation", type: String?, presence: true, ignore_serialize: generation.nil? && !generation_present?)]
     property generation : String?
+
     @[JSON::Field(ignore: true)]
     property? generation_present : Bool = false
 
     # The source object's name. All source objects must reside in the same bucket.
-    @[JSON::Field(key: "name", type: String?, presence: true, ignore_serialize: name.nil? && !name_present?, emit_null: true)]
+    @[JSON::Field(key: "name", type: String?, presence: true, ignore_serialize: name.nil? && !name_present?)]
     property name : String?
+
     @[JSON::Field(ignore: true)]
     property? name_present : Bool = false
 
-    @[JSON::Field(key: "objectPreconditions", type: ComposeRequestSourceObjectsInnerObjectPreconditions?, presence: true, ignore_serialize: object_preconditions.nil? && !object_preconditions_present?, emit_null: true)]
+    @[JSON::Field(key: "objectPreconditions", type: ComposeRequestSourceObjectsInnerObjectPreconditions?, presence: true, ignore_serialize: object_preconditions.nil? && !object_preconditions_present?)]
     property object_preconditions : ComposeRequestSourceObjectsInnerObjectPreconditions?
+
     @[JSON::Field(ignore: true)]
     property? object_preconditions_present : Bool = false
 

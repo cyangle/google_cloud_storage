@@ -13,14 +13,16 @@ require "log"
 
 module GoogleCloudStorage
   # The bucket's billing configuration.
+  @[JSON::Serializable::Options(emit_nulls: true)]
   class BucketBilling
     include JSON::Serializable
     include JSON::Serializable::Unmapped
 
     # Optional properties
     # When set to true, Requester Pays is enabled for this bucket.
-    @[JSON::Field(key: "requesterPays", type: Bool?, presence: true, ignore_serialize: requester_pays.nil? && !requester_pays_present?, emit_null: true)]
+    @[JSON::Field(key: "requesterPays", type: Bool?, presence: true, ignore_serialize: requester_pays.nil? && !requester_pays_present?)]
     property requester_pays : Bool?
+
     @[JSON::Field(ignore: true)]
     property? requester_pays_present : Bool = false
 

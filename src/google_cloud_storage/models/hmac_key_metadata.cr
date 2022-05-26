@@ -13,68 +13,79 @@ require "log"
 
 module GoogleCloudStorage
   # JSON template to produce a JSON-style HMAC Key metadata resource.
+  @[JSON::Serializable::Options(emit_nulls: true)]
   class HmacKeyMetadata
     include JSON::Serializable
     include JSON::Serializable::Unmapped
 
     # Optional properties
     # The ID of the HMAC Key.
-    @[JSON::Field(key: "accessId", type: String?, presence: true, ignore_serialize: access_id.nil? && !access_id_present?, emit_null: true)]
+    @[JSON::Field(key: "accessId", type: String?, presence: true, ignore_serialize: access_id.nil? && !access_id_present?)]
     property access_id : String?
+
     @[JSON::Field(ignore: true)]
     property? access_id_present : Bool = false
 
     # HTTP 1.1 Entity tag for the HMAC key.
-    @[JSON::Field(key: "etag", type: String?, presence: true, ignore_serialize: etag.nil? && !etag_present?, emit_null: true)]
+    @[JSON::Field(key: "etag", type: String?, presence: true, ignore_serialize: etag.nil? && !etag_present?)]
     property etag : String?
+
     @[JSON::Field(ignore: true)]
     property? etag_present : Bool = false
 
     # The ID of the HMAC key, including the Project ID and the Access ID.
-    @[JSON::Field(key: "id", type: String?, presence: true, ignore_serialize: id.nil? && !id_present?, emit_null: true)]
+    @[JSON::Field(key: "id", type: String?, presence: true, ignore_serialize: id.nil? && !id_present?)]
     property id : String?
+
     @[JSON::Field(ignore: true)]
     property? id_present : Bool = false
 
     # The kind of item this is. For HMAC Key metadata, this is always storage#hmacKeyMetadata.
-    @[JSON::Field(key: "kind", type: String?, default: "storage#hmacKeyMetadata", presence: true, ignore_serialize: kind.nil? && !kind_present?, emit_null: true)]
+    @[JSON::Field(key: "kind", type: String?, default: "storage#hmacKeyMetadata", presence: true, ignore_serialize: kind.nil? && !kind_present?)]
     property kind : String?
+
     @[JSON::Field(ignore: true)]
     property? kind_present : Bool = false
 
     # Project ID owning the service account to which the key authenticates.
-    @[JSON::Field(key: "projectId", type: String?, presence: true, ignore_serialize: project_id.nil? && !project_id_present?, emit_null: true)]
+    @[JSON::Field(key: "projectId", type: String?, presence: true, ignore_serialize: project_id.nil? && !project_id_present?)]
     property project_id : String?
+
     @[JSON::Field(ignore: true)]
     property? project_id_present : Bool = false
 
     # The link to this resource.
-    @[JSON::Field(key: "selfLink", type: String?, presence: true, ignore_serialize: self_link.nil? && !self_link_present?, emit_null: true)]
+    @[JSON::Field(key: "selfLink", type: String?, presence: true, ignore_serialize: self_link.nil? && !self_link_present?)]
     property self_link : String?
+
     @[JSON::Field(ignore: true)]
     property? self_link_present : Bool = false
 
     # The email address of the key's associated service account.
-    @[JSON::Field(key: "serviceAccountEmail", type: String?, presence: true, ignore_serialize: service_account_email.nil? && !service_account_email_present?, emit_null: true)]
+    @[JSON::Field(key: "serviceAccountEmail", type: String?, presence: true, ignore_serialize: service_account_email.nil? && !service_account_email_present?)]
     property service_account_email : String?
+
     @[JSON::Field(ignore: true)]
     property? service_account_email_present : Bool = false
 
     # The state of the key. Can be one of ACTIVE, INACTIVE, or DELETED.
-    @[JSON::Field(key: "state", type: String?, presence: true, ignore_serialize: state.nil? && !state_present?, emit_null: true)]
+    @[JSON::Field(key: "state", type: String?, presence: true, ignore_serialize: state.nil? && !state_present?)]
     property state : String?
+
     @[JSON::Field(ignore: true)]
     property? state_present : Bool = false
 
     # The creation time of the HMAC key in RFC 3339 format.
-    @[JSON::Field(key: "timeCreated", type: Time?, converter: Time::RFC3339Converter, presence: true, ignore_serialize: time_created.nil? && !time_created_present?, emit_null: true)]
+    @[JSON::Field(key: "timeCreated", type: Time?, converter: Time::RFC3339Converter, presence: true, ignore_serialize: time_created.nil? && !time_created_present?)]
     property time_created : Time?
+
     @[JSON::Field(ignore: true)]
     property? time_created_present : Bool = false
 
     # The last modification time of the HMAC key metadata in RFC 3339 format.
-    @[JSON::Field(key: "updated", type: Time?, converter: Time::RFC3339Converter, presence: true, ignore_serialize: updated.nil? && !updated_present?, emit_null: true)]
+    @[JSON::Field(key: "updated", type: Time?, converter: Time::RFC3339Converter, presence: true, ignore_serialize: updated.nil? && !updated_present?)]
     property updated : Time?
+
     @[JSON::Field(ignore: true)]
     property? updated_present : Bool = false
 

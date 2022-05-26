@@ -13,25 +13,29 @@ require "log"
 
 module GoogleCloudStorage
   # JSON template to produce a JSON-style HMAC Key resource for Create responses.
+  @[JSON::Serializable::Options(emit_nulls: true)]
   class HmacKey
     include JSON::Serializable
     include JSON::Serializable::Unmapped
 
     # Optional properties
     # The kind of item this is. For HMAC keys, this is always storage#hmacKey.
-    @[JSON::Field(key: "kind", type: String?, default: "storage#hmacKey", presence: true, ignore_serialize: kind.nil? && !kind_present?, emit_null: true)]
+    @[JSON::Field(key: "kind", type: String?, default: "storage#hmacKey", presence: true, ignore_serialize: kind.nil? && !kind_present?)]
     property kind : String?
+
     @[JSON::Field(ignore: true)]
     property? kind_present : Bool = false
 
-    @[JSON::Field(key: "metadata", type: HmacKeyMetadata?, presence: true, ignore_serialize: metadata.nil? && !metadata_present?, emit_null: true)]
+    @[JSON::Field(key: "metadata", type: HmacKeyMetadata?, presence: true, ignore_serialize: metadata.nil? && !metadata_present?)]
     property metadata : HmacKeyMetadata?
+
     @[JSON::Field(ignore: true)]
     property? metadata_present : Bool = false
 
     # HMAC secret key material.
-    @[JSON::Field(key: "secret", type: String?, presence: true, ignore_serialize: secret.nil? && !secret_present?, emit_null: true)]
+    @[JSON::Field(key: "secret", type: String?, presence: true, ignore_serialize: secret.nil? && !secret_present?)]
     property secret : String?
+
     @[JSON::Field(ignore: true)]
     property? secret_present : Bool = false
 

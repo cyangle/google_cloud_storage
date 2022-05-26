@@ -12,32 +12,37 @@ require "time"
 require "log"
 
 module GoogleCloudStorage
+  @[JSON::Serializable::Options(emit_nulls: true)]
   class BucketCorsInner
     include JSON::Serializable
     include JSON::Serializable::Unmapped
 
     # Optional properties
     # The value, in seconds, to return in the  Access-Control-Max-Age header used in preflight responses.
-    @[JSON::Field(key: "maxAgeSeconds", type: Int32?, presence: true, ignore_serialize: max_age_seconds.nil? && !max_age_seconds_present?, emit_null: true)]
+    @[JSON::Field(key: "maxAgeSeconds", type: Int32?, presence: true, ignore_serialize: max_age_seconds.nil? && !max_age_seconds_present?)]
     property max_age_seconds : Int32?
+
     @[JSON::Field(ignore: true)]
     property? max_age_seconds_present : Bool = false
 
     # The list of HTTP methods on which to include CORS response headers, (GET, OPTIONS, POST, etc) Note: \"*\" is permitted in the list of methods, and means \"any method\".
-    @[JSON::Field(key: "method", type: Array(String)?, presence: true, ignore_serialize: method.nil? && !method_present?, emit_null: true)]
+    @[JSON::Field(key: "method", type: Array(String)?, presence: true, ignore_serialize: method.nil? && !method_present?)]
     property method : Array(String)?
+
     @[JSON::Field(ignore: true)]
     property? method_present : Bool = false
 
     # The list of Origins eligible to receive CORS response headers. Note: \"*\" is permitted in the list of origins, and means \"any Origin\".
-    @[JSON::Field(key: "origin", type: Array(String)?, presence: true, ignore_serialize: origin.nil? && !origin_present?, emit_null: true)]
+    @[JSON::Field(key: "origin", type: Array(String)?, presence: true, ignore_serialize: origin.nil? && !origin_present?)]
     property origin : Array(String)?
+
     @[JSON::Field(ignore: true)]
     property? origin_present : Bool = false
 
     # The list of HTTP headers other than the simple response headers to give permission for the user-agent to share across domains.
-    @[JSON::Field(key: "responseHeader", type: Array(String)?, presence: true, ignore_serialize: response_header.nil? && !response_header_present?, emit_null: true)]
+    @[JSON::Field(key: "responseHeader", type: Array(String)?, presence: true, ignore_serialize: response_header.nil? && !response_header_present?)]
     property response_header : Array(String)?
+
     @[JSON::Field(ignore: true)]
     property? response_header_present : Bool = false
 

@@ -13,20 +13,23 @@ require "log"
 
 module GoogleCloudStorage
   # A list of notification subscriptions.
+  @[JSON::Serializable::Options(emit_nulls: true)]
   class Notifications
     include JSON::Serializable
     include JSON::Serializable::Unmapped
 
     # Optional properties
     # The list of items.
-    @[JSON::Field(key: "items", type: Array(Notification)?, presence: true, ignore_serialize: items.nil? && !items_present?, emit_null: true)]
+    @[JSON::Field(key: "items", type: Array(Notification)?, presence: true, ignore_serialize: items.nil? && !items_present?)]
     property items : Array(Notification)?
+
     @[JSON::Field(ignore: true)]
     property? items_present : Bool = false
 
     # The kind of item this is. For lists of notifications, this is always storage#notifications.
-    @[JSON::Field(key: "kind", type: String?, default: "storage#notifications", presence: true, ignore_serialize: kind.nil? && !kind_present?, emit_null: true)]
+    @[JSON::Field(key: "kind", type: String?, default: "storage#notifications", presence: true, ignore_serialize: kind.nil? && !kind_present?)]
     property kind : String?
+
     @[JSON::Field(ignore: true)]
     property? kind_present : Bool = false
 

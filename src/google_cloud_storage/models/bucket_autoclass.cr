@@ -13,20 +13,23 @@ require "log"
 
 module GoogleCloudStorage
   # The bucket's Autoclass configuration.
+  @[JSON::Serializable::Options(emit_nulls: true)]
   class BucketAutoclass
     include JSON::Serializable
     include JSON::Serializable::Unmapped
 
     # Optional properties
     # Whether or not Autoclass is enabled on this bucket
-    @[JSON::Field(key: "enabled", type: Bool?, presence: true, ignore_serialize: enabled.nil? && !enabled_present?, emit_null: true)]
+    @[JSON::Field(key: "enabled", type: Bool?, presence: true, ignore_serialize: enabled.nil? && !enabled_present?)]
     property enabled : Bool?
+
     @[JSON::Field(ignore: true)]
     property? enabled_present : Bool = false
 
     # A date and time in RFC 3339 format representing the instant at which \"enabled\" was last toggled.
-    @[JSON::Field(key: "toggleTime", type: Time?, converter: Time::RFC3339Converter, presence: true, ignore_serialize: toggle_time.nil? && !toggle_time_present?, emit_null: true)]
+    @[JSON::Field(key: "toggleTime", type: Time?, converter: Time::RFC3339Converter, presence: true, ignore_serialize: toggle_time.nil? && !toggle_time_present?)]
     property toggle_time : Time?
+
     @[JSON::Field(ignore: true)]
     property? toggle_time_present : Bool = false
 

@@ -13,20 +13,23 @@ require "log"
 
 module GoogleCloudStorage
   # A subscription to receive Google PubSub notifications.
+  @[JSON::Serializable::Options(emit_nulls: true)]
   class ServiceAccount
     include JSON::Serializable
     include JSON::Serializable::Unmapped
 
     # Optional properties
     # The ID of the notification.
-    @[JSON::Field(key: "email_address", type: String?, presence: true, ignore_serialize: email_address.nil? && !email_address_present?, emit_null: true)]
+    @[JSON::Field(key: "email_address", type: String?, presence: true, ignore_serialize: email_address.nil? && !email_address_present?)]
     property email_address : String?
+
     @[JSON::Field(ignore: true)]
     property? email_address_present : Bool = false
 
     # The kind of item this is. For notifications, this is always storage#notification.
-    @[JSON::Field(key: "kind", type: String?, default: "storage#serviceAccount", presence: true, ignore_serialize: kind.nil? && !kind_present?, emit_null: true)]
+    @[JSON::Field(key: "kind", type: String?, default: "storage#serviceAccount", presence: true, ignore_serialize: kind.nil? && !kind_present?)]
     property kind : String?
+
     @[JSON::Field(ignore: true)]
     property? kind_present : Bool = false
 

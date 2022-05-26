@@ -13,26 +13,30 @@ require "log"
 
 module GoogleCloudStorage
   # The bucket's retention policy. The retention policy enforces a minimum retention time for all objects contained in the bucket, based on their creation time. Any attempt to overwrite or delete objects younger than the retention period will result in a PERMISSION_DENIED error. An unlocked retention policy can be modified or removed from the bucket via a storage.buckets.update operation. A locked retention policy cannot be removed or shortened in duration for the lifetime of the bucket. Attempting to remove or decrease period of a locked retention policy will result in a PERMISSION_DENIED error.
+  @[JSON::Serializable::Options(emit_nulls: true)]
   class BucketRetentionPolicy
     include JSON::Serializable
     include JSON::Serializable::Unmapped
 
     # Optional properties
     # Server-determined value that indicates the time from which policy was enforced and effective. This value is in RFC 3339 format.
-    @[JSON::Field(key: "effectiveTime", type: Time?, converter: Time::RFC3339Converter, presence: true, ignore_serialize: effective_time.nil? && !effective_time_present?, emit_null: true)]
+    @[JSON::Field(key: "effectiveTime", type: Time?, converter: Time::RFC3339Converter, presence: true, ignore_serialize: effective_time.nil? && !effective_time_present?)]
     property effective_time : Time?
+
     @[JSON::Field(ignore: true)]
     property? effective_time_present : Bool = false
 
     # Once locked, an object retention policy cannot be modified.
-    @[JSON::Field(key: "isLocked", type: Bool?, presence: true, ignore_serialize: is_locked.nil? && !is_locked_present?, emit_null: true)]
+    @[JSON::Field(key: "isLocked", type: Bool?, presence: true, ignore_serialize: is_locked.nil? && !is_locked_present?)]
     property is_locked : Bool?
+
     @[JSON::Field(ignore: true)]
     property? is_locked_present : Bool = false
 
     # The duration in seconds that objects need to be retained. Retention duration must be greater than zero and less than 100 years. Note that enforcement of retention periods less than a day is not guaranteed. Such periods should only be used for testing purposes.
-    @[JSON::Field(key: "retentionPeriod", type: String?, presence: true, ignore_serialize: retention_period.nil? && !retention_period_present?, emit_null: true)]
+    @[JSON::Field(key: "retentionPeriod", type: String?, presence: true, ignore_serialize: retention_period.nil? && !retention_period_present?)]
     property retention_period : String?
+
     @[JSON::Field(ignore: true)]
     property? retention_period_present : Bool = false
 

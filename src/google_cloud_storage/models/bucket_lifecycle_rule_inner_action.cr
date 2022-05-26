@@ -13,20 +13,23 @@ require "log"
 
 module GoogleCloudStorage
   # The action to take.
+  @[JSON::Serializable::Options(emit_nulls: true)]
   class BucketLifecycleRuleInnerAction
     include JSON::Serializable
     include JSON::Serializable::Unmapped
 
     # Optional properties
     # Target storage class. Required iff the type of the action is SetStorageClass.
-    @[JSON::Field(key: "storageClass", type: String?, presence: true, ignore_serialize: storage_class.nil? && !storage_class_present?, emit_null: true)]
+    @[JSON::Field(key: "storageClass", type: String?, presence: true, ignore_serialize: storage_class.nil? && !storage_class_present?)]
     property storage_class : String?
+
     @[JSON::Field(ignore: true)]
     property? storage_class_present : Bool = false
 
     # Type of the action. Currently, only Delete and SetStorageClass are supported.
-    @[JSON::Field(key: "type", type: String?, presence: true, ignore_serialize: _type.nil? && !_type_present?, emit_null: true)]
+    @[JSON::Field(key: "type", type: String?, presence: true, ignore_serialize: _type.nil? && !_type_present?)]
     property _type : String?
+
     @[JSON::Field(ignore: true)]
     property? _type_present : Bool = false
 

@@ -13,20 +13,23 @@ require "log"
 
 module GoogleCloudStorage
   # The project team associated with the entity, if any.
+  @[JSON::Serializable::Options(emit_nulls: true)]
   class BucketAccessControlProjectTeam
     include JSON::Serializable
     include JSON::Serializable::Unmapped
 
     # Optional properties
     # The project number.
-    @[JSON::Field(key: "projectNumber", type: String?, presence: true, ignore_serialize: project_number.nil? && !project_number_present?, emit_null: true)]
+    @[JSON::Field(key: "projectNumber", type: String?, presence: true, ignore_serialize: project_number.nil? && !project_number_present?)]
     property project_number : String?
+
     @[JSON::Field(ignore: true)]
     property? project_number_present : Bool = false
 
     # The team.
-    @[JSON::Field(key: "team", type: String?, presence: true, ignore_serialize: team.nil? && !team_present?, emit_null: true)]
+    @[JSON::Field(key: "team", type: String?, presence: true, ignore_serialize: team.nil? && !team_present?)]
     property team : String?
+
     @[JSON::Field(ignore: true)]
     property? team_present : Bool = false
 

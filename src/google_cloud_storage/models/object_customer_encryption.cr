@@ -13,20 +13,23 @@ require "log"
 
 module GoogleCloudStorage
   # Metadata of customer-supplied encryption key, if the object is encrypted by such a key.
+  @[JSON::Serializable::Options(emit_nulls: true)]
   class ObjectCustomerEncryption
     include JSON::Serializable
     include JSON::Serializable::Unmapped
 
     # Optional properties
     # The encryption algorithm.
-    @[JSON::Field(key: "encryptionAlgorithm", type: String?, presence: true, ignore_serialize: encryption_algorithm.nil? && !encryption_algorithm_present?, emit_null: true)]
+    @[JSON::Field(key: "encryptionAlgorithm", type: String?, presence: true, ignore_serialize: encryption_algorithm.nil? && !encryption_algorithm_present?)]
     property encryption_algorithm : String?
+
     @[JSON::Field(ignore: true)]
     property? encryption_algorithm_present : Bool = false
 
     # SHA256 hash value of the encryption key.
-    @[JSON::Field(key: "keySha256", type: String?, presence: true, ignore_serialize: key_sha256.nil? && !key_sha256_present?, emit_null: true)]
+    @[JSON::Field(key: "keySha256", type: String?, presence: true, ignore_serialize: key_sha256.nil? && !key_sha256_present?)]
     property key_sha256 : String?
+
     @[JSON::Field(ignore: true)]
     property? key_sha256_present : Bool = false
 

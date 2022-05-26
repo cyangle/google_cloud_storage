@@ -13,68 +13,79 @@ require "log"
 
 module GoogleCloudStorage
   # The condition(s) under which the action will be taken.
+  @[JSON::Serializable::Options(emit_nulls: true)]
   class BucketLifecycleRuleInnerCondition
     include JSON::Serializable
     include JSON::Serializable::Unmapped
 
     # Optional properties
     # Age of an object (in days). This condition is satisfied when an object reaches the specified age.
-    @[JSON::Field(key: "age", type: Int32?, presence: true, ignore_serialize: age.nil? && !age_present?, emit_null: true)]
+    @[JSON::Field(key: "age", type: Int32?, presence: true, ignore_serialize: age.nil? && !age_present?)]
     property age : Int32?
+
     @[JSON::Field(ignore: true)]
     property? age_present : Bool = false
 
     # A date in RFC 3339 format with only the date part (for instance, \"2013-01-15\"). This condition is satisfied when an object is created before midnight of the specified date in UTC.
-    @[JSON::Field(key: "createdBefore", type: Time?, converter: Time::ISO8601DateConverter, presence: true, ignore_serialize: created_before.nil? && !created_before_present?, emit_null: true)]
+    @[JSON::Field(key: "createdBefore", type: Time?, converter: Time::ISO8601DateConverter, presence: true, ignore_serialize: created_before.nil? && !created_before_present?)]
     property created_before : Time?
+
     @[JSON::Field(ignore: true)]
     property? created_before_present : Bool = false
 
     # A date in RFC 3339 format with only the date part (for instance, \"2013-01-15\"). This condition is satisfied when the custom time on an object is before this date in UTC.
-    @[JSON::Field(key: "customTimeBefore", type: Time?, converter: Time::ISO8601DateConverter, presence: true, ignore_serialize: custom_time_before.nil? && !custom_time_before_present?, emit_null: true)]
+    @[JSON::Field(key: "customTimeBefore", type: Time?, converter: Time::ISO8601DateConverter, presence: true, ignore_serialize: custom_time_before.nil? && !custom_time_before_present?)]
     property custom_time_before : Time?
+
     @[JSON::Field(ignore: true)]
     property? custom_time_before_present : Bool = false
 
     # Number of days elapsed since the user-specified timestamp set on an object. The condition is satisfied if the days elapsed is at least this number. If no custom timestamp is specified on an object, the condition does not apply.
-    @[JSON::Field(key: "daysSinceCustomTime", type: Int32?, presence: true, ignore_serialize: days_since_custom_time.nil? && !days_since_custom_time_present?, emit_null: true)]
+    @[JSON::Field(key: "daysSinceCustomTime", type: Int32?, presence: true, ignore_serialize: days_since_custom_time.nil? && !days_since_custom_time_present?)]
     property days_since_custom_time : Int32?
+
     @[JSON::Field(ignore: true)]
     property? days_since_custom_time_present : Bool = false
 
     # Number of days elapsed since the noncurrent timestamp of an object. The condition is satisfied if the days elapsed is at least this number. This condition is relevant only for versioned objects. The value of the field must be a nonnegative integer. If it's zero, the object version will become eligible for Lifecycle action as soon as it becomes noncurrent.
-    @[JSON::Field(key: "daysSinceNoncurrentTime", type: Int32?, presence: true, ignore_serialize: days_since_noncurrent_time.nil? && !days_since_noncurrent_time_present?, emit_null: true)]
+    @[JSON::Field(key: "daysSinceNoncurrentTime", type: Int32?, presence: true, ignore_serialize: days_since_noncurrent_time.nil? && !days_since_noncurrent_time_present?)]
     property days_since_noncurrent_time : Int32?
+
     @[JSON::Field(ignore: true)]
     property? days_since_noncurrent_time_present : Bool = false
 
     # Relevant only for versioned objects. If the value is true, this condition matches live objects; if the value is false, it matches archived objects.
-    @[JSON::Field(key: "isLive", type: Bool?, presence: true, ignore_serialize: is_live.nil? && !is_live_present?, emit_null: true)]
+    @[JSON::Field(key: "isLive", type: Bool?, presence: true, ignore_serialize: is_live.nil? && !is_live_present?)]
     property is_live : Bool?
+
     @[JSON::Field(ignore: true)]
     property? is_live_present : Bool = false
 
     # A regular expression that satisfies the RE2 syntax. This condition is satisfied when the name of the object matches the RE2 pattern. Note: This feature is currently in the \"Early Access\" launch stage and is only available to a whitelisted set of users; that means that this feature may be changed in backward-incompatible ways and that it is not guaranteed to be released.
-    @[JSON::Field(key: "matchesPattern", type: String?, presence: true, ignore_serialize: matches_pattern.nil? && !matches_pattern_present?, emit_null: true)]
+    @[JSON::Field(key: "matchesPattern", type: String?, presence: true, ignore_serialize: matches_pattern.nil? && !matches_pattern_present?)]
     property matches_pattern : String?
+
     @[JSON::Field(ignore: true)]
     property? matches_pattern_present : Bool = false
 
     # Objects having any of the storage classes specified by this condition will be matched. Values include MULTI_REGIONAL, REGIONAL, NEARLINE, COLDLINE, ARCHIVE, STANDARD, and DURABLE_REDUCED_AVAILABILITY.
-    @[JSON::Field(key: "matchesStorageClass", type: Array(String)?, presence: true, ignore_serialize: matches_storage_class.nil? && !matches_storage_class_present?, emit_null: true)]
+    @[JSON::Field(key: "matchesStorageClass", type: Array(String)?, presence: true, ignore_serialize: matches_storage_class.nil? && !matches_storage_class_present?)]
     property matches_storage_class : Array(String)?
+
     @[JSON::Field(ignore: true)]
     property? matches_storage_class_present : Bool = false
 
     # A date in RFC 3339 format with only the date part (for instance, \"2013-01-15\"). This condition is satisfied when the noncurrent time on an object is before this date in UTC. This condition is relevant only for versioned objects.
-    @[JSON::Field(key: "noncurrentTimeBefore", type: Time?, converter: Time::ISO8601DateConverter, presence: true, ignore_serialize: noncurrent_time_before.nil? && !noncurrent_time_before_present?, emit_null: true)]
+    @[JSON::Field(key: "noncurrentTimeBefore", type: Time?, converter: Time::ISO8601DateConverter, presence: true, ignore_serialize: noncurrent_time_before.nil? && !noncurrent_time_before_present?)]
     property noncurrent_time_before : Time?
+
     @[JSON::Field(ignore: true)]
     property? noncurrent_time_before_present : Bool = false
 
     # Relevant only for versioned objects. If the value is N, this condition is satisfied when there are at least N versions (including the live version) newer than this version of the object.
-    @[JSON::Field(key: "numNewerVersions", type: Int32?, presence: true, ignore_serialize: num_newer_versions.nil? && !num_newer_versions_present?, emit_null: true)]
+    @[JSON::Field(key: "numNewerVersions", type: Int32?, presence: true, ignore_serialize: num_newer_versions.nil? && !num_newer_versions_present?)]
     property num_newer_versions : Int32?
+
     @[JSON::Field(ignore: true)]
     property? num_newer_versions_present : Bool = false
 

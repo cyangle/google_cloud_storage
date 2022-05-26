@@ -13,25 +13,29 @@ require "log"
 
 module GoogleCloudStorage
   # A Compose request.
+  @[JSON::Serializable::Options(emit_nulls: true)]
   class ComposeRequest
     include JSON::Serializable
     include JSON::Serializable::Unmapped
 
     # Optional properties
-    @[JSON::Field(key: "destination", type: Object?, presence: true, ignore_serialize: destination.nil? && !destination_present?, emit_null: true)]
+    @[JSON::Field(key: "destination", type: Object?, presence: true, ignore_serialize: destination.nil? && !destination_present?)]
     property destination : Object?
+
     @[JSON::Field(ignore: true)]
     property? destination_present : Bool = false
 
     # The kind of item this is.
-    @[JSON::Field(key: "kind", type: String?, default: "storage#composeRequest", presence: true, ignore_serialize: kind.nil? && !kind_present?, emit_null: true)]
+    @[JSON::Field(key: "kind", type: String?, default: "storage#composeRequest", presence: true, ignore_serialize: kind.nil? && !kind_present?)]
     property kind : String?
+
     @[JSON::Field(ignore: true)]
     property? kind_present : Bool = false
 
     # The list of source objects that will be concatenated into a single object.
-    @[JSON::Field(key: "sourceObjects", type: Array(ComposeRequestSourceObjectsInner)?, presence: true, ignore_serialize: source_objects.nil? && !source_objects_present?, emit_null: true)]
+    @[JSON::Field(key: "sourceObjects", type: Array(ComposeRequestSourceObjectsInner)?, presence: true, ignore_serialize: source_objects.nil? && !source_objects_present?)]
     property source_objects : Array(ComposeRequestSourceObjectsInner)?
+
     @[JSON::Field(ignore: true)]
     property? source_objects_present : Bool = false
 

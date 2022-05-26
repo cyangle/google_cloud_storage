@@ -13,20 +13,23 @@ require "log"
 
 module GoogleCloudStorage
   # A storage.(buckets|objects).testIamPermissions response.
+  @[JSON::Serializable::Options(emit_nulls: true)]
   class TestIamPermissionsResponse
     include JSON::Serializable
     include JSON::Serializable::Unmapped
 
     # Optional properties
     # The kind of item this is.
-    @[JSON::Field(key: "kind", type: String?, default: "storage#testIamPermissionsResponse", presence: true, ignore_serialize: kind.nil? && !kind_present?, emit_null: true)]
+    @[JSON::Field(key: "kind", type: String?, default: "storage#testIamPermissionsResponse", presence: true, ignore_serialize: kind.nil? && !kind_present?)]
     property kind : String?
+
     @[JSON::Field(ignore: true)]
     property? kind_present : Bool = false
 
     # The permissions held by the caller. Permissions are always of the format storage.resource.capability, where resource is one of buckets or objects. The supported permissions are as follows:   - storage.buckets.delete — Delete bucket.   - storage.buckets.get — Read bucket metadata.   - storage.buckets.getIamPolicy — Read bucket IAM policy.   - storage.buckets.create — Create bucket.   - storage.buckets.list — List buckets.   - storage.buckets.setIamPolicy — Update bucket IAM policy.   - storage.buckets.update — Update bucket metadata.   - storage.objects.delete — Delete object.   - storage.objects.get — Read object data and metadata.   - storage.objects.getIamPolicy — Read object IAM policy.   - storage.objects.create — Create object.   - storage.objects.list — List objects.   - storage.objects.setIamPolicy — Update object IAM policy.   - storage.objects.update — Update object metadata.
-    @[JSON::Field(key: "permissions", type: Array(String)?, presence: true, ignore_serialize: permissions.nil? && !permissions_present?, emit_null: true)]
+    @[JSON::Field(key: "permissions", type: Array(String)?, presence: true, ignore_serialize: permissions.nil? && !permissions_present?)]
     property permissions : Array(String)?
+
     @[JSON::Field(ignore: true)]
     property? permissions_present : Bool = false
 

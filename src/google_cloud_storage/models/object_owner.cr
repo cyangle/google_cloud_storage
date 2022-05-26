@@ -13,20 +13,23 @@ require "log"
 
 module GoogleCloudStorage
   # The owner of the object. This will always be the uploader of the object.
+  @[JSON::Serializable::Options(emit_nulls: true)]
   class ObjectOwner
     include JSON::Serializable
     include JSON::Serializable::Unmapped
 
     # Optional properties
     # The entity, in the form user-userId.
-    @[JSON::Field(key: "entity", type: String?, presence: true, ignore_serialize: entity.nil? && !entity_present?, emit_null: true)]
+    @[JSON::Field(key: "entity", type: String?, presence: true, ignore_serialize: entity.nil? && !entity_present?)]
     property entity : String?
+
     @[JSON::Field(ignore: true)]
     property? entity_present : Bool = false
 
     # The ID for the entity.
-    @[JSON::Field(key: "entityId", type: String?, presence: true, ignore_serialize: entity_id.nil? && !entity_id_present?, emit_null: true)]
+    @[JSON::Field(key: "entityId", type: String?, presence: true, ignore_serialize: entity_id.nil? && !entity_id_present?)]
     property entity_id : String?
+
     @[JSON::Field(ignore: true)]
     property? entity_id_present : Bool = false
 

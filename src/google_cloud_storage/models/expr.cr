@@ -13,32 +13,37 @@ require "log"
 
 module GoogleCloudStorage
   # Represents an expression text. Example: title: \"User account presence\" description: \"Determines whether the request has a user account\" expression: \"size(request.user) > 0\"
+  @[JSON::Serializable::Options(emit_nulls: true)]
   class Expr
     include JSON::Serializable
     include JSON::Serializable::Unmapped
 
     # Optional properties
     # An optional description of the expression. This is a longer text which describes the expression, e.g. when hovered over it in a UI.
-    @[JSON::Field(key: "description", type: String?, presence: true, ignore_serialize: description.nil? && !description_present?, emit_null: true)]
+    @[JSON::Field(key: "description", type: String?, presence: true, ignore_serialize: description.nil? && !description_present?)]
     property description : String?
+
     @[JSON::Field(ignore: true)]
     property? description_present : Bool = false
 
     # Textual representation of an expression in Common Expression Language syntax. The application context of the containing message determines which well-known feature set of CEL is supported.
-    @[JSON::Field(key: "expression", type: String?, presence: true, ignore_serialize: expression.nil? && !expression_present?, emit_null: true)]
+    @[JSON::Field(key: "expression", type: String?, presence: true, ignore_serialize: expression.nil? && !expression_present?)]
     property expression : String?
+
     @[JSON::Field(ignore: true)]
     property? expression_present : Bool = false
 
     # An optional string indicating the location of the expression for error reporting, e.g. a file name and a position in the file.
-    @[JSON::Field(key: "location", type: String?, presence: true, ignore_serialize: location.nil? && !location_present?, emit_null: true)]
+    @[JSON::Field(key: "location", type: String?, presence: true, ignore_serialize: location.nil? && !location_present?)]
     property location : String?
+
     @[JSON::Field(ignore: true)]
     property? location_present : Bool = false
 
     # An optional title for the expression, i.e. a short string describing its purpose. This can be used e.g. in UIs which allow to enter the expression.
-    @[JSON::Field(key: "title", type: String?, presence: true, ignore_serialize: title.nil? && !title_present?, emit_null: true)]
+    @[JSON::Field(key: "title", type: String?, presence: true, ignore_serialize: title.nil? && !title_present?)]
     property title : String?
+
     @[JSON::Field(ignore: true)]
     property? title_present : Bool = false
 

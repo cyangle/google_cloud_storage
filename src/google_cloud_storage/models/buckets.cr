@@ -13,26 +13,30 @@ require "log"
 
 module GoogleCloudStorage
   # A list of buckets.
+  @[JSON::Serializable::Options(emit_nulls: true)]
   class Buckets
     include JSON::Serializable
     include JSON::Serializable::Unmapped
 
     # Optional properties
     # The list of items.
-    @[JSON::Field(key: "items", type: Array(Bucket)?, presence: true, ignore_serialize: items.nil? && !items_present?, emit_null: true)]
+    @[JSON::Field(key: "items", type: Array(Bucket)?, presence: true, ignore_serialize: items.nil? && !items_present?)]
     property items : Array(Bucket)?
+
     @[JSON::Field(ignore: true)]
     property? items_present : Bool = false
 
     # The kind of item this is. For lists of buckets, this is always storage#buckets.
-    @[JSON::Field(key: "kind", type: String?, default: "storage#buckets", presence: true, ignore_serialize: kind.nil? && !kind_present?, emit_null: true)]
+    @[JSON::Field(key: "kind", type: String?, default: "storage#buckets", presence: true, ignore_serialize: kind.nil? && !kind_present?)]
     property kind : String?
+
     @[JSON::Field(ignore: true)]
     property? kind_present : Bool = false
 
     # The continuation token, used to page through large result sets. Provide this value in a subsequent request to return the next page of results.
-    @[JSON::Field(key: "nextPageToken", type: String?, presence: true, ignore_serialize: next_page_token.nil? && !next_page_token_present?, emit_null: true)]
+    @[JSON::Field(key: "nextPageToken", type: String?, presence: true, ignore_serialize: next_page_token.nil? && !next_page_token_present?)]
     property next_page_token : String?
+
     @[JSON::Field(ignore: true)]
     property? next_page_token_present : Bool = false
 

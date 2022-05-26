@@ -13,62 +13,72 @@ require "log"
 
 module GoogleCloudStorage
   # A subscription to receive Google PubSub notifications.
+  @[JSON::Serializable::Options(emit_nulls: true)]
   class Notification
     include JSON::Serializable
     include JSON::Serializable::Unmapped
 
     # Optional properties
     # An optional list of additional attributes to attach to each Cloud PubSub message published for this notification subscription.
-    @[JSON::Field(key: "custom_attributes", type: Hash(String, String)?, presence: true, ignore_serialize: custom_attributes.nil? && !custom_attributes_present?, emit_null: true)]
+    @[JSON::Field(key: "custom_attributes", type: Hash(String, String)?, presence: true, ignore_serialize: custom_attributes.nil? && !custom_attributes_present?)]
     property custom_attributes : Hash(String, String)?
+
     @[JSON::Field(ignore: true)]
     property? custom_attributes_present : Bool = false
 
     # HTTP 1.1 Entity tag for this subscription notification.
-    @[JSON::Field(key: "etag", type: String?, presence: true, ignore_serialize: etag.nil? && !etag_present?, emit_null: true)]
+    @[JSON::Field(key: "etag", type: String?, presence: true, ignore_serialize: etag.nil? && !etag_present?)]
     property etag : String?
+
     @[JSON::Field(ignore: true)]
     property? etag_present : Bool = false
 
     # If present, only send notifications about listed event types. If empty, sent notifications for all event types.
-    @[JSON::Field(key: "event_types", type: Array(String)?, presence: true, ignore_serialize: event_types.nil? && !event_types_present?, emit_null: true)]
+    @[JSON::Field(key: "event_types", type: Array(String)?, presence: true, ignore_serialize: event_types.nil? && !event_types_present?)]
     property event_types : Array(String)?
+
     @[JSON::Field(ignore: true)]
     property? event_types_present : Bool = false
 
     # The ID of the notification.
-    @[JSON::Field(key: "id", type: String?, presence: true, ignore_serialize: id.nil? && !id_present?, emit_null: true)]
+    @[JSON::Field(key: "id", type: String?, presence: true, ignore_serialize: id.nil? && !id_present?)]
     property id : String?
+
     @[JSON::Field(ignore: true)]
     property? id_present : Bool = false
 
     # The kind of item this is. For notifications, this is always storage#notification.
-    @[JSON::Field(key: "kind", type: String?, default: "storage#notification", presence: true, ignore_serialize: kind.nil? && !kind_present?, emit_null: true)]
+    @[JSON::Field(key: "kind", type: String?, default: "storage#notification", presence: true, ignore_serialize: kind.nil? && !kind_present?)]
     property kind : String?
+
     @[JSON::Field(ignore: true)]
     property? kind_present : Bool = false
 
     # If present, only apply this notification configuration to object names that begin with this prefix.
-    @[JSON::Field(key: "object_name_prefix", type: String?, presence: true, ignore_serialize: object_name_prefix.nil? && !object_name_prefix_present?, emit_null: true)]
+    @[JSON::Field(key: "object_name_prefix", type: String?, presence: true, ignore_serialize: object_name_prefix.nil? && !object_name_prefix_present?)]
     property object_name_prefix : String?
+
     @[JSON::Field(ignore: true)]
     property? object_name_prefix_present : Bool = false
 
     # The desired content of the Payload.
-    @[JSON::Field(key: "payload_format", type: String?, default: "JSON_API_V1", presence: true, ignore_serialize: payload_format.nil? && !payload_format_present?, emit_null: true)]
+    @[JSON::Field(key: "payload_format", type: String?, default: "JSON_API_V1", presence: true, ignore_serialize: payload_format.nil? && !payload_format_present?)]
     property payload_format : String?
+
     @[JSON::Field(ignore: true)]
     property? payload_format_present : Bool = false
 
     # The canonical URL of this notification.
-    @[JSON::Field(key: "selfLink", type: String?, presence: true, ignore_serialize: self_link.nil? && !self_link_present?, emit_null: true)]
+    @[JSON::Field(key: "selfLink", type: String?, presence: true, ignore_serialize: self_link.nil? && !self_link_present?)]
     property self_link : String?
+
     @[JSON::Field(ignore: true)]
     property? self_link_present : Bool = false
 
     # The Cloud PubSub topic to which this subscription publishes. Formatted as: '//pubsub.googleapis.com/projects/{project-identifier}/topics/{my-topic}'
-    @[JSON::Field(key: "topic", type: String?, presence: true, ignore_serialize: topic.nil? && !topic_present?, emit_null: true)]
+    @[JSON::Field(key: "topic", type: String?, presence: true, ignore_serialize: topic.nil? && !topic_present?)]
     property topic : String?
+
     @[JSON::Field(ignore: true)]
     property? topic_present : Bool = false
 

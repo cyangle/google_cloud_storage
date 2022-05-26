@@ -13,14 +13,16 @@ require "log"
 
 module GoogleCloudStorage
   # Encryption configuration for a bucket.
+  @[JSON::Serializable::Options(emit_nulls: true)]
   class BucketEncryption
     include JSON::Serializable
     include JSON::Serializable::Unmapped
 
     # Optional properties
     # A Cloud KMS key that will be used to encrypt objects inserted into this bucket, if no encryption method is specified.
-    @[JSON::Field(key: "defaultKmsKeyName", type: String?, presence: true, ignore_serialize: default_kms_key_name.nil? && !default_kms_key_name_present?, emit_null: true)]
+    @[JSON::Field(key: "defaultKmsKeyName", type: String?, presence: true, ignore_serialize: default_kms_key_name.nil? && !default_kms_key_name_present?)]
     property default_kms_key_name : String?
+
     @[JSON::Field(ignore: true)]
     property? default_kms_key_name_present : Bool = false
 

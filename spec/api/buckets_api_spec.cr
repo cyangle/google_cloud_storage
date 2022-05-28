@@ -30,10 +30,10 @@ describe "BucketsApi" do
   # @option opts [String] :oauth_token OAuth 2.0 token for the current user.
   # @option opts [Bool] :pretty_print Returns response with indentations and line breaks.
   # @option opts [String] :quota_user An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  # @option opts [String] :upload_type Upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;, \&quot;resumable\&quot;).
   # @option opts [String] :user_ip Deprecated. Please use quotaUser instead.
   # @option opts [String] :if_metageneration_match If set, only deletes the bucket if its metageneration matches this value.
   # @option opts [String] :if_metageneration_not_match If set, only deletes the bucket if its metageneration does not match this value.
-  # @option opts [String] :provisional_user_project The project to be billed for this request if the target bucket is requester-pays bucket.
   # @option opts [String] :user_project The project to be billed for this request. Required for Requester Pays buckets.
   # @return [nil]
   describe "storage_buckets_delete test" do
@@ -52,11 +52,11 @@ describe "BucketsApi" do
   # @option opts [String] :oauth_token OAuth 2.0 token for the current user.
   # @option opts [Bool] :pretty_print Returns response with indentations and line breaks.
   # @option opts [String] :quota_user An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  # @option opts [String] :upload_type Upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;, \&quot;resumable\&quot;).
   # @option opts [String] :user_ip Deprecated. Please use quotaUser instead.
   # @option opts [String] :if_metageneration_match Makes the return of the bucket metadata conditional on whether the bucket&#39;s current metageneration matches the given value.
   # @option opts [String] :if_metageneration_not_match Makes the return of the bucket metadata conditional on whether the bucket&#39;s current metageneration does not match the given value.
   # @option opts [String] :projection Set of properties to return. Defaults to noAcl.
-  # @option opts [String] :provisional_user_project The project to be billed for this request if the target bucket is requester-pays bucket.
   # @option opts [String] :user_project The project to be billed for this request. Required for Requester Pays buckets.
   # @return [Bucket]
   describe "storage_buckets_get test" do
@@ -75,9 +75,9 @@ describe "BucketsApi" do
   # @option opts [String] :oauth_token OAuth 2.0 token for the current user.
   # @option opts [Bool] :pretty_print Returns response with indentations and line breaks.
   # @option opts [String] :quota_user An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  # @option opts [String] :upload_type Upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;, \&quot;resumable\&quot;).
   # @option opts [String] :user_ip Deprecated. Please use quotaUser instead.
   # @option opts [Int32] :options_requested_policy_version The IAM policy format version to be returned. If the optionsRequestedPolicyVersion is for an older version that doesn&#39;t support part of the requested IAM policy, the request fails.
-  # @option opts [String] :provisional_user_project The project to be billed for this request if the target bucket is requester-pays bucket.
   # @option opts [String] :user_project The project to be billed for this request. Required for Requester Pays buckets.
   # @return [Policy]
   describe "storage_buckets_get_iam_policy test" do
@@ -96,11 +96,11 @@ describe "BucketsApi" do
   # @option opts [String] :oauth_token OAuth 2.0 token for the current user.
   # @option opts [Bool] :pretty_print Returns response with indentations and line breaks.
   # @option opts [String] :quota_user An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  # @option opts [String] :upload_type Upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;, \&quot;resumable\&quot;).
   # @option opts [String] :user_ip Deprecated. Please use quotaUser instead.
   # @option opts [String] :predefined_acl Apply a predefined set of access controls to this bucket.
   # @option opts [String] :predefined_default_object_acl Apply a predefined set of default object access controls to this bucket.
   # @option opts [String] :projection Set of properties to return. Defaults to noAcl, unless the bucket resource specifies acl or defaultObjectAcl properties, when it defaults to full.
-  # @option opts [String] :provisional_user_project The project to be billed for this request if the target bucket is requester-pays bucket.
   # @option opts [String] :user_project The project to be billed for this request.
   # @option opts [Bucket] :bucket
   # @return [Bucket]
@@ -120,12 +120,12 @@ describe "BucketsApi" do
   # @option opts [String] :oauth_token OAuth 2.0 token for the current user.
   # @option opts [Bool] :pretty_print Returns response with indentations and line breaks.
   # @option opts [String] :quota_user An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  # @option opts [String] :upload_type Upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;, \&quot;resumable\&quot;).
   # @option opts [String] :user_ip Deprecated. Please use quotaUser instead.
   # @option opts [Int32] :max_results Maximum number of buckets to return in a single response. The service will use this parameter or 1,000 items, whichever is smaller.
   # @option opts [String] :page_token A previously-returned page token representing part of the larger set of results to view.
   # @option opts [String] :prefix Filter results to buckets whose names begin with this prefix.
   # @option opts [String] :projection Set of properties to return. Defaults to noAcl.
-  # @option opts [String] :provisional_user_project The project to be billed for this request if the target bucket is requester-pays bucket.
   # @option opts [String] :user_project The project to be billed for this request.
   # @return [Buckets]
   describe "storage_buckets_list test" do
@@ -145,8 +145,8 @@ describe "BucketsApi" do
   # @option opts [String] :oauth_token OAuth 2.0 token for the current user.
   # @option opts [Bool] :pretty_print Returns response with indentations and line breaks.
   # @option opts [String] :quota_user An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  # @option opts [String] :upload_type Upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;, \&quot;resumable\&quot;).
   # @option opts [String] :user_ip Deprecated. Please use quotaUser instead.
-  # @option opts [String] :provisional_user_project The project to be billed for this request if the target bucket is requester-pays bucket.
   # @option opts [String] :user_project The project to be billed for this request. Required for Requester Pays buckets.
   # @return [Bucket]
   describe "storage_buckets_lock_retention_policy test" do
@@ -165,13 +165,13 @@ describe "BucketsApi" do
   # @option opts [String] :oauth_token OAuth 2.0 token for the current user.
   # @option opts [Bool] :pretty_print Returns response with indentations and line breaks.
   # @option opts [String] :quota_user An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  # @option opts [String] :upload_type Upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;, \&quot;resumable\&quot;).
   # @option opts [String] :user_ip Deprecated. Please use quotaUser instead.
   # @option opts [String] :if_metageneration_match Makes the return of the bucket metadata conditional on whether the bucket&#39;s current metageneration matches the given value.
   # @option opts [String] :if_metageneration_not_match Makes the return of the bucket metadata conditional on whether the bucket&#39;s current metageneration does not match the given value.
   # @option opts [String] :predefined_acl Apply a predefined set of access controls to this bucket.
   # @option opts [String] :predefined_default_object_acl Apply a predefined set of default object access controls to this bucket.
   # @option opts [String] :projection Set of properties to return. Defaults to full.
-  # @option opts [String] :provisional_user_project The project to be billed for this request if the target bucket is requester-pays bucket.
   # @option opts [String] :user_project The project to be billed for this request. Required for Requester Pays buckets.
   # @option opts [Bucket] :bucket2
   # @return [Bucket]
@@ -191,8 +191,8 @@ describe "BucketsApi" do
   # @option opts [String] :oauth_token OAuth 2.0 token for the current user.
   # @option opts [Bool] :pretty_print Returns response with indentations and line breaks.
   # @option opts [String] :quota_user An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  # @option opts [String] :upload_type Upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;, \&quot;resumable\&quot;).
   # @option opts [String] :user_ip Deprecated. Please use quotaUser instead.
-  # @option opts [String] :provisional_user_project The project to be billed for this request if the target bucket is requester-pays bucket.
   # @option opts [String] :user_project The project to be billed for this request. Required for Requester Pays buckets.
   # @option opts [Policy] :policy
   # @return [Policy]
@@ -213,8 +213,8 @@ describe "BucketsApi" do
   # @option opts [String] :oauth_token OAuth 2.0 token for the current user.
   # @option opts [Bool] :pretty_print Returns response with indentations and line breaks.
   # @option opts [String] :quota_user An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  # @option opts [String] :upload_type Upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;, \&quot;resumable\&quot;).
   # @option opts [String] :user_ip Deprecated. Please use quotaUser instead.
-  # @option opts [String] :provisional_user_project The project to be billed for this request if the target bucket is requester-pays bucket.
   # @option opts [String] :user_project The project to be billed for this request. Required for Requester Pays buckets.
   # @return [TestIamPermissionsResponse]
   describe "storage_buckets_test_iam_permissions test" do
@@ -233,13 +233,13 @@ describe "BucketsApi" do
   # @option opts [String] :oauth_token OAuth 2.0 token for the current user.
   # @option opts [Bool] :pretty_print Returns response with indentations and line breaks.
   # @option opts [String] :quota_user An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  # @option opts [String] :upload_type Upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;, \&quot;resumable\&quot;).
   # @option opts [String] :user_ip Deprecated. Please use quotaUser instead.
   # @option opts [String] :if_metageneration_match Makes the return of the bucket metadata conditional on whether the bucket&#39;s current metageneration matches the given value.
   # @option opts [String] :if_metageneration_not_match Makes the return of the bucket metadata conditional on whether the bucket&#39;s current metageneration does not match the given value.
   # @option opts [String] :predefined_acl Apply a predefined set of access controls to this bucket.
   # @option opts [String] :predefined_default_object_acl Apply a predefined set of default object access controls to this bucket.
   # @option opts [String] :projection Set of properties to return. Defaults to full.
-  # @option opts [String] :provisional_user_project The project to be billed for this request if the target bucket is requester-pays bucket.
   # @option opts [String] :user_project The project to be billed for this request. Required for Requester Pays buckets.
   # @option opts [Bucket] :bucket2
   # @return [Bucket]

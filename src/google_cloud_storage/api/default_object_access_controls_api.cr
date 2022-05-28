@@ -21,8 +21,8 @@ module GoogleCloudStorage
     # @param bucket [String] Name of a bucket.
     # @param entity [String] The entity holding the permission. Can be user-userId, user-emailAddress, group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers.
     # @return [nil]
-    def delete(*, bucket : String, entity : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil)
-      delete_with_http_info(bucket: bucket, entity: entity, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, provisional_user_project: provisional_user_project, user_project: user_project)
+    def delete(*, bucket : String, entity : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, user_project : String? = nil)
+      delete_with_http_info(bucket: bucket, entity: entity, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, user_project: user_project)
       nil
     end
 
@@ -30,8 +30,8 @@ module GoogleCloudStorage
     # @param bucket [String] Name of a bucket.
     # @param entity [String] The entity holding the permission. Can be user-userId, user-emailAddress, group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers.
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def delete_with_http_info(*, bucket : String, entity : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil)
-      request = build_api_request_for_delete(bucket: bucket, entity: entity, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, provisional_user_project: provisional_user_project, user_project: user_project)
+    def delete_with_http_info(*, bucket : String, entity : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, user_project : String? = nil)
+      request = build_api_request_for_delete(bucket: bucket, entity: entity, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, user_project: user_project)
 
       data, status_code, headers = @api_client.execute_api_request(request)
 
@@ -46,16 +46,16 @@ module GoogleCloudStorage
     # @param bucket [String] Name of a bucket.
     # @param entity [String] The entity holding the permission. Can be user-userId, user-emailAddress, group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers.
     # @return nil
-    def delete(*, bucket : String, entity : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, &block : Crest::Response ->)
-      build_api_request_for_delete(bucket: bucket, entity: entity, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, provisional_user_project: provisional_user_project, user_project: user_project).execute(&block)
+    def delete(*, bucket : String, entity : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, user_project : String? = nil, &block : Crest::Response ->)
+      build_api_request_for_delete(bucket: bucket, entity: entity, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, user_project: user_project).execute(&block)
     end
 
     # @return Crest::Request
-    def build_api_request_for_delete(*, bucket : String, entity : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil) : Crest::Request
+    def build_api_request_for_delete(*, bucket : String, entity : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, user_project : String? = nil) : Crest::Request
       if @api_client.config.debugging
         Log.debug { "Calling API: DefaultObjectAccessControlsApi.delete ..." }
       end
-      allowable_values = ["json", "media"]
+      allowable_values = ["json"]
       if @api_client.config.client_side_validation && !alt.nil? && !allowable_values.includes?(alt)
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
@@ -70,8 +70,8 @@ module GoogleCloudStorage
       query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil?
       query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil?
       query_params["quotaUser"] = quota_user.to_s if !quota_user.nil?
+      query_params["uploadType"] = upload_type.to_s if !upload_type.nil?
       query_params["userIp"] = user_ip.to_s if !user_ip.nil?
-      query_params["provisionalUserProject"] = provisional_user_project.to_s if !provisional_user_project.nil?
       query_params["userProject"] = user_project.to_s if !user_project.nil?
 
       # header parameters
@@ -102,8 +102,8 @@ module GoogleCloudStorage
     # @param bucket [String] Name of a bucket.
     # @param entity [String] The entity holding the permission. Can be user-userId, user-emailAddress, group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers.
     # @return [ObjectAccessControl]
-    def get(*, bucket : String, entity : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil)
-      data, _status_code, _headers = get_with_http_info(bucket: bucket, entity: entity, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, provisional_user_project: provisional_user_project, user_project: user_project)
+    def get(*, bucket : String, entity : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, user_project : String? = nil)
+      data, _status_code, _headers = get_with_http_info(bucket: bucket, entity: entity, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, user_project: user_project)
       data
     end
 
@@ -111,8 +111,8 @@ module GoogleCloudStorage
     # @param bucket [String] Name of a bucket.
     # @param entity [String] The entity holding the permission. Can be user-userId, user-emailAddress, group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers.
     # @return [Array<(ObjectAccessControl, Integer, Hash)>] ObjectAccessControl data, response status code and response headers
-    def get_with_http_info(*, bucket : String, entity : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil)
-      request = build_api_request_for_get(bucket: bucket, entity: entity, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, provisional_user_project: provisional_user_project, user_project: user_project)
+    def get_with_http_info(*, bucket : String, entity : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, user_project : String? = nil)
+      request = build_api_request_for_get(bucket: bucket, entity: entity, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, user_project: user_project)
 
       data, status_code, headers = @api_client.execute_api_request(request)
 
@@ -127,16 +127,16 @@ module GoogleCloudStorage
     # @param bucket [String] Name of a bucket.
     # @param entity [String] The entity holding the permission. Can be user-userId, user-emailAddress, group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers.
     # @return nil
-    def get(*, bucket : String, entity : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, &block : Crest::Response ->)
-      build_api_request_for_get(bucket: bucket, entity: entity, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, provisional_user_project: provisional_user_project, user_project: user_project).execute(&block)
+    def get(*, bucket : String, entity : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, user_project : String? = nil, &block : Crest::Response ->)
+      build_api_request_for_get(bucket: bucket, entity: entity, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, user_project: user_project).execute(&block)
     end
 
     # @return Crest::Request
-    def build_api_request_for_get(*, bucket : String, entity : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil) : Crest::Request
+    def build_api_request_for_get(*, bucket : String, entity : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, user_project : String? = nil) : Crest::Request
       if @api_client.config.debugging
         Log.debug { "Calling API: DefaultObjectAccessControlsApi.get ..." }
       end
-      allowable_values = ["json", "media"]
+      allowable_values = ["json"]
       if @api_client.config.client_side_validation && !alt.nil? && !allowable_values.includes?(alt)
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
@@ -151,8 +151,8 @@ module GoogleCloudStorage
       query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil?
       query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil?
       query_params["quotaUser"] = quota_user.to_s if !quota_user.nil?
+      query_params["uploadType"] = upload_type.to_s if !upload_type.nil?
       query_params["userIp"] = user_ip.to_s if !user_ip.nil?
-      query_params["provisionalUserProject"] = provisional_user_project.to_s if !provisional_user_project.nil?
       query_params["userProject"] = user_project.to_s if !user_project.nil?
 
       # header parameters
@@ -184,16 +184,16 @@ module GoogleCloudStorage
     # Creates a new default object ACL entry on the specified bucket.
     # @param bucket [String] Name of a bucket.
     # @return [ObjectAccessControl]
-    def insert(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, object_access_control : ObjectAccessControl? = nil)
-      data, _status_code, _headers = insert_with_http_info(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, provisional_user_project: provisional_user_project, user_project: user_project, object_access_control: object_access_control)
+    def insert(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, user_project : String? = nil, object_access_control : ObjectAccessControl? = nil)
+      data, _status_code, _headers = insert_with_http_info(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, user_project: user_project, object_access_control: object_access_control)
       data
     end
 
     # Creates a new default object ACL entry on the specified bucket.
     # @param bucket [String] Name of a bucket.
     # @return [Array<(ObjectAccessControl, Integer, Hash)>] ObjectAccessControl data, response status code and response headers
-    def insert_with_http_info(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, object_access_control : ObjectAccessControl? = nil)
-      request = build_api_request_for_insert(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, provisional_user_project: provisional_user_project, user_project: user_project, object_access_control: object_access_control)
+    def insert_with_http_info(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, user_project : String? = nil, object_access_control : ObjectAccessControl? = nil)
+      request = build_api_request_for_insert(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, user_project: user_project, object_access_control: object_access_control)
 
       data, status_code, headers = @api_client.execute_api_request(request)
 
@@ -207,16 +207,16 @@ module GoogleCloudStorage
     # Creates a new default object ACL entry on the specified bucket.
     # @param bucket [String] Name of a bucket.
     # @return nil
-    def insert(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, object_access_control : ObjectAccessControl? = nil, &block : Crest::Response ->)
-      build_api_request_for_insert(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, provisional_user_project: provisional_user_project, user_project: user_project, object_access_control: object_access_control).execute(&block)
+    def insert(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, user_project : String? = nil, object_access_control : ObjectAccessControl? = nil, &block : Crest::Response ->)
+      build_api_request_for_insert(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, user_project: user_project, object_access_control: object_access_control).execute(&block)
     end
 
     # @return Crest::Request
-    def build_api_request_for_insert(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, object_access_control : ObjectAccessControl? = nil) : Crest::Request
+    def build_api_request_for_insert(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, user_project : String? = nil, object_access_control : ObjectAccessControl? = nil) : Crest::Request
       if @api_client.config.debugging
         Log.debug { "Calling API: DefaultObjectAccessControlsApi.insert ..." }
       end
-      allowable_values = ["json", "media"]
+      allowable_values = ["json"]
       if @api_client.config.client_side_validation && !alt.nil? && !allowable_values.includes?(alt)
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
@@ -231,8 +231,8 @@ module GoogleCloudStorage
       query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil?
       query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil?
       query_params["quotaUser"] = quota_user.to_s if !quota_user.nil?
+      query_params["uploadType"] = upload_type.to_s if !upload_type.nil?
       query_params["userIp"] = user_ip.to_s if !user_ip.nil?
-      query_params["provisionalUserProject"] = provisional_user_project.to_s if !provisional_user_project.nil?
       query_params["userProject"] = user_project.to_s if !user_project.nil?
 
       # header parameters
@@ -266,16 +266,16 @@ module GoogleCloudStorage
     # Retrieves default object ACL entries on the specified bucket.
     # @param bucket [String] Name of a bucket.
     # @return [ObjectAccessControls]
-    def list(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil)
-      data, _status_code, _headers = list_with_http_info(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, provisional_user_project: provisional_user_project, user_project: user_project)
+    def list(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, user_project : String? = nil)
+      data, _status_code, _headers = list_with_http_info(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, user_project: user_project)
       data
     end
 
     # Retrieves default object ACL entries on the specified bucket.
     # @param bucket [String] Name of a bucket.
     # @return [Array<(ObjectAccessControls, Integer, Hash)>] ObjectAccessControls data, response status code and response headers
-    def list_with_http_info(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil)
-      request = build_api_request_for_list(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, provisional_user_project: provisional_user_project, user_project: user_project)
+    def list_with_http_info(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, user_project : String? = nil)
+      request = build_api_request_for_list(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, user_project: user_project)
 
       data, status_code, headers = @api_client.execute_api_request(request)
 
@@ -289,16 +289,16 @@ module GoogleCloudStorage
     # Retrieves default object ACL entries on the specified bucket.
     # @param bucket [String] Name of a bucket.
     # @return nil
-    def list(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, &block : Crest::Response ->)
-      build_api_request_for_list(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, provisional_user_project: provisional_user_project, user_project: user_project).execute(&block)
+    def list(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, user_project : String? = nil, &block : Crest::Response ->)
+      build_api_request_for_list(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, user_project: user_project).execute(&block)
     end
 
     # @return Crest::Request
-    def build_api_request_for_list(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil) : Crest::Request
+    def build_api_request_for_list(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, user_project : String? = nil) : Crest::Request
       if @api_client.config.debugging
         Log.debug { "Calling API: DefaultObjectAccessControlsApi.list ..." }
       end
-      allowable_values = ["json", "media"]
+      allowable_values = ["json"]
       if @api_client.config.client_side_validation && !alt.nil? && !allowable_values.includes?(alt)
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
@@ -313,10 +313,10 @@ module GoogleCloudStorage
       query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil?
       query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil?
       query_params["quotaUser"] = quota_user.to_s if !quota_user.nil?
+      query_params["uploadType"] = upload_type.to_s if !upload_type.nil?
       query_params["userIp"] = user_ip.to_s if !user_ip.nil?
       query_params["ifMetagenerationMatch"] = if_metageneration_match.to_s if !if_metageneration_match.nil?
       query_params["ifMetagenerationNotMatch"] = if_metageneration_not_match.to_s if !if_metageneration_not_match.nil?
-      query_params["provisionalUserProject"] = provisional_user_project.to_s if !provisional_user_project.nil?
       query_params["userProject"] = user_project.to_s if !user_project.nil?
 
       # header parameters
@@ -349,8 +349,8 @@ module GoogleCloudStorage
     # @param bucket [String] Name of a bucket.
     # @param entity [String] The entity holding the permission. Can be user-userId, user-emailAddress, group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers.
     # @return [ObjectAccessControl]
-    def patch(*, bucket : String, entity : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, object_access_control : ObjectAccessControl? = nil)
-      data, _status_code, _headers = patch_with_http_info(bucket: bucket, entity: entity, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, provisional_user_project: provisional_user_project, user_project: user_project, object_access_control: object_access_control)
+    def patch(*, bucket : String, entity : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, user_project : String? = nil, object_access_control : ObjectAccessControl? = nil)
+      data, _status_code, _headers = patch_with_http_info(bucket: bucket, entity: entity, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, user_project: user_project, object_access_control: object_access_control)
       data
     end
 
@@ -358,8 +358,8 @@ module GoogleCloudStorage
     # @param bucket [String] Name of a bucket.
     # @param entity [String] The entity holding the permission. Can be user-userId, user-emailAddress, group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers.
     # @return [Array<(ObjectAccessControl, Integer, Hash)>] ObjectAccessControl data, response status code and response headers
-    def patch_with_http_info(*, bucket : String, entity : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, object_access_control : ObjectAccessControl? = nil)
-      request = build_api_request_for_patch(bucket: bucket, entity: entity, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, provisional_user_project: provisional_user_project, user_project: user_project, object_access_control: object_access_control)
+    def patch_with_http_info(*, bucket : String, entity : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, user_project : String? = nil, object_access_control : ObjectAccessControl? = nil)
+      request = build_api_request_for_patch(bucket: bucket, entity: entity, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, user_project: user_project, object_access_control: object_access_control)
 
       data, status_code, headers = @api_client.execute_api_request(request)
 
@@ -374,16 +374,16 @@ module GoogleCloudStorage
     # @param bucket [String] Name of a bucket.
     # @param entity [String] The entity holding the permission. Can be user-userId, user-emailAddress, group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers.
     # @return nil
-    def patch(*, bucket : String, entity : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, object_access_control : ObjectAccessControl? = nil, &block : Crest::Response ->)
-      build_api_request_for_patch(bucket: bucket, entity: entity, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, provisional_user_project: provisional_user_project, user_project: user_project, object_access_control: object_access_control).execute(&block)
+    def patch(*, bucket : String, entity : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, user_project : String? = nil, object_access_control : ObjectAccessControl? = nil, &block : Crest::Response ->)
+      build_api_request_for_patch(bucket: bucket, entity: entity, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, user_project: user_project, object_access_control: object_access_control).execute(&block)
     end
 
     # @return Crest::Request
-    def build_api_request_for_patch(*, bucket : String, entity : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, object_access_control : ObjectAccessControl? = nil) : Crest::Request
+    def build_api_request_for_patch(*, bucket : String, entity : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, user_project : String? = nil, object_access_control : ObjectAccessControl? = nil) : Crest::Request
       if @api_client.config.debugging
         Log.debug { "Calling API: DefaultObjectAccessControlsApi.patch ..." }
       end
-      allowable_values = ["json", "media"]
+      allowable_values = ["json"]
       if @api_client.config.client_side_validation && !alt.nil? && !allowable_values.includes?(alt)
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
@@ -398,8 +398,8 @@ module GoogleCloudStorage
       query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil?
       query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil?
       query_params["quotaUser"] = quota_user.to_s if !quota_user.nil?
+      query_params["uploadType"] = upload_type.to_s if !upload_type.nil?
       query_params["userIp"] = user_ip.to_s if !user_ip.nil?
-      query_params["provisionalUserProject"] = provisional_user_project.to_s if !provisional_user_project.nil?
       query_params["userProject"] = user_project.to_s if !user_project.nil?
 
       # header parameters
@@ -434,8 +434,8 @@ module GoogleCloudStorage
     # @param bucket [String] Name of a bucket.
     # @param entity [String] The entity holding the permission. Can be user-userId, user-emailAddress, group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers.
     # @return [ObjectAccessControl]
-    def update(*, bucket : String, entity : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, object_access_control : ObjectAccessControl? = nil)
-      data, _status_code, _headers = update_with_http_info(bucket: bucket, entity: entity, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, provisional_user_project: provisional_user_project, user_project: user_project, object_access_control: object_access_control)
+    def update(*, bucket : String, entity : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, user_project : String? = nil, object_access_control : ObjectAccessControl? = nil)
+      data, _status_code, _headers = update_with_http_info(bucket: bucket, entity: entity, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, user_project: user_project, object_access_control: object_access_control)
       data
     end
 
@@ -443,8 +443,8 @@ module GoogleCloudStorage
     # @param bucket [String] Name of a bucket.
     # @param entity [String] The entity holding the permission. Can be user-userId, user-emailAddress, group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers.
     # @return [Array<(ObjectAccessControl, Integer, Hash)>] ObjectAccessControl data, response status code and response headers
-    def update_with_http_info(*, bucket : String, entity : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, object_access_control : ObjectAccessControl? = nil)
-      request = build_api_request_for_update(bucket: bucket, entity: entity, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, provisional_user_project: provisional_user_project, user_project: user_project, object_access_control: object_access_control)
+    def update_with_http_info(*, bucket : String, entity : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, user_project : String? = nil, object_access_control : ObjectAccessControl? = nil)
+      request = build_api_request_for_update(bucket: bucket, entity: entity, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, user_project: user_project, object_access_control: object_access_control)
 
       data, status_code, headers = @api_client.execute_api_request(request)
 
@@ -459,16 +459,16 @@ module GoogleCloudStorage
     # @param bucket [String] Name of a bucket.
     # @param entity [String] The entity holding the permission. Can be user-userId, user-emailAddress, group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers.
     # @return nil
-    def update(*, bucket : String, entity : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, object_access_control : ObjectAccessControl? = nil, &block : Crest::Response ->)
-      build_api_request_for_update(bucket: bucket, entity: entity, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, provisional_user_project: provisional_user_project, user_project: user_project, object_access_control: object_access_control).execute(&block)
+    def update(*, bucket : String, entity : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, user_project : String? = nil, object_access_control : ObjectAccessControl? = nil, &block : Crest::Response ->)
+      build_api_request_for_update(bucket: bucket, entity: entity, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, user_project: user_project, object_access_control: object_access_control).execute(&block)
     end
 
     # @return Crest::Request
-    def build_api_request_for_update(*, bucket : String, entity : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, object_access_control : ObjectAccessControl? = nil) : Crest::Request
+    def build_api_request_for_update(*, bucket : String, entity : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, user_project : String? = nil, object_access_control : ObjectAccessControl? = nil) : Crest::Request
       if @api_client.config.debugging
         Log.debug { "Calling API: DefaultObjectAccessControlsApi.update ..." }
       end
-      allowable_values = ["json", "media"]
+      allowable_values = ["json"]
       if @api_client.config.client_side_validation && !alt.nil? && !allowable_values.includes?(alt)
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
@@ -483,8 +483,8 @@ module GoogleCloudStorage
       query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil?
       query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil?
       query_params["quotaUser"] = quota_user.to_s if !quota_user.nil?
+      query_params["uploadType"] = upload_type.to_s if !upload_type.nil?
       query_params["userIp"] = user_ip.to_s if !user_ip.nil?
-      query_params["provisionalUserProject"] = provisional_user_project.to_s if !provisional_user_project.nil?
       query_params["userProject"] = user_project.to_s if !user_project.nil?
 
       # header parameters

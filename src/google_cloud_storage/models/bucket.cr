@@ -45,12 +45,6 @@ module GoogleCloudStorage
     @[JSON::Field(ignore: true)]
     property? cors_present : Bool = false
 
-    @[JSON::Field(key: "customPlacementConfig", type: BucketCustomPlacementConfig?, presence: true, ignore_serialize: custom_placement_config.nil? && !custom_placement_config_present?)]
-    property custom_placement_config : BucketCustomPlacementConfig?
-
-    @[JSON::Field(ignore: true)]
-    property? custom_placement_config_present : Bool = false
-
     # The default value for event-based hold on newly created objects in this bucket. Event-based hold is a way to retain objects indefinitely until an event occurs, signified by the hold's release. After being released, such objects will be subject to bucket-level retention (if any). One sample use case of this flag is for banks to hold loan documents for at least 3 years after loan is paid in full. Here, bucket-level retention is 3 years and the event is loan being paid in full. In this example, these objects will be held intact for any number of years until the event has occurred (event-based hold on the object is released) and then 3 more years after that. That means retention duration of the objects begins from the moment event-based hold transitioned from true to false. Objects under event-based hold cannot be deleted, overwritten or archived until the hold is removed.
     @[JSON::Field(key: "defaultEventBasedHold", type: Bool?, presence: true, ignore_serialize: default_event_based_hold.nil? && !default_event_based_hold_present?)]
     property default_event_based_hold : Bool?
@@ -220,7 +214,7 @@ module GoogleCloudStorage
 
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(*, @acl : Array(BucketAccessControl)? = nil, @autoclass : BucketAutoclass? = nil, @billing : BucketBilling? = nil, @cors : Array(BucketCorsInner)? = nil, @custom_placement_config : BucketCustomPlacementConfig? = nil, @default_event_based_hold : Bool? = nil, @default_object_acl : Array(ObjectAccessControl)? = nil, @encryption : BucketEncryption? = nil, @etag : String? = nil, @iam_configuration : BucketIamConfiguration? = nil, @id : String? = nil, @kind : String? = "storage#bucket", @labels : Hash(String, String)? = nil, @lifecycle : BucketLifecycle? = nil, @location : String? = nil, @location_type : String? = nil, @logging : BucketLogging? = nil, @metageneration : String? = nil, @name : String? = nil, @owner : BucketOwner? = nil, @project_number : String? = nil, @retention_policy : BucketRetentionPolicy? = nil, @rpo : String? = nil, @satisfies_pzs : Bool? = nil, @self_link : String? = nil, @storage_class : String? = nil, @time_created : Time? = nil, @updated : Time? = nil, @versioning : BucketVersioning? = nil, @website : BucketWebsite? = nil)
+    def initialize(*, @acl : Array(BucketAccessControl)? = nil, @autoclass : BucketAutoclass? = nil, @billing : BucketBilling? = nil, @cors : Array(BucketCorsInner)? = nil, @default_event_based_hold : Bool? = nil, @default_object_acl : Array(ObjectAccessControl)? = nil, @encryption : BucketEncryption? = nil, @etag : String? = nil, @iam_configuration : BucketIamConfiguration? = nil, @id : String? = nil, @kind : String? = "storage#bucket", @labels : Hash(String, String)? = nil, @lifecycle : BucketLifecycle? = nil, @location : String? = nil, @location_type : String? = nil, @logging : BucketLogging? = nil, @metageneration : String? = nil, @name : String? = nil, @owner : BucketOwner? = nil, @project_number : String? = nil, @retention_policy : BucketRetentionPolicy? = nil, @rpo : String? = nil, @satisfies_pzs : Bool? = nil, @self_link : String? = nil, @storage_class : String? = nil, @time_created : Time? = nil, @updated : Time? = nil, @versioning : BucketVersioning? = nil, @website : BucketWebsite? = nil)
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -245,7 +239,6 @@ module GoogleCloudStorage
         autoclass == o.autoclass &&
         billing == o.billing &&
         cors == o.cors &&
-        custom_placement_config == o.custom_placement_config &&
         default_event_based_hold == o.default_event_based_hold &&
         default_object_acl == o.default_object_acl &&
         encryption == o.encryption &&
@@ -282,7 +275,7 @@ module GoogleCloudStorage
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [acl, autoclass, billing, cors, custom_placement_config, default_event_based_hold, default_object_acl, encryption, etag, iam_configuration, id, kind, labels, lifecycle, location, location_type, logging, metageneration, name, owner, project_number, retention_policy, rpo, satisfies_pzs, self_link, storage_class, time_created, updated, versioning, website].hash
+      [acl, autoclass, billing, cors, default_event_based_hold, default_object_acl, encryption, etag, iam_configuration, id, kind, labels, lifecycle, location, location_type, logging, metageneration, name, owner, project_number, retention_policy, rpo, satisfies_pzs, self_link, storage_class, time_created, updated, versioning, website].hash
     end
 
     # Builds the object from hash

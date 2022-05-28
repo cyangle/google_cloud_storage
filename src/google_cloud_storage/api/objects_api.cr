@@ -21,8 +21,8 @@ module GoogleCloudStorage
     # @param destination_bucket [String] Name of the bucket containing the source objects. The destination object is stored in this bucket.
     # @param destination_object [String] Name of the new object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
     # @return [Object]
-    def compose(*, destination_bucket : String, destination_object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, destination_predefined_acl : String? = nil, if_generation_match : String? = nil, if_metageneration_match : String? = nil, kms_key_name : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, compose_request : ComposeRequest? = nil)
-      data, _status_code, _headers = compose_with_http_info(destination_bucket: destination_bucket, destination_object: destination_object, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, destination_predefined_acl: destination_predefined_acl, if_generation_match: if_generation_match, if_metageneration_match: if_metageneration_match, kms_key_name: kms_key_name, provisional_user_project: provisional_user_project, user_project: user_project, compose_request: compose_request)
+    def compose(*, destination_bucket : String, destination_object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, destination_predefined_acl : String? = nil, if_generation_match : String? = nil, if_metageneration_match : String? = nil, kms_key_name : String? = nil, user_project : String? = nil, compose_request : ComposeRequest? = nil)
+      data, _status_code, _headers = compose_with_http_info(destination_bucket: destination_bucket, destination_object: destination_object, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, destination_predefined_acl: destination_predefined_acl, if_generation_match: if_generation_match, if_metageneration_match: if_metageneration_match, kms_key_name: kms_key_name, user_project: user_project, compose_request: compose_request)
       data
     end
 
@@ -30,8 +30,8 @@ module GoogleCloudStorage
     # @param destination_bucket [String] Name of the bucket containing the source objects. The destination object is stored in this bucket.
     # @param destination_object [String] Name of the new object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
-    def compose_with_http_info(*, destination_bucket : String, destination_object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, destination_predefined_acl : String? = nil, if_generation_match : String? = nil, if_metageneration_match : String? = nil, kms_key_name : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, compose_request : ComposeRequest? = nil)
-      request = build_api_request_for_compose(destination_bucket: destination_bucket, destination_object: destination_object, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, destination_predefined_acl: destination_predefined_acl, if_generation_match: if_generation_match, if_metageneration_match: if_metageneration_match, kms_key_name: kms_key_name, provisional_user_project: provisional_user_project, user_project: user_project, compose_request: compose_request)
+    def compose_with_http_info(*, destination_bucket : String, destination_object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, destination_predefined_acl : String? = nil, if_generation_match : String? = nil, if_metageneration_match : String? = nil, kms_key_name : String? = nil, user_project : String? = nil, compose_request : ComposeRequest? = nil)
+      request = build_api_request_for_compose(destination_bucket: destination_bucket, destination_object: destination_object, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, destination_predefined_acl: destination_predefined_acl, if_generation_match: if_generation_match, if_metageneration_match: if_metageneration_match, kms_key_name: kms_key_name, user_project: user_project, compose_request: compose_request)
 
       data, status_code, headers = @api_client.execute_api_request(request)
 
@@ -46,16 +46,16 @@ module GoogleCloudStorage
     # @param destination_bucket [String] Name of the bucket containing the source objects. The destination object is stored in this bucket.
     # @param destination_object [String] Name of the new object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
     # @return nil
-    def compose(*, destination_bucket : String, destination_object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, destination_predefined_acl : String? = nil, if_generation_match : String? = nil, if_metageneration_match : String? = nil, kms_key_name : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, compose_request : ComposeRequest? = nil, &block : Crest::Response ->)
-      build_api_request_for_compose(destination_bucket: destination_bucket, destination_object: destination_object, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, destination_predefined_acl: destination_predefined_acl, if_generation_match: if_generation_match, if_metageneration_match: if_metageneration_match, kms_key_name: kms_key_name, provisional_user_project: provisional_user_project, user_project: user_project, compose_request: compose_request).execute(&block)
+    def compose(*, destination_bucket : String, destination_object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, destination_predefined_acl : String? = nil, if_generation_match : String? = nil, if_metageneration_match : String? = nil, kms_key_name : String? = nil, user_project : String? = nil, compose_request : ComposeRequest? = nil, &block : Crest::Response ->)
+      build_api_request_for_compose(destination_bucket: destination_bucket, destination_object: destination_object, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, destination_predefined_acl: destination_predefined_acl, if_generation_match: if_generation_match, if_metageneration_match: if_metageneration_match, kms_key_name: kms_key_name, user_project: user_project, compose_request: compose_request).execute(&block)
     end
 
     # @return Crest::Request
-    def build_api_request_for_compose(*, destination_bucket : String, destination_object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, destination_predefined_acl : String? = nil, if_generation_match : String? = nil, if_metageneration_match : String? = nil, kms_key_name : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, compose_request : ComposeRequest? = nil) : Crest::Request
+    def build_api_request_for_compose(*, destination_bucket : String, destination_object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, destination_predefined_acl : String? = nil, if_generation_match : String? = nil, if_metageneration_match : String? = nil, kms_key_name : String? = nil, user_project : String? = nil, compose_request : ComposeRequest? = nil) : Crest::Request
       if @api_client.config.debugging
         Log.debug { "Calling API: ObjectsApi.compose ..." }
       end
-      allowable_values = ["json", "media"]
+      allowable_values = ["json"]
       if @api_client.config.client_side_validation && !alt.nil? && !allowable_values.includes?(alt)
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
@@ -74,12 +74,12 @@ module GoogleCloudStorage
       query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil?
       query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil?
       query_params["quotaUser"] = quota_user.to_s if !quota_user.nil?
+      query_params["uploadType"] = upload_type.to_s if !upload_type.nil?
       query_params["userIp"] = user_ip.to_s if !user_ip.nil?
       query_params["destinationPredefinedAcl"] = destination_predefined_acl.to_s if !destination_predefined_acl.nil?
       query_params["ifGenerationMatch"] = if_generation_match.to_s if !if_generation_match.nil?
       query_params["ifMetagenerationMatch"] = if_metageneration_match.to_s if !if_metageneration_match.nil?
       query_params["kmsKeyName"] = kms_key_name.to_s if !kms_key_name.nil?
-      query_params["provisionalUserProject"] = provisional_user_project.to_s if !provisional_user_project.nil?
       query_params["userProject"] = user_project.to_s if !user_project.nil?
 
       # header parameters
@@ -116,8 +116,8 @@ module GoogleCloudStorage
     # @param destination_bucket [String] Name of the bucket in which to store the new object. Overrides the provided object metadata's bucket value, if any.For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
     # @param destination_object [String] Name of the new object. Required when the object metadata is not otherwise provided. Overrides the object metadata's name value, if any.
     # @return [Object]
-    def copy(*, source_bucket : String, source_object : String, destination_bucket : String, destination_object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, destination_kms_key_name : String? = nil, destination_predefined_acl : String? = nil, if_generation_match : String? = nil, if_generation_not_match : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, if_source_generation_match : String? = nil, if_source_generation_not_match : String? = nil, if_source_metageneration_match : String? = nil, if_source_metageneration_not_match : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, source_generation : String? = nil, user_project : String? = nil, object : Object? = nil)
-      data, _status_code, _headers = copy_with_http_info(source_bucket: source_bucket, source_object: source_object, destination_bucket: destination_bucket, destination_object: destination_object, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, destination_kms_key_name: destination_kms_key_name, destination_predefined_acl: destination_predefined_acl, if_generation_match: if_generation_match, if_generation_not_match: if_generation_not_match, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, if_source_generation_match: if_source_generation_match, if_source_generation_not_match: if_source_generation_not_match, if_source_metageneration_match: if_source_metageneration_match, if_source_metageneration_not_match: if_source_metageneration_not_match, projection: projection, provisional_user_project: provisional_user_project, source_generation: source_generation, user_project: user_project, object: object)
+    def copy(*, source_bucket : String, source_object : String, destination_bucket : String, destination_object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, destination_kms_key_name : String? = nil, destination_predefined_acl : String? = nil, if_generation_match : String? = nil, if_generation_not_match : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, if_source_generation_match : String? = nil, if_source_generation_not_match : String? = nil, if_source_metageneration_match : String? = nil, if_source_metageneration_not_match : String? = nil, projection : String? = nil, source_generation : String? = nil, user_project : String? = nil, object : Object? = nil)
+      data, _status_code, _headers = copy_with_http_info(source_bucket: source_bucket, source_object: source_object, destination_bucket: destination_bucket, destination_object: destination_object, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, destination_kms_key_name: destination_kms_key_name, destination_predefined_acl: destination_predefined_acl, if_generation_match: if_generation_match, if_generation_not_match: if_generation_not_match, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, if_source_generation_match: if_source_generation_match, if_source_generation_not_match: if_source_generation_not_match, if_source_metageneration_match: if_source_metageneration_match, if_source_metageneration_not_match: if_source_metageneration_not_match, projection: projection, source_generation: source_generation, user_project: user_project, object: object)
       data
     end
 
@@ -127,8 +127,8 @@ module GoogleCloudStorage
     # @param destination_bucket [String] Name of the bucket in which to store the new object. Overrides the provided object metadata's bucket value, if any.For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
     # @param destination_object [String] Name of the new object. Required when the object metadata is not otherwise provided. Overrides the object metadata's name value, if any.
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
-    def copy_with_http_info(*, source_bucket : String, source_object : String, destination_bucket : String, destination_object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, destination_kms_key_name : String? = nil, destination_predefined_acl : String? = nil, if_generation_match : String? = nil, if_generation_not_match : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, if_source_generation_match : String? = nil, if_source_generation_not_match : String? = nil, if_source_metageneration_match : String? = nil, if_source_metageneration_not_match : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, source_generation : String? = nil, user_project : String? = nil, object : Object? = nil)
-      request = build_api_request_for_copy(source_bucket: source_bucket, source_object: source_object, destination_bucket: destination_bucket, destination_object: destination_object, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, destination_kms_key_name: destination_kms_key_name, destination_predefined_acl: destination_predefined_acl, if_generation_match: if_generation_match, if_generation_not_match: if_generation_not_match, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, if_source_generation_match: if_source_generation_match, if_source_generation_not_match: if_source_generation_not_match, if_source_metageneration_match: if_source_metageneration_match, if_source_metageneration_not_match: if_source_metageneration_not_match, projection: projection, provisional_user_project: provisional_user_project, source_generation: source_generation, user_project: user_project, object: object)
+    def copy_with_http_info(*, source_bucket : String, source_object : String, destination_bucket : String, destination_object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, destination_kms_key_name : String? = nil, destination_predefined_acl : String? = nil, if_generation_match : String? = nil, if_generation_not_match : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, if_source_generation_match : String? = nil, if_source_generation_not_match : String? = nil, if_source_metageneration_match : String? = nil, if_source_metageneration_not_match : String? = nil, projection : String? = nil, source_generation : String? = nil, user_project : String? = nil, object : Object? = nil)
+      request = build_api_request_for_copy(source_bucket: source_bucket, source_object: source_object, destination_bucket: destination_bucket, destination_object: destination_object, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, destination_kms_key_name: destination_kms_key_name, destination_predefined_acl: destination_predefined_acl, if_generation_match: if_generation_match, if_generation_not_match: if_generation_not_match, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, if_source_generation_match: if_source_generation_match, if_source_generation_not_match: if_source_generation_not_match, if_source_metageneration_match: if_source_metageneration_match, if_source_metageneration_not_match: if_source_metageneration_not_match, projection: projection, source_generation: source_generation, user_project: user_project, object: object)
 
       data, status_code, headers = @api_client.execute_api_request(request)
 
@@ -145,16 +145,16 @@ module GoogleCloudStorage
     # @param destination_bucket [String] Name of the bucket in which to store the new object. Overrides the provided object metadata's bucket value, if any.For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
     # @param destination_object [String] Name of the new object. Required when the object metadata is not otherwise provided. Overrides the object metadata's name value, if any.
     # @return nil
-    def copy(*, source_bucket : String, source_object : String, destination_bucket : String, destination_object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, destination_kms_key_name : String? = nil, destination_predefined_acl : String? = nil, if_generation_match : String? = nil, if_generation_not_match : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, if_source_generation_match : String? = nil, if_source_generation_not_match : String? = nil, if_source_metageneration_match : String? = nil, if_source_metageneration_not_match : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, source_generation : String? = nil, user_project : String? = nil, object : Object? = nil, &block : Crest::Response ->)
-      build_api_request_for_copy(source_bucket: source_bucket, source_object: source_object, destination_bucket: destination_bucket, destination_object: destination_object, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, destination_kms_key_name: destination_kms_key_name, destination_predefined_acl: destination_predefined_acl, if_generation_match: if_generation_match, if_generation_not_match: if_generation_not_match, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, if_source_generation_match: if_source_generation_match, if_source_generation_not_match: if_source_generation_not_match, if_source_metageneration_match: if_source_metageneration_match, if_source_metageneration_not_match: if_source_metageneration_not_match, projection: projection, provisional_user_project: provisional_user_project, source_generation: source_generation, user_project: user_project, object: object).execute(&block)
+    def copy(*, source_bucket : String, source_object : String, destination_bucket : String, destination_object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, destination_kms_key_name : String? = nil, destination_predefined_acl : String? = nil, if_generation_match : String? = nil, if_generation_not_match : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, if_source_generation_match : String? = nil, if_source_generation_not_match : String? = nil, if_source_metageneration_match : String? = nil, if_source_metageneration_not_match : String? = nil, projection : String? = nil, source_generation : String? = nil, user_project : String? = nil, object : Object? = nil, &block : Crest::Response ->)
+      build_api_request_for_copy(source_bucket: source_bucket, source_object: source_object, destination_bucket: destination_bucket, destination_object: destination_object, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, destination_kms_key_name: destination_kms_key_name, destination_predefined_acl: destination_predefined_acl, if_generation_match: if_generation_match, if_generation_not_match: if_generation_not_match, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, if_source_generation_match: if_source_generation_match, if_source_generation_not_match: if_source_generation_not_match, if_source_metageneration_match: if_source_metageneration_match, if_source_metageneration_not_match: if_source_metageneration_not_match, projection: projection, source_generation: source_generation, user_project: user_project, object: object).execute(&block)
     end
 
     # @return Crest::Request
-    def build_api_request_for_copy(*, source_bucket : String, source_object : String, destination_bucket : String, destination_object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, destination_kms_key_name : String? = nil, destination_predefined_acl : String? = nil, if_generation_match : String? = nil, if_generation_not_match : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, if_source_generation_match : String? = nil, if_source_generation_not_match : String? = nil, if_source_metageneration_match : String? = nil, if_source_metageneration_not_match : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, source_generation : String? = nil, user_project : String? = nil, object : Object? = nil) : Crest::Request
+    def build_api_request_for_copy(*, source_bucket : String, source_object : String, destination_bucket : String, destination_object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, destination_kms_key_name : String? = nil, destination_predefined_acl : String? = nil, if_generation_match : String? = nil, if_generation_not_match : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, if_source_generation_match : String? = nil, if_source_generation_not_match : String? = nil, if_source_metageneration_match : String? = nil, if_source_metageneration_not_match : String? = nil, projection : String? = nil, source_generation : String? = nil, user_project : String? = nil, object : Object? = nil) : Crest::Request
       if @api_client.config.debugging
         Log.debug { "Calling API: ObjectsApi.copy ..." }
       end
-      allowable_values = ["json", "media"]
+      allowable_values = ["json"]
       if @api_client.config.client_side_validation && !alt.nil? && !allowable_values.includes?(alt)
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
@@ -177,6 +177,7 @@ module GoogleCloudStorage
       query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil?
       query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil?
       query_params["quotaUser"] = quota_user.to_s if !quota_user.nil?
+      query_params["uploadType"] = upload_type.to_s if !upload_type.nil?
       query_params["userIp"] = user_ip.to_s if !user_ip.nil?
       query_params["destinationKmsKeyName"] = destination_kms_key_name.to_s if !destination_kms_key_name.nil?
       query_params["destinationPredefinedAcl"] = destination_predefined_acl.to_s if !destination_predefined_acl.nil?
@@ -189,7 +190,6 @@ module GoogleCloudStorage
       query_params["ifSourceMetagenerationMatch"] = if_source_metageneration_match.to_s if !if_source_metageneration_match.nil?
       query_params["ifSourceMetagenerationNotMatch"] = if_source_metageneration_not_match.to_s if !if_source_metageneration_not_match.nil?
       query_params["projection"] = projection.to_s if !projection.nil?
-      query_params["provisionalUserProject"] = provisional_user_project.to_s if !provisional_user_project.nil?
       query_params["sourceGeneration"] = source_generation.to_s if !source_generation.nil?
       query_params["userProject"] = user_project.to_s if !user_project.nil?
 
@@ -225,8 +225,8 @@ module GoogleCloudStorage
     # @param bucket [String] Name of the bucket in which the object resides.
     # @param object [String] Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
     # @return [nil]
-    def delete(*, bucket : String, object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, generation : String? = nil, if_generation_match : String? = nil, if_generation_not_match : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil)
-      delete_with_http_info(bucket: bucket, object: object, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, generation: generation, if_generation_match: if_generation_match, if_generation_not_match: if_generation_not_match, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, provisional_user_project: provisional_user_project, user_project: user_project)
+    def delete(*, bucket : String, object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, generation : String? = nil, if_generation_match : String? = nil, if_generation_not_match : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, user_project : String? = nil)
+      delete_with_http_info(bucket: bucket, object: object, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, generation: generation, if_generation_match: if_generation_match, if_generation_not_match: if_generation_not_match, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, user_project: user_project)
       nil
     end
 
@@ -234,8 +234,8 @@ module GoogleCloudStorage
     # @param bucket [String] Name of the bucket in which the object resides.
     # @param object [String] Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def delete_with_http_info(*, bucket : String, object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, generation : String? = nil, if_generation_match : String? = nil, if_generation_not_match : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil)
-      request = build_api_request_for_delete(bucket: bucket, object: object, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, generation: generation, if_generation_match: if_generation_match, if_generation_not_match: if_generation_not_match, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, provisional_user_project: provisional_user_project, user_project: user_project)
+    def delete_with_http_info(*, bucket : String, object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, generation : String? = nil, if_generation_match : String? = nil, if_generation_not_match : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, user_project : String? = nil)
+      request = build_api_request_for_delete(bucket: bucket, object: object, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, generation: generation, if_generation_match: if_generation_match, if_generation_not_match: if_generation_not_match, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, user_project: user_project)
 
       data, status_code, headers = @api_client.execute_api_request(request)
 
@@ -250,16 +250,16 @@ module GoogleCloudStorage
     # @param bucket [String] Name of the bucket in which the object resides.
     # @param object [String] Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
     # @return nil
-    def delete(*, bucket : String, object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, generation : String? = nil, if_generation_match : String? = nil, if_generation_not_match : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, &block : Crest::Response ->)
-      build_api_request_for_delete(bucket: bucket, object: object, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, generation: generation, if_generation_match: if_generation_match, if_generation_not_match: if_generation_not_match, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, provisional_user_project: provisional_user_project, user_project: user_project).execute(&block)
+    def delete(*, bucket : String, object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, generation : String? = nil, if_generation_match : String? = nil, if_generation_not_match : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, user_project : String? = nil, &block : Crest::Response ->)
+      build_api_request_for_delete(bucket: bucket, object: object, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, generation: generation, if_generation_match: if_generation_match, if_generation_not_match: if_generation_not_match, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, user_project: user_project).execute(&block)
     end
 
     # @return Crest::Request
-    def build_api_request_for_delete(*, bucket : String, object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, generation : String? = nil, if_generation_match : String? = nil, if_generation_not_match : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil) : Crest::Request
+    def build_api_request_for_delete(*, bucket : String, object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, generation : String? = nil, if_generation_match : String? = nil, if_generation_not_match : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, user_project : String? = nil) : Crest::Request
       if @api_client.config.debugging
         Log.debug { "Calling API: ObjectsApi.delete ..." }
       end
-      allowable_values = ["json", "media"]
+      allowable_values = ["json"]
       if @api_client.config.client_side_validation && !alt.nil? && !allowable_values.includes?(alt)
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
@@ -274,13 +274,13 @@ module GoogleCloudStorage
       query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil?
       query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil?
       query_params["quotaUser"] = quota_user.to_s if !quota_user.nil?
+      query_params["uploadType"] = upload_type.to_s if !upload_type.nil?
       query_params["userIp"] = user_ip.to_s if !user_ip.nil?
       query_params["generation"] = generation.to_s if !generation.nil?
       query_params["ifGenerationMatch"] = if_generation_match.to_s if !if_generation_match.nil?
       query_params["ifGenerationNotMatch"] = if_generation_not_match.to_s if !if_generation_not_match.nil?
       query_params["ifMetagenerationMatch"] = if_metageneration_match.to_s if !if_metageneration_match.nil?
       query_params["ifMetagenerationNotMatch"] = if_metageneration_not_match.to_s if !if_metageneration_not_match.nil?
-      query_params["provisionalUserProject"] = provisional_user_project.to_s if !provisional_user_project.nil?
       query_params["userProject"] = user_project.to_s if !user_project.nil?
 
       # header parameters
@@ -311,8 +311,8 @@ module GoogleCloudStorage
     # @param bucket [String] Name of the bucket in which the object resides.
     # @param object [String] Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
     # @return [Object]
-    def get(*, bucket : String, object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, generation : String? = nil, if_generation_match : String? = nil, if_generation_not_match : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil)
-      data, _status_code, _headers = get_with_http_info(bucket: bucket, object: object, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, generation: generation, if_generation_match: if_generation_match, if_generation_not_match: if_generation_not_match, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, projection: projection, provisional_user_project: provisional_user_project, user_project: user_project)
+    def get(*, bucket : String, object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, generation : String? = nil, if_generation_match : String? = nil, if_generation_not_match : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, projection : String? = nil, user_project : String? = nil)
+      data, _status_code, _headers = get_with_http_info(bucket: bucket, object: object, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, generation: generation, if_generation_match: if_generation_match, if_generation_not_match: if_generation_not_match, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, projection: projection, user_project: user_project)
       data
     end
 
@@ -320,8 +320,8 @@ module GoogleCloudStorage
     # @param bucket [String] Name of the bucket in which the object resides.
     # @param object [String] Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
-    def get_with_http_info(*, bucket : String, object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, generation : String? = nil, if_generation_match : String? = nil, if_generation_not_match : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil)
-      request = build_api_request_for_get(bucket: bucket, object: object, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, generation: generation, if_generation_match: if_generation_match, if_generation_not_match: if_generation_not_match, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, projection: projection, provisional_user_project: provisional_user_project, user_project: user_project)
+    def get_with_http_info(*, bucket : String, object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, generation : String? = nil, if_generation_match : String? = nil, if_generation_not_match : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, projection : String? = nil, user_project : String? = nil)
+      request = build_api_request_for_get(bucket: bucket, object: object, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, generation: generation, if_generation_match: if_generation_match, if_generation_not_match: if_generation_not_match, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, projection: projection, user_project: user_project)
 
       data, status_code, headers = @api_client.execute_api_request(request)
 
@@ -336,16 +336,16 @@ module GoogleCloudStorage
     # @param bucket [String] Name of the bucket in which the object resides.
     # @param object [String] Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
     # @return nil
-    def get(*, bucket : String, object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, generation : String? = nil, if_generation_match : String? = nil, if_generation_not_match : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, &block : Crest::Response ->)
-      build_api_request_for_get(bucket: bucket, object: object, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, generation: generation, if_generation_match: if_generation_match, if_generation_not_match: if_generation_not_match, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, projection: projection, provisional_user_project: provisional_user_project, user_project: user_project).execute(&block)
+    def get(*, bucket : String, object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, generation : String? = nil, if_generation_match : String? = nil, if_generation_not_match : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, projection : String? = nil, user_project : String? = nil, &block : Crest::Response ->)
+      build_api_request_for_get(bucket: bucket, object: object, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, generation: generation, if_generation_match: if_generation_match, if_generation_not_match: if_generation_not_match, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, projection: projection, user_project: user_project).execute(&block)
     end
 
     # @return Crest::Request
-    def build_api_request_for_get(*, bucket : String, object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, generation : String? = nil, if_generation_match : String? = nil, if_generation_not_match : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil) : Crest::Request
+    def build_api_request_for_get(*, bucket : String, object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, generation : String? = nil, if_generation_match : String? = nil, if_generation_not_match : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, projection : String? = nil, user_project : String? = nil) : Crest::Request
       if @api_client.config.debugging
         Log.debug { "Calling API: ObjectsApi.get ..." }
       end
-      allowable_values = ["json", "media"]
+      allowable_values = ["json"]
       if @api_client.config.client_side_validation && !alt.nil? && !allowable_values.includes?(alt)
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
@@ -364,6 +364,7 @@ module GoogleCloudStorage
       query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil?
       query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil?
       query_params["quotaUser"] = quota_user.to_s if !quota_user.nil?
+      query_params["uploadType"] = upload_type.to_s if !upload_type.nil?
       query_params["userIp"] = user_ip.to_s if !user_ip.nil?
       query_params["generation"] = generation.to_s if !generation.nil?
       query_params["ifGenerationMatch"] = if_generation_match.to_s if !if_generation_match.nil?
@@ -371,7 +372,6 @@ module GoogleCloudStorage
       query_params["ifMetagenerationMatch"] = if_metageneration_match.to_s if !if_metageneration_match.nil?
       query_params["ifMetagenerationNotMatch"] = if_metageneration_not_match.to_s if !if_metageneration_not_match.nil?
       query_params["projection"] = projection.to_s if !projection.nil?
-      query_params["provisionalUserProject"] = provisional_user_project.to_s if !provisional_user_project.nil?
       query_params["userProject"] = user_project.to_s if !user_project.nil?
 
       # header parameters
@@ -404,8 +404,8 @@ module GoogleCloudStorage
     # @param bucket [String] Name of the bucket in which the object resides.
     # @param object [String] Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
     # @return [Policy]
-    def get_iam_policy(*, bucket : String, object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, generation : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil)
-      data, _status_code, _headers = get_iam_policy_with_http_info(bucket: bucket, object: object, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, generation: generation, provisional_user_project: provisional_user_project, user_project: user_project)
+    def get_iam_policy(*, bucket : String, object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, generation : String? = nil, user_project : String? = nil)
+      data, _status_code, _headers = get_iam_policy_with_http_info(bucket: bucket, object: object, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, generation: generation, user_project: user_project)
       data
     end
 
@@ -413,8 +413,8 @@ module GoogleCloudStorage
     # @param bucket [String] Name of the bucket in which the object resides.
     # @param object [String] Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
     # @return [Array<(Policy, Integer, Hash)>] Policy data, response status code and response headers
-    def get_iam_policy_with_http_info(*, bucket : String, object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, generation : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil)
-      request = build_api_request_for_get_iam_policy(bucket: bucket, object: object, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, generation: generation, provisional_user_project: provisional_user_project, user_project: user_project)
+    def get_iam_policy_with_http_info(*, bucket : String, object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, generation : String? = nil, user_project : String? = nil)
+      request = build_api_request_for_get_iam_policy(bucket: bucket, object: object, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, generation: generation, user_project: user_project)
 
       data, status_code, headers = @api_client.execute_api_request(request)
 
@@ -429,16 +429,16 @@ module GoogleCloudStorage
     # @param bucket [String] Name of the bucket in which the object resides.
     # @param object [String] Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
     # @return nil
-    def get_iam_policy(*, bucket : String, object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, generation : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, &block : Crest::Response ->)
-      build_api_request_for_get_iam_policy(bucket: bucket, object: object, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, generation: generation, provisional_user_project: provisional_user_project, user_project: user_project).execute(&block)
+    def get_iam_policy(*, bucket : String, object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, generation : String? = nil, user_project : String? = nil, &block : Crest::Response ->)
+      build_api_request_for_get_iam_policy(bucket: bucket, object: object, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, generation: generation, user_project: user_project).execute(&block)
     end
 
     # @return Crest::Request
-    def build_api_request_for_get_iam_policy(*, bucket : String, object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, generation : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil) : Crest::Request
+    def build_api_request_for_get_iam_policy(*, bucket : String, object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, generation : String? = nil, user_project : String? = nil) : Crest::Request
       if @api_client.config.debugging
         Log.debug { "Calling API: ObjectsApi.get_iam_policy ..." }
       end
-      allowable_values = ["json", "media"]
+      allowable_values = ["json"]
       if @api_client.config.client_side_validation && !alt.nil? && !allowable_values.includes?(alt)
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
@@ -453,9 +453,9 @@ module GoogleCloudStorage
       query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil?
       query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil?
       query_params["quotaUser"] = quota_user.to_s if !quota_user.nil?
+      query_params["uploadType"] = upload_type.to_s if !upload_type.nil?
       query_params["userIp"] = user_ip.to_s if !user_ip.nil?
       query_params["generation"] = generation.to_s if !generation.nil?
-      query_params["provisionalUserProject"] = provisional_user_project.to_s if !provisional_user_project.nil?
       query_params["userProject"] = user_project.to_s if !user_project.nil?
 
       # header parameters
@@ -487,16 +487,16 @@ module GoogleCloudStorage
     # Stores a new object and metadata.
     # @param bucket [String] Name of the bucket in which to store the new object. Overrides the provided object metadata's bucket value, if any.
     # @return [Object]
-    def insert(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, content_encoding : String? = nil, if_generation_match : String? = nil, if_generation_not_match : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, kms_key_name : String? = nil, name : String? = nil, predefined_acl : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, object : Object? = nil)
-      data, _status_code, _headers = insert_with_http_info(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, content_encoding: content_encoding, if_generation_match: if_generation_match, if_generation_not_match: if_generation_not_match, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, kms_key_name: kms_key_name, name: name, predefined_acl: predefined_acl, projection: projection, provisional_user_project: provisional_user_project, user_project: user_project, object: object)
+    def insert(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, content_encoding : String? = nil, if_generation_match : String? = nil, if_generation_not_match : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, kms_key_name : String? = nil, name : String? = nil, predefined_acl : String? = nil, projection : String? = nil, user_project : String? = nil, object : Object? = nil)
+      data, _status_code, _headers = insert_with_http_info(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, content_encoding: content_encoding, if_generation_match: if_generation_match, if_generation_not_match: if_generation_not_match, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, kms_key_name: kms_key_name, name: name, predefined_acl: predefined_acl, projection: projection, user_project: user_project, object: object)
       data
     end
 
     # Stores a new object and metadata.
     # @param bucket [String] Name of the bucket in which to store the new object. Overrides the provided object metadata's bucket value, if any.
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
-    def insert_with_http_info(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, content_encoding : String? = nil, if_generation_match : String? = nil, if_generation_not_match : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, kms_key_name : String? = nil, name : String? = nil, predefined_acl : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, object : Object? = nil)
-      request = build_api_request_for_insert(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, content_encoding: content_encoding, if_generation_match: if_generation_match, if_generation_not_match: if_generation_not_match, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, kms_key_name: kms_key_name, name: name, predefined_acl: predefined_acl, projection: projection, provisional_user_project: provisional_user_project, user_project: user_project, object: object)
+    def insert_with_http_info(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, content_encoding : String? = nil, if_generation_match : String? = nil, if_generation_not_match : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, kms_key_name : String? = nil, name : String? = nil, predefined_acl : String? = nil, projection : String? = nil, user_project : String? = nil, object : Object? = nil)
+      request = build_api_request_for_insert(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, content_encoding: content_encoding, if_generation_match: if_generation_match, if_generation_not_match: if_generation_not_match, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, kms_key_name: kms_key_name, name: name, predefined_acl: predefined_acl, projection: projection, user_project: user_project, object: object)
 
       data, status_code, headers = @api_client.execute_api_request(request)
 
@@ -510,16 +510,16 @@ module GoogleCloudStorage
     # Stores a new object and metadata.
     # @param bucket [String] Name of the bucket in which to store the new object. Overrides the provided object metadata's bucket value, if any.
     # @return nil
-    def insert(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, content_encoding : String? = nil, if_generation_match : String? = nil, if_generation_not_match : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, kms_key_name : String? = nil, name : String? = nil, predefined_acl : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, object : Object? = nil, &block : Crest::Response ->)
-      build_api_request_for_insert(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, content_encoding: content_encoding, if_generation_match: if_generation_match, if_generation_not_match: if_generation_not_match, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, kms_key_name: kms_key_name, name: name, predefined_acl: predefined_acl, projection: projection, provisional_user_project: provisional_user_project, user_project: user_project, object: object).execute(&block)
+    def insert(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, content_encoding : String? = nil, if_generation_match : String? = nil, if_generation_not_match : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, kms_key_name : String? = nil, name : String? = nil, predefined_acl : String? = nil, projection : String? = nil, user_project : String? = nil, object : Object? = nil, &block : Crest::Response ->)
+      build_api_request_for_insert(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, content_encoding: content_encoding, if_generation_match: if_generation_match, if_generation_not_match: if_generation_not_match, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, kms_key_name: kms_key_name, name: name, predefined_acl: predefined_acl, projection: projection, user_project: user_project, object: object).execute(&block)
     end
 
     # @return Crest::Request
-    def build_api_request_for_insert(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, content_encoding : String? = nil, if_generation_match : String? = nil, if_generation_not_match : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, kms_key_name : String? = nil, name : String? = nil, predefined_acl : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, object : Object? = nil) : Crest::Request
+    def build_api_request_for_insert(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, content_encoding : String? = nil, if_generation_match : String? = nil, if_generation_not_match : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, kms_key_name : String? = nil, name : String? = nil, predefined_acl : String? = nil, projection : String? = nil, user_project : String? = nil, object : Object? = nil) : Crest::Request
       if @api_client.config.debugging
         Log.debug { "Calling API: ObjectsApi.insert ..." }
       end
-      allowable_values = ["json", "media"]
+      allowable_values = ["json"]
       if @api_client.config.client_side_validation && !alt.nil? && !allowable_values.includes?(alt)
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
@@ -542,6 +542,7 @@ module GoogleCloudStorage
       query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil?
       query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil?
       query_params["quotaUser"] = quota_user.to_s if !quota_user.nil?
+      query_params["uploadType"] = upload_type.to_s if !upload_type.nil?
       query_params["userIp"] = user_ip.to_s if !user_ip.nil?
       query_params["contentEncoding"] = content_encoding.to_s if !content_encoding.nil?
       query_params["ifGenerationMatch"] = if_generation_match.to_s if !if_generation_match.nil?
@@ -552,7 +553,6 @@ module GoogleCloudStorage
       query_params["name"] = name.to_s if !name.nil?
       query_params["predefinedAcl"] = predefined_acl.to_s if !predefined_acl.nil?
       query_params["projection"] = projection.to_s if !projection.nil?
-      query_params["provisionalUserProject"] = provisional_user_project.to_s if !provisional_user_project.nil?
       query_params["userProject"] = user_project.to_s if !user_project.nil?
 
       # header parameters
@@ -586,16 +586,16 @@ module GoogleCloudStorage
     # Retrieves a list of objects matching the criteria.
     # @param bucket [String] Name of the bucket in which to look for objects.
     # @return [Objects]
-    def list(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, delimiter : String? = nil, end_offset : String? = nil, include_trailing_delimiter : Bool? = nil, max_results : Int32? = nil, page_token : String? = nil, prefix : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, start_offset : String? = nil, user_project : String? = nil, versions : Bool? = nil)
-      data, _status_code, _headers = list_with_http_info(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, delimiter: delimiter, end_offset: end_offset, include_trailing_delimiter: include_trailing_delimiter, max_results: max_results, page_token: page_token, prefix: prefix, projection: projection, provisional_user_project: provisional_user_project, start_offset: start_offset, user_project: user_project, versions: versions)
+    def list(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, delimiter : String? = nil, end_offset : String? = nil, include_trailing_delimiter : Bool? = nil, max_results : Int32? = nil, page_token : String? = nil, prefix : String? = nil, projection : String? = nil, start_offset : String? = nil, user_project : String? = nil, versions : Bool? = nil)
+      data, _status_code, _headers = list_with_http_info(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, delimiter: delimiter, end_offset: end_offset, include_trailing_delimiter: include_trailing_delimiter, max_results: max_results, page_token: page_token, prefix: prefix, projection: projection, start_offset: start_offset, user_project: user_project, versions: versions)
       data
     end
 
     # Retrieves a list of objects matching the criteria.
     # @param bucket [String] Name of the bucket in which to look for objects.
     # @return [Array<(Objects, Integer, Hash)>] Objects data, response status code and response headers
-    def list_with_http_info(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, delimiter : String? = nil, end_offset : String? = nil, include_trailing_delimiter : Bool? = nil, max_results : Int32? = nil, page_token : String? = nil, prefix : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, start_offset : String? = nil, user_project : String? = nil, versions : Bool? = nil)
-      request = build_api_request_for_list(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, delimiter: delimiter, end_offset: end_offset, include_trailing_delimiter: include_trailing_delimiter, max_results: max_results, page_token: page_token, prefix: prefix, projection: projection, provisional_user_project: provisional_user_project, start_offset: start_offset, user_project: user_project, versions: versions)
+    def list_with_http_info(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, delimiter : String? = nil, end_offset : String? = nil, include_trailing_delimiter : Bool? = nil, max_results : Int32? = nil, page_token : String? = nil, prefix : String? = nil, projection : String? = nil, start_offset : String? = nil, user_project : String? = nil, versions : Bool? = nil)
+      request = build_api_request_for_list(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, delimiter: delimiter, end_offset: end_offset, include_trailing_delimiter: include_trailing_delimiter, max_results: max_results, page_token: page_token, prefix: prefix, projection: projection, start_offset: start_offset, user_project: user_project, versions: versions)
 
       data, status_code, headers = @api_client.execute_api_request(request)
 
@@ -609,16 +609,16 @@ module GoogleCloudStorage
     # Retrieves a list of objects matching the criteria.
     # @param bucket [String] Name of the bucket in which to look for objects.
     # @return nil
-    def list(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, delimiter : String? = nil, end_offset : String? = nil, include_trailing_delimiter : Bool? = nil, max_results : Int32? = nil, page_token : String? = nil, prefix : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, start_offset : String? = nil, user_project : String? = nil, versions : Bool? = nil, &block : Crest::Response ->)
-      build_api_request_for_list(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, delimiter: delimiter, end_offset: end_offset, include_trailing_delimiter: include_trailing_delimiter, max_results: max_results, page_token: page_token, prefix: prefix, projection: projection, provisional_user_project: provisional_user_project, start_offset: start_offset, user_project: user_project, versions: versions).execute(&block)
+    def list(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, delimiter : String? = nil, end_offset : String? = nil, include_trailing_delimiter : Bool? = nil, max_results : Int32? = nil, page_token : String? = nil, prefix : String? = nil, projection : String? = nil, start_offset : String? = nil, user_project : String? = nil, versions : Bool? = nil, &block : Crest::Response ->)
+      build_api_request_for_list(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, delimiter: delimiter, end_offset: end_offset, include_trailing_delimiter: include_trailing_delimiter, max_results: max_results, page_token: page_token, prefix: prefix, projection: projection, start_offset: start_offset, user_project: user_project, versions: versions).execute(&block)
     end
 
     # @return Crest::Request
-    def build_api_request_for_list(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, delimiter : String? = nil, end_offset : String? = nil, include_trailing_delimiter : Bool? = nil, max_results : Int32? = nil, page_token : String? = nil, prefix : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, start_offset : String? = nil, user_project : String? = nil, versions : Bool? = nil) : Crest::Request
+    def build_api_request_for_list(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, delimiter : String? = nil, end_offset : String? = nil, include_trailing_delimiter : Bool? = nil, max_results : Int32? = nil, page_token : String? = nil, prefix : String? = nil, projection : String? = nil, start_offset : String? = nil, user_project : String? = nil, versions : Bool? = nil) : Crest::Request
       if @api_client.config.debugging
         Log.debug { "Calling API: ObjectsApi.list ..." }
       end
-      allowable_values = ["json", "media"]
+      allowable_values = ["json"]
       if @api_client.config.client_side_validation && !alt.nil? && !allowable_values.includes?(alt)
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
@@ -641,6 +641,7 @@ module GoogleCloudStorage
       query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil?
       query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil?
       query_params["quotaUser"] = quota_user.to_s if !quota_user.nil?
+      query_params["uploadType"] = upload_type.to_s if !upload_type.nil?
       query_params["userIp"] = user_ip.to_s if !user_ip.nil?
       query_params["delimiter"] = delimiter.to_s if !delimiter.nil?
       query_params["endOffset"] = end_offset.to_s if !end_offset.nil?
@@ -649,7 +650,6 @@ module GoogleCloudStorage
       query_params["pageToken"] = page_token.to_s if !page_token.nil?
       query_params["prefix"] = prefix.to_s if !prefix.nil?
       query_params["projection"] = projection.to_s if !projection.nil?
-      query_params["provisionalUserProject"] = provisional_user_project.to_s if !provisional_user_project.nil?
       query_params["startOffset"] = start_offset.to_s if !start_offset.nil?
       query_params["userProject"] = user_project.to_s if !user_project.nil?
       query_params["versions"] = versions.to_s if !versions.nil?
@@ -684,8 +684,8 @@ module GoogleCloudStorage
     # @param bucket [String] Name of the bucket in which the object resides.
     # @param object [String] Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
     # @return [Object]
-    def patch(*, bucket : String, object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, generation : String? = nil, if_generation_match : String? = nil, if_generation_not_match : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, predefined_acl : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, object2 : Object? = nil)
-      data, _status_code, _headers = patch_with_http_info(bucket: bucket, object: object, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, generation: generation, if_generation_match: if_generation_match, if_generation_not_match: if_generation_not_match, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, predefined_acl: predefined_acl, projection: projection, provisional_user_project: provisional_user_project, user_project: user_project, object2: object2)
+    def patch(*, bucket : String, object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, generation : String? = nil, if_generation_match : String? = nil, if_generation_not_match : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, predefined_acl : String? = nil, projection : String? = nil, user_project : String? = nil, object2 : Object? = nil)
+      data, _status_code, _headers = patch_with_http_info(bucket: bucket, object: object, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, generation: generation, if_generation_match: if_generation_match, if_generation_not_match: if_generation_not_match, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, predefined_acl: predefined_acl, projection: projection, user_project: user_project, object2: object2)
       data
     end
 
@@ -693,8 +693,8 @@ module GoogleCloudStorage
     # @param bucket [String] Name of the bucket in which the object resides.
     # @param object [String] Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
-    def patch_with_http_info(*, bucket : String, object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, generation : String? = nil, if_generation_match : String? = nil, if_generation_not_match : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, predefined_acl : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, object2 : Object? = nil)
-      request = build_api_request_for_patch(bucket: bucket, object: object, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, generation: generation, if_generation_match: if_generation_match, if_generation_not_match: if_generation_not_match, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, predefined_acl: predefined_acl, projection: projection, provisional_user_project: provisional_user_project, user_project: user_project, object2: object2)
+    def patch_with_http_info(*, bucket : String, object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, generation : String? = nil, if_generation_match : String? = nil, if_generation_not_match : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, predefined_acl : String? = nil, projection : String? = nil, user_project : String? = nil, object2 : Object? = nil)
+      request = build_api_request_for_patch(bucket: bucket, object: object, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, generation: generation, if_generation_match: if_generation_match, if_generation_not_match: if_generation_not_match, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, predefined_acl: predefined_acl, projection: projection, user_project: user_project, object2: object2)
 
       data, status_code, headers = @api_client.execute_api_request(request)
 
@@ -709,16 +709,16 @@ module GoogleCloudStorage
     # @param bucket [String] Name of the bucket in which the object resides.
     # @param object [String] Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
     # @return nil
-    def patch(*, bucket : String, object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, generation : String? = nil, if_generation_match : String? = nil, if_generation_not_match : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, predefined_acl : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, object2 : Object? = nil, &block : Crest::Response ->)
-      build_api_request_for_patch(bucket: bucket, object: object, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, generation: generation, if_generation_match: if_generation_match, if_generation_not_match: if_generation_not_match, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, predefined_acl: predefined_acl, projection: projection, provisional_user_project: provisional_user_project, user_project: user_project, object2: object2).execute(&block)
+    def patch(*, bucket : String, object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, generation : String? = nil, if_generation_match : String? = nil, if_generation_not_match : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, predefined_acl : String? = nil, projection : String? = nil, user_project : String? = nil, object2 : Object? = nil, &block : Crest::Response ->)
+      build_api_request_for_patch(bucket: bucket, object: object, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, generation: generation, if_generation_match: if_generation_match, if_generation_not_match: if_generation_not_match, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, predefined_acl: predefined_acl, projection: projection, user_project: user_project, object2: object2).execute(&block)
     end
 
     # @return Crest::Request
-    def build_api_request_for_patch(*, bucket : String, object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, generation : String? = nil, if_generation_match : String? = nil, if_generation_not_match : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, predefined_acl : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, object2 : Object? = nil) : Crest::Request
+    def build_api_request_for_patch(*, bucket : String, object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, generation : String? = nil, if_generation_match : String? = nil, if_generation_not_match : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, predefined_acl : String? = nil, projection : String? = nil, user_project : String? = nil, object2 : Object? = nil) : Crest::Request
       if @api_client.config.debugging
         Log.debug { "Calling API: ObjectsApi.patch ..." }
       end
-      allowable_values = ["json", "media"]
+      allowable_values = ["json"]
       if @api_client.config.client_side_validation && !alt.nil? && !allowable_values.includes?(alt)
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
@@ -741,6 +741,7 @@ module GoogleCloudStorage
       query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil?
       query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil?
       query_params["quotaUser"] = quota_user.to_s if !quota_user.nil?
+      query_params["uploadType"] = upload_type.to_s if !upload_type.nil?
       query_params["userIp"] = user_ip.to_s if !user_ip.nil?
       query_params["generation"] = generation.to_s if !generation.nil?
       query_params["ifGenerationMatch"] = if_generation_match.to_s if !if_generation_match.nil?
@@ -749,7 +750,6 @@ module GoogleCloudStorage
       query_params["ifMetagenerationNotMatch"] = if_metageneration_not_match.to_s if !if_metageneration_not_match.nil?
       query_params["predefinedAcl"] = predefined_acl.to_s if !predefined_acl.nil?
       query_params["projection"] = projection.to_s if !projection.nil?
-      query_params["provisionalUserProject"] = provisional_user_project.to_s if !provisional_user_project.nil?
       query_params["userProject"] = user_project.to_s if !user_project.nil?
 
       # header parameters
@@ -786,8 +786,8 @@ module GoogleCloudStorage
     # @param destination_bucket [String] Name of the bucket in which to store the new object. Overrides the provided object metadata's bucket value, if any.
     # @param destination_object [String] Name of the new object. Required when the object metadata is not otherwise provided. Overrides the object metadata's name value, if any. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
     # @return [RewriteResponse]
-    def rewrite(*, source_bucket : String, source_object : String, destination_bucket : String, destination_object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, destination_kms_key_name : String? = nil, destination_predefined_acl : String? = nil, if_generation_match : String? = nil, if_generation_not_match : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, if_source_generation_match : String? = nil, if_source_generation_not_match : String? = nil, if_source_metageneration_match : String? = nil, if_source_metageneration_not_match : String? = nil, max_bytes_rewritten_per_call : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, rewrite_token : String? = nil, source_generation : String? = nil, user_project : String? = nil, object : Object? = nil)
-      data, _status_code, _headers = rewrite_with_http_info(source_bucket: source_bucket, source_object: source_object, destination_bucket: destination_bucket, destination_object: destination_object, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, destination_kms_key_name: destination_kms_key_name, destination_predefined_acl: destination_predefined_acl, if_generation_match: if_generation_match, if_generation_not_match: if_generation_not_match, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, if_source_generation_match: if_source_generation_match, if_source_generation_not_match: if_source_generation_not_match, if_source_metageneration_match: if_source_metageneration_match, if_source_metageneration_not_match: if_source_metageneration_not_match, max_bytes_rewritten_per_call: max_bytes_rewritten_per_call, projection: projection, provisional_user_project: provisional_user_project, rewrite_token: rewrite_token, source_generation: source_generation, user_project: user_project, object: object)
+    def rewrite(*, source_bucket : String, source_object : String, destination_bucket : String, destination_object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, destination_kms_key_name : String? = nil, destination_predefined_acl : String? = nil, if_generation_match : String? = nil, if_generation_not_match : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, if_source_generation_match : String? = nil, if_source_generation_not_match : String? = nil, if_source_metageneration_match : String? = nil, if_source_metageneration_not_match : String? = nil, max_bytes_rewritten_per_call : String? = nil, projection : String? = nil, rewrite_token : String? = nil, source_generation : String? = nil, user_project : String? = nil, object : Object? = nil)
+      data, _status_code, _headers = rewrite_with_http_info(source_bucket: source_bucket, source_object: source_object, destination_bucket: destination_bucket, destination_object: destination_object, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, destination_kms_key_name: destination_kms_key_name, destination_predefined_acl: destination_predefined_acl, if_generation_match: if_generation_match, if_generation_not_match: if_generation_not_match, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, if_source_generation_match: if_source_generation_match, if_source_generation_not_match: if_source_generation_not_match, if_source_metageneration_match: if_source_metageneration_match, if_source_metageneration_not_match: if_source_metageneration_not_match, max_bytes_rewritten_per_call: max_bytes_rewritten_per_call, projection: projection, rewrite_token: rewrite_token, source_generation: source_generation, user_project: user_project, object: object)
       data
     end
 
@@ -797,8 +797,8 @@ module GoogleCloudStorage
     # @param destination_bucket [String] Name of the bucket in which to store the new object. Overrides the provided object metadata's bucket value, if any.
     # @param destination_object [String] Name of the new object. Required when the object metadata is not otherwise provided. Overrides the object metadata's name value, if any. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
     # @return [Array<(RewriteResponse, Integer, Hash)>] RewriteResponse data, response status code and response headers
-    def rewrite_with_http_info(*, source_bucket : String, source_object : String, destination_bucket : String, destination_object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, destination_kms_key_name : String? = nil, destination_predefined_acl : String? = nil, if_generation_match : String? = nil, if_generation_not_match : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, if_source_generation_match : String? = nil, if_source_generation_not_match : String? = nil, if_source_metageneration_match : String? = nil, if_source_metageneration_not_match : String? = nil, max_bytes_rewritten_per_call : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, rewrite_token : String? = nil, source_generation : String? = nil, user_project : String? = nil, object : Object? = nil)
-      request = build_api_request_for_rewrite(source_bucket: source_bucket, source_object: source_object, destination_bucket: destination_bucket, destination_object: destination_object, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, destination_kms_key_name: destination_kms_key_name, destination_predefined_acl: destination_predefined_acl, if_generation_match: if_generation_match, if_generation_not_match: if_generation_not_match, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, if_source_generation_match: if_source_generation_match, if_source_generation_not_match: if_source_generation_not_match, if_source_metageneration_match: if_source_metageneration_match, if_source_metageneration_not_match: if_source_metageneration_not_match, max_bytes_rewritten_per_call: max_bytes_rewritten_per_call, projection: projection, provisional_user_project: provisional_user_project, rewrite_token: rewrite_token, source_generation: source_generation, user_project: user_project, object: object)
+    def rewrite_with_http_info(*, source_bucket : String, source_object : String, destination_bucket : String, destination_object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, destination_kms_key_name : String? = nil, destination_predefined_acl : String? = nil, if_generation_match : String? = nil, if_generation_not_match : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, if_source_generation_match : String? = nil, if_source_generation_not_match : String? = nil, if_source_metageneration_match : String? = nil, if_source_metageneration_not_match : String? = nil, max_bytes_rewritten_per_call : String? = nil, projection : String? = nil, rewrite_token : String? = nil, source_generation : String? = nil, user_project : String? = nil, object : Object? = nil)
+      request = build_api_request_for_rewrite(source_bucket: source_bucket, source_object: source_object, destination_bucket: destination_bucket, destination_object: destination_object, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, destination_kms_key_name: destination_kms_key_name, destination_predefined_acl: destination_predefined_acl, if_generation_match: if_generation_match, if_generation_not_match: if_generation_not_match, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, if_source_generation_match: if_source_generation_match, if_source_generation_not_match: if_source_generation_not_match, if_source_metageneration_match: if_source_metageneration_match, if_source_metageneration_not_match: if_source_metageneration_not_match, max_bytes_rewritten_per_call: max_bytes_rewritten_per_call, projection: projection, rewrite_token: rewrite_token, source_generation: source_generation, user_project: user_project, object: object)
 
       data, status_code, headers = @api_client.execute_api_request(request)
 
@@ -815,16 +815,16 @@ module GoogleCloudStorage
     # @param destination_bucket [String] Name of the bucket in which to store the new object. Overrides the provided object metadata's bucket value, if any.
     # @param destination_object [String] Name of the new object. Required when the object metadata is not otherwise provided. Overrides the object metadata's name value, if any. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
     # @return nil
-    def rewrite(*, source_bucket : String, source_object : String, destination_bucket : String, destination_object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, destination_kms_key_name : String? = nil, destination_predefined_acl : String? = nil, if_generation_match : String? = nil, if_generation_not_match : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, if_source_generation_match : String? = nil, if_source_generation_not_match : String? = nil, if_source_metageneration_match : String? = nil, if_source_metageneration_not_match : String? = nil, max_bytes_rewritten_per_call : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, rewrite_token : String? = nil, source_generation : String? = nil, user_project : String? = nil, object : Object? = nil, &block : Crest::Response ->)
-      build_api_request_for_rewrite(source_bucket: source_bucket, source_object: source_object, destination_bucket: destination_bucket, destination_object: destination_object, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, destination_kms_key_name: destination_kms_key_name, destination_predefined_acl: destination_predefined_acl, if_generation_match: if_generation_match, if_generation_not_match: if_generation_not_match, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, if_source_generation_match: if_source_generation_match, if_source_generation_not_match: if_source_generation_not_match, if_source_metageneration_match: if_source_metageneration_match, if_source_metageneration_not_match: if_source_metageneration_not_match, max_bytes_rewritten_per_call: max_bytes_rewritten_per_call, projection: projection, provisional_user_project: provisional_user_project, rewrite_token: rewrite_token, source_generation: source_generation, user_project: user_project, object: object).execute(&block)
+    def rewrite(*, source_bucket : String, source_object : String, destination_bucket : String, destination_object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, destination_kms_key_name : String? = nil, destination_predefined_acl : String? = nil, if_generation_match : String? = nil, if_generation_not_match : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, if_source_generation_match : String? = nil, if_source_generation_not_match : String? = nil, if_source_metageneration_match : String? = nil, if_source_metageneration_not_match : String? = nil, max_bytes_rewritten_per_call : String? = nil, projection : String? = nil, rewrite_token : String? = nil, source_generation : String? = nil, user_project : String? = nil, object : Object? = nil, &block : Crest::Response ->)
+      build_api_request_for_rewrite(source_bucket: source_bucket, source_object: source_object, destination_bucket: destination_bucket, destination_object: destination_object, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, destination_kms_key_name: destination_kms_key_name, destination_predefined_acl: destination_predefined_acl, if_generation_match: if_generation_match, if_generation_not_match: if_generation_not_match, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, if_source_generation_match: if_source_generation_match, if_source_generation_not_match: if_source_generation_not_match, if_source_metageneration_match: if_source_metageneration_match, if_source_metageneration_not_match: if_source_metageneration_not_match, max_bytes_rewritten_per_call: max_bytes_rewritten_per_call, projection: projection, rewrite_token: rewrite_token, source_generation: source_generation, user_project: user_project, object: object).execute(&block)
     end
 
     # @return Crest::Request
-    def build_api_request_for_rewrite(*, source_bucket : String, source_object : String, destination_bucket : String, destination_object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, destination_kms_key_name : String? = nil, destination_predefined_acl : String? = nil, if_generation_match : String? = nil, if_generation_not_match : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, if_source_generation_match : String? = nil, if_source_generation_not_match : String? = nil, if_source_metageneration_match : String? = nil, if_source_metageneration_not_match : String? = nil, max_bytes_rewritten_per_call : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, rewrite_token : String? = nil, source_generation : String? = nil, user_project : String? = nil, object : Object? = nil) : Crest::Request
+    def build_api_request_for_rewrite(*, source_bucket : String, source_object : String, destination_bucket : String, destination_object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, destination_kms_key_name : String? = nil, destination_predefined_acl : String? = nil, if_generation_match : String? = nil, if_generation_not_match : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, if_source_generation_match : String? = nil, if_source_generation_not_match : String? = nil, if_source_metageneration_match : String? = nil, if_source_metageneration_not_match : String? = nil, max_bytes_rewritten_per_call : String? = nil, projection : String? = nil, rewrite_token : String? = nil, source_generation : String? = nil, user_project : String? = nil, object : Object? = nil) : Crest::Request
       if @api_client.config.debugging
         Log.debug { "Calling API: ObjectsApi.rewrite ..." }
       end
-      allowable_values = ["json", "media"]
+      allowable_values = ["json"]
       if @api_client.config.client_side_validation && !alt.nil? && !allowable_values.includes?(alt)
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
@@ -847,6 +847,7 @@ module GoogleCloudStorage
       query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil?
       query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil?
       query_params["quotaUser"] = quota_user.to_s if !quota_user.nil?
+      query_params["uploadType"] = upload_type.to_s if !upload_type.nil?
       query_params["userIp"] = user_ip.to_s if !user_ip.nil?
       query_params["destinationKmsKeyName"] = destination_kms_key_name.to_s if !destination_kms_key_name.nil?
       query_params["destinationPredefinedAcl"] = destination_predefined_acl.to_s if !destination_predefined_acl.nil?
@@ -860,7 +861,6 @@ module GoogleCloudStorage
       query_params["ifSourceMetagenerationNotMatch"] = if_source_metageneration_not_match.to_s if !if_source_metageneration_not_match.nil?
       query_params["maxBytesRewrittenPerCall"] = max_bytes_rewritten_per_call.to_s if !max_bytes_rewritten_per_call.nil?
       query_params["projection"] = projection.to_s if !projection.nil?
-      query_params["provisionalUserProject"] = provisional_user_project.to_s if !provisional_user_project.nil?
       query_params["rewriteToken"] = rewrite_token.to_s if !rewrite_token.nil?
       query_params["sourceGeneration"] = source_generation.to_s if !source_generation.nil?
       query_params["userProject"] = user_project.to_s if !user_project.nil?
@@ -897,8 +897,8 @@ module GoogleCloudStorage
     # @param bucket [String] Name of the bucket in which the object resides.
     # @param object [String] Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
     # @return [Policy]
-    def set_iam_policy(*, bucket : String, object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, generation : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, policy : Policy? = nil)
-      data, _status_code, _headers = set_iam_policy_with_http_info(bucket: bucket, object: object, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, generation: generation, provisional_user_project: provisional_user_project, user_project: user_project, policy: policy)
+    def set_iam_policy(*, bucket : String, object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, generation : String? = nil, user_project : String? = nil, policy : Policy? = nil)
+      data, _status_code, _headers = set_iam_policy_with_http_info(bucket: bucket, object: object, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, generation: generation, user_project: user_project, policy: policy)
       data
     end
 
@@ -906,8 +906,8 @@ module GoogleCloudStorage
     # @param bucket [String] Name of the bucket in which the object resides.
     # @param object [String] Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
     # @return [Array<(Policy, Integer, Hash)>] Policy data, response status code and response headers
-    def set_iam_policy_with_http_info(*, bucket : String, object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, generation : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, policy : Policy? = nil)
-      request = build_api_request_for_set_iam_policy(bucket: bucket, object: object, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, generation: generation, provisional_user_project: provisional_user_project, user_project: user_project, policy: policy)
+    def set_iam_policy_with_http_info(*, bucket : String, object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, generation : String? = nil, user_project : String? = nil, policy : Policy? = nil)
+      request = build_api_request_for_set_iam_policy(bucket: bucket, object: object, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, generation: generation, user_project: user_project, policy: policy)
 
       data, status_code, headers = @api_client.execute_api_request(request)
 
@@ -922,16 +922,16 @@ module GoogleCloudStorage
     # @param bucket [String] Name of the bucket in which the object resides.
     # @param object [String] Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
     # @return nil
-    def set_iam_policy(*, bucket : String, object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, generation : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, policy : Policy? = nil, &block : Crest::Response ->)
-      build_api_request_for_set_iam_policy(bucket: bucket, object: object, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, generation: generation, provisional_user_project: provisional_user_project, user_project: user_project, policy: policy).execute(&block)
+    def set_iam_policy(*, bucket : String, object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, generation : String? = nil, user_project : String? = nil, policy : Policy? = nil, &block : Crest::Response ->)
+      build_api_request_for_set_iam_policy(bucket: bucket, object: object, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, generation: generation, user_project: user_project, policy: policy).execute(&block)
     end
 
     # @return Crest::Request
-    def build_api_request_for_set_iam_policy(*, bucket : String, object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, generation : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, policy : Policy? = nil) : Crest::Request
+    def build_api_request_for_set_iam_policy(*, bucket : String, object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, generation : String? = nil, user_project : String? = nil, policy : Policy? = nil) : Crest::Request
       if @api_client.config.debugging
         Log.debug { "Calling API: ObjectsApi.set_iam_policy ..." }
       end
-      allowable_values = ["json", "media"]
+      allowable_values = ["json"]
       if @api_client.config.client_side_validation && !alt.nil? && !allowable_values.includes?(alt)
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
@@ -946,9 +946,9 @@ module GoogleCloudStorage
       query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil?
       query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil?
       query_params["quotaUser"] = quota_user.to_s if !quota_user.nil?
+      query_params["uploadType"] = upload_type.to_s if !upload_type.nil?
       query_params["userIp"] = user_ip.to_s if !user_ip.nil?
       query_params["generation"] = generation.to_s if !generation.nil?
-      query_params["provisionalUserProject"] = provisional_user_project.to_s if !provisional_user_project.nil?
       query_params["userProject"] = user_project.to_s if !user_project.nil?
 
       # header parameters
@@ -984,8 +984,8 @@ module GoogleCloudStorage
     # @param object [String] Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
     # @param permissions [Array(String)] Permissions to test.
     # @return [TestIamPermissionsResponse]
-    def test_iam_permissions(*, bucket : String, object : String, permissions : Array(String), alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, generation : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil)
-      data, _status_code, _headers = test_iam_permissions_with_http_info(bucket: bucket, object: object, permissions: permissions, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, generation: generation, provisional_user_project: provisional_user_project, user_project: user_project)
+    def test_iam_permissions(*, bucket : String, object : String, permissions : Array(String), alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, generation : String? = nil, user_project : String? = nil)
+      data, _status_code, _headers = test_iam_permissions_with_http_info(bucket: bucket, object: object, permissions: permissions, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, generation: generation, user_project: user_project)
       data
     end
 
@@ -994,8 +994,8 @@ module GoogleCloudStorage
     # @param object [String] Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
     # @param permissions [Array(String)] Permissions to test.
     # @return [Array<(TestIamPermissionsResponse, Integer, Hash)>] TestIamPermissionsResponse data, response status code and response headers
-    def test_iam_permissions_with_http_info(*, bucket : String, object : String, permissions : Array(String), alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, generation : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil)
-      request = build_api_request_for_test_iam_permissions(bucket: bucket, object: object, permissions: permissions, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, generation: generation, provisional_user_project: provisional_user_project, user_project: user_project)
+    def test_iam_permissions_with_http_info(*, bucket : String, object : String, permissions : Array(String), alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, generation : String? = nil, user_project : String? = nil)
+      request = build_api_request_for_test_iam_permissions(bucket: bucket, object: object, permissions: permissions, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, generation: generation, user_project: user_project)
 
       data, status_code, headers = @api_client.execute_api_request(request)
 
@@ -1011,16 +1011,16 @@ module GoogleCloudStorage
     # @param object [String] Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
     # @param permissions [Array(String)] Permissions to test.
     # @return nil
-    def test_iam_permissions(*, bucket : String, object : String, permissions : Array(String), alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, generation : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, &block : Crest::Response ->)
-      build_api_request_for_test_iam_permissions(bucket: bucket, object: object, permissions: permissions, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, generation: generation, provisional_user_project: provisional_user_project, user_project: user_project).execute(&block)
+    def test_iam_permissions(*, bucket : String, object : String, permissions : Array(String), alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, generation : String? = nil, user_project : String? = nil, &block : Crest::Response ->)
+      build_api_request_for_test_iam_permissions(bucket: bucket, object: object, permissions: permissions, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, generation: generation, user_project: user_project).execute(&block)
     end
 
     # @return Crest::Request
-    def build_api_request_for_test_iam_permissions(*, bucket : String, object : String, permissions : Array(String), alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, generation : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil) : Crest::Request
+    def build_api_request_for_test_iam_permissions(*, bucket : String, object : String, permissions : Array(String), alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, generation : String? = nil, user_project : String? = nil) : Crest::Request
       if @api_client.config.debugging
         Log.debug { "Calling API: ObjectsApi.test_iam_permissions ..." }
       end
-      allowable_values = ["json", "media"]
+      allowable_values = ["json"]
       if @api_client.config.client_side_validation && !alt.nil? && !allowable_values.includes?(alt)
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
@@ -1035,10 +1035,10 @@ module GoogleCloudStorage
       query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil?
       query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil?
       query_params["quotaUser"] = quota_user.to_s if !quota_user.nil?
+      query_params["uploadType"] = upload_type.to_s if !upload_type.nil?
       query_params["userIp"] = user_ip.to_s if !user_ip.nil?
       query_params["permissions"] = @api_client.build_collection_param(permissions, "multi") if !permissions.nil? && !permissions.empty?
       query_params["generation"] = generation.to_s if !generation.nil?
-      query_params["provisionalUserProject"] = provisional_user_project.to_s if !provisional_user_project.nil?
       query_params["userProject"] = user_project.to_s if !user_project.nil?
 
       # header parameters
@@ -1071,8 +1071,8 @@ module GoogleCloudStorage
     # @param bucket [String] Name of the bucket in which the object resides.
     # @param object [String] Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
     # @return [Object]
-    def update(*, bucket : String, object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, generation : String? = nil, if_generation_match : String? = nil, if_generation_not_match : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, predefined_acl : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, object2 : Object? = nil)
-      data, _status_code, _headers = update_with_http_info(bucket: bucket, object: object, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, generation: generation, if_generation_match: if_generation_match, if_generation_not_match: if_generation_not_match, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, predefined_acl: predefined_acl, projection: projection, provisional_user_project: provisional_user_project, user_project: user_project, object2: object2)
+    def update(*, bucket : String, object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, generation : String? = nil, if_generation_match : String? = nil, if_generation_not_match : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, predefined_acl : String? = nil, projection : String? = nil, user_project : String? = nil, object2 : Object? = nil)
+      data, _status_code, _headers = update_with_http_info(bucket: bucket, object: object, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, generation: generation, if_generation_match: if_generation_match, if_generation_not_match: if_generation_not_match, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, predefined_acl: predefined_acl, projection: projection, user_project: user_project, object2: object2)
       data
     end
 
@@ -1080,8 +1080,8 @@ module GoogleCloudStorage
     # @param bucket [String] Name of the bucket in which the object resides.
     # @param object [String] Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
-    def update_with_http_info(*, bucket : String, object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, generation : String? = nil, if_generation_match : String? = nil, if_generation_not_match : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, predefined_acl : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, object2 : Object? = nil)
-      request = build_api_request_for_update(bucket: bucket, object: object, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, generation: generation, if_generation_match: if_generation_match, if_generation_not_match: if_generation_not_match, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, predefined_acl: predefined_acl, projection: projection, provisional_user_project: provisional_user_project, user_project: user_project, object2: object2)
+    def update_with_http_info(*, bucket : String, object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, generation : String? = nil, if_generation_match : String? = nil, if_generation_not_match : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, predefined_acl : String? = nil, projection : String? = nil, user_project : String? = nil, object2 : Object? = nil)
+      request = build_api_request_for_update(bucket: bucket, object: object, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, generation: generation, if_generation_match: if_generation_match, if_generation_not_match: if_generation_not_match, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, predefined_acl: predefined_acl, projection: projection, user_project: user_project, object2: object2)
 
       data, status_code, headers = @api_client.execute_api_request(request)
 
@@ -1096,16 +1096,16 @@ module GoogleCloudStorage
     # @param bucket [String] Name of the bucket in which the object resides.
     # @param object [String] Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
     # @return nil
-    def update(*, bucket : String, object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, generation : String? = nil, if_generation_match : String? = nil, if_generation_not_match : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, predefined_acl : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, object2 : Object? = nil, &block : Crest::Response ->)
-      build_api_request_for_update(bucket: bucket, object: object, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, generation: generation, if_generation_match: if_generation_match, if_generation_not_match: if_generation_not_match, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, predefined_acl: predefined_acl, projection: projection, provisional_user_project: provisional_user_project, user_project: user_project, object2: object2).execute(&block)
+    def update(*, bucket : String, object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, generation : String? = nil, if_generation_match : String? = nil, if_generation_not_match : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, predefined_acl : String? = nil, projection : String? = nil, user_project : String? = nil, object2 : Object? = nil, &block : Crest::Response ->)
+      build_api_request_for_update(bucket: bucket, object: object, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, generation: generation, if_generation_match: if_generation_match, if_generation_not_match: if_generation_not_match, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, predefined_acl: predefined_acl, projection: projection, user_project: user_project, object2: object2).execute(&block)
     end
 
     # @return Crest::Request
-    def build_api_request_for_update(*, bucket : String, object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, generation : String? = nil, if_generation_match : String? = nil, if_generation_not_match : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, predefined_acl : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, object2 : Object? = nil) : Crest::Request
+    def build_api_request_for_update(*, bucket : String, object : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, generation : String? = nil, if_generation_match : String? = nil, if_generation_not_match : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, predefined_acl : String? = nil, projection : String? = nil, user_project : String? = nil, object2 : Object? = nil) : Crest::Request
       if @api_client.config.debugging
         Log.debug { "Calling API: ObjectsApi.update ..." }
       end
-      allowable_values = ["json", "media"]
+      allowable_values = ["json"]
       if @api_client.config.client_side_validation && !alt.nil? && !allowable_values.includes?(alt)
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
@@ -1128,6 +1128,7 @@ module GoogleCloudStorage
       query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil?
       query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil?
       query_params["quotaUser"] = quota_user.to_s if !quota_user.nil?
+      query_params["uploadType"] = upload_type.to_s if !upload_type.nil?
       query_params["userIp"] = user_ip.to_s if !user_ip.nil?
       query_params["generation"] = generation.to_s if !generation.nil?
       query_params["ifGenerationMatch"] = if_generation_match.to_s if !if_generation_match.nil?
@@ -1136,7 +1137,6 @@ module GoogleCloudStorage
       query_params["ifMetagenerationNotMatch"] = if_metageneration_not_match.to_s if !if_metageneration_not_match.nil?
       query_params["predefinedAcl"] = predefined_acl.to_s if !predefined_acl.nil?
       query_params["projection"] = projection.to_s if !projection.nil?
-      query_params["provisionalUserProject"] = provisional_user_project.to_s if !provisional_user_project.nil?
       query_params["userProject"] = user_project.to_s if !user_project.nil?
 
       # header parameters
@@ -1170,16 +1170,16 @@ module GoogleCloudStorage
     # Watch for changes on all objects in a bucket.
     # @param bucket [String] Name of the bucket in which to look for objects.
     # @return [Channel]
-    def watch_all(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, delimiter : String? = nil, end_offset : String? = nil, include_trailing_delimiter : Bool? = nil, max_results : Int32? = nil, page_token : String? = nil, prefix : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, start_offset : String? = nil, user_project : String? = nil, versions : Bool? = nil, channel : Channel? = nil)
-      data, _status_code, _headers = watch_all_with_http_info(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, delimiter: delimiter, end_offset: end_offset, include_trailing_delimiter: include_trailing_delimiter, max_results: max_results, page_token: page_token, prefix: prefix, projection: projection, provisional_user_project: provisional_user_project, start_offset: start_offset, user_project: user_project, versions: versions, channel: channel)
+    def watch_all(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, delimiter : String? = nil, end_offset : String? = nil, include_trailing_delimiter : Bool? = nil, max_results : Int32? = nil, page_token : String? = nil, prefix : String? = nil, projection : String? = nil, start_offset : String? = nil, user_project : String? = nil, versions : Bool? = nil, channel : Channel? = nil)
+      data, _status_code, _headers = watch_all_with_http_info(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, delimiter: delimiter, end_offset: end_offset, include_trailing_delimiter: include_trailing_delimiter, max_results: max_results, page_token: page_token, prefix: prefix, projection: projection, start_offset: start_offset, user_project: user_project, versions: versions, channel: channel)
       data
     end
 
     # Watch for changes on all objects in a bucket.
     # @param bucket [String] Name of the bucket in which to look for objects.
     # @return [Array<(Channel, Integer, Hash)>] Channel data, response status code and response headers
-    def watch_all_with_http_info(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, delimiter : String? = nil, end_offset : String? = nil, include_trailing_delimiter : Bool? = nil, max_results : Int32? = nil, page_token : String? = nil, prefix : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, start_offset : String? = nil, user_project : String? = nil, versions : Bool? = nil, channel : Channel? = nil)
-      request = build_api_request_for_watch_all(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, delimiter: delimiter, end_offset: end_offset, include_trailing_delimiter: include_trailing_delimiter, max_results: max_results, page_token: page_token, prefix: prefix, projection: projection, provisional_user_project: provisional_user_project, start_offset: start_offset, user_project: user_project, versions: versions, channel: channel)
+    def watch_all_with_http_info(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, delimiter : String? = nil, end_offset : String? = nil, include_trailing_delimiter : Bool? = nil, max_results : Int32? = nil, page_token : String? = nil, prefix : String? = nil, projection : String? = nil, start_offset : String? = nil, user_project : String? = nil, versions : Bool? = nil, channel : Channel? = nil)
+      request = build_api_request_for_watch_all(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, delimiter: delimiter, end_offset: end_offset, include_trailing_delimiter: include_trailing_delimiter, max_results: max_results, page_token: page_token, prefix: prefix, projection: projection, start_offset: start_offset, user_project: user_project, versions: versions, channel: channel)
 
       data, status_code, headers = @api_client.execute_api_request(request)
 
@@ -1193,16 +1193,16 @@ module GoogleCloudStorage
     # Watch for changes on all objects in a bucket.
     # @param bucket [String] Name of the bucket in which to look for objects.
     # @return nil
-    def watch_all(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, delimiter : String? = nil, end_offset : String? = nil, include_trailing_delimiter : Bool? = nil, max_results : Int32? = nil, page_token : String? = nil, prefix : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, start_offset : String? = nil, user_project : String? = nil, versions : Bool? = nil, channel : Channel? = nil, &block : Crest::Response ->)
-      build_api_request_for_watch_all(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, delimiter: delimiter, end_offset: end_offset, include_trailing_delimiter: include_trailing_delimiter, max_results: max_results, page_token: page_token, prefix: prefix, projection: projection, provisional_user_project: provisional_user_project, start_offset: start_offset, user_project: user_project, versions: versions, channel: channel).execute(&block)
+    def watch_all(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, delimiter : String? = nil, end_offset : String? = nil, include_trailing_delimiter : Bool? = nil, max_results : Int32? = nil, page_token : String? = nil, prefix : String? = nil, projection : String? = nil, start_offset : String? = nil, user_project : String? = nil, versions : Bool? = nil, channel : Channel? = nil, &block : Crest::Response ->)
+      build_api_request_for_watch_all(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, delimiter: delimiter, end_offset: end_offset, include_trailing_delimiter: include_trailing_delimiter, max_results: max_results, page_token: page_token, prefix: prefix, projection: projection, start_offset: start_offset, user_project: user_project, versions: versions, channel: channel).execute(&block)
     end
 
     # @return Crest::Request
-    def build_api_request_for_watch_all(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, delimiter : String? = nil, end_offset : String? = nil, include_trailing_delimiter : Bool? = nil, max_results : Int32? = nil, page_token : String? = nil, prefix : String? = nil, projection : String? = nil, provisional_user_project : String? = nil, start_offset : String? = nil, user_project : String? = nil, versions : Bool? = nil, channel : Channel? = nil) : Crest::Request
+    def build_api_request_for_watch_all(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, delimiter : String? = nil, end_offset : String? = nil, include_trailing_delimiter : Bool? = nil, max_results : Int32? = nil, page_token : String? = nil, prefix : String? = nil, projection : String? = nil, start_offset : String? = nil, user_project : String? = nil, versions : Bool? = nil, channel : Channel? = nil) : Crest::Request
       if @api_client.config.debugging
         Log.debug { "Calling API: ObjectsApi.watch_all ..." }
       end
-      allowable_values = ["json", "media"]
+      allowable_values = ["json"]
       if @api_client.config.client_side_validation && !alt.nil? && !allowable_values.includes?(alt)
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
@@ -1225,6 +1225,7 @@ module GoogleCloudStorage
       query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil?
       query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil?
       query_params["quotaUser"] = quota_user.to_s if !quota_user.nil?
+      query_params["uploadType"] = upload_type.to_s if !upload_type.nil?
       query_params["userIp"] = user_ip.to_s if !user_ip.nil?
       query_params["delimiter"] = delimiter.to_s if !delimiter.nil?
       query_params["endOffset"] = end_offset.to_s if !end_offset.nil?
@@ -1233,7 +1234,6 @@ module GoogleCloudStorage
       query_params["pageToken"] = page_token.to_s if !page_token.nil?
       query_params["prefix"] = prefix.to_s if !prefix.nil?
       query_params["projection"] = projection.to_s if !projection.nil?
-      query_params["provisionalUserProject"] = provisional_user_project.to_s if !provisional_user_project.nil?
       query_params["startOffset"] = start_offset.to_s if !start_offset.nil?
       query_params["userProject"] = user_project.to_s if !user_project.nil?
       query_params["versions"] = versions.to_s if !versions.nil?

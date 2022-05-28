@@ -21,8 +21,8 @@ module GoogleCloudStorage
     # @param project_id [String] Project ID owning the service account.
     # @param service_account_email [String] Email address of the service account.
     # @return [HmacKey]
-    def hmac_keys_create(*, project_id : String, service_account_email : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, user_project : String? = nil)
-      data, _status_code, _headers = hmac_keys_create_with_http_info(project_id: project_id, service_account_email: service_account_email, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, user_project: user_project)
+    def hmac_keys_create(*, project_id : String, service_account_email : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, user_project : String? = nil)
+      data, _status_code, _headers = hmac_keys_create_with_http_info(project_id: project_id, service_account_email: service_account_email, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, user_project: user_project)
       data
     end
 
@@ -30,8 +30,8 @@ module GoogleCloudStorage
     # @param project_id [String] Project ID owning the service account.
     # @param service_account_email [String] Email address of the service account.
     # @return [Array<(HmacKey, Integer, Hash)>] HmacKey data, response status code and response headers
-    def hmac_keys_create_with_http_info(*, project_id : String, service_account_email : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, user_project : String? = nil)
-      request = build_api_request_for_hmac_keys_create(project_id: project_id, service_account_email: service_account_email, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, user_project: user_project)
+    def hmac_keys_create_with_http_info(*, project_id : String, service_account_email : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, user_project : String? = nil)
+      request = build_api_request_for_hmac_keys_create(project_id: project_id, service_account_email: service_account_email, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, user_project: user_project)
 
       data, status_code, headers = @api_client.execute_api_request(request)
 
@@ -46,16 +46,16 @@ module GoogleCloudStorage
     # @param project_id [String] Project ID owning the service account.
     # @param service_account_email [String] Email address of the service account.
     # @return nil
-    def hmac_keys_create(*, project_id : String, service_account_email : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, user_project : String? = nil, &block : Crest::Response ->)
-      build_api_request_for_hmac_keys_create(project_id: project_id, service_account_email: service_account_email, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, user_project: user_project).execute(&block)
+    def hmac_keys_create(*, project_id : String, service_account_email : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, user_project : String? = nil, &block : Crest::Response ->)
+      build_api_request_for_hmac_keys_create(project_id: project_id, service_account_email: service_account_email, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, user_project: user_project).execute(&block)
     end
 
     # @return Crest::Request
-    def build_api_request_for_hmac_keys_create(*, project_id : String, service_account_email : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, user_project : String? = nil) : Crest::Request
+    def build_api_request_for_hmac_keys_create(*, project_id : String, service_account_email : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, user_project : String? = nil) : Crest::Request
       if @api_client.config.debugging
         Log.debug { "Calling API: ProjectsApi.hmac_keys_create ..." }
       end
-      allowable_values = ["json", "media"]
+      allowable_values = ["json"]
       if @api_client.config.client_side_validation && !alt.nil? && !allowable_values.includes?(alt)
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
@@ -70,6 +70,7 @@ module GoogleCloudStorage
       query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil?
       query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil?
       query_params["quotaUser"] = quota_user.to_s if !quota_user.nil?
+      query_params["uploadType"] = upload_type.to_s if !upload_type.nil?
       query_params["userIp"] = user_ip.to_s if !user_ip.nil?
       query_params["serviceAccountEmail"] = service_account_email.to_s if !service_account_email.nil?
       query_params["userProject"] = user_project.to_s if !user_project.nil?
@@ -104,8 +105,8 @@ module GoogleCloudStorage
     # @param project_id [String] Project ID owning the requested key
     # @param access_id [String] Name of the HMAC key to be deleted.
     # @return [nil]
-    def hmac_keys_delete(*, project_id : String, access_id : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, user_project : String? = nil)
-      hmac_keys_delete_with_http_info(project_id: project_id, access_id: access_id, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, user_project: user_project)
+    def hmac_keys_delete(*, project_id : String, access_id : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, user_project : String? = nil)
+      hmac_keys_delete_with_http_info(project_id: project_id, access_id: access_id, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, user_project: user_project)
       nil
     end
 
@@ -113,8 +114,8 @@ module GoogleCloudStorage
     # @param project_id [String] Project ID owning the requested key
     # @param access_id [String] Name of the HMAC key to be deleted.
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def hmac_keys_delete_with_http_info(*, project_id : String, access_id : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, user_project : String? = nil)
-      request = build_api_request_for_hmac_keys_delete(project_id: project_id, access_id: access_id, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, user_project: user_project)
+    def hmac_keys_delete_with_http_info(*, project_id : String, access_id : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, user_project : String? = nil)
+      request = build_api_request_for_hmac_keys_delete(project_id: project_id, access_id: access_id, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, user_project: user_project)
 
       data, status_code, headers = @api_client.execute_api_request(request)
 
@@ -129,16 +130,16 @@ module GoogleCloudStorage
     # @param project_id [String] Project ID owning the requested key
     # @param access_id [String] Name of the HMAC key to be deleted.
     # @return nil
-    def hmac_keys_delete(*, project_id : String, access_id : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, user_project : String? = nil, &block : Crest::Response ->)
-      build_api_request_for_hmac_keys_delete(project_id: project_id, access_id: access_id, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, user_project: user_project).execute(&block)
+    def hmac_keys_delete(*, project_id : String, access_id : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, user_project : String? = nil, &block : Crest::Response ->)
+      build_api_request_for_hmac_keys_delete(project_id: project_id, access_id: access_id, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, user_project: user_project).execute(&block)
     end
 
     # @return Crest::Request
-    def build_api_request_for_hmac_keys_delete(*, project_id : String, access_id : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, user_project : String? = nil) : Crest::Request
+    def build_api_request_for_hmac_keys_delete(*, project_id : String, access_id : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, user_project : String? = nil) : Crest::Request
       if @api_client.config.debugging
         Log.debug { "Calling API: ProjectsApi.hmac_keys_delete ..." }
       end
-      allowable_values = ["json", "media"]
+      allowable_values = ["json"]
       if @api_client.config.client_side_validation && !alt.nil? && !allowable_values.includes?(alt)
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
@@ -153,6 +154,7 @@ module GoogleCloudStorage
       query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil?
       query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil?
       query_params["quotaUser"] = quota_user.to_s if !quota_user.nil?
+      query_params["uploadType"] = upload_type.to_s if !upload_type.nil?
       query_params["userIp"] = user_ip.to_s if !user_ip.nil?
       query_params["userProject"] = user_project.to_s if !user_project.nil?
 
@@ -184,8 +186,8 @@ module GoogleCloudStorage
     # @param project_id [String] Project ID owning the service account of the requested key.
     # @param access_id [String] Name of the HMAC key.
     # @return [HmacKeyMetadata]
-    def hmac_keys_get(*, project_id : String, access_id : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, user_project : String? = nil)
-      data, _status_code, _headers = hmac_keys_get_with_http_info(project_id: project_id, access_id: access_id, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, user_project: user_project)
+    def hmac_keys_get(*, project_id : String, access_id : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, user_project : String? = nil)
+      data, _status_code, _headers = hmac_keys_get_with_http_info(project_id: project_id, access_id: access_id, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, user_project: user_project)
       data
     end
 
@@ -193,8 +195,8 @@ module GoogleCloudStorage
     # @param project_id [String] Project ID owning the service account of the requested key.
     # @param access_id [String] Name of the HMAC key.
     # @return [Array<(HmacKeyMetadata, Integer, Hash)>] HmacKeyMetadata data, response status code and response headers
-    def hmac_keys_get_with_http_info(*, project_id : String, access_id : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, user_project : String? = nil)
-      request = build_api_request_for_hmac_keys_get(project_id: project_id, access_id: access_id, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, user_project: user_project)
+    def hmac_keys_get_with_http_info(*, project_id : String, access_id : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, user_project : String? = nil)
+      request = build_api_request_for_hmac_keys_get(project_id: project_id, access_id: access_id, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, user_project: user_project)
 
       data, status_code, headers = @api_client.execute_api_request(request)
 
@@ -209,16 +211,16 @@ module GoogleCloudStorage
     # @param project_id [String] Project ID owning the service account of the requested key.
     # @param access_id [String] Name of the HMAC key.
     # @return nil
-    def hmac_keys_get(*, project_id : String, access_id : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, user_project : String? = nil, &block : Crest::Response ->)
-      build_api_request_for_hmac_keys_get(project_id: project_id, access_id: access_id, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, user_project: user_project).execute(&block)
+    def hmac_keys_get(*, project_id : String, access_id : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, user_project : String? = nil, &block : Crest::Response ->)
+      build_api_request_for_hmac_keys_get(project_id: project_id, access_id: access_id, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, user_project: user_project).execute(&block)
     end
 
     # @return Crest::Request
-    def build_api_request_for_hmac_keys_get(*, project_id : String, access_id : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, user_project : String? = nil) : Crest::Request
+    def build_api_request_for_hmac_keys_get(*, project_id : String, access_id : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, user_project : String? = nil) : Crest::Request
       if @api_client.config.debugging
         Log.debug { "Calling API: ProjectsApi.hmac_keys_get ..." }
       end
-      allowable_values = ["json", "media"]
+      allowable_values = ["json"]
       if @api_client.config.client_side_validation && !alt.nil? && !allowable_values.includes?(alt)
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
@@ -233,6 +235,7 @@ module GoogleCloudStorage
       query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil?
       query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil?
       query_params["quotaUser"] = quota_user.to_s if !quota_user.nil?
+      query_params["uploadType"] = upload_type.to_s if !upload_type.nil?
       query_params["userIp"] = user_ip.to_s if !user_ip.nil?
       query_params["userProject"] = user_project.to_s if !user_project.nil?
 
@@ -265,16 +268,16 @@ module GoogleCloudStorage
     # Retrieves a list of HMAC keys matching the criteria.
     # @param project_id [String] Name of the project in which to look for HMAC keys.
     # @return [HmacKeysMetadata]
-    def hmac_keys_list(*, project_id : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, max_results : Int32? = nil, page_token : String? = nil, service_account_email : String? = nil, show_deleted_keys : Bool? = nil, user_project : String? = nil)
-      data, _status_code, _headers = hmac_keys_list_with_http_info(project_id: project_id, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, max_results: max_results, page_token: page_token, service_account_email: service_account_email, show_deleted_keys: show_deleted_keys, user_project: user_project)
+    def hmac_keys_list(*, project_id : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, max_results : Int32? = nil, page_token : String? = nil, service_account_email : String? = nil, show_deleted_keys : Bool? = nil, user_project : String? = nil)
+      data, _status_code, _headers = hmac_keys_list_with_http_info(project_id: project_id, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, max_results: max_results, page_token: page_token, service_account_email: service_account_email, show_deleted_keys: show_deleted_keys, user_project: user_project)
       data
     end
 
     # Retrieves a list of HMAC keys matching the criteria.
     # @param project_id [String] Name of the project in which to look for HMAC keys.
     # @return [Array<(HmacKeysMetadata, Integer, Hash)>] HmacKeysMetadata data, response status code and response headers
-    def hmac_keys_list_with_http_info(*, project_id : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, max_results : Int32? = nil, page_token : String? = nil, service_account_email : String? = nil, show_deleted_keys : Bool? = nil, user_project : String? = nil)
-      request = build_api_request_for_hmac_keys_list(project_id: project_id, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, max_results: max_results, page_token: page_token, service_account_email: service_account_email, show_deleted_keys: show_deleted_keys, user_project: user_project)
+    def hmac_keys_list_with_http_info(*, project_id : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, max_results : Int32? = nil, page_token : String? = nil, service_account_email : String? = nil, show_deleted_keys : Bool? = nil, user_project : String? = nil)
+      request = build_api_request_for_hmac_keys_list(project_id: project_id, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, max_results: max_results, page_token: page_token, service_account_email: service_account_email, show_deleted_keys: show_deleted_keys, user_project: user_project)
 
       data, status_code, headers = @api_client.execute_api_request(request)
 
@@ -288,16 +291,16 @@ module GoogleCloudStorage
     # Retrieves a list of HMAC keys matching the criteria.
     # @param project_id [String] Name of the project in which to look for HMAC keys.
     # @return nil
-    def hmac_keys_list(*, project_id : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, max_results : Int32? = nil, page_token : String? = nil, service_account_email : String? = nil, show_deleted_keys : Bool? = nil, user_project : String? = nil, &block : Crest::Response ->)
-      build_api_request_for_hmac_keys_list(project_id: project_id, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, max_results: max_results, page_token: page_token, service_account_email: service_account_email, show_deleted_keys: show_deleted_keys, user_project: user_project).execute(&block)
+    def hmac_keys_list(*, project_id : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, max_results : Int32? = nil, page_token : String? = nil, service_account_email : String? = nil, show_deleted_keys : Bool? = nil, user_project : String? = nil, &block : Crest::Response ->)
+      build_api_request_for_hmac_keys_list(project_id: project_id, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, max_results: max_results, page_token: page_token, service_account_email: service_account_email, show_deleted_keys: show_deleted_keys, user_project: user_project).execute(&block)
     end
 
     # @return Crest::Request
-    def build_api_request_for_hmac_keys_list(*, project_id : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, max_results : Int32? = nil, page_token : String? = nil, service_account_email : String? = nil, show_deleted_keys : Bool? = nil, user_project : String? = nil) : Crest::Request
+    def build_api_request_for_hmac_keys_list(*, project_id : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, max_results : Int32? = nil, page_token : String? = nil, service_account_email : String? = nil, show_deleted_keys : Bool? = nil, user_project : String? = nil) : Crest::Request
       if @api_client.config.debugging
         Log.debug { "Calling API: ProjectsApi.hmac_keys_list ..." }
       end
-      allowable_values = ["json", "media"]
+      allowable_values = ["json"]
       if @api_client.config.client_side_validation && !alt.nil? && !allowable_values.includes?(alt)
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
@@ -316,6 +319,7 @@ module GoogleCloudStorage
       query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil?
       query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil?
       query_params["quotaUser"] = quota_user.to_s if !quota_user.nil?
+      query_params["uploadType"] = upload_type.to_s if !upload_type.nil?
       query_params["userIp"] = user_ip.to_s if !user_ip.nil?
       query_params["maxResults"] = max_results.to_s if !max_results.nil?
       query_params["pageToken"] = page_token.to_s if !page_token.nil?
@@ -353,8 +357,8 @@ module GoogleCloudStorage
     # @param project_id [String] Project ID owning the service account of the updated key.
     # @param access_id [String] Name of the HMAC key being updated.
     # @return [HmacKeyMetadata]
-    def hmac_keys_update(*, project_id : String, access_id : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, user_project : String? = nil, hmac_key_metadata : HmacKeyMetadata? = nil)
-      data, _status_code, _headers = hmac_keys_update_with_http_info(project_id: project_id, access_id: access_id, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, user_project: user_project, hmac_key_metadata: hmac_key_metadata)
+    def hmac_keys_update(*, project_id : String, access_id : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, user_project : String? = nil, hmac_key_metadata : HmacKeyMetadata? = nil)
+      data, _status_code, _headers = hmac_keys_update_with_http_info(project_id: project_id, access_id: access_id, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, user_project: user_project, hmac_key_metadata: hmac_key_metadata)
       data
     end
 
@@ -362,8 +366,8 @@ module GoogleCloudStorage
     # @param project_id [String] Project ID owning the service account of the updated key.
     # @param access_id [String] Name of the HMAC key being updated.
     # @return [Array<(HmacKeyMetadata, Integer, Hash)>] HmacKeyMetadata data, response status code and response headers
-    def hmac_keys_update_with_http_info(*, project_id : String, access_id : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, user_project : String? = nil, hmac_key_metadata : HmacKeyMetadata? = nil)
-      request = build_api_request_for_hmac_keys_update(project_id: project_id, access_id: access_id, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, user_project: user_project, hmac_key_metadata: hmac_key_metadata)
+    def hmac_keys_update_with_http_info(*, project_id : String, access_id : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, user_project : String? = nil, hmac_key_metadata : HmacKeyMetadata? = nil)
+      request = build_api_request_for_hmac_keys_update(project_id: project_id, access_id: access_id, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, user_project: user_project, hmac_key_metadata: hmac_key_metadata)
 
       data, status_code, headers = @api_client.execute_api_request(request)
 
@@ -378,16 +382,16 @@ module GoogleCloudStorage
     # @param project_id [String] Project ID owning the service account of the updated key.
     # @param access_id [String] Name of the HMAC key being updated.
     # @return nil
-    def hmac_keys_update(*, project_id : String, access_id : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, user_project : String? = nil, hmac_key_metadata : HmacKeyMetadata? = nil, &block : Crest::Response ->)
-      build_api_request_for_hmac_keys_update(project_id: project_id, access_id: access_id, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, user_project: user_project, hmac_key_metadata: hmac_key_metadata).execute(&block)
+    def hmac_keys_update(*, project_id : String, access_id : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, user_project : String? = nil, hmac_key_metadata : HmacKeyMetadata? = nil, &block : Crest::Response ->)
+      build_api_request_for_hmac_keys_update(project_id: project_id, access_id: access_id, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, user_project: user_project, hmac_key_metadata: hmac_key_metadata).execute(&block)
     end
 
     # @return Crest::Request
-    def build_api_request_for_hmac_keys_update(*, project_id : String, access_id : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, user_project : String? = nil, hmac_key_metadata : HmacKeyMetadata? = nil) : Crest::Request
+    def build_api_request_for_hmac_keys_update(*, project_id : String, access_id : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, user_project : String? = nil, hmac_key_metadata : HmacKeyMetadata? = nil) : Crest::Request
       if @api_client.config.debugging
         Log.debug { "Calling API: ProjectsApi.hmac_keys_update ..." }
       end
-      allowable_values = ["json", "media"]
+      allowable_values = ["json"]
       if @api_client.config.client_side_validation && !alt.nil? && !allowable_values.includes?(alt)
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
@@ -402,6 +406,7 @@ module GoogleCloudStorage
       query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil?
       query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil?
       query_params["quotaUser"] = quota_user.to_s if !quota_user.nil?
+      query_params["uploadType"] = upload_type.to_s if !upload_type.nil?
       query_params["userIp"] = user_ip.to_s if !user_ip.nil?
       query_params["userProject"] = user_project.to_s if !user_project.nil?
 
@@ -436,16 +441,16 @@ module GoogleCloudStorage
     # Get the email address of this project's Google Cloud Storage service account.
     # @param project_id [String] Project ID
     # @return [ServiceAccount]
-    def service_account_get(*, project_id : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil)
-      data, _status_code, _headers = service_account_get_with_http_info(project_id: project_id, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, provisional_user_project: provisional_user_project, user_project: user_project)
+    def service_account_get(*, project_id : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, user_project : String? = nil)
+      data, _status_code, _headers = service_account_get_with_http_info(project_id: project_id, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, user_project: user_project)
       data
     end
 
     # Get the email address of this project&#39;s Google Cloud Storage service account.
     # @param project_id [String] Project ID
     # @return [Array<(ServiceAccount, Integer, Hash)>] ServiceAccount data, response status code and response headers
-    def service_account_get_with_http_info(*, project_id : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil)
-      request = build_api_request_for_service_account_get(project_id: project_id, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, provisional_user_project: provisional_user_project, user_project: user_project)
+    def service_account_get_with_http_info(*, project_id : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, user_project : String? = nil)
+      request = build_api_request_for_service_account_get(project_id: project_id, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, user_project: user_project)
 
       data, status_code, headers = @api_client.execute_api_request(request)
 
@@ -459,16 +464,16 @@ module GoogleCloudStorage
     # Get the email address of this project&#39;s Google Cloud Storage service account.
     # @param project_id [String] Project ID
     # @return nil
-    def service_account_get(*, project_id : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil, &block : Crest::Response ->)
-      build_api_request_for_service_account_get(project_id: project_id, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, user_ip: user_ip, provisional_user_project: provisional_user_project, user_project: user_project).execute(&block)
+    def service_account_get(*, project_id : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, user_project : String? = nil, &block : Crest::Response ->)
+      build_api_request_for_service_account_get(project_id: project_id, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, user_project: user_project).execute(&block)
     end
 
     # @return Crest::Request
-    def build_api_request_for_service_account_get(*, project_id : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, user_ip : String? = nil, provisional_user_project : String? = nil, user_project : String? = nil) : Crest::Request
+    def build_api_request_for_service_account_get(*, project_id : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, user_project : String? = nil) : Crest::Request
       if @api_client.config.debugging
         Log.debug { "Calling API: ProjectsApi.service_account_get ..." }
       end
-      allowable_values = ["json", "media"]
+      allowable_values = ["json"]
       if @api_client.config.client_side_validation && !alt.nil? && !allowable_values.includes?(alt)
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
@@ -483,8 +488,8 @@ module GoogleCloudStorage
       query_params["oauth_token"] = oauth_token.to_s if !oauth_token.nil?
       query_params["prettyPrint"] = pretty_print.to_s if !pretty_print.nil?
       query_params["quotaUser"] = quota_user.to_s if !quota_user.nil?
+      query_params["uploadType"] = upload_type.to_s if !upload_type.nil?
       query_params["userIp"] = user_ip.to_s if !user_ip.nil?
-      query_params["provisionalUserProject"] = provisional_user_project.to_s if !provisional_user_project.nil?
       query_params["userProject"] = user_project.to_s if !user_project.nil?
 
       # header parameters

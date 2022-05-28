@@ -68,12 +68,26 @@ module GoogleCloudStorage
     @[JSON::Field(ignore: true)]
     property? matches_pattern_present : Bool = false
 
+    # List of object name prefixes. This condition will be satisfied when at least one of the prefixes exactly matches the beginning of the object name.
+    @[JSON::Field(key: "matchesPrefix", type: Array(String)?, presence: true, ignore_serialize: matches_prefix.nil? && !matches_prefix_present?)]
+    property matches_prefix : Array(String)?
+
+    @[JSON::Field(ignore: true)]
+    property? matches_prefix_present : Bool = false
+
     # Objects having any of the storage classes specified by this condition will be matched. Values include MULTI_REGIONAL, REGIONAL, NEARLINE, COLDLINE, ARCHIVE, STANDARD, and DURABLE_REDUCED_AVAILABILITY.
     @[JSON::Field(key: "matchesStorageClass", type: Array(String)?, presence: true, ignore_serialize: matches_storage_class.nil? && !matches_storage_class_present?)]
     property matches_storage_class : Array(String)?
 
     @[JSON::Field(ignore: true)]
     property? matches_storage_class_present : Bool = false
+
+    # List of object name suffixes. This condition will be satisfied when at least one of the suffixes exactly matches the end of the object name.
+    @[JSON::Field(key: "matchesSuffix", type: Array(String)?, presence: true, ignore_serialize: matches_suffix.nil? && !matches_suffix_present?)]
+    property matches_suffix : Array(String)?
+
+    @[JSON::Field(ignore: true)]
+    property? matches_suffix_present : Bool = false
 
     # A date in RFC 3339 format with only the date part (for instance, \"2013-01-15\"). This condition is satisfied when the noncurrent time on an object is before this date in UTC. This condition is relevant only for versioned objects.
     @[JSON::Field(key: "noncurrentTimeBefore", type: Time?, converter: Time::ISO8601DateConverter, presence: true, ignore_serialize: noncurrent_time_before.nil? && !noncurrent_time_before_present?)]
@@ -91,7 +105,7 @@ module GoogleCloudStorage
 
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(*, @age : Int32? = nil, @created_before : Time? = nil, @custom_time_before : Time? = nil, @days_since_custom_time : Int32? = nil, @days_since_noncurrent_time : Int32? = nil, @is_live : Bool? = nil, @matches_pattern : String? = nil, @matches_storage_class : Array(String)? = nil, @noncurrent_time_before : Time? = nil, @num_newer_versions : Int32? = nil)
+    def initialize(*, @age : Int32? = nil, @created_before : Time? = nil, @custom_time_before : Time? = nil, @days_since_custom_time : Int32? = nil, @days_since_noncurrent_time : Int32? = nil, @is_live : Bool? = nil, @matches_pattern : String? = nil, @matches_prefix : Array(String)? = nil, @matches_storage_class : Array(String)? = nil, @matches_suffix : Array(String)? = nil, @noncurrent_time_before : Time? = nil, @num_newer_versions : Int32? = nil)
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -119,7 +133,9 @@ module GoogleCloudStorage
         days_since_noncurrent_time == o.days_since_noncurrent_time &&
         is_live == o.is_live &&
         matches_pattern == o.matches_pattern &&
+        matches_prefix == o.matches_prefix &&
         matches_storage_class == o.matches_storage_class &&
+        matches_suffix == o.matches_suffix &&
         noncurrent_time_before == o.noncurrent_time_before &&
         num_newer_versions == o.num_newer_versions
     end
@@ -133,7 +149,7 @@ module GoogleCloudStorage
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [age, created_before, custom_time_before, days_since_custom_time, days_since_noncurrent_time, is_live, matches_pattern, matches_storage_class, noncurrent_time_before, num_newer_versions].hash
+      [age, created_before, custom_time_before, days_since_custom_time, days_since_noncurrent_time, is_live, matches_pattern, matches_prefix, matches_storage_class, matches_suffix, noncurrent_time_before, num_newer_versions].hash
     end
 
     # Builds the object from hash

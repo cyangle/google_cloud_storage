@@ -44,12 +44,6 @@ describe GoogleCloudStorage::Bucket do
     end
   end
 
-  describe "test attribute 'custom_placement_config'" do
-    it "should work" do
-      # assertion here. ref: https://crystal-lang.org/reference/guides/testing.html
-    end
-  end
-
   describe "test attribute 'default_event_based_hold'" do
     it "should work" do
       # assertion here. ref: https://crystal-lang.org/reference/guides/testing.html

@@ -25,7 +25,7 @@ module GoogleCloudStorage
     @[JSON::Field(ignore: true)]
     property? bucket_policy_only_present : Bool = false
 
-    # The bucket's Public Access Prevention configuration. Currently, 'unspecified' and 'enforced' are supported.
+    # The bucket's Public Access Prevention configuration. Currently, 'inherited' and 'enforced' are supported.
     @[JSON::Field(key: "publicAccessPrevention", type: String?, presence: true, ignore_serialize: public_access_prevention.nil? && !public_access_prevention_present?)]
     property public_access_prevention : String?
 

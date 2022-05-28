@@ -62,7 +62,19 @@ describe GoogleCloudStorage::BucketLifecycleRuleInnerCondition do
     end
   end
 
+  describe "test attribute 'matches_prefix'" do
+    it "should work" do
+      # assertion here. ref: https://crystal-lang.org/reference/guides/testing.html
+    end
+  end
+
   describe "test attribute 'matches_storage_class'" do
+    it "should work" do
+      # assertion here. ref: https://crystal-lang.org/reference/guides/testing.html
+    end
+  end
+
+  describe "test attribute 'matches_suffix'" do
     it "should work" do
       # assertion here. ref: https://crystal-lang.org/reference/guides/testing.html
     end

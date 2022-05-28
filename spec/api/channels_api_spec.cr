@@ -29,6 +29,7 @@ describe "ChannelsApi" do
   # @option opts [String] :oauth_token OAuth 2.0 token for the current user.
   # @option opts [Bool] :pretty_print Returns response with indentations and line breaks.
   # @option opts [String] :quota_user An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  # @option opts [String] :upload_type Upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;, \&quot;resumable\&quot;).
   # @option opts [String] :user_ip Deprecated. Please use quotaUser instead.
   # @option opts [Channel] :channel
   # @return [nil]

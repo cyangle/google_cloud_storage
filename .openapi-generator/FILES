@@ -19,7 +19,6 @@ spec/models/bucket_access_controls_spec.cr
 spec/models/bucket_autoclass_spec.cr
 spec/models/bucket_billing_spec.cr
 spec/models/bucket_cors_inner_spec.cr
-spec/models/bucket_custom_placement_config_spec.cr
 spec/models/bucket_encryption_spec.cr
 spec/models/bucket_iam_configuration_bucket_policy_only_spec.cr
 spec/models/bucket_iam_configuration_spec.cr
@@ -76,7 +75,6 @@ src/google_cloud_storage/models/bucket_access_controls.cr
 src/google_cloud_storage/models/bucket_autoclass.cr
 src/google_cloud_storage/models/bucket_billing.cr
 src/google_cloud_storage/models/bucket_cors_inner.cr
-src/google_cloud_storage/models/bucket_custom_placement_config.cr
 src/google_cloud_storage/models/bucket_encryption.cr
 src/google_cloud_storage/models/bucket_iam_configuration.cr
 src/google_cloud_storage/models/bucket_iam_configuration_bucket_policy_only.cr

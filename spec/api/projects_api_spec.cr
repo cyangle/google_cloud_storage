@@ -31,6 +31,7 @@ describe "ProjectsApi" do
   # @option opts [String] :oauth_token OAuth 2.0 token for the current user.
   # @option opts [Bool] :pretty_print Returns response with indentations and line breaks.
   # @option opts [String] :quota_user An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  # @option opts [String] :upload_type Upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;, \&quot;resumable\&quot;).
   # @option opts [String] :user_ip Deprecated. Please use quotaUser instead.
   # @option opts [String] :user_project The project to be billed for this request.
   # @return [HmacKey]
@@ -51,6 +52,7 @@ describe "ProjectsApi" do
   # @option opts [String] :oauth_token OAuth 2.0 token for the current user.
   # @option opts [Bool] :pretty_print Returns response with indentations and line breaks.
   # @option opts [String] :quota_user An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  # @option opts [String] :upload_type Upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;, \&quot;resumable\&quot;).
   # @option opts [String] :user_ip Deprecated. Please use quotaUser instead.
   # @option opts [String] :user_project The project to be billed for this request.
   # @return [nil]
@@ -71,6 +73,7 @@ describe "ProjectsApi" do
   # @option opts [String] :oauth_token OAuth 2.0 token for the current user.
   # @option opts [Bool] :pretty_print Returns response with indentations and line breaks.
   # @option opts [String] :quota_user An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  # @option opts [String] :upload_type Upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;, \&quot;resumable\&quot;).
   # @option opts [String] :user_ip Deprecated. Please use quotaUser instead.
   # @option opts [String] :user_project The project to be billed for this request.
   # @return [HmacKeyMetadata]
@@ -90,6 +93,7 @@ describe "ProjectsApi" do
   # @option opts [String] :oauth_token OAuth 2.0 token for the current user.
   # @option opts [Bool] :pretty_print Returns response with indentations and line breaks.
   # @option opts [String] :quota_user An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  # @option opts [String] :upload_type Upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;, \&quot;resumable\&quot;).
   # @option opts [String] :user_ip Deprecated. Please use quotaUser instead.
   # @option opts [Int32] :max_results Maximum number of items to return in a single page of responses. The service uses this parameter or 250 items, whichever is smaller. The max number of items per page will also be limited by the number of distinct service accounts in the response. If the number of service accounts in a single response is too high, the page will truncated and a next page token will be returned.
   # @option opts [String] :page_token A previously-returned page token representing part of the larger set of results to view.
@@ -114,6 +118,7 @@ describe "ProjectsApi" do
   # @option opts [String] :oauth_token OAuth 2.0 token for the current user.
   # @option opts [Bool] :pretty_print Returns response with indentations and line breaks.
   # @option opts [String] :quota_user An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  # @option opts [String] :upload_type Upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;, \&quot;resumable\&quot;).
   # @option opts [String] :user_ip Deprecated. Please use quotaUser instead.
   # @option opts [String] :user_project The project to be billed for this request.
   # @option opts [HmacKeyMetadata] :hmac_key_metadata
@@ -134,8 +139,8 @@ describe "ProjectsApi" do
   # @option opts [String] :oauth_token OAuth 2.0 token for the current user.
   # @option opts [Bool] :pretty_print Returns response with indentations and line breaks.
   # @option opts [String] :quota_user An opaque string that represents a user for quota purposes. Must not exceed 40 characters.
+  # @option opts [String] :upload_type Upload protocol for media (e.g. \&quot;media\&quot;, \&quot;multipart\&quot;, \&quot;resumable\&quot;).
   # @option opts [String] :user_ip Deprecated. Please use quotaUser instead.
-  # @option opts [String] :provisional_user_project The project to be billed for this request if the target bucket is requester-pays bucket.
   # @option opts [String] :user_project The project to be billed for this request.
   # @return [ServiceAccount]
   describe "storage_projects_service_account_get test" do

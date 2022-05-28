@@ -49,7 +49,7 @@ module GoogleCloudStorage
       if @api_client.config.debugging
         Log.debug { "Calling API: ChannelsApi.stop ..." }
       end
-      allowable_values = ["json"]
+      allowable_values = ["json", "media"]
       if @api_client.config.client_side_validation && !alt.nil? && !allowable_values.includes?(alt)
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end

@@ -103,8 +103,16 @@ describe "ObjectsApi" do
   # @option opts [String] :user_project The project to be billed for this request. Required for Requester Pays buckets.
   # @return [nil]
   describe "storage_objects_delete test" do
-    it "should work" do
-      # assertion here. ref: https://crystal-lang.org/reference/guides/testing.html
+    it "deletes the object from bucket" do
+      VCR.use_cassette("storage_objects_delete", :in_order) do
+        objects_api = GoogleCloudStorage::ObjectsApi.new
+        objects_api.get(bucket: BUCKET_NAME, object: OBJECT_NAME)
+        objects_api.delete(bucket: BUCKET_NAME, object: OBJECT_NAME)
+
+        expect_raises(GoogleCloudStorage::ApiError, /No such object/) do
+          objects_api.get(bucket: BUCKET_NAME, object: OBJECT_NAME)
+        end
+      end
     end
   end
 
@@ -130,7 +138,7 @@ describe "ObjectsApi" do
   # @option opts [String] :user_project The project to be billed for this request. Required for Requester Pays buckets.
   # @return [Object]
   describe "storage_objects_get test" do
-    it "downloads object" do
+    it "downloads object content" do
       load_cassette("storage_objects_get_object_content") do
         objects_api = GoogleCloudStorage::ObjectsApi.new
         request = objects_api.build_api_request_for_get(bucket: BUCKET_NAME, object: OBJECT_NAME, alt: "media")
@@ -139,7 +147,7 @@ describe "ObjectsApi" do
       end
     end
 
-    it "returns GoogleCloudStorage::Object" do
+    it "returns object metadata as GoogleCloudStorage::Object" do
       load_cassette("storage_objects_get_object_meta") do
         objects_api = GoogleCloudStorage::ObjectsApi.new
         object = objects_api.get(bucket: BUCKET_NAME, object: OBJECT_NAME)
@@ -230,8 +238,24 @@ describe "ObjectsApi" do
   # @option opts [Bool] :versions If true, lists all versions of an object as distinct results. The default is false. For more information, see Object Versioning.
   # @return [Objects]
   describe "storage_objects_list test" do
-    it "should work" do
-      # assertion here. ref: https://crystal-lang.org/reference/guides/testing.html
+    context "without prefix" do
+      it "returns all objects" do
+        load_cassette("storage_objects_list") do
+          objects_api = GoogleCloudStorage::ObjectsApi.new
+          objects = objects_api.list(bucket: BUCKET_NAME)
+          (objects.items.not_nil!.map(&.name)).should eq(["crystal/", "crystal/hello.txt", "test.cr", "test.json"])
+        end
+      end
+    end
+
+    context "with prefix" do
+      it "returns objects with the specified prefix" do
+        load_cassette("storage_objects_list") do
+          objects_api = GoogleCloudStorage::ObjectsApi.new
+          objects = objects_api.list(bucket: BUCKET_NAME, prefix: "crystal/", delimiter: "/")
+          (objects.items.not_nil!.map(&.name)).should eq(["crystal/", "crystal/hello.txt"])
+        end
+      end
     end
   end
 

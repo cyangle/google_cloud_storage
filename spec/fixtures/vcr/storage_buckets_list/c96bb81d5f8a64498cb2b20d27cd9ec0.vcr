@@ -1,0 +1,92 @@
+HTTP/1.1 200 OK
+X-GUploader-UploadID: ADPycdth5ndma4a15kwBVomJ96gv2O5TEfn0mV3eCBA6e3IIv3rxaV8aAg9gLHxm0JS3ob6daLz__32vr8Ru0_NZruioNg
+Content-Type: application/json; charset=UTF-8
+Date: Sun, 29 May 2022 03:33:02 GMT
+Vary: Origin
+Vary: X-Origin
+Cache-Control: private, max-age=0, must-revalidate, no-transform
+Expires: Sun, 29 May 2022 03:33:02 GMT
+Content-Length: 2183
+Server: UploadServer
+Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"
+
+{
+  "kind": "storage#buckets",
+  "items": [
+    {
+      "kind": "storage#bucket",
+      "selfLink": "https://www.googleapis.com/storage/v1/b/cloud_storage_crystal_client_test",
+      "id": "cloud_storage_crystal_client_test",
+      "name": "cloud_storage_crystal_client_test",
+      "projectNumber": "149930605840",
+      "metageneration": "1",
+      "location": "US",
+      "storageClass": "STANDARD",
+      "etag": "CAE=",
+      "timeCreated": "2022-05-29T01:53:22.630Z",
+      "updated": "2022-05-29T01:53:22.630Z",
+      "iamConfiguration": {
+        "bucketPolicyOnly": {
+          "enabled": false
+        },
+        "uniformBucketLevelAccess": {
+          "enabled": false
+        },
+        "publicAccessPrevention": "inherited"
+      },
+      "locationType": "multi-region",
+      "rpo": "DEFAULT"
+    },
+    {
+      "kind": "storage#bucket",
+      "selfLink": "https://www.googleapis.com/storage/v1/b/cycoding_bucket_1",
+      "id": "cycoding_bucket_1",
+      "name": "cycoding_bucket_1",
+      "projectNumber": "149930605840",
+      "metageneration": "1",
+      "location": "US-CENTRAL1",
+      "storageClass": "STANDARD",
+      "etag": "CAE=",
+      "defaultEventBasedHold": false,
+      "timeCreated": "2021-12-01T04:57:16.182Z",
+      "updated": "2021-12-01T04:57:16.182Z",
+      "versioning": {
+        "enabled": true
+      },
+      "lifecycle": {
+        "rule": [
+          {
+            "action": {
+              "type": "Delete"
+            },
+            "condition": {
+              "isLive": false,
+              "numNewerVersions": 10
+            }
+          },
+          {
+            "action": {
+              "type": "Delete"
+            },
+            "condition": {
+              "daysSinceNoncurrentTime": 7
+            }
+          }
+        ]
+      },
+      "iamConfiguration": {
+        "bucketPolicyOnly": {
+          "enabled": true,
+          "lockedTime": "2022-03-01T04:57:16.182Z"
+        },
+        "uniformBucketLevelAccess": {
+          "enabled": true,
+          "lockedTime": "2022-03-01T04:57:16.182Z"
+        },
+        "publicAccessPrevention": "enforced"
+      },
+      "locationType": "region",
+      "satisfiesPZS": false
+    }
+  ]
+}

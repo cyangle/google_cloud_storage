@@ -37,8 +37,21 @@ describe "BucketsApi" do
   # @option opts [String] :user_project The project to be billed for this request. Required for Requester Pays buckets.
   # @return [nil]
   describe "storage_buckets_delete test" do
-    it "should work" do
-      # assertion here. ref: https://crystal-lang.org/reference/guides/testing.html
+    it "deletes empty bucket" do
+      load_cassette("storage_buckets_delete") do
+        buckets_api = GoogleCloudStorage::BucketsApi.new
+        bucket_name = "crystal_empty_bucket_for_deletion"
+        buckets_api.delete(bucket: bucket_name)
+      end
+    end
+
+    it "returns status code 204" do
+      load_cassette("storage_buckets_delete") do
+        buckets_api = GoogleCloudStorage::BucketsApi.new
+        bucket_name = "crystal_empty_bucket_for_deletion"
+        response = buckets_api.build_api_request_for_delete(bucket: bucket_name).execute
+        (response.status_code).should eq(204)
+      end
     end
   end
 
@@ -60,8 +73,13 @@ describe "BucketsApi" do
   # @option opts [String] :user_project The project to be billed for this request. Required for Requester Pays buckets.
   # @return [Bucket]
   describe "storage_buckets_get test" do
-    it "should work" do
-      # assertion here. ref: https://crystal-lang.org/reference/guides/testing.html
+    it "returns bucket metadata as GoogleCloudStorage::Bucket" do
+      load_cassette("storage_buckets_get") do
+        buckets_api = GoogleCloudStorage::BucketsApi.new
+        bucket = buckets_api.get(bucket: BUCKET_NAME)
+        (bucket).should be_a(GoogleCloudStorage::Bucket)
+        (bucket.name).should eq(BUCKET_NAME)
+      end
     end
   end
 
@@ -162,8 +180,13 @@ describe "BucketsApi" do
   # @option opts [String] :user_project The project to be billed for this request.
   # @return [Buckets]
   describe "storage_buckets_list test" do
-    it "should work" do
-      # assertion here. ref: https://crystal-lang.org/reference/guides/testing.html
+    it "returns a list of buckets" do
+      load_cassette("storage_buckets_list") do
+        buckets_api = GoogleCloudStorage::BucketsApi.new
+        buckets = buckets_api.list(project: PROJECT_NAME)
+        (buckets).should be_a(GoogleCloudStorage::Buckets)
+        (buckets.items.not_nil!.map(&.name)).should eq(["cloud_storage_crystal_client_test", "cycoding_bucket_1"])
+      end
     end
   end
 

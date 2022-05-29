@@ -63,7 +63,28 @@ buckets_api = GoogleCloudStorage::BucketsApi.new
 #### List buckets from a project
 
 ```crystal
-buckets : Buckets = buckets_api.list(project: "google-cloud-project-id")
+buckets : GoogleCloudStorage::Buckets = buckets_api.list(project: "google-cloud-project-id")
+```
+
+#### Get bucket metadata
+
+```crystal
+bucket : GoogleCloudStorage::Bucket = buckets_api.get(bucket: "my_bucket")
+pp bucket
+```
+
+#### Create a new bucket
+
+```crystal
+bucket = GoogleCloudStorage::Bucket.new(name: "unique_bucket_name")
+result_bucket : GoogleCloudStorage::Bucket = buckets_api.insert(project: "google-cloud-project-id", bucket: bucket)
+pp result_bucket
+```
+
+#### Delete empty bucket from a project
+
+```crystal
+buckets_api.delete(bucket: "empty-bucket-name")
 ```
 
 ### ObjectsApi
@@ -75,7 +96,7 @@ objects_api = GoogleCloudStorage::ObjectsApi.new
 #### List objects from bucket
 
 ```crystal
-objects : GoogleCloudStorage::Objects = objects_api.list(bucket: "my_bucket", prefix: "test")
+objects : GoogleCloudStorage::Objects = objects_api.list(bucket: "my_bucket", prefix: "crystal", delimiter: "/")
 ```
 
 #### Get object metadata
@@ -87,11 +108,41 @@ object : GoogleCloudStorage::Object = objects_api.get(bucket: "my_bucket", objec
 #### Download object from bucket
 
 ```crystal
+response = objects_api.build_api_request_for_get(bucket: "my_bucket", object: "test.json", alt: "media").execute
+File.write("./test.json", response.body)
+```
+
+Or stream download
+
+```crystal
 objects_api.get(bucket: "my_bucket", object: "test.json", alt: "media") do |response|
   File.open("./test.json", "w") do |file|
     IO.copy(response.body_io, file)
   end
 end
+```
+
+#### Upload file to bucket
+
+```crystal
+file_content = File.read("./test.json")
+object : GoogleCloudStorage::Object = objects_api.insert(bucket: "my_bucket", name: "test.json", body: file_content)
+pp object
+```
+
+Or stream upload
+
+```crystal
+File.open("./test.json") do |file|
+  object : GoogleCloudStorage::Object = objects_api.insert(bucket: "my_bucket", name: "test.json", body: file)
+  pp object
+end
+```
+
+#### Delete object from bucket
+
+```crystal
+objects_api.delete(bucket: "my_bucket", object: "test.json")
 ```
 
 ## Development

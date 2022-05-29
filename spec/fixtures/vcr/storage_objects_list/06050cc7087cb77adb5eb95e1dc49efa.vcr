@@ -1,0 +1,57 @@
+HTTP/1.1 200 OK
+X-GUploader-UploadID: ADPycdtRakbGoFmKgbUYtggJiJTFdOPO8i0McA8hBFDK3OaKCaR-Jj8b_vhRHxNMzIegqTuB_w9bFjKzQoLyJh-LYs9zzg
+Content-Type: application/json; charset=UTF-8
+Date: Sun, 29 May 2022 04:06:29 GMT
+Vary: Origin
+Vary: X-Origin
+Cache-Control: private, max-age=0, must-revalidate, no-transform
+Expires: Sun, 29 May 2022 04:06:29 GMT
+Content-Length: 1917
+Server: UploadServer
+Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"
+
+{
+  "kind": "storage#objects",
+  "items": [
+    {
+      "kind": "storage#object",
+      "id": "cloud_storage_crystal_client_test/crystal//1653796713823979",
+      "selfLink": "https://www.googleapis.com/storage/v1/b/cloud_storage_crystal_client_test/o/crystal%2F",
+      "mediaLink": "https://storage.googleapis.com/download/storage/v1/b/cloud_storage_crystal_client_test/o/crystal%2F?generation=1653796713823979&alt=media",
+      "name": "crystal/",
+      "bucket": "cloud_storage_crystal_client_test",
+      "generation": "1653796713823979",
+      "metageneration": "1",
+      "contentType": "text/plain",
+      "storageClass": "STANDARD",
+      "size": "0",
+      "md5Hash": "1B2M2Y8AsgTpgAmY7PhCfg==",
+      "crc32c": "AAAAAA==",
+      "etag": "COv9oe3og/gCEAE=",
+      "temporaryHold": false,
+      "eventBasedHold": false,
+      "timeCreated": "2022-05-29T03:58:33.854Z",
+      "updated": "2022-05-29T03:58:33.854Z",
+      "timeStorageClassUpdated": "2022-05-29T03:58:33.854Z"
+    },
+    {
+      "kind": "storage#object",
+      "id": "cloud_storage_crystal_client_test/crystal/hello.txt/1653796758102551",
+      "selfLink": "https://www.googleapis.com/storage/v1/b/cloud_storage_crystal_client_test/o/crystal%2Fhello.txt",
+      "mediaLink": "https://storage.googleapis.com/download/storage/v1/b/cloud_storage_crystal_client_test/o/crystal%2Fhello.txt?generation=1653796758102551&alt=media",
+      "name": "crystal/hello.txt",
+      "bucket": "cloud_storage_crystal_client_test",
+      "generation": "1653796758102551",
+      "metageneration": "1",
+      "contentType": "text/plain",
+      "storageClass": "STANDARD",
+      "size": "14",
+      "md5Hash": "VkhWucQjyyrrNuQtBogsgw==",
+      "crc32c": "qyzRqw==",
+      "etag": "CJfEsILpg/gCEAE=",
+      "timeCreated": "2022-05-29T03:59:18.134Z",
+      "updated": "2022-05-29T03:59:18.134Z",
+      "timeStorageClassUpdated": "2022-05-29T03:59:18.134Z"
+    }
+  ]
+}

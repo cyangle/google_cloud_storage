@@ -1,0 +1,26 @@
+HTTP/1.1 404 Not Found
+X-GUploader-UploadID: ADPycdsdmQPkm6DvtVIm9eLXcU5tx1HWA3IfFALMF-kLGQ9ipUjPPH8gVI0hjqG4CiKicjAB9OjeKX9pXZLNc8sabqqvQEm9NTEk
+Content-Type: application/json; charset=UTF-8
+Date: Sun, 29 May 2022 03:46:12 GMT
+Vary: Origin
+Vary: X-Origin
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Expires: Mon, 01 Jan 1990 00:00:00 GMT
+Pragma: no-cache
+Content-Length: 293
+Server: UploadServer
+Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"
+
+{
+  "error": {
+    "code": 404,
+    "message": "No such object: cloud_storage_crystal_client_test/test.json",
+    "errors": [
+      {
+        "message": "No such object: cloud_storage_crystal_client_test/test.json",
+        "domain": "global",
+        "reason": "notFound"
+      }
+    ]
+  }
+}

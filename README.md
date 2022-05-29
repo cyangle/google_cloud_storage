@@ -30,7 +30,9 @@ dependencies:
 
 Check [here](https://cloud.google.com/storage/docs/json_api) for more information about how to use google cloud storage v1 json APIs.
 
-Below lists only a few examples of the most interesting APIs, the client should support all APIs provided by google cloud storage v1 json APIs as it's generated from the OpenAPI v3 specification `./google_cloud_storage_v1.yml`.
+Below only lists API usages that are covered by tests. Please report borken APIs by creating github issues.
+
+The client should support all APIs provided by google cloud storage v1 json APIs as it's generated from the OpenAPI v3 specification `./google_cloud_storage_v1.yml`.
 
 ### Require this shard in your project
 

@@ -60,7 +60,7 @@ module GoogleCloudStorage
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
       # resource path
-      local_var_path = "/b/{bucket}/defaultObjectAcl/{entity}".sub("{" + "bucket" + "}", URI.encode_path(bucket.to_s)).sub("{" + "entity" + "}", URI.encode_path(entity.to_s))
+      local_var_path = "/storage/v1/b/{bucket}/defaultObjectAcl/{entity}".sub("{" + "bucket" + "}", URI.encode_path(bucket.to_s)).sub("{" + "entity" + "}", URI.encode_path(entity.to_s))
 
       # query parameters
       query_params = Hash(String, (String | Array(String))).new
@@ -141,7 +141,7 @@ module GoogleCloudStorage
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
       # resource path
-      local_var_path = "/b/{bucket}/defaultObjectAcl/{entity}".sub("{" + "bucket" + "}", URI.encode_path(bucket.to_s)).sub("{" + "entity" + "}", URI.encode_path(entity.to_s))
+      local_var_path = "/storage/v1/b/{bucket}/defaultObjectAcl/{entity}".sub("{" + "bucket" + "}", URI.encode_path(bucket.to_s)).sub("{" + "entity" + "}", URI.encode_path(entity.to_s))
 
       # query parameters
       query_params = Hash(String, (String | Array(String))).new
@@ -221,7 +221,7 @@ module GoogleCloudStorage
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
       # resource path
-      local_var_path = "/b/{bucket}/defaultObjectAcl".sub("{" + "bucket" + "}", URI.encode_path(bucket.to_s))
+      local_var_path = "/storage/v1/b/{bucket}/defaultObjectAcl".sub("{" + "bucket" + "}", URI.encode_path(bucket.to_s))
 
       # query parameters
       query_params = Hash(String, (String | Array(String))).new
@@ -303,7 +303,7 @@ module GoogleCloudStorage
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
       # resource path
-      local_var_path = "/b/{bucket}/defaultObjectAcl".sub("{" + "bucket" + "}", URI.encode_path(bucket.to_s))
+      local_var_path = "/storage/v1/b/{bucket}/defaultObjectAcl".sub("{" + "bucket" + "}", URI.encode_path(bucket.to_s))
 
       # query parameters
       query_params = Hash(String, (String | Array(String))).new
@@ -388,7 +388,7 @@ module GoogleCloudStorage
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
       # resource path
-      local_var_path = "/b/{bucket}/defaultObjectAcl/{entity}".sub("{" + "bucket" + "}", URI.encode_path(bucket.to_s)).sub("{" + "entity" + "}", URI.encode_path(entity.to_s))
+      local_var_path = "/storage/v1/b/{bucket}/defaultObjectAcl/{entity}".sub("{" + "bucket" + "}", URI.encode_path(bucket.to_s)).sub("{" + "entity" + "}", URI.encode_path(entity.to_s))
 
       # query parameters
       query_params = Hash(String, (String | Array(String))).new
@@ -473,7 +473,7 @@ module GoogleCloudStorage
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
       # resource path
-      local_var_path = "/b/{bucket}/defaultObjectAcl/{entity}".sub("{" + "bucket" + "}", URI.encode_path(bucket.to_s)).sub("{" + "entity" + "}", URI.encode_path(entity.to_s))
+      local_var_path = "/storage/v1/b/{bucket}/defaultObjectAcl/{entity}".sub("{" + "bucket" + "}", URI.encode_path(bucket.to_s)).sub("{" + "entity" + "}", URI.encode_path(entity.to_s))
 
       # query parameters
       query_params = Hash(String, (String | Array(String))).new

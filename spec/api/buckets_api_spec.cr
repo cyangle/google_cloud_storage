@@ -105,8 +105,41 @@ describe "BucketsApi" do
   # @option opts [Bucket] :bucket
   # @return [Bucket]
   describe "storage_buckets_insert test" do
-    it "should work" do
-      # assertion here. ref: https://crystal-lang.org/reference/guides/testing.html
+    context "bucket already exists" do
+      it "raises an error" do
+        expect_raises(GoogleCloudStorage::ApiError, /The requested bucket name is not available/) do
+          load_cassette("storage_buckets_insert") do
+            buckets_api = GoogleCloudStorage::BucketsApi.new
+            bucket_name = "crystal"
+            bucket = GoogleCloudStorage::Bucket.new(name: bucket_name)
+            buckets_api.insert(project: PROJECT_NAME, bucket: bucket)
+          end
+        end
+      end
+    end
+
+    context "contains restricted keyword" do
+      it "raises an error" do
+        expect_raises(GoogleCloudStorage::ApiError, /Use of this bucket name is restricted/) do
+          load_cassette("storage_buckets_insert") do
+            buckets_api = GoogleCloudStorage::BucketsApi.new
+            bucket_name = "google_cloud_storage_crystal_client_test"
+            bucket = GoogleCloudStorage::Bucket.new(name: bucket_name)
+            buckets_api.insert(project: PROJECT_NAME, bucket: bucket)
+          end
+        end
+      end
+    end
+
+    context "with valid bucket name" do
+      it "returns bucket" do
+        load_cassette("storage_buckets_insert") do
+          buckets_api = GoogleCloudStorage::BucketsApi.new
+          bucket = GoogleCloudStorage::Bucket.new(name: BUCKET_NAME)
+          result_bucket = buckets_api.insert(project: PROJECT_NAME, bucket: bucket)
+          (result_bucket.name).should eq(BUCKET_NAME)
+        end
+      end
     end
   end
 

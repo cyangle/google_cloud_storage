@@ -60,7 +60,7 @@ module GoogleCloudStorage
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
       # resource path
-      local_var_path = "/projects/{projectId}/hmacKeys".sub("{" + "projectId" + "}", URI.encode_path(project_id.to_s))
+      local_var_path = "/storage/v1/projects/{projectId}/hmacKeys".sub("{" + "projectId" + "}", URI.encode_path(project_id.to_s))
 
       # query parameters
       query_params = Hash(String, (String | Array(String))).new
@@ -144,7 +144,7 @@ module GoogleCloudStorage
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
       # resource path
-      local_var_path = "/projects/{projectId}/hmacKeys/{accessId}".sub("{" + "projectId" + "}", URI.encode_path(project_id.to_s)).sub("{" + "accessId" + "}", URI.encode_path(access_id.to_s))
+      local_var_path = "/storage/v1/projects/{projectId}/hmacKeys/{accessId}".sub("{" + "projectId" + "}", URI.encode_path(project_id.to_s)).sub("{" + "accessId" + "}", URI.encode_path(access_id.to_s))
 
       # query parameters
       query_params = Hash(String, (String | Array(String))).new
@@ -225,7 +225,7 @@ module GoogleCloudStorage
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
       # resource path
-      local_var_path = "/projects/{projectId}/hmacKeys/{accessId}".sub("{" + "projectId" + "}", URI.encode_path(project_id.to_s)).sub("{" + "accessId" + "}", URI.encode_path(access_id.to_s))
+      local_var_path = "/storage/v1/projects/{projectId}/hmacKeys/{accessId}".sub("{" + "projectId" + "}", URI.encode_path(project_id.to_s)).sub("{" + "accessId" + "}", URI.encode_path(access_id.to_s))
 
       # query parameters
       query_params = Hash(String, (String | Array(String))).new
@@ -309,7 +309,7 @@ module GoogleCloudStorage
       end
 
       # resource path
-      local_var_path = "/projects/{projectId}/hmacKeys".sub("{" + "projectId" + "}", URI.encode_path(project_id.to_s))
+      local_var_path = "/storage/v1/projects/{projectId}/hmacKeys".sub("{" + "projectId" + "}", URI.encode_path(project_id.to_s))
 
       # query parameters
       query_params = Hash(String, (String | Array(String))).new
@@ -396,7 +396,7 @@ module GoogleCloudStorage
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
       # resource path
-      local_var_path = "/projects/{projectId}/hmacKeys/{accessId}".sub("{" + "projectId" + "}", URI.encode_path(project_id.to_s)).sub("{" + "accessId" + "}", URI.encode_path(access_id.to_s))
+      local_var_path = "/storage/v1/projects/{projectId}/hmacKeys/{accessId}".sub("{" + "projectId" + "}", URI.encode_path(project_id.to_s)).sub("{" + "accessId" + "}", URI.encode_path(access_id.to_s))
 
       # query parameters
       query_params = Hash(String, (String | Array(String))).new
@@ -478,7 +478,7 @@ module GoogleCloudStorage
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
       # resource path
-      local_var_path = "/projects/{projectId}/serviceAccount".sub("{" + "projectId" + "}", URI.encode_path(project_id.to_s))
+      local_var_path = "/storage/v1/projects/{projectId}/serviceAccount".sub("{" + "projectId" + "}", URI.encode_path(project_id.to_s))
 
       # query parameters
       query_params = Hash(String, (String | Array(String))).new

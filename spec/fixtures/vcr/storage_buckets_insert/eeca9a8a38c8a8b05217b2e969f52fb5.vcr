@@ -1,0 +1,38 @@
+HTTP/1.1 200 OK
+X-GUploader-UploadID: ADPycdsA3J-7PqHAOUIBLh__cRHNkDw8ThNXpWtBwgTHrKCggESFHnzbQJRkKq8Spr9UXY6bwPQzflQNgyrVQS5p_M76cA
+ETag: CAE=
+Content-Type: application/json; charset=UTF-8
+Date: Sun, 29 May 2022 01:53:22 GMT
+Vary: Origin
+Vary: X-Origin
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Expires: Mon, 01 Jan 1990 00:00:00 GMT
+Pragma: no-cache
+Content-Length: 673
+Server: UploadServer
+Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"
+
+{
+  "kind": "storage#bucket",
+  "selfLink": "https://www.googleapis.com/storage/v1/b/cloud_storage_crystal_client_test",
+  "id": "cloud_storage_crystal_client_test",
+  "name": "cloud_storage_crystal_client_test",
+  "projectNumber": "149930605840",
+  "metageneration": "1",
+  "location": "US",
+  "storageClass": "STANDARD",
+  "etag": "CAE=",
+  "timeCreated": "2022-05-29T01:53:22.630Z",
+  "updated": "2022-05-29T01:53:22.630Z",
+  "iamConfiguration": {
+    "bucketPolicyOnly": {
+      "enabled": false
+    },
+    "uniformBucketLevelAccess": {
+      "enabled": false
+    },
+    "publicAccessPrevention": "inherited"
+  },
+  "locationType": "multi-region",
+  "rpo": "DEFAULT"
+}

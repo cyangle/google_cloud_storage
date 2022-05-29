@@ -130,7 +130,7 @@ module GoogleCloudStorage
     def initialize
       @scheme = "https"
       @host = "storage.googleapis.com"
-      @base_path = "/storage/v1"
+      @base_path = ""
       @server_index = 0
       @server_operation_index = {} of String => String
       @server_variables = {} of String => String
@@ -236,7 +236,7 @@ module GoogleCloudStorage
     def server_settings
       [
         {
-          "url"         => "https://storage.googleapis.com/storage/v1",
+          "url"         => "https://storage.googleapis.com",
           "description" => "No description provided",
         },
       ]

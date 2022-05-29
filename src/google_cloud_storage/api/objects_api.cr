@@ -64,7 +64,7 @@ module GoogleCloudStorage
         raise ArgumentError.new("invalid value for \"destination_predefined_acl\", must be one of #{allowable_values}")
       end
       # resource path
-      local_var_path = "/b/{destinationBucket}/o/{destinationObject}/compose".sub("{" + "destinationBucket" + "}", URI.encode_path(destination_bucket.to_s)).sub("{" + "destinationObject" + "}", URI.encode_path(destination_object.to_s))
+      local_var_path = "/storage/v1/b/{destinationBucket}/o/{destinationObject}/compose".sub("{" + "destinationBucket" + "}", URI.encode_path(destination_bucket.to_s)).sub("{" + "destinationObject" + "}", URI.encode_path(destination_object.to_s))
 
       # query parameters
       query_params = Hash(String, (String | Array(String))).new
@@ -167,7 +167,7 @@ module GoogleCloudStorage
         raise ArgumentError.new("invalid value for \"projection\", must be one of #{allowable_values}")
       end
       # resource path
-      local_var_path = "/b/{sourceBucket}/o/{sourceObject}/copyTo/b/{destinationBucket}/o/{destinationObject}".sub("{" + "sourceBucket" + "}", URI.encode_path(source_bucket.to_s)).sub("{" + "sourceObject" + "}", URI.encode_path(source_object.to_s)).sub("{" + "destinationBucket" + "}", URI.encode_path(destination_bucket.to_s)).sub("{" + "destinationObject" + "}", URI.encode_path(destination_object.to_s))
+      local_var_path = "/storage/v1/b/{sourceBucket}/o/{sourceObject}/copyTo/b/{destinationBucket}/o/{destinationObject}".sub("{" + "sourceBucket" + "}", URI.encode_path(source_bucket.to_s)).sub("{" + "sourceObject" + "}", URI.encode_path(source_object.to_s)).sub("{" + "destinationBucket" + "}", URI.encode_path(destination_bucket.to_s)).sub("{" + "destinationObject" + "}", URI.encode_path(destination_object.to_s))
 
       # query parameters
       query_params = Hash(String, (String | Array(String))).new
@@ -264,7 +264,7 @@ module GoogleCloudStorage
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
       # resource path
-      local_var_path = "/b/{bucket}/o/{object}".sub("{" + "bucket" + "}", URI.encode_path(bucket.to_s)).sub("{" + "object" + "}", URI.encode_path(object.to_s))
+      local_var_path = "/storage/v1/b/{bucket}/o/{object}".sub("{" + "bucket" + "}", URI.encode_path(bucket.to_s)).sub("{" + "object" + "}", URI.encode_path(object.to_s))
 
       # query parameters
       query_params = Hash(String, (String | Array(String))).new
@@ -354,7 +354,7 @@ module GoogleCloudStorage
         raise ArgumentError.new("invalid value for \"projection\", must be one of #{allowable_values}")
       end
       # resource path
-      local_var_path = "/b/{bucket}/o/{object}".sub("{" + "bucket" + "}", URI.encode_path(bucket.to_s)).sub("{" + "object" + "}", URI.encode_path(object.to_s))
+      local_var_path = "/storage/v1/b/{bucket}/o/{object}".sub("{" + "bucket" + "}", URI.encode_path(bucket.to_s)).sub("{" + "object" + "}", URI.encode_path(object.to_s))
 
       # query parameters
       query_params = Hash(String, (String | Array(String))).new
@@ -443,7 +443,7 @@ module GoogleCloudStorage
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
       # resource path
-      local_var_path = "/b/{bucket}/o/{object}/iam".sub("{" + "bucket" + "}", URI.encode_path(bucket.to_s)).sub("{" + "object" + "}", URI.encode_path(object.to_s))
+      local_var_path = "/storage/v1/b/{bucket}/o/{object}/iam".sub("{" + "bucket" + "}", URI.encode_path(bucket.to_s)).sub("{" + "object" + "}", URI.encode_path(object.to_s))
 
       # query parameters
       query_params = Hash(String, (String | Array(String))).new
@@ -487,16 +487,16 @@ module GoogleCloudStorage
     # Stores a new object and metadata.
     # @param bucket [String] Name of the bucket in which to store the new object. Overrides the provided object metadata's bucket value, if any.
     # @return [Object]
-    def insert(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, content_encoding : String? = nil, if_generation_match : String? = nil, if_generation_not_match : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, kms_key_name : String? = nil, name : String? = nil, predefined_acl : String? = nil, projection : String? = nil, user_project : String? = nil, object : Object? = nil)
-      data, _status_code, _headers = insert_with_http_info(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, content_encoding: content_encoding, if_generation_match: if_generation_match, if_generation_not_match: if_generation_not_match, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, kms_key_name: kms_key_name, name: name, predefined_acl: predefined_acl, projection: projection, user_project: user_project, object: object)
+    def insert(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, content_encoding : String? = nil, if_generation_match : String? = nil, if_generation_not_match : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, kms_key_name : String? = nil, name : String? = nil, predefined_acl : String? = nil, projection : String? = nil, user_project : String? = nil, body : IO | String? = nil)
+      data, _status_code, _headers = insert_with_http_info(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, content_encoding: content_encoding, if_generation_match: if_generation_match, if_generation_not_match: if_generation_not_match, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, kms_key_name: kms_key_name, name: name, predefined_acl: predefined_acl, projection: projection, user_project: user_project, body: body)
       data
     end
 
     # Stores a new object and metadata.
     # @param bucket [String] Name of the bucket in which to store the new object. Overrides the provided object metadata's bucket value, if any.
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
-    def insert_with_http_info(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, content_encoding : String? = nil, if_generation_match : String? = nil, if_generation_not_match : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, kms_key_name : String? = nil, name : String? = nil, predefined_acl : String? = nil, projection : String? = nil, user_project : String? = nil, object : Object? = nil)
-      request = build_api_request_for_insert(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, content_encoding: content_encoding, if_generation_match: if_generation_match, if_generation_not_match: if_generation_not_match, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, kms_key_name: kms_key_name, name: name, predefined_acl: predefined_acl, projection: projection, user_project: user_project, object: object)
+    def insert_with_http_info(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, content_encoding : String? = nil, if_generation_match : String? = nil, if_generation_not_match : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, kms_key_name : String? = nil, name : String? = nil, predefined_acl : String? = nil, projection : String? = nil, user_project : String? = nil, body : IO | String? = nil)
+      request = build_api_request_for_insert(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, content_encoding: content_encoding, if_generation_match: if_generation_match, if_generation_not_match: if_generation_not_match, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, kms_key_name: kms_key_name, name: name, predefined_acl: predefined_acl, projection: projection, user_project: user_project, body: body)
 
       data, status_code, headers = @api_client.execute_api_request(request)
 
@@ -510,12 +510,12 @@ module GoogleCloudStorage
     # Stores a new object and metadata.
     # @param bucket [String] Name of the bucket in which to store the new object. Overrides the provided object metadata's bucket value, if any.
     # @return nil
-    def insert(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, content_encoding : String? = nil, if_generation_match : String? = nil, if_generation_not_match : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, kms_key_name : String? = nil, name : String? = nil, predefined_acl : String? = nil, projection : String? = nil, user_project : String? = nil, object : Object? = nil, &block : Crest::Response ->)
-      build_api_request_for_insert(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, content_encoding: content_encoding, if_generation_match: if_generation_match, if_generation_not_match: if_generation_not_match, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, kms_key_name: kms_key_name, name: name, predefined_acl: predefined_acl, projection: projection, user_project: user_project, object: object).execute(&block)
+    def insert(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, content_encoding : String? = nil, if_generation_match : String? = nil, if_generation_not_match : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, kms_key_name : String? = nil, name : String? = nil, predefined_acl : String? = nil, projection : String? = nil, user_project : String? = nil, body : IO | String? = nil, &block : Crest::Response ->)
+      build_api_request_for_insert(bucket: bucket, alt: alt, fields: fields, key: key, oauth_token: oauth_token, pretty_print: pretty_print, quota_user: quota_user, upload_type: upload_type, user_ip: user_ip, content_encoding: content_encoding, if_generation_match: if_generation_match, if_generation_not_match: if_generation_not_match, if_metageneration_match: if_metageneration_match, if_metageneration_not_match: if_metageneration_not_match, kms_key_name: kms_key_name, name: name, predefined_acl: predefined_acl, projection: projection, user_project: user_project, body: body).execute(&block)
     end
 
     # @return Crest::Request
-    def build_api_request_for_insert(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, content_encoding : String? = nil, if_generation_match : String? = nil, if_generation_not_match : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, kms_key_name : String? = nil, name : String? = nil, predefined_acl : String? = nil, projection : String? = nil, user_project : String? = nil, object : Object? = nil) : Crest::Request
+    def build_api_request_for_insert(*, bucket : String, alt : String? = nil, fields : String? = nil, key : String? = nil, oauth_token : String? = nil, pretty_print : Bool? = nil, quota_user : String? = nil, upload_type : String? = nil, user_ip : String? = nil, content_encoding : String? = nil, if_generation_match : String? = nil, if_generation_not_match : String? = nil, if_metageneration_match : String? = nil, if_metageneration_not_match : String? = nil, kms_key_name : String? = nil, name : String? = nil, predefined_acl : String? = nil, projection : String? = nil, user_project : String? = nil, body : IO | String? = nil) : Crest::Request
       if @api_client.config.debugging
         Log.debug { "Calling API: ObjectsApi.insert ..." }
       end
@@ -532,7 +532,7 @@ module GoogleCloudStorage
         raise ArgumentError.new("invalid value for \"projection\", must be one of #{allowable_values}")
       end
       # resource path
-      local_var_path = "/b/{bucket}/o".sub("{" + "bucket" + "}", URI.encode_path(bucket.to_s))
+      local_var_path = "/upload/storage/v1/b/{bucket}/o".sub("{" + "bucket" + "}", URI.encode_path(bucket.to_s))
 
       # query parameters
       query_params = Hash(String, (String | Array(String))).new
@@ -566,7 +566,7 @@ module GoogleCloudStorage
       form_params = nil
 
       # http body (model)
-      post_body = object.to_json
+      post_body = body
 
       # auth_names
       auth_names = ["Oauth2", "Oauth2c"]
@@ -631,7 +631,7 @@ module GoogleCloudStorage
         raise ArgumentError.new("invalid value for \"projection\", must be one of #{allowable_values}")
       end
       # resource path
-      local_var_path = "/b/{bucket}/o".sub("{" + "bucket" + "}", URI.encode_path(bucket.to_s))
+      local_var_path = "/storage/v1/b/{bucket}/o".sub("{" + "bucket" + "}", URI.encode_path(bucket.to_s))
 
       # query parameters
       query_params = Hash(String, (String | Array(String))).new
@@ -731,7 +731,7 @@ module GoogleCloudStorage
         raise ArgumentError.new("invalid value for \"projection\", must be one of #{allowable_values}")
       end
       # resource path
-      local_var_path = "/b/{bucket}/o/{object}".sub("{" + "bucket" + "}", URI.encode_path(bucket.to_s)).sub("{" + "object" + "}", URI.encode_path(object.to_s))
+      local_var_path = "/storage/v1/b/{bucket}/o/{object}".sub("{" + "bucket" + "}", URI.encode_path(bucket.to_s)).sub("{" + "object" + "}", URI.encode_path(object.to_s))
 
       # query parameters
       query_params = Hash(String, (String | Array(String))).new
@@ -837,7 +837,7 @@ module GoogleCloudStorage
         raise ArgumentError.new("invalid value for \"projection\", must be one of #{allowable_values}")
       end
       # resource path
-      local_var_path = "/b/{sourceBucket}/o/{sourceObject}/rewriteTo/b/{destinationBucket}/o/{destinationObject}".sub("{" + "sourceBucket" + "}", URI.encode_path(source_bucket.to_s)).sub("{" + "sourceObject" + "}", URI.encode_path(source_object.to_s)).sub("{" + "destinationBucket" + "}", URI.encode_path(destination_bucket.to_s)).sub("{" + "destinationObject" + "}", URI.encode_path(destination_object.to_s))
+      local_var_path = "/storage/v1/b/{sourceBucket}/o/{sourceObject}/rewriteTo/b/{destinationBucket}/o/{destinationObject}".sub("{" + "sourceBucket" + "}", URI.encode_path(source_bucket.to_s)).sub("{" + "sourceObject" + "}", URI.encode_path(source_object.to_s)).sub("{" + "destinationBucket" + "}", URI.encode_path(destination_bucket.to_s)).sub("{" + "destinationObject" + "}", URI.encode_path(destination_object.to_s))
 
       # query parameters
       query_params = Hash(String, (String | Array(String))).new
@@ -936,7 +936,7 @@ module GoogleCloudStorage
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
       # resource path
-      local_var_path = "/b/{bucket}/o/{object}/iam".sub("{" + "bucket" + "}", URI.encode_path(bucket.to_s)).sub("{" + "object" + "}", URI.encode_path(object.to_s))
+      local_var_path = "/storage/v1/b/{bucket}/o/{object}/iam".sub("{" + "bucket" + "}", URI.encode_path(bucket.to_s)).sub("{" + "object" + "}", URI.encode_path(object.to_s))
 
       # query parameters
       query_params = Hash(String, (String | Array(String))).new
@@ -1025,7 +1025,7 @@ module GoogleCloudStorage
         raise ArgumentError.new("invalid value for \"alt\", must be one of #{allowable_values}")
       end
       # resource path
-      local_var_path = "/b/{bucket}/o/{object}/iam/testPermissions".sub("{" + "bucket" + "}", URI.encode_path(bucket.to_s)).sub("{" + "object" + "}", URI.encode_path(object.to_s))
+      local_var_path = "/storage/v1/b/{bucket}/o/{object}/iam/testPermissions".sub("{" + "bucket" + "}", URI.encode_path(bucket.to_s)).sub("{" + "object" + "}", URI.encode_path(object.to_s))
 
       # query parameters
       query_params = Hash(String, (String | Array(String))).new
@@ -1118,7 +1118,7 @@ module GoogleCloudStorage
         raise ArgumentError.new("invalid value for \"projection\", must be one of #{allowable_values}")
       end
       # resource path
-      local_var_path = "/b/{bucket}/o/{object}".sub("{" + "bucket" + "}", URI.encode_path(bucket.to_s)).sub("{" + "object" + "}", URI.encode_path(object.to_s))
+      local_var_path = "/storage/v1/b/{bucket}/o/{object}".sub("{" + "bucket" + "}", URI.encode_path(bucket.to_s)).sub("{" + "object" + "}", URI.encode_path(object.to_s))
 
       # query parameters
       query_params = Hash(String, (String | Array(String))).new
@@ -1215,7 +1215,7 @@ module GoogleCloudStorage
         raise ArgumentError.new("invalid value for \"projection\", must be one of #{allowable_values}")
       end
       # resource path
-      local_var_path = "/b/{bucket}/o/watch".sub("{" + "bucket" + "}", URI.encode_path(bucket.to_s))
+      local_var_path = "/storage/v1/b/{bucket}/o/watch".sub("{" + "bucket" + "}", URI.encode_path(bucket.to_s))
 
       # query parameters
       query_params = Hash(String, (String | Array(String))).new

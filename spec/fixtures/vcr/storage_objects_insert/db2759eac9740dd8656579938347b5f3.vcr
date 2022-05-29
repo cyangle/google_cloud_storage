@@ -1,0 +1,33 @@
+HTTP/1.1 200 OK
+X-GUploader-UploadID: ADPycdufYRJl4jMqhZCcbG4dLMBHg_oTHxFkYTd2lDcPHysngC582J9BnrmYQ-SbeKlmYQZzOaz13Oo0ePOcemDOI5Vi5UXVq3Ja
+ETag: CK7/nrbag/gCEAE=
+Content-Type: application/json; charset=UTF-8
+Date: Sun, 29 May 2022 02:54:00 GMT
+Vary: Origin
+Vary: X-Origin
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Expires: Mon, 01 Jan 1990 00:00:00 GMT
+Pragma: no-cache
+Content-Length: 823
+Server: UploadServer
+Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"
+
+{
+  "kind": "storage#object",
+  "id": "cloud_storage_crystal_client_test/test.json/1653792840335278",
+  "selfLink": "https://www.googleapis.com/storage/v1/b/cloud_storage_crystal_client_test/o/test.json",
+  "mediaLink": "https://storage.googleapis.com/download/storage/v1/b/cloud_storage_crystal_client_test/o/test.json?generation=1653792840335278&alt=media",
+  "name": "test.json",
+  "bucket": "cloud_storage_crystal_client_test",
+  "generation": "1653792840335278",
+  "metageneration": "1",
+  "contentType": "application/octet-stream",
+  "storageClass": "STANDARD",
+  "size": "18",
+  "md5Hash": "P+h3V2T7RByigmIC8EoDCQ==",
+  "crc32c": "z03AKw==",
+  "etag": "CK7/nrbag/gCEAE=",
+  "timeCreated": "2022-05-29T02:54:00.460Z",
+  "updated": "2022-05-29T02:54:00.460Z",
+  "timeStorageClassUpdated": "2022-05-29T02:54:00.460Z"
+}

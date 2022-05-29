@@ -1,0 +1,26 @@
+HTTP/1.1 400 Bad Request
+X-GUploader-UploadID: ADPycdtrvHoMI2UbLQuhhMsEAjcvKpzilCvNikRjhVjSAn1Ht_t6ku7KRcW4BNbMvQnq8onDz2Ou4059YoUhqRYyYa8GvA
+Content-Type: application/json; charset=UTF-8
+Date: Sun, 29 May 2022 01:45:03 GMT
+Vary: Origin
+Vary: X-Origin
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Expires: Mon, 01 Jan 1990 00:00:00 GMT
+Pragma: no-cache
+Content-Length: 336
+Server: UploadServer
+Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"
+
+{
+  "error": {
+    "code": 400,
+    "message": "Use of this bucket name is restricted: 'google_cloud_storage_crystal_client_test'",
+    "errors": [
+      {
+        "message": "Use of this bucket name is restricted: 'google_cloud_storage_crystal_client_test'",
+        "domain": "global",
+        "reason": "invalid"
+      }
+    ]
+  }
+}

@@ -130,8 +130,22 @@ describe "ObjectsApi" do
   # @option opts [String] :user_project The project to be billed for this request. Required for Requester Pays buckets.
   # @return [Object]
   describe "storage_objects_get test" do
-    it "should work" do
-      # assertion here. ref: https://crystal-lang.org/reference/guides/testing.html
+    it "downloads object" do
+      load_cassette("storage_objects_get_object_content") do
+        objects_api = GoogleCloudStorage::ObjectsApi.new
+        request = objects_api.build_api_request_for_get(bucket: BUCKET_NAME, object: OBJECT_NAME, alt: "media")
+        response = request.execute
+        (response.body).should eq(File.read("./spec/fixtures/test.json"))
+      end
+    end
+
+    it "returns GoogleCloudStorage::Object" do
+      load_cassette("storage_objects_get_object_meta") do
+        objects_api = GoogleCloudStorage::ObjectsApi.new
+        object = objects_api.get(bucket: BUCKET_NAME, object: OBJECT_NAME)
+        (object).should be_a(GoogleCloudStorage::Object)
+        (object.name).should eq("test.json")
+      end
     end
   end
 
@@ -182,8 +196,13 @@ describe "ObjectsApi" do
   # @option opts [Object] :object
   # @return [Object]
   describe "storage_objects_insert test" do
-    it "should work" do
-      # assertion here. ref: https://crystal-lang.org/reference/guides/testing.html
+    it "uploads a file" do
+      load_cassette("storage_objects_insert") do
+        objects_api = GoogleCloudStorage::ObjectsApi.new
+        file_content = File.read("spec/fixtures/test.json")
+        object = objects_api.insert(bucket: BUCKET_NAME, name: "test.json", body: file_content)
+        (object.name).should eq("test.json")
+      end
     end
   end
 

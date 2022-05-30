@@ -68,6 +68,8 @@ src/google_cloud_storage/api/projects_api.cr
 src/google_cloud_storage/api_client.cr
 src/google_cloud_storage/api_error.cr
 src/google_cloud_storage/configuration.cr
+src/google_cloud_storage/ext/json/serialization.cr
+src/google_cloud_storage/ext/time.cr
 src/google_cloud_storage/models/bucket.cr
 src/google_cloud_storage/models/bucket_access_control.cr
 src/google_cloud_storage/models/bucket_access_control_project_team.cr

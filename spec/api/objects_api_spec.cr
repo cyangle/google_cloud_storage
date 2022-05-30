@@ -205,6 +205,14 @@ describe "ObjectsApi" do
   # @return [Object]
   describe "storage_objects_insert test" do
     context "Simple upload (uploadType=media)" do
+      it "generates correct http request" do
+        objects_api = GoogleCloudStorage::ObjectsApi.new
+        file_content = File.read("spec/fixtures/test.json")
+        request = objects_api.build_api_request_for_insert(bucket: BUCKET_NAME, name: OBJECT_NAME, upload_type: "media", body: file_content)
+        secured_request = VCR.filter_sensitive_data!(request.http_request)
+        (secured_request.to_json).should eq(Helpers.compact_json("spec/fixtures/requests/objects_api/simple_upload.json"))
+      end
+
       it "uploads a file" do
         load_cassette("storage_objects_insert") do
           objects_api = GoogleCloudStorage::ObjectsApi.new

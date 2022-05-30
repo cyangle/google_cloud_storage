@@ -56,6 +56,9 @@ spec/models/rewrite_response_spec.cr
 spec/models/service_account_spec.cr
 spec/models/test_iam_permissions_response_spec.cr
 spec/spec_helper.cr
+spec/support/ext.cr
+spec/support/helpers.cr
+spec/support/vcr.cr
 src/ext/json/serialization.cr
 src/ext/time.cr
 src/google_cloud_storage.cr

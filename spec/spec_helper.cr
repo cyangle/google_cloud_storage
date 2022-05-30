@@ -9,34 +9,6 @@
 
 # load modules
 require "spec"
-require "../src/google_cloud_storage"
 require "vcr"
-
-BUCKET_NAME  = ENV.fetch("BUCKET_NAME", "cloud_storage_crystal_client_test")
-OBJECT_NAME  = ENV.fetch("OBJECT_NAME", "test.json")
-PROJECT_NAME = ENV.fetch("PROJECT_NAME", "valid-logic-333801")
-ACCESS_TOKEN = ENV.fetch("ACCESS_TOKEN", "ignored_by_vcr")
-
-GoogleCloudStorage.configure do |config|
-  config.access_token = ACCESS_TOKEN
-end
-
-VCR.configure do |settings|
-  settings.filter_sensitive_data["Authorization"] = "<Authorization>"
-  settings.filter_sensitive_data["User-Agent"] = "<User-Agent>"
-end
-
-# Hard code multipart form boundary, so that the request VCR hash stays the same
-module MIME::Multipart
-  def self.generate_boundary : String
-    "--------------------------emO7w183lpjFHB_BYEOFiRYluX_By6B0eY_SIlwPUm76CZd9"
-  end
-end
-
-class File < IO::FileDescriptor
-  def to_s
-    gets_to_end.tap do |_|
-      rewind
-    end
-  end
-end
+require "../src/google_cloud_storage"
+require "./support/**"

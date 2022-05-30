@@ -1,0 +1,13 @@
+{
+  "method": "POST",
+  "host": null,
+  "resource": "/upload/storage/v1/b/cloud_storage_crystal_client_test/o?uploadType=media&name=test.json",
+  "headers": {
+    "Accept": ["application/json"],
+    "Content-Type": ["application/octet-stream"],
+    "Authorization": ["<Authorization>"],
+    "Content-Length": ["18"]
+  },
+  "body": "{\"hello\":\"world\"}\n",
+  "query_params": { "uploadType": "media", "name": "test.json" }
+}

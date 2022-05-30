@@ -24,3 +24,10 @@ end
 VCR.configure do |settings|
   settings.filter_sensitive_data["Authorization"] = "<Authorization>"
 end
+
+# Hard code multipart form boundary, so that the request VCR hash stays the same
+module MIME::Multipart
+  def self.generate_boundary : String
+    "--------------------------emO7w183lpjFHB_BYEOFiRYluX_By6B0eY_SIlwPUm76CZd9"
+  end
+end

@@ -1,8 +1,8 @@
 HTTP/1.1 200 OK
-X-GUploader-UploadID: ADPycdsziv3ZOkPGYYHTUdBPu8n-O08-IGIOAAwizvKO1xREBBuuw8FAFUUjJVDguWz2A-NSlZC6In8hrJvQOZQzYiqMQviiEpIm
-ETag: CPWXrND8h/gCEAE=
+X-GUploader-UploadID: ADPycdu6HM60LOxrhcSoeIAgOtt5VEN_fjfikSbb1kTBBdWkEV307B0_BC0AFfGOXkX6YUFZ1dBLXdjPZFAWbl90fVUDenwzipxk
+ETag: COu2q+6UiPgCEAE=
 Content-Type: application/json; charset=UTF-8
-Date: Mon, 30 May 2022 19:37:41 GMT
+Date: Mon, 30 May 2022 21:26:06 GMT
 Vary: Origin
 Vary: X-Origin
 Cache-Control: no-cache, no-store, max-age=0, must-revalidate
@@ -14,20 +14,20 @@ Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=25920
 
 {
   "kind": "storage#object",
-  "id": "cloud_storage_crystal_client_test/test.json/1653939460836341",
+  "id": "cloud_storage_crystal_client_test/test.json/1653945966189419",
   "selfLink": "https://www.googleapis.com/storage/v1/b/cloud_storage_crystal_client_test/o/test.json",
-  "mediaLink": "https://storage.googleapis.com/download/storage/v1/b/cloud_storage_crystal_client_test/o/test.json?generation=1653939460836341&alt=media",
+  "mediaLink": "https://storage.googleapis.com/download/storage/v1/b/cloud_storage_crystal_client_test/o/test.json?generation=1653945966189419&alt=media",
   "name": "test.json",
   "bucket": "cloud_storage_crystal_client_test",
-  "generation": "1653939460836341",
+  "generation": "1653945966189419",
   "metageneration": "1",
   "contentType": "application/octet-stream",
   "storageClass": "STANDARD",
   "size": "18",
   "md5Hash": "P+h3V2T7RByigmIC8EoDCQ==",
   "crc32c": "z03AKw==",
-  "etag": "CPWXrND8h/gCEAE=",
-  "timeCreated": "2022-05-30T19:37:40.960Z",
-  "updated": "2022-05-30T19:37:40.960Z",
-  "timeStorageClassUpdated": "2022-05-30T19:37:40.960Z"
+  "etag": "COu2q+6UiPgCEAE=",
+  "timeCreated": "2022-05-30T21:26:06.277Z",
+  "updated": "2022-05-30T21:26:06.277Z",
+  "timeStorageClassUpdated": "2022-05-30T21:26:06.277Z"
 }

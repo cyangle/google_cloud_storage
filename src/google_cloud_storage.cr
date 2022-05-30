@@ -16,7 +16,7 @@ require "time"
 require "uri"
 
 # Project files
-require "./google_cloud_storage/ext/**"
+require "./ext/**"
 require "./google_cloud_storage/configuration.cr"
 require "./google_cloud_storage/api_error.cr"
 require "./google_cloud_storage/api_client.cr"

@@ -30,7 +30,7 @@ dependencies:
 
 Check [here](https://cloud.google.com/storage/docs/json_api) for more information about how to use google cloud storage v1 json APIs.
 
-Below only lists API usages that are covered by tests. Please report borken APIs by creating github issues.
+Below only lists API usages that are covered by tests. Please report broken APIs by creating github issues.
 
 The client should support all APIs provided by google cloud storage v1 json APIs as it's generated from the OpenAPI v3 specification `./google_cloud_storage_v1.yml`.
 
@@ -126,9 +126,13 @@ end
 
 #### Upload file to bucket
 
+##### Simple upload
+
+Upload file content as String
+
 ```crystal
 file_content = File.read("./test.json")
-object : GoogleCloudStorage::Object = objects_api.insert(bucket: "my_bucket", name: "test.json", body: file_content)
+object : GoogleCloudStorage::Object = objects_api.insert(bucket: "my_bucket", name: "test.json", upload_type: "media", body: file_content)
 pp object
 ```
 
@@ -136,7 +140,7 @@ Or stream upload
 
 ```crystal
 File.open("./test.json") do |file|
-  object : GoogleCloudStorage::Object = objects_api.insert(bucket: "my_bucket", name: "test.json", body: file)
+  object : GoogleCloudStorage::Object = objects_api.insert(bucket: "my_bucket", name: "test.json", upload_type: "media", body: file)
   pp object
 end
 ```

@@ -204,14 +204,27 @@ describe "ObjectsApi" do
   # @option opts [Object] :object
   # @return [Object]
   describe "storage_objects_insert test" do
-    it "uploads a file" do
-      load_cassette("storage_objects_insert") do
-        objects_api = GoogleCloudStorage::ObjectsApi.new
-        file_content = File.read("spec/fixtures/test.json")
-        object = objects_api.insert(bucket: BUCKET_NAME, name: OBJECT_NAME, body: file_content)
-        (object.name).should eq(OBJECT_NAME)
+    context "Simple upload (uploadType=media)" do
+      it "uploads a file" do
+        load_cassette("storage_objects_insert") do
+          objects_api = GoogleCloudStorage::ObjectsApi.new
+          file_content = File.read("spec/fixtures/test.json")
+          object = objects_api.insert(bucket: BUCKET_NAME, name: OBJECT_NAME, upload_type: "media", body: file_content)
+          (object.name).should eq(OBJECT_NAME)
+        end
       end
     end
+
+    # context "Multipart upload (uploadType=media)" do
+    #   it "uploads a file" do
+    #     load_cassette("storage_objects_insert") do
+    #       objects_api = GoogleCloudStorage::ObjectsApi.new
+    #       file_content = File.read("spec/fixtures/test.json")
+    #       object = objects_api.insert(bucket: BUCKET_NAME, name: OBJECT_NAME, upload_type: "multipart", body: file_content)
+    #       (object.name).should eq(OBJECT_NAME)
+    #     end
+    #   end
+    # end
   end
 
   # unit tests for storage_objects_list

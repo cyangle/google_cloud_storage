@@ -56,6 +56,8 @@ spec/models/rewrite_response_spec.cr
 spec/models/service_account_spec.cr
 spec/models/test_iam_permissions_response_spec.cr
 spec/spec_helper.cr
+src/ext/json/serialization.cr
+src/ext/time.cr
 src/google_cloud_storage.cr
 src/google_cloud_storage/api/bucket_access_controls_api.cr
 src/google_cloud_storage/api/buckets_api.cr
@@ -68,8 +70,6 @@ src/google_cloud_storage/api/projects_api.cr
 src/google_cloud_storage/api_client.cr
 src/google_cloud_storage/api_error.cr
 src/google_cloud_storage/configuration.cr
-src/google_cloud_storage/ext/json/serialization.cr
-src/google_cloud_storage/ext/time.cr
 src/google_cloud_storage/models/bucket.cr
 src/google_cloud_storage/models/bucket_access_control.cr
 src/google_cloud_storage/models/bucket_access_control_project_team.cr

@@ -152,7 +152,7 @@ describe "ObjectsApi" do
         objects_api = GoogleCloudStorage::ObjectsApi.new
         object = objects_api.get(bucket: BUCKET_NAME, object: OBJECT_NAME)
         (object).should be_a(GoogleCloudStorage::Object)
-        (object.name).should eq("test.json")
+        (object.name).should eq(OBJECT_NAME)
       end
     end
   end
@@ -208,8 +208,8 @@ describe "ObjectsApi" do
       load_cassette("storage_objects_insert") do
         objects_api = GoogleCloudStorage::ObjectsApi.new
         file_content = File.read("spec/fixtures/test.json")
-        object = objects_api.insert(bucket: BUCKET_NAME, name: "test.json", body: file_content)
-        (object.name).should eq("test.json")
+        object = objects_api.insert(bucket: BUCKET_NAME, name: OBJECT_NAME, body: file_content)
+        (object.name).should eq(OBJECT_NAME)
       end
     end
   end

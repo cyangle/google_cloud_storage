@@ -1,28 +1,29 @@
 HTTP/1.1 200 OK
-X-GUploader-UploadID: ADPycdt6Cl8lxLDJCt4Lz_t8HPpcCUssoe_0MjRuGOBC3crKhrvVZWvYQajrTkBxR2mR-RSc4WB3Zg2goIrca1uq5VXy3Q
+X-GUploader-UploadID: ADPycdsQAwjIC_50kP1dJ-aP3hufqbqUGozAoHnsZJ19RgR8T5k1CPqKbrfgM9GTt6M-W8vyzaBQ5tJDdDKNyi7xBQbjW-Q7qAdC
 ETag: CAE=
 Content-Type: application/json; charset=UTF-8
-Date: Sun, 29 May 2022 04:28:08 GMT
+Date: Mon, 30 May 2022 19:30:51 GMT
 Vary: Origin
 Vary: X-Origin
-Cache-Control: private, max-age=0, must-revalidate, no-transform
-Expires: Sun, 29 May 2022 04:28:08 GMT
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Expires: Mon, 01 Jan 1990 00:00:00 GMT
+Pragma: no-cache
 Content-Length: 673
 Server: UploadServer
 Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"
 
 {
   "kind": "storage#bucket",
-  "selfLink": "https://www.googleapis.com/storage/v1/b/cloud_storage_crystal_client_test",
-  "id": "cloud_storage_crystal_client_test",
-  "name": "cloud_storage_crystal_client_test",
+  "selfLink": "https://www.googleapis.com/storage/v1/b/crystal_empty_bucket_for_deletion",
+  "id": "crystal_empty_bucket_for_deletion",
+  "name": "crystal_empty_bucket_for_deletion",
   "projectNumber": "149930605840",
   "metageneration": "1",
   "location": "US",
   "storageClass": "STANDARD",
   "etag": "CAE=",
-  "timeCreated": "2022-05-29T01:53:22.630Z",
-  "updated": "2022-05-29T01:53:22.630Z",
+  "timeCreated": "2022-05-30T19:30:51.592Z",
+  "updated": "2022-05-30T19:30:51.592Z",
   "iamConfiguration": {
     "bucketPolicyOnly": {
       "enabled": false

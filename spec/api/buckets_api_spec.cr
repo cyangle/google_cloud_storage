@@ -153,9 +153,10 @@ describe "BucketsApi" do
       it "returns bucket" do
         load_cassette("storage_buckets_insert") do
           buckets_api = GoogleCloudStorage::BucketsApi.new
-          bucket = GoogleCloudStorage::Bucket.new(name: BUCKET_NAME)
+          bucket_name = "crystal_empty_bucket_for_deletion"
+          bucket = GoogleCloudStorage::Bucket.new(name: bucket_name)
           result_bucket = buckets_api.insert(project: PROJECT_NAME, bucket: bucket)
-          (result_bucket.name).should eq(BUCKET_NAME)
+          (result_bucket.name).should eq(bucket_name)
         end
       end
     end

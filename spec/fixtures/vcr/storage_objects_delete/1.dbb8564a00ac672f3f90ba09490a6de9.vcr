@@ -1,13 +1,12 @@
 HTTP/1.1 200 OK
-X-GUploader-UploadID: ADPycdue_GimBr2WnQ063wea9p2x-ihM_UfgDDmGxd30KxFtnwYEMLMyRtukK3B4w9GReXV-ww4WmdAtni1MmacgwaNM0g
+X-GUploader-UploadID: ADPycdtG9uzmyrPnu9KXUn5p88GMA4ApLC1WUW7yNCacsgMswNf_JQSBichjYwk-2ronRMfTj0J5TozbBumoYBQ5MeS2p5niSoVJ
 ETag: CLCGm7fng/gCEAE=
 Content-Type: application/json; charset=UTF-8
-Date: Sun, 29 May 2022 03:52:12 GMT
+Date: Mon, 30 May 2022 19:35:34 GMT
 Vary: Origin
 Vary: X-Origin
-Cache-Control: no-cache, no-store, max-age=0, must-revalidate
-Expires: Mon, 01 Jan 1990 00:00:00 GMT
-Pragma: no-cache
+Cache-Control: private, max-age=0, must-revalidate, no-transform
+Expires: Mon, 30 May 2022 19:35:34 GMT
 Content-Length: 823
 Server: UploadServer
 Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"

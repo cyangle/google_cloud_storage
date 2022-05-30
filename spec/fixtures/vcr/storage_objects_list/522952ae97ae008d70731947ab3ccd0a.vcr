@@ -1,11 +1,11 @@
 HTTP/1.1 200 OK
-X-GUploader-UploadID: ADPycduO-CeVkXeHaVH3VcXhL7cXr4Y92ytTm4yyd5BZsix1fGk9NNfNeSa2rfTnSEKbYVTtzztGf2F_OPQMDd4DKrgsMQ
+X-GUploader-UploadID: ADPycdtk45LLHlzmCM2MbkbOZXkHSjUELSs4uVM5ftpoDa6VLwasJ6uPINIEbE8gxtaM9V7KYyy7YVuAF-lR8JBJK4bUjw2lAxNM
 Content-Type: application/json; charset=UTF-8
-Date: Sun, 29 May 2022 04:02:15 GMT
+Date: Mon, 30 May 2022 19:35:35 GMT
 Vary: Origin
 Vary: X-Origin
 Cache-Control: private, max-age=0, must-revalidate, no-transform
-Expires: Sun, 29 May 2022 04:02:15 GMT
+Expires: Mon, 30 May 2022 19:35:35 GMT
 Content-Length: 3711
 Server: UploadServer
 Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"
@@ -74,22 +74,22 @@ Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=25920
     },
     {
       "kind": "storage#object",
-      "id": "cloud_storage_crystal_client_test/test.json/1653796332028720",
+      "id": "cloud_storage_crystal_client_test/test.json/1653939335257102",
       "selfLink": "https://www.googleapis.com/storage/v1/b/cloud_storage_crystal_client_test/o/test.json",
-      "mediaLink": "https://storage.googleapis.com/download/storage/v1/b/cloud_storage_crystal_client_test/o/test.json?generation=1653796332028720&alt=media",
+      "mediaLink": "https://storage.googleapis.com/download/storage/v1/b/cloud_storage_crystal_client_test/o/test.json?generation=1653939335257102&alt=media",
       "name": "test.json",
       "bucket": "cloud_storage_crystal_client_test",
-      "generation": "1653796332028720",
+      "generation": "1653939335257102",
       "metageneration": "1",
       "contentType": "application/octet-stream",
       "storageClass": "STANDARD",
       "size": "18",
       "md5Hash": "P+h3V2T7RByigmIC8EoDCQ==",
       "crc32c": "z03AKw==",
-      "etag": "CLCGm7fng/gCEAE=",
-      "timeCreated": "2022-05-29T03:52:12.059Z",
-      "updated": "2022-05-29T03:52:12.059Z",
-      "timeStorageClassUpdated": "2022-05-29T03:52:12.059Z"
+      "etag": "CI64u5T8h/gCEAE=",
+      "timeCreated": "2022-05-30T19:35:35.297Z",
+      "updated": "2022-05-30T19:35:35.297Z",
+      "timeStorageClassUpdated": "2022-05-30T19:35:35.297Z"
     }
   ]
 }

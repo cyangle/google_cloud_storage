@@ -60,3 +60,4 @@ src/google_cloud_storage/models/policy_bindings_inner.cr
 src/google_cloud_storage/models/rewrite_response.cr
 src/google_cloud_storage/models/service_account.cr
 src/google_cloud_storage/models/test_iam_permissions_response.cr
+src/validators/enum_validator.cr

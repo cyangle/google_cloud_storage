@@ -17,6 +17,7 @@ require "uri"
 
 # Project files
 require "./ext/**"
+require "./validators/**"
 require "./google_cloud_storage/configuration.cr"
 require "./google_cloud_storage/api_error.cr"
 require "./google_cloud_storage/api_client.cr"

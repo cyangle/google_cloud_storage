@@ -11,7 +11,7 @@ tasks:
         pattern: 'operation: "%{capitalized_api_name}Api.'
         new_value: 'operation: "%{capitalized_api_name}Api.storage_%{api_name}_'
   - name: "Update objects api"
-    file_glob: './src/google_cloud_storage/api/objects_api.cr'
+    file_glob: './src/google_cloud_storage/api/*.cr'
     changes:
       -
         name: "Update ::File to IO | String"

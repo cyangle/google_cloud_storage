@@ -112,6 +112,7 @@ module GoogleCloudStorage
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array(String).new
+
       invalid_properties
     end
 
@@ -147,9 +148,7 @@ module GoogleCloudStorage
     end
 
     # Calculates hash code according to all attributes.
-    # @return [Integer] Hash code
-    def hash
-      [age, created_before, custom_time_before, days_since_custom_time, days_since_noncurrent_time, is_live, matches_pattern, matches_prefix, matches_storage_class, matches_suffix, noncurrent_time_before, num_newer_versions].hash
-    end
+    # @return [UInt64] Hash code
+    def_hash(@age, @created_before, @custom_time_before, @days_since_custom_time, @days_since_noncurrent_time, @is_live, @matches_pattern, @matches_prefix, @matches_storage_class, @matches_suffix, @noncurrent_time_before, @num_newer_versions)
   end
 end

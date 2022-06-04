@@ -231,50 +231,16 @@ module GoogleCloudStorage
       true
     end
 
-    # Checks equality by comparing each attribute.
-    # @param [Object] Object to be compared
-    def ==(o)
-      return true if self.same?(o)
-      self.class == o.class &&
-        acl == o.acl &&
-        autoclass == o.autoclass &&
-        billing == o.billing &&
-        cors == o.cors &&
-        default_event_based_hold == o.default_event_based_hold &&
-        default_object_acl == o.default_object_acl &&
-        encryption == o.encryption &&
-        etag == o.etag &&
-        iam_configuration == o.iam_configuration &&
-        id == o.id &&
-        kind == o.kind &&
-        labels == o.labels &&
-        lifecycle == o.lifecycle &&
-        location == o.location &&
-        location_type == o.location_type &&
-        logging == o.logging &&
-        metageneration == o.metageneration &&
-        name == o.name &&
-        owner == o.owner &&
-        project_number == o.project_number &&
-        retention_policy == o.retention_policy &&
-        rpo == o.rpo &&
-        satisfies_pzs == o.satisfies_pzs &&
-        self_link == o.self_link &&
-        storage_class == o.storage_class &&
-        time_created == o.time_created &&
-        updated == o.updated &&
-        versioning == o.versioning &&
-        website == o.website
-    end
-
     # @see the `==` method
     # @param [Object] Object to be compared
     def eql?(o)
       self == o
     end
 
-    # Calculates hash code according to all attributes.
-    # @return [UInt64] Hash code
-    def_hash(@acl, @autoclass, @billing, @cors, @default_event_based_hold, @default_object_acl, @encryption, @etag, @iam_configuration, @id, @kind, @labels, @lifecycle, @location, @location_type, @logging, @metageneration, @name, @owner, @project_number, @retention_policy, @rpo, @satisfies_pzs, @self_link, @storage_class, @time_created, @updated, @versioning, @website)
+    # Generates #hash and #== methods from all fields
+    # #== @return [Bool]
+    # #hash calculates hash code according to all attributes.
+    # #hash @return [UInt64] Hash code
+    def_equals_and_hash(@acl, @autoclass, @billing, @cors, @default_event_based_hold, @default_object_acl, @encryption, @etag, @iam_configuration, @id, @kind, @labels, @lifecycle, @location, @location_type, @logging, @metageneration, @name, @owner, @project_number, @retention_policy, @rpo, @satisfies_pzs, @self_link, @storage_class, @time_created, @updated, @versioning, @website)
   end
 end

@@ -260,53 +260,16 @@ module GoogleCloudStorage
       true
     end
 
-    # Checks equality by comparing each attribute.
-    # @param [Object] Object to be compared
-    def ==(o)
-      return true if self.same?(o)
-      self.class == o.class &&
-        acl == o.acl &&
-        bucket == o.bucket &&
-        cache_control == o.cache_control &&
-        component_count == o.component_count &&
-        content_disposition == o.content_disposition &&
-        content_encoding == o.content_encoding &&
-        content_language == o.content_language &&
-        content_type == o.content_type &&
-        crc32c == o.crc32c &&
-        custom_time == o.custom_time &&
-        customer_encryption == o.customer_encryption &&
-        etag == o.etag &&
-        event_based_hold == o.event_based_hold &&
-        generation == o.generation &&
-        id == o.id &&
-        kind == o.kind &&
-        kms_key_name == o.kms_key_name &&
-        md5_hash == o.md5_hash &&
-        media_link == o.media_link &&
-        metadata == o.metadata &&
-        metageneration == o.metageneration &&
-        name == o.name &&
-        owner == o.owner &&
-        retention_expiration_time == o.retention_expiration_time &&
-        self_link == o.self_link &&
-        size == o.size &&
-        storage_class == o.storage_class &&
-        temporary_hold == o.temporary_hold &&
-        time_created == o.time_created &&
-        time_deleted == o.time_deleted &&
-        time_storage_class_updated == o.time_storage_class_updated &&
-        updated == o.updated
-    end
-
     # @see the `==` method
     # @param [Object] Object to be compared
     def eql?(o)
       self == o
     end
 
-    # Calculates hash code according to all attributes.
-    # @return [UInt64] Hash code
-    def_hash(@acl, @bucket, @cache_control, @component_count, @content_disposition, @content_encoding, @content_language, @content_type, @crc32c, @custom_time, @customer_encryption, @etag, @event_based_hold, @generation, @id, @kind, @kms_key_name, @md5_hash, @media_link, @metadata, @metageneration, @name, @owner, @retention_expiration_time, @self_link, @size, @storage_class, @temporary_hold, @time_created, @time_deleted, @time_storage_class_updated, @updated)
+    # Generates #hash and #== methods from all fields
+    # #== @return [Bool]
+    # #hash calculates hash code according to all attributes.
+    # #hash @return [UInt64] Hash code
+    def_equals_and_hash(@acl, @bucket, @cache_control, @component_count, @content_disposition, @content_encoding, @content_language, @content_type, @crc32c, @custom_time, @customer_encryption, @etag, @event_based_hold, @generation, @id, @kind, @kms_key_name, @md5_hash, @media_link, @metadata, @metageneration, @name, @owner, @retention_expiration_time, @self_link, @size, @storage_class, @temporary_hold, @time_created, @time_deleted, @time_storage_class_updated, @updated)
   end
 end

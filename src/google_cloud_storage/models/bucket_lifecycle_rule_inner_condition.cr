@@ -122,33 +122,16 @@ module GoogleCloudStorage
       true
     end
 
-    # Checks equality by comparing each attribute.
-    # @param [Object] Object to be compared
-    def ==(o)
-      return true if self.same?(o)
-      self.class == o.class &&
-        age == o.age &&
-        created_before == o.created_before &&
-        custom_time_before == o.custom_time_before &&
-        days_since_custom_time == o.days_since_custom_time &&
-        days_since_noncurrent_time == o.days_since_noncurrent_time &&
-        is_live == o.is_live &&
-        matches_pattern == o.matches_pattern &&
-        matches_prefix == o.matches_prefix &&
-        matches_storage_class == o.matches_storage_class &&
-        matches_suffix == o.matches_suffix &&
-        noncurrent_time_before == o.noncurrent_time_before &&
-        num_newer_versions == o.num_newer_versions
-    end
-
     # @see the `==` method
     # @param [Object] Object to be compared
     def eql?(o)
       self == o
     end
 
-    # Calculates hash code according to all attributes.
-    # @return [UInt64] Hash code
-    def_hash(@age, @created_before, @custom_time_before, @days_since_custom_time, @days_since_noncurrent_time, @is_live, @matches_pattern, @matches_prefix, @matches_storage_class, @matches_suffix, @noncurrent_time_before, @num_newer_versions)
+    # Generates #hash and #== methods from all fields
+    # #== @return [Bool]
+    # #hash calculates hash code according to all attributes.
+    # #hash @return [UInt64] Hash code
+    def_equals_and_hash(@age, @created_before, @custom_time_before, @days_since_custom_time, @days_since_noncurrent_time, @is_live, @matches_pattern, @matches_prefix, @matches_storage_class, @matches_suffix, @noncurrent_time_before, @num_newer_versions)
   end
 end

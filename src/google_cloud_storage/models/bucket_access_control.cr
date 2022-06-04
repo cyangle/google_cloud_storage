@@ -114,32 +114,16 @@ module GoogleCloudStorage
       true
     end
 
-    # Checks equality by comparing each attribute.
-    # @param [Object] Object to be compared
-    def ==(o)
-      return true if self.same?(o)
-      self.class == o.class &&
-        bucket == o.bucket &&
-        domain == o.domain &&
-        email == o.email &&
-        entity == o.entity &&
-        entity_id == o.entity_id &&
-        etag == o.etag &&
-        id == o.id &&
-        kind == o.kind &&
-        project_team == o.project_team &&
-        role == o.role &&
-        self_link == o.self_link
-    end
-
     # @see the `==` method
     # @param [Object] Object to be compared
     def eql?(o)
       self == o
     end
 
-    # Calculates hash code according to all attributes.
-    # @return [UInt64] Hash code
-    def_hash(@bucket, @domain, @email, @entity, @entity_id, @etag, @id, @kind, @project_team, @role, @self_link)
+    # Generates #hash and #== methods from all fields
+    # #== @return [Bool]
+    # #hash calculates hash code according to all attributes.
+    # #hash @return [UInt64] Hash code
+    def_equals_and_hash(@bucket, @domain, @email, @entity, @entity_id, @etag, @id, @kind, @project_team, @role, @self_link)
   end
 end

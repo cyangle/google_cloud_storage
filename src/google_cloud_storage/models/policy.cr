@@ -19,6 +19,7 @@ module GoogleCloudStorage
     include JSON::Serializable::Unmapped
 
     # Optional properties
+
     # An association between a role, which comes with a set of permissions, and members who may assume that role.
     @[JSON::Field(key: "bindings", type: Array(PolicyBindingsInner)?, presence: true, ignore_serialize: bindings.nil? && !bindings_present?)]
     property bindings : Array(PolicyBindingsInner)?
@@ -35,7 +36,7 @@ module GoogleCloudStorage
 
     # The kind of item this is. For policies, this is always storage#policy. This field is ignored on input.
     @[JSON::Field(key: "kind", type: String?, default: "storage#policy", presence: true, ignore_serialize: kind.nil? && !kind_present?)]
-    property kind : String?
+    property kind : String? = "storage#policy"
 
     @[JSON::Field(ignore: true)]
     property? kind_present : Bool = false
@@ -56,7 +57,15 @@ module GoogleCloudStorage
 
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(*, @bindings : Array(PolicyBindingsInner)? = nil, @etag : String? = nil, @kind : String? = "storage#policy", @resource_id : String? = nil, @version : Int32? = nil)
+    def initialize(
+      *,
+      # Optional properties
+      @bindings : Array(PolicyBindingsInner)? = nil,
+      @etag : String? = nil,
+      @kind : String? = "storage#policy",
+      @resource_id : String? = nil,
+      @version : Int32? = nil
+    )
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -83,6 +92,6 @@ module GoogleCloudStorage
     # #== @return [Bool]
     # #hash calculates hash code according to all attributes.
     # #hash @return [UInt64] Hash code
-    def_equals_and_hash(@bindings, @etag, @kind, @resource_id, @version)
+    def_equals_and_hash(@bindings, @bindings_present, @etag, @etag_present, @kind, @kind_present, @resource_id, @resource_id_present, @version, @version_present)
   end
 end

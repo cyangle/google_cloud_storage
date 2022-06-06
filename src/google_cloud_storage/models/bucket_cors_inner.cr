@@ -18,6 +18,7 @@ module GoogleCloudStorage
     include JSON::Serializable::Unmapped
 
     # Optional properties
+
     # The value, in seconds, to return in the  Access-Control-Max-Age header used in preflight responses.
     @[JSON::Field(key: "maxAgeSeconds", type: Int32?, presence: true, ignore_serialize: max_age_seconds.nil? && !max_age_seconds_present?)]
     property max_age_seconds : Int32?
@@ -48,7 +49,14 @@ module GoogleCloudStorage
 
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(*, @max_age_seconds : Int32? = nil, @method : Array(String)? = nil, @origin : Array(String)? = nil, @response_header : Array(String)? = nil)
+    def initialize(
+      *,
+      # Optional properties
+      @max_age_seconds : Int32? = nil,
+      @method : Array(String)? = nil,
+      @origin : Array(String)? = nil,
+      @response_header : Array(String)? = nil
+    )
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -75,6 +83,6 @@ module GoogleCloudStorage
     # #== @return [Bool]
     # #hash calculates hash code according to all attributes.
     # #hash @return [UInt64] Hash code
-    def_equals_and_hash(@max_age_seconds, @method, @origin, @response_header)
+    def_equals_and_hash(@max_age_seconds, @max_age_seconds_present, @method, @method_present, @origin, @origin_present, @response_header, @response_header_present)
   end
 end

@@ -19,6 +19,7 @@ module GoogleCloudStorage
     include JSON::Serializable::Unmapped
 
     # Optional properties
+
     # Age of an object (in days). This condition is satisfied when an object reaches the specified age.
     @[JSON::Field(key: "age", type: Int32?, presence: true, ignore_serialize: age.nil? && !age_present?)]
     property age : Int32?
@@ -105,7 +106,22 @@ module GoogleCloudStorage
 
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(*, @age : Int32? = nil, @created_before : Time? = nil, @custom_time_before : Time? = nil, @days_since_custom_time : Int32? = nil, @days_since_noncurrent_time : Int32? = nil, @is_live : Bool? = nil, @matches_pattern : String? = nil, @matches_prefix : Array(String)? = nil, @matches_storage_class : Array(String)? = nil, @matches_suffix : Array(String)? = nil, @noncurrent_time_before : Time? = nil, @num_newer_versions : Int32? = nil)
+    def initialize(
+      *,
+      # Optional properties
+      @age : Int32? = nil,
+      @created_before : Time? = nil,
+      @custom_time_before : Time? = nil,
+      @days_since_custom_time : Int32? = nil,
+      @days_since_noncurrent_time : Int32? = nil,
+      @is_live : Bool? = nil,
+      @matches_pattern : String? = nil,
+      @matches_prefix : Array(String)? = nil,
+      @matches_storage_class : Array(String)? = nil,
+      @matches_suffix : Array(String)? = nil,
+      @noncurrent_time_before : Time? = nil,
+      @num_newer_versions : Int32? = nil
+    )
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -132,6 +148,6 @@ module GoogleCloudStorage
     # #== @return [Bool]
     # #hash calculates hash code according to all attributes.
     # #hash @return [UInt64] Hash code
-    def_equals_and_hash(@age, @created_before, @custom_time_before, @days_since_custom_time, @days_since_noncurrent_time, @is_live, @matches_pattern, @matches_prefix, @matches_storage_class, @matches_suffix, @noncurrent_time_before, @num_newer_versions)
+    def_equals_and_hash(@age, @age_present, @created_before, @created_before_present, @custom_time_before, @custom_time_before_present, @days_since_custom_time, @days_since_custom_time_present, @days_since_noncurrent_time, @days_since_noncurrent_time_present, @is_live, @is_live_present, @matches_pattern, @matches_pattern_present, @matches_prefix, @matches_prefix_present, @matches_storage_class, @matches_storage_class_present, @matches_suffix, @matches_suffix_present, @noncurrent_time_before, @noncurrent_time_before_present, @num_newer_versions, @num_newer_versions_present)
   end
 end

@@ -19,6 +19,7 @@ module GoogleCloudStorage
     include JSON::Serializable::Unmapped
 
     # Optional properties
+
     # The ID of the notification.
     @[JSON::Field(key: "email_address", type: String?, presence: true, ignore_serialize: email_address.nil? && !email_address_present?)]
     property email_address : String?
@@ -28,14 +29,19 @@ module GoogleCloudStorage
 
     # The kind of item this is. For notifications, this is always storage#notification.
     @[JSON::Field(key: "kind", type: String?, default: "storage#serviceAccount", presence: true, ignore_serialize: kind.nil? && !kind_present?)]
-    property kind : String?
+    property kind : String? = "storage#serviceAccount"
 
     @[JSON::Field(ignore: true)]
     property? kind_present : Bool = false
 
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(*, @email_address : String? = nil, @kind : String? = "storage#serviceAccount")
+    def initialize(
+      *,
+      # Optional properties
+      @email_address : String? = nil,
+      @kind : String? = "storage#serviceAccount"
+    )
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -62,6 +68,6 @@ module GoogleCloudStorage
     # #== @return [Bool]
     # #hash calculates hash code according to all attributes.
     # #hash @return [UInt64] Hash code
-    def_equals_and_hash(@email_address, @kind)
+    def_equals_and_hash(@email_address, @email_address_present, @kind, @kind_present)
   end
 end

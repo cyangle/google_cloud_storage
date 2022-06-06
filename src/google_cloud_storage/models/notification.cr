@@ -19,6 +19,7 @@ module GoogleCloudStorage
     include JSON::Serializable::Unmapped
 
     # Optional properties
+
     # An optional list of additional attributes to attach to each Cloud PubSub message published for this notification subscription.
     @[JSON::Field(key: "custom_attributes", type: Hash(String, String)?, presence: true, ignore_serialize: custom_attributes.nil? && !custom_attributes_present?)]
     property custom_attributes : Hash(String, String)?
@@ -49,7 +50,7 @@ module GoogleCloudStorage
 
     # The kind of item this is. For notifications, this is always storage#notification.
     @[JSON::Field(key: "kind", type: String?, default: "storage#notification", presence: true, ignore_serialize: kind.nil? && !kind_present?)]
-    property kind : String?
+    property kind : String? = "storage#notification"
 
     @[JSON::Field(ignore: true)]
     property? kind_present : Bool = false
@@ -63,7 +64,7 @@ module GoogleCloudStorage
 
     # The desired content of the Payload.
     @[JSON::Field(key: "payload_format", type: String?, default: "JSON_API_V1", presence: true, ignore_serialize: payload_format.nil? && !payload_format_present?)]
-    property payload_format : String?
+    property payload_format : String? = "JSON_API_V1"
 
     @[JSON::Field(ignore: true)]
     property? payload_format_present : Bool = false
@@ -84,7 +85,19 @@ module GoogleCloudStorage
 
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(*, @custom_attributes : Hash(String, String)? = nil, @etag : String? = nil, @event_types : Array(String)? = nil, @id : String? = nil, @kind : String? = "storage#notification", @object_name_prefix : String? = nil, @payload_format : String? = "JSON_API_V1", @self_link : String? = nil, @topic : String? = nil)
+    def initialize(
+      *,
+      # Optional properties
+      @custom_attributes : Hash(String, String)? = nil,
+      @etag : String? = nil,
+      @event_types : Array(String)? = nil,
+      @id : String? = nil,
+      @kind : String? = "storage#notification",
+      @object_name_prefix : String? = nil,
+      @payload_format : String? = "JSON_API_V1",
+      @self_link : String? = nil,
+      @topic : String? = nil
+    )
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -111,6 +124,6 @@ module GoogleCloudStorage
     # #== @return [Bool]
     # #hash calculates hash code according to all attributes.
     # #hash @return [UInt64] Hash code
-    def_equals_and_hash(@custom_attributes, @etag, @event_types, @id, @kind, @object_name_prefix, @payload_format, @self_link, @topic)
+    def_equals_and_hash(@custom_attributes, @custom_attributes_present, @etag, @etag_present, @event_types, @event_types_present, @id, @id_present, @kind, @kind_present, @object_name_prefix, @object_name_prefix_present, @payload_format, @payload_format_present, @self_link, @self_link_present, @topic, @topic_present)
   end
 end

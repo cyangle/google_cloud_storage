@@ -19,6 +19,7 @@ module GoogleCloudStorage
     include JSON::Serializable::Unmapped
 
     # Optional properties
+
     # Server-determined value that indicates the time from which policy was enforced and effective. This value is in RFC 3339 format.
     @[JSON::Field(key: "effectiveTime", type: Time?, converter: Time::RFC3339Converter, presence: true, ignore_serialize: effective_time.nil? && !effective_time_present?)]
     property effective_time : Time?
@@ -42,7 +43,13 @@ module GoogleCloudStorage
 
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(*, @effective_time : Time? = nil, @is_locked : Bool? = nil, @retention_period : String? = nil)
+    def initialize(
+      *,
+      # Optional properties
+      @effective_time : Time? = nil,
+      @is_locked : Bool? = nil,
+      @retention_period : String? = nil
+    )
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -69,6 +76,6 @@ module GoogleCloudStorage
     # #== @return [Bool]
     # #hash calculates hash code according to all attributes.
     # #hash @return [UInt64] Hash code
-    def_equals_and_hash(@effective_time, @is_locked, @retention_period)
+    def_equals_and_hash(@effective_time, @effective_time_present, @is_locked, @is_locked_present, @retention_period, @retention_period_present)
   end
 end

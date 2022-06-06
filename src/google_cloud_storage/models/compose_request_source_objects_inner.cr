@@ -18,6 +18,7 @@ module GoogleCloudStorage
     include JSON::Serializable::Unmapped
 
     # Optional properties
+
     # The generation of this object to use as the source.
     @[JSON::Field(key: "generation", type: String?, presence: true, ignore_serialize: generation.nil? && !generation_present?)]
     property generation : String?
@@ -40,7 +41,13 @@ module GoogleCloudStorage
 
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(*, @generation : String? = nil, @name : String? = nil, @object_preconditions : ComposeRequestSourceObjectsInnerObjectPreconditions? = nil)
+    def initialize(
+      *,
+      # Optional properties
+      @generation : String? = nil,
+      @name : String? = nil,
+      @object_preconditions : ComposeRequestSourceObjectsInnerObjectPreconditions? = nil
+    )
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -67,6 +74,6 @@ module GoogleCloudStorage
     # #== @return [Bool]
     # #hash calculates hash code according to all attributes.
     # #hash @return [UInt64] Hash code
-    def_equals_and_hash(@generation, @name, @object_preconditions)
+    def_equals_and_hash(@generation, @generation_present, @name, @name_present, @object_preconditions, @object_preconditions_present)
   end
 end

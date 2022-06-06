@@ -19,6 +19,7 @@ module GoogleCloudStorage
     include JSON::Serializable::Unmapped
 
     # Optional properties
+
     # While set to true, versioning is fully enabled for this bucket.
     @[JSON::Field(key: "enabled", type: Bool?, presence: true, ignore_serialize: enabled.nil? && !enabled_present?)]
     property enabled : Bool?
@@ -28,7 +29,11 @@ module GoogleCloudStorage
 
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(*, @enabled : Bool? = nil)
+    def initialize(
+      *,
+      # Optional properties
+      @enabled : Bool? = nil
+    )
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -55,6 +60,6 @@ module GoogleCloudStorage
     # #== @return [Bool]
     # #hash calculates hash code according to all attributes.
     # #hash @return [UInt64] Hash code
-    def_equals_and_hash(@enabled)
+    def_equals_and_hash(@enabled, @enabled_present)
   end
 end

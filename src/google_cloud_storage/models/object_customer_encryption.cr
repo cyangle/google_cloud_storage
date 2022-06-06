@@ -19,6 +19,7 @@ module GoogleCloudStorage
     include JSON::Serializable::Unmapped
 
     # Optional properties
+
     # The encryption algorithm.
     @[JSON::Field(key: "encryptionAlgorithm", type: String?, presence: true, ignore_serialize: encryption_algorithm.nil? && !encryption_algorithm_present?)]
     property encryption_algorithm : String?
@@ -35,7 +36,12 @@ module GoogleCloudStorage
 
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(*, @encryption_algorithm : String? = nil, @key_sha256 : String? = nil)
+    def initialize(
+      *,
+      # Optional properties
+      @encryption_algorithm : String? = nil,
+      @key_sha256 : String? = nil
+    )
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -62,6 +68,6 @@ module GoogleCloudStorage
     # #== @return [Bool]
     # #hash calculates hash code according to all attributes.
     # #hash @return [UInt64] Hash code
-    def_equals_and_hash(@encryption_algorithm, @key_sha256)
+    def_equals_and_hash(@encryption_algorithm, @encryption_algorithm_present, @key_sha256, @key_sha256_present)
   end
 end

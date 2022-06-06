@@ -18,6 +18,7 @@ module GoogleCloudStorage
     include JSON::Serializable::Unmapped
 
     # Optional properties
+
     @[JSON::Field(key: "action", type: BucketLifecycleRuleInnerAction?, presence: true, ignore_serialize: action.nil? && !action_present?)]
     property action : BucketLifecycleRuleInnerAction?
 
@@ -32,7 +33,12 @@ module GoogleCloudStorage
 
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(*, @action : BucketLifecycleRuleInnerAction? = nil, @condition : BucketLifecycleRuleInnerCondition? = nil)
+    def initialize(
+      *,
+      # Optional properties
+      @action : BucketLifecycleRuleInnerAction? = nil,
+      @condition : BucketLifecycleRuleInnerCondition? = nil
+    )
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -59,6 +65,6 @@ module GoogleCloudStorage
     # #== @return [Bool]
     # #hash calculates hash code according to all attributes.
     # #hash @return [UInt64] Hash code
-    def_equals_and_hash(@action, @condition)
+    def_equals_and_hash(@action, @action_present, @condition, @condition_present)
   end
 end

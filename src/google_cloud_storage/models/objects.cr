@@ -19,6 +19,7 @@ module GoogleCloudStorage
     include JSON::Serializable::Unmapped
 
     # Optional properties
+
     # The list of items.
     @[JSON::Field(key: "items", type: Array(Object)?, presence: true, ignore_serialize: items.nil? && !items_present?)]
     property items : Array(Object)?
@@ -28,7 +29,7 @@ module GoogleCloudStorage
 
     # The kind of item this is. For lists of objects, this is always storage#objects.
     @[JSON::Field(key: "kind", type: String?, default: "storage#objects", presence: true, ignore_serialize: kind.nil? && !kind_present?)]
-    property kind : String?
+    property kind : String? = "storage#objects"
 
     @[JSON::Field(ignore: true)]
     property? kind_present : Bool = false
@@ -49,7 +50,14 @@ module GoogleCloudStorage
 
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(*, @items : Array(Object)? = nil, @kind : String? = "storage#objects", @next_page_token : String? = nil, @prefixes : Array(String)? = nil)
+    def initialize(
+      *,
+      # Optional properties
+      @items : Array(Object)? = nil,
+      @kind : String? = "storage#objects",
+      @next_page_token : String? = nil,
+      @prefixes : Array(String)? = nil
+    )
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -76,6 +84,6 @@ module GoogleCloudStorage
     # #== @return [Bool]
     # #hash calculates hash code according to all attributes.
     # #hash @return [UInt64] Hash code
-    def_equals_and_hash(@items, @kind, @next_page_token, @prefixes)
+    def_equals_and_hash(@items, @items_present, @kind, @kind_present, @next_page_token, @next_page_token_present, @prefixes, @prefixes_present)
   end
 end

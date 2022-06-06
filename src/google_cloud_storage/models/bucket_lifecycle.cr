@@ -19,6 +19,7 @@ module GoogleCloudStorage
     include JSON::Serializable::Unmapped
 
     # Optional properties
+
     # A lifecycle management rule, which is made of an action to take and the condition(s) under which the action will be taken.
     @[JSON::Field(key: "rule", type: Array(BucketLifecycleRuleInner)?, presence: true, ignore_serialize: rule.nil? && !rule_present?)]
     property rule : Array(BucketLifecycleRuleInner)?
@@ -28,7 +29,11 @@ module GoogleCloudStorage
 
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(*, @rule : Array(BucketLifecycleRuleInner)? = nil)
+    def initialize(
+      *,
+      # Optional properties
+      @rule : Array(BucketLifecycleRuleInner)? = nil
+    )
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -55,6 +60,6 @@ module GoogleCloudStorage
     # #== @return [Bool]
     # #hash calculates hash code according to all attributes.
     # #hash @return [UInt64] Hash code
-    def_equals_and_hash(@rule)
+    def_equals_and_hash(@rule, @rule_present)
   end
 end

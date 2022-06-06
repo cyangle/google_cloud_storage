@@ -19,6 +19,7 @@ module GoogleCloudStorage
     include JSON::Serializable::Unmapped
 
     # Optional properties
+
     # Whether or not Autoclass is enabled on this bucket
     @[JSON::Field(key: "enabled", type: Bool?, presence: true, ignore_serialize: enabled.nil? && !enabled_present?)]
     property enabled : Bool?
@@ -35,7 +36,12 @@ module GoogleCloudStorage
 
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(*, @enabled : Bool? = nil, @toggle_time : Time? = nil)
+    def initialize(
+      *,
+      # Optional properties
+      @enabled : Bool? = nil,
+      @toggle_time : Time? = nil
+    )
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -62,6 +68,6 @@ module GoogleCloudStorage
     # #== @return [Bool]
     # #hash calculates hash code according to all attributes.
     # #hash @return [UInt64] Hash code
-    def_equals_and_hash(@enabled, @toggle_time)
+    def_equals_and_hash(@enabled, @enabled_present, @toggle_time, @toggle_time_present)
   end
 end

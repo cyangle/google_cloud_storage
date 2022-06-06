@@ -19,6 +19,7 @@ module GoogleCloudStorage
     include JSON::Serializable::Unmapped
 
     # Optional properties
+
     # An optional description of the expression. This is a longer text which describes the expression, e.g. when hovered over it in a UI.
     @[JSON::Field(key: "description", type: String?, presence: true, ignore_serialize: description.nil? && !description_present?)]
     property description : String?
@@ -49,7 +50,14 @@ module GoogleCloudStorage
 
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(*, @description : String? = nil, @expression : String? = nil, @location : String? = nil, @title : String? = nil)
+    def initialize(
+      *,
+      # Optional properties
+      @description : String? = nil,
+      @expression : String? = nil,
+      @location : String? = nil,
+      @title : String? = nil
+    )
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -76,6 +84,6 @@ module GoogleCloudStorage
     # #== @return [Bool]
     # #hash calculates hash code according to all attributes.
     # #hash @return [UInt64] Hash code
-    def_equals_and_hash(@description, @expression, @location, @title)
+    def_equals_and_hash(@description, @description_present, @expression, @expression_present, @location, @location_present, @title, @title_present)
   end
 end

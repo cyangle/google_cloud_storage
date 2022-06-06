@@ -19,6 +19,7 @@ module GoogleCloudStorage
     include JSON::Serializable::Unmapped
 
     # Optional properties
+
     # Only perform the composition if the generation of the source object that would be used matches this value. If this value and a generation are both specified, they must be the same value or the call will fail.
     @[JSON::Field(key: "ifGenerationMatch", type: String?, presence: true, ignore_serialize: if_generation_match.nil? && !if_generation_match_present?)]
     property if_generation_match : String?
@@ -28,7 +29,11 @@ module GoogleCloudStorage
 
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(*, @if_generation_match : String? = nil)
+    def initialize(
+      *,
+      # Optional properties
+      @if_generation_match : String? = nil
+    )
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -55,6 +60,6 @@ module GoogleCloudStorage
     # #== @return [Bool]
     # #hash calculates hash code according to all attributes.
     # #hash @return [UInt64] Hash code
-    def_equals_and_hash(@if_generation_match)
+    def_equals_and_hash(@if_generation_match, @if_generation_match_present)
   end
 end

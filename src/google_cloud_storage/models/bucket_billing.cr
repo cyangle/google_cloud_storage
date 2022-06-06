@@ -19,6 +19,7 @@ module GoogleCloudStorage
     include JSON::Serializable::Unmapped
 
     # Optional properties
+
     # When set to true, Requester Pays is enabled for this bucket.
     @[JSON::Field(key: "requesterPays", type: Bool?, presence: true, ignore_serialize: requester_pays.nil? && !requester_pays_present?)]
     property requester_pays : Bool?
@@ -28,7 +29,11 @@ module GoogleCloudStorage
 
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(*, @requester_pays : Bool? = nil)
+    def initialize(
+      *,
+      # Optional properties
+      @requester_pays : Bool? = nil
+    )
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -55,6 +60,6 @@ module GoogleCloudStorage
     # #== @return [Bool]
     # #hash calculates hash code according to all attributes.
     # #hash @return [UInt64] Hash code
-    def_equals_and_hash(@requester_pays)
+    def_equals_and_hash(@requester_pays, @requester_pays_present)
   end
 end

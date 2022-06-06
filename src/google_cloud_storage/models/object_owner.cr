@@ -19,6 +19,7 @@ module GoogleCloudStorage
     include JSON::Serializable::Unmapped
 
     # Optional properties
+
     # The entity, in the form user-userId.
     @[JSON::Field(key: "entity", type: String?, presence: true, ignore_serialize: entity.nil? && !entity_present?)]
     property entity : String?
@@ -35,7 +36,12 @@ module GoogleCloudStorage
 
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(*, @entity : String? = nil, @entity_id : String? = nil)
+    def initialize(
+      *,
+      # Optional properties
+      @entity : String? = nil,
+      @entity_id : String? = nil
+    )
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -62,6 +68,6 @@ module GoogleCloudStorage
     # #== @return [Bool]
     # #hash calculates hash code according to all attributes.
     # #hash @return [UInt64] Hash code
-    def_equals_and_hash(@entity, @entity_id)
+    def_equals_and_hash(@entity, @entity_present, @entity_id, @entity_id_present)
   end
 end

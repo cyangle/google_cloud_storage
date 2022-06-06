@@ -19,6 +19,7 @@ module GoogleCloudStorage
     include JSON::Serializable::Unmapped
 
     # Optional properties
+
     # The destination bucket where the current bucket's logs should be placed.
     @[JSON::Field(key: "logBucket", type: String?, presence: true, ignore_serialize: log_bucket.nil? && !log_bucket_present?)]
     property log_bucket : String?
@@ -35,7 +36,12 @@ module GoogleCloudStorage
 
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(*, @log_bucket : String? = nil, @log_object_prefix : String? = nil)
+    def initialize(
+      *,
+      # Optional properties
+      @log_bucket : String? = nil,
+      @log_object_prefix : String? = nil
+    )
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -62,6 +68,6 @@ module GoogleCloudStorage
     # #== @return [Bool]
     # #hash calculates hash code according to all attributes.
     # #hash @return [UInt64] Hash code
-    def_equals_and_hash(@log_bucket, @log_object_prefix)
+    def_equals_and_hash(@log_bucket, @log_bucket_present, @log_object_prefix, @log_object_prefix_present)
   end
 end

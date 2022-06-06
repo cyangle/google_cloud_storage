@@ -19,6 +19,7 @@ module GoogleCloudStorage
     include JSON::Serializable::Unmapped
 
     # Optional properties
+
     # The ID of the HMAC Key.
     @[JSON::Field(key: "accessId", type: String?, presence: true, ignore_serialize: access_id.nil? && !access_id_present?)]
     property access_id : String?
@@ -42,7 +43,7 @@ module GoogleCloudStorage
 
     # The kind of item this is. For HMAC Key metadata, this is always storage#hmacKeyMetadata.
     @[JSON::Field(key: "kind", type: String?, default: "storage#hmacKeyMetadata", presence: true, ignore_serialize: kind.nil? && !kind_present?)]
-    property kind : String?
+    property kind : String? = "storage#hmacKeyMetadata"
 
     @[JSON::Field(ignore: true)]
     property? kind_present : Bool = false
@@ -91,7 +92,20 @@ module GoogleCloudStorage
 
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(*, @access_id : String? = nil, @etag : String? = nil, @id : String? = nil, @kind : String? = "storage#hmacKeyMetadata", @project_id : String? = nil, @self_link : String? = nil, @service_account_email : String? = nil, @state : String? = nil, @time_created : Time? = nil, @updated : Time? = nil)
+    def initialize(
+      *,
+      # Optional properties
+      @access_id : String? = nil,
+      @etag : String? = nil,
+      @id : String? = nil,
+      @kind : String? = "storage#hmacKeyMetadata",
+      @project_id : String? = nil,
+      @self_link : String? = nil,
+      @service_account_email : String? = nil,
+      @state : String? = nil,
+      @time_created : Time? = nil,
+      @updated : Time? = nil
+    )
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -118,6 +132,6 @@ module GoogleCloudStorage
     # #== @return [Bool]
     # #hash calculates hash code according to all attributes.
     # #hash @return [UInt64] Hash code
-    def_equals_and_hash(@access_id, @etag, @id, @kind, @project_id, @self_link, @service_account_email, @state, @time_created, @updated)
+    def_equals_and_hash(@access_id, @access_id_present, @etag, @etag_present, @id, @id_present, @kind, @kind_present, @project_id, @project_id_present, @self_link, @self_link_present, @service_account_email, @service_account_email_present, @state, @state_present, @time_created, @time_created_present, @updated, @updated_present)
   end
 end

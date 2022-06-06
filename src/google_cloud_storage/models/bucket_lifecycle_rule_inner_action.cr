@@ -19,6 +19,7 @@ module GoogleCloudStorage
     include JSON::Serializable::Unmapped
 
     # Optional properties
+
     # Target storage class. Required iff the type of the action is SetStorageClass.
     @[JSON::Field(key: "storageClass", type: String?, presence: true, ignore_serialize: storage_class.nil? && !storage_class_present?)]
     property storage_class : String?
@@ -35,7 +36,12 @@ module GoogleCloudStorage
 
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(*, @storage_class : String? = nil, @_type : String? = nil)
+    def initialize(
+      *,
+      # Optional properties
+      @storage_class : String? = nil,
+      @_type : String? = nil
+    )
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -62,6 +68,6 @@ module GoogleCloudStorage
     # #== @return [Bool]
     # #hash calculates hash code according to all attributes.
     # #hash @return [UInt64] Hash code
-    def_equals_and_hash(@storage_class, @_type)
+    def_equals_and_hash(@storage_class, @storage_class_present, @_type, @_type_present)
   end
 end

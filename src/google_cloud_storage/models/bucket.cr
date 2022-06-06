@@ -19,6 +19,7 @@ module GoogleCloudStorage
     include JSON::Serializable::Unmapped
 
     # Optional properties
+
     # Access controls on the bucket.
     @[JSON::Field(key: "acl", type: Array(BucketAccessControl)?, presence: true, ignore_serialize: acl.nil? && !acl_present?)]
     property acl : Array(BucketAccessControl)?
@@ -87,7 +88,7 @@ module GoogleCloudStorage
 
     # The kind of item this is. For buckets, this is always storage#bucket.
     @[JSON::Field(key: "kind", type: String?, default: "storage#bucket", presence: true, ignore_serialize: kind.nil? && !kind_present?)]
-    property kind : String?
+    property kind : String? = "storage#bucket"
 
     @[JSON::Field(ignore: true)]
     property? kind_present : Bool = false
@@ -214,7 +215,39 @@ module GoogleCloudStorage
 
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(*, @acl : Array(BucketAccessControl)? = nil, @autoclass : BucketAutoclass? = nil, @billing : BucketBilling? = nil, @cors : Array(BucketCorsInner)? = nil, @default_event_based_hold : Bool? = nil, @default_object_acl : Array(ObjectAccessControl)? = nil, @encryption : BucketEncryption? = nil, @etag : String? = nil, @iam_configuration : BucketIamConfiguration? = nil, @id : String? = nil, @kind : String? = "storage#bucket", @labels : Hash(String, String)? = nil, @lifecycle : BucketLifecycle? = nil, @location : String? = nil, @location_type : String? = nil, @logging : BucketLogging? = nil, @metageneration : String? = nil, @name : String? = nil, @owner : BucketOwner? = nil, @project_number : String? = nil, @retention_policy : BucketRetentionPolicy? = nil, @rpo : String? = nil, @satisfies_pzs : Bool? = nil, @self_link : String? = nil, @storage_class : String? = nil, @time_created : Time? = nil, @updated : Time? = nil, @versioning : BucketVersioning? = nil, @website : BucketWebsite? = nil)
+    def initialize(
+      *,
+      # Optional properties
+      @acl : Array(BucketAccessControl)? = nil,
+      @autoclass : BucketAutoclass? = nil,
+      @billing : BucketBilling? = nil,
+      @cors : Array(BucketCorsInner)? = nil,
+      @default_event_based_hold : Bool? = nil,
+      @default_object_acl : Array(ObjectAccessControl)? = nil,
+      @encryption : BucketEncryption? = nil,
+      @etag : String? = nil,
+      @iam_configuration : BucketIamConfiguration? = nil,
+      @id : String? = nil,
+      @kind : String? = "storage#bucket",
+      @labels : Hash(String, String)? = nil,
+      @lifecycle : BucketLifecycle? = nil,
+      @location : String? = nil,
+      @location_type : String? = nil,
+      @logging : BucketLogging? = nil,
+      @metageneration : String? = nil,
+      @name : String? = nil,
+      @owner : BucketOwner? = nil,
+      @project_number : String? = nil,
+      @retention_policy : BucketRetentionPolicy? = nil,
+      @rpo : String? = nil,
+      @satisfies_pzs : Bool? = nil,
+      @self_link : String? = nil,
+      @storage_class : String? = nil,
+      @time_created : Time? = nil,
+      @updated : Time? = nil,
+      @versioning : BucketVersioning? = nil,
+      @website : BucketWebsite? = nil
+    )
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -241,6 +274,6 @@ module GoogleCloudStorage
     # #== @return [Bool]
     # #hash calculates hash code according to all attributes.
     # #hash @return [UInt64] Hash code
-    def_equals_and_hash(@acl, @autoclass, @billing, @cors, @default_event_based_hold, @default_object_acl, @encryption, @etag, @iam_configuration, @id, @kind, @labels, @lifecycle, @location, @location_type, @logging, @metageneration, @name, @owner, @project_number, @retention_policy, @rpo, @satisfies_pzs, @self_link, @storage_class, @time_created, @updated, @versioning, @website)
+    def_equals_and_hash(@acl, @acl_present, @autoclass, @autoclass_present, @billing, @billing_present, @cors, @cors_present, @default_event_based_hold, @default_event_based_hold_present, @default_object_acl, @default_object_acl_present, @encryption, @encryption_present, @etag, @etag_present, @iam_configuration, @iam_configuration_present, @id, @id_present, @kind, @kind_present, @labels, @labels_present, @lifecycle, @lifecycle_present, @location, @location_present, @location_type, @location_type_present, @logging, @logging_present, @metageneration, @metageneration_present, @name, @name_present, @owner, @owner_present, @project_number, @project_number_present, @retention_policy, @retention_policy_present, @rpo, @rpo_present, @satisfies_pzs, @satisfies_pzs_present, @self_link, @self_link_present, @storage_class, @storage_class_present, @time_created, @time_created_present, @updated, @updated_present, @versioning, @versioning_present, @website, @website_present)
   end
 end

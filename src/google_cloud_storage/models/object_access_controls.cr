@@ -19,6 +19,7 @@ module GoogleCloudStorage
     include JSON::Serializable::Unmapped
 
     # Optional properties
+
     # The list of items.
     @[JSON::Field(key: "items", type: Array(ObjectAccessControl)?, presence: true, ignore_serialize: items.nil? && !items_present?)]
     property items : Array(ObjectAccessControl)?
@@ -28,14 +29,19 @@ module GoogleCloudStorage
 
     # The kind of item this is. For lists of object access control entries, this is always storage#objectAccessControls.
     @[JSON::Field(key: "kind", type: String?, default: "storage#objectAccessControls", presence: true, ignore_serialize: kind.nil? && !kind_present?)]
-    property kind : String?
+    property kind : String? = "storage#objectAccessControls"
 
     @[JSON::Field(ignore: true)]
     property? kind_present : Bool = false
 
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(*, @items : Array(ObjectAccessControl)? = nil, @kind : String? = "storage#objectAccessControls")
+    def initialize(
+      *,
+      # Optional properties
+      @items : Array(ObjectAccessControl)? = nil,
+      @kind : String? = "storage#objectAccessControls"
+    )
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -62,6 +68,6 @@ module GoogleCloudStorage
     # #== @return [Bool]
     # #hash calculates hash code according to all attributes.
     # #hash @return [UInt64] Hash code
-    def_equals_and_hash(@items, @kind)
+    def_equals_and_hash(@items, @items_present, @kind, @kind_present)
   end
 end

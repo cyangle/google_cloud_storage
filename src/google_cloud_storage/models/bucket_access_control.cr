@@ -19,6 +19,7 @@ module GoogleCloudStorage
     include JSON::Serializable::Unmapped
 
     # Optional properties
+
     # The name of the bucket.
     @[JSON::Field(key: "bucket", type: String?, presence: true, ignore_serialize: bucket.nil? && !bucket_present?)]
     property bucket : String?
@@ -70,7 +71,7 @@ module GoogleCloudStorage
 
     # The kind of item this is. For bucket access control entries, this is always storage#bucketAccessControl.
     @[JSON::Field(key: "kind", type: String?, default: "storage#bucketAccessControl", presence: true, ignore_serialize: kind.nil? && !kind_present?)]
-    property kind : String?
+    property kind : String? = "storage#bucketAccessControl"
 
     @[JSON::Field(ignore: true)]
     property? kind_present : Bool = false
@@ -97,7 +98,21 @@ module GoogleCloudStorage
 
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(*, @bucket : String? = nil, @domain : String? = nil, @email : String? = nil, @entity : String? = nil, @entity_id : String? = nil, @etag : String? = nil, @id : String? = nil, @kind : String? = "storage#bucketAccessControl", @project_team : BucketAccessControlProjectTeam? = nil, @role : String? = nil, @self_link : String? = nil)
+    def initialize(
+      *,
+      # Optional properties
+      @bucket : String? = nil,
+      @domain : String? = nil,
+      @email : String? = nil,
+      @entity : String? = nil,
+      @entity_id : String? = nil,
+      @etag : String? = nil,
+      @id : String? = nil,
+      @kind : String? = "storage#bucketAccessControl",
+      @project_team : BucketAccessControlProjectTeam? = nil,
+      @role : String? = nil,
+      @self_link : String? = nil
+    )
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -124,6 +139,6 @@ module GoogleCloudStorage
     # #== @return [Bool]
     # #hash calculates hash code according to all attributes.
     # #hash @return [UInt64] Hash code
-    def_equals_and_hash(@bucket, @domain, @email, @entity, @entity_id, @etag, @id, @kind, @project_team, @role, @self_link)
+    def_equals_and_hash(@bucket, @bucket_present, @domain, @domain_present, @email, @email_present, @entity, @entity_present, @entity_id, @entity_id_present, @etag, @etag_present, @id, @id_present, @kind, @kind_present, @project_team, @project_team_present, @role, @role_present, @self_link, @self_link_present)
   end
 end

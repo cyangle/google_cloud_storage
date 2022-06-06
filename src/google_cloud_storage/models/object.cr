@@ -19,6 +19,7 @@ module GoogleCloudStorage
     include JSON::Serializable::Unmapped
 
     # Optional properties
+
     # Access controls on the object.
     @[JSON::Field(key: "acl", type: Array(ObjectAccessControl)?, presence: true, ignore_serialize: acl.nil? && !acl_present?)]
     property acl : Array(ObjectAccessControl)?
@@ -125,7 +126,7 @@ module GoogleCloudStorage
 
     # The kind of item this is. For objects, this is always storage#object.
     @[JSON::Field(key: "kind", type: String?, default: "storage#object", presence: true, ignore_serialize: kind.nil? && !kind_present?)]
-    property kind : String?
+    property kind : String? = "storage#object"
 
     @[JSON::Field(ignore: true)]
     property? kind_present : Bool = false
@@ -243,7 +244,42 @@ module GoogleCloudStorage
 
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(*, @acl : Array(ObjectAccessControl)? = nil, @bucket : String? = nil, @cache_control : String? = nil, @component_count : Int32? = nil, @content_disposition : String? = nil, @content_encoding : String? = nil, @content_language : String? = nil, @content_type : String? = nil, @crc32c : String? = nil, @custom_time : Time? = nil, @customer_encryption : ObjectCustomerEncryption? = nil, @etag : String? = nil, @event_based_hold : Bool? = nil, @generation : String? = nil, @id : String? = nil, @kind : String? = "storage#object", @kms_key_name : String? = nil, @md5_hash : String? = nil, @media_link : String? = nil, @metadata : Hash(String, String)? = nil, @metageneration : String? = nil, @name : String? = nil, @owner : ObjectOwner? = nil, @retention_expiration_time : Time? = nil, @self_link : String? = nil, @size : String? = nil, @storage_class : String? = nil, @temporary_hold : Bool? = nil, @time_created : Time? = nil, @time_deleted : Time? = nil, @time_storage_class_updated : Time? = nil, @updated : Time? = nil)
+    def initialize(
+      *,
+      # Optional properties
+      @acl : Array(ObjectAccessControl)? = nil,
+      @bucket : String? = nil,
+      @cache_control : String? = nil,
+      @component_count : Int32? = nil,
+      @content_disposition : String? = nil,
+      @content_encoding : String? = nil,
+      @content_language : String? = nil,
+      @content_type : String? = nil,
+      @crc32c : String? = nil,
+      @custom_time : Time? = nil,
+      @customer_encryption : ObjectCustomerEncryption? = nil,
+      @etag : String? = nil,
+      @event_based_hold : Bool? = nil,
+      @generation : String? = nil,
+      @id : String? = nil,
+      @kind : String? = "storage#object",
+      @kms_key_name : String? = nil,
+      @md5_hash : String? = nil,
+      @media_link : String? = nil,
+      @metadata : Hash(String, String)? = nil,
+      @metageneration : String? = nil,
+      @name : String? = nil,
+      @owner : ObjectOwner? = nil,
+      @retention_expiration_time : Time? = nil,
+      @self_link : String? = nil,
+      @size : String? = nil,
+      @storage_class : String? = nil,
+      @temporary_hold : Bool? = nil,
+      @time_created : Time? = nil,
+      @time_deleted : Time? = nil,
+      @time_storage_class_updated : Time? = nil,
+      @updated : Time? = nil
+    )
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -270,6 +306,6 @@ module GoogleCloudStorage
     # #== @return [Bool]
     # #hash calculates hash code according to all attributes.
     # #hash @return [UInt64] Hash code
-    def_equals_and_hash(@acl, @bucket, @cache_control, @component_count, @content_disposition, @content_encoding, @content_language, @content_type, @crc32c, @custom_time, @customer_encryption, @etag, @event_based_hold, @generation, @id, @kind, @kms_key_name, @md5_hash, @media_link, @metadata, @metageneration, @name, @owner, @retention_expiration_time, @self_link, @size, @storage_class, @temporary_hold, @time_created, @time_deleted, @time_storage_class_updated, @updated)
+    def_equals_and_hash(@acl, @acl_present, @bucket, @bucket_present, @cache_control, @cache_control_present, @component_count, @component_count_present, @content_disposition, @content_disposition_present, @content_encoding, @content_encoding_present, @content_language, @content_language_present, @content_type, @content_type_present, @crc32c, @crc32c_present, @custom_time, @custom_time_present, @customer_encryption, @customer_encryption_present, @etag, @etag_present, @event_based_hold, @event_based_hold_present, @generation, @generation_present, @id, @id_present, @kind, @kind_present, @kms_key_name, @kms_key_name_present, @md5_hash, @md5_hash_present, @media_link, @media_link_present, @metadata, @metadata_present, @metageneration, @metageneration_present, @name, @name_present, @owner, @owner_present, @retention_expiration_time, @retention_expiration_time_present, @self_link, @self_link_present, @size, @size_present, @storage_class, @storage_class_present, @temporary_hold, @temporary_hold_present, @time_created, @time_created_present, @time_deleted, @time_deleted_present, @time_storage_class_updated, @time_storage_class_updated_present, @updated, @updated_present)
   end
 end

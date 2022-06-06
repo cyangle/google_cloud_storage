@@ -19,6 +19,7 @@ module GoogleCloudStorage
     include JSON::Serializable::Unmapped
 
     # Optional properties
+
     @[JSON::Field(key: "bucketPolicyOnly", type: BucketIamConfigurationBucketPolicyOnly?, presence: true, ignore_serialize: bucket_policy_only.nil? && !bucket_policy_only_present?)]
     property bucket_policy_only : BucketIamConfigurationBucketPolicyOnly?
 
@@ -40,7 +41,13 @@ module GoogleCloudStorage
 
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(*, @bucket_policy_only : BucketIamConfigurationBucketPolicyOnly? = nil, @public_access_prevention : String? = nil, @uniform_bucket_level_access : BucketIamConfigurationUniformBucketLevelAccess? = nil)
+    def initialize(
+      *,
+      # Optional properties
+      @bucket_policy_only : BucketIamConfigurationBucketPolicyOnly? = nil,
+      @public_access_prevention : String? = nil,
+      @uniform_bucket_level_access : BucketIamConfigurationUniformBucketLevelAccess? = nil
+    )
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -67,6 +74,6 @@ module GoogleCloudStorage
     # #== @return [Bool]
     # #hash calculates hash code according to all attributes.
     # #hash @return [UInt64] Hash code
-    def_equals_and_hash(@bucket_policy_only, @public_access_prevention, @uniform_bucket_level_access)
+    def_equals_and_hash(@bucket_policy_only, @bucket_policy_only_present, @public_access_prevention, @public_access_prevention_present, @uniform_bucket_level_access, @uniform_bucket_level_access_present)
   end
 end

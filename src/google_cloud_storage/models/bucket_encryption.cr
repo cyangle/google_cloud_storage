@@ -19,6 +19,7 @@ module GoogleCloudStorage
     include JSON::Serializable::Unmapped
 
     # Optional properties
+
     # A Cloud KMS key that will be used to encrypt objects inserted into this bucket, if no encryption method is specified.
     @[JSON::Field(key: "defaultKmsKeyName", type: String?, presence: true, ignore_serialize: default_kms_key_name.nil? && !default_kms_key_name_present?)]
     property default_kms_key_name : String?
@@ -28,7 +29,11 @@ module GoogleCloudStorage
 
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(*, @default_kms_key_name : String? = nil)
+    def initialize(
+      *,
+      # Optional properties
+      @default_kms_key_name : String? = nil
+    )
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -55,6 +60,6 @@ module GoogleCloudStorage
     # #== @return [Bool]
     # #hash calculates hash code according to all attributes.
     # #hash @return [UInt64] Hash code
-    def_equals_and_hash(@default_kms_key_name)
+    def_equals_and_hash(@default_kms_key_name, @default_kms_key_name_present)
   end
 end

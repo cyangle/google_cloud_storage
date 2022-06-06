@@ -19,6 +19,7 @@ module GoogleCloudStorage
     include JSON::Serializable::Unmapped
 
     # Optional properties
+
     # If the requested object path is missing, the service will ensure the path has a trailing '/', append this suffix, and attempt to retrieve the resulting object. This allows the creation of index.html objects to represent directory pages.
     @[JSON::Field(key: "mainPageSuffix", type: String?, presence: true, ignore_serialize: main_page_suffix.nil? && !main_page_suffix_present?)]
     property main_page_suffix : String?
@@ -35,7 +36,12 @@ module GoogleCloudStorage
 
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(*, @main_page_suffix : String? = nil, @not_found_page : String? = nil)
+    def initialize(
+      *,
+      # Optional properties
+      @main_page_suffix : String? = nil,
+      @not_found_page : String? = nil
+    )
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -62,6 +68,6 @@ module GoogleCloudStorage
     # #== @return [Bool]
     # #hash calculates hash code according to all attributes.
     # #hash @return [UInt64] Hash code
-    def_equals_and_hash(@main_page_suffix, @not_found_page)
+    def_equals_and_hash(@main_page_suffix, @main_page_suffix_present, @not_found_page, @not_found_page_present)
   end
 end

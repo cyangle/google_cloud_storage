@@ -19,6 +19,7 @@ module GoogleCloudStorage
     include JSON::Serializable::Unmapped
 
     # Optional properties
+
     @[JSON::Field(key: "destination", type: Object?, presence: true, ignore_serialize: destination.nil? && !destination_present?)]
     property destination : Object?
 
@@ -27,7 +28,7 @@ module GoogleCloudStorage
 
     # The kind of item this is.
     @[JSON::Field(key: "kind", type: String?, default: "storage#composeRequest", presence: true, ignore_serialize: kind.nil? && !kind_present?)]
-    property kind : String?
+    property kind : String? = "storage#composeRequest"
 
     @[JSON::Field(ignore: true)]
     property? kind_present : Bool = false
@@ -41,7 +42,13 @@ module GoogleCloudStorage
 
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(*, @destination : Object? = nil, @kind : String? = "storage#composeRequest", @source_objects : Array(ComposeRequestSourceObjectsInner)? = nil)
+    def initialize(
+      *,
+      # Optional properties
+      @destination : Object? = nil,
+      @kind : String? = "storage#composeRequest",
+      @source_objects : Array(ComposeRequestSourceObjectsInner)? = nil
+    )
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -68,6 +75,6 @@ module GoogleCloudStorage
     # #== @return [Bool]
     # #hash calculates hash code according to all attributes.
     # #hash @return [UInt64] Hash code
-    def_equals_and_hash(@destination, @kind, @source_objects)
+    def_equals_and_hash(@destination, @destination_present, @kind, @kind_present, @source_objects, @source_objects_present)
   end
 end

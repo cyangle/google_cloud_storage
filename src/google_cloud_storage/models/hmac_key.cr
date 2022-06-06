@@ -19,9 +19,10 @@ module GoogleCloudStorage
     include JSON::Serializable::Unmapped
 
     # Optional properties
+
     # The kind of item this is. For HMAC keys, this is always storage#hmacKey.
     @[JSON::Field(key: "kind", type: String?, default: "storage#hmacKey", presence: true, ignore_serialize: kind.nil? && !kind_present?)]
-    property kind : String?
+    property kind : String? = "storage#hmacKey"
 
     @[JSON::Field(ignore: true)]
     property? kind_present : Bool = false
@@ -41,7 +42,13 @@ module GoogleCloudStorage
 
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(*, @kind : String? = "storage#hmacKey", @metadata : HmacKeyMetadata? = nil, @secret : String? = nil)
+    def initialize(
+      *,
+      # Optional properties
+      @kind : String? = "storage#hmacKey",
+      @metadata : HmacKeyMetadata? = nil,
+      @secret : String? = nil
+    )
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -68,6 +75,6 @@ module GoogleCloudStorage
     # #== @return [Bool]
     # #hash calculates hash code according to all attributes.
     # #hash @return [UInt64] Hash code
-    def_equals_and_hash(@kind, @metadata, @secret)
+    def_equals_and_hash(@kind, @kind_present, @metadata, @metadata_present, @secret, @secret_present)
   end
 end

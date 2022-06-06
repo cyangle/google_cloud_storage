@@ -19,6 +19,7 @@ module GoogleCloudStorage
     include JSON::Serializable::Unmapped
 
     # Optional properties
+
     # true if the copy is finished; otherwise, false if the copy is in progress. This property is always present in the response.
     @[JSON::Field(key: "done", type: Bool?, presence: true, ignore_serialize: done.nil? && !done_present?)]
     property done : Bool?
@@ -28,7 +29,7 @@ module GoogleCloudStorage
 
     # The kind of item this is.
     @[JSON::Field(key: "kind", type: String?, default: "storage#rewriteResponse", presence: true, ignore_serialize: kind.nil? && !kind_present?)]
-    property kind : String?
+    property kind : String? = "storage#rewriteResponse"
 
     @[JSON::Field(ignore: true)]
     property? kind_present : Bool = false
@@ -62,7 +63,16 @@ module GoogleCloudStorage
 
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
-    def initialize(*, @done : Bool? = nil, @kind : String? = "storage#rewriteResponse", @object_size : String? = nil, @resource : Object? = nil, @rewrite_token : String? = nil, @total_bytes_rewritten : String? = nil)
+    def initialize(
+      *,
+      # Optional properties
+      @done : Bool? = nil,
+      @kind : String? = "storage#rewriteResponse",
+      @object_size : String? = nil,
+      @resource : Object? = nil,
+      @rewrite_token : String? = nil,
+      @total_bytes_rewritten : String? = nil
+    )
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -89,6 +99,6 @@ module GoogleCloudStorage
     # #== @return [Bool]
     # #hash calculates hash code according to all attributes.
     # #hash @return [UInt64] Hash code
-    def_equals_and_hash(@done, @kind, @object_size, @resource, @rewrite_token, @total_bytes_rewritten)
+    def_equals_and_hash(@done, @done_present, @kind, @kind_present, @object_size, @object_size_present, @resource, @resource_present, @rewrite_token, @rewrite_token_present, @total_bytes_rewritten, @total_bytes_rewritten_present)
   end
 end

@@ -1,10 +1,14 @@
+.github/workflows/ci.yml
 git_push.sh
 shard.yml
 spec/spec_helper.cr
 spec/support/ext.cr
 spec/support/helpers.cr
 spec/support/vcr.cr
-src/ext/json/serialization.cr
+src/core.cr
+src/ext/open_api/json.cr
+src/ext/open_api/validatable.cr
+src/ext/primitive.cr
 src/ext/time.cr
 src/google_cloud_storage.cr
 src/google_cloud_storage/api/bucket_access_controls_api.cr
@@ -60,4 +64,6 @@ src/google_cloud_storage/models/policy_bindings_inner.cr
 src/google_cloud_storage/models/rewrite_response.cr
 src/google_cloud_storage/models/service_account.cr
 src/google_cloud_storage/models/test_iam_permissions_response.cr
+src/validators/container_validator.cr
 src/validators/enum_validator.cr
+src/validators/primitive_validator.cr

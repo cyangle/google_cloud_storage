@@ -66,7 +66,7 @@ module GoogleCloudStorage
     # Default to false.
     #
     # @return [true, false]
-    property debugging : Bool
+    property? debugging : Bool
 
     # Defines the temporary folder to store downloaded files
     # (for API endpoints that have file response).
@@ -82,7 +82,7 @@ module GoogleCloudStorage
     # Set this to false to skip client side validation in the operation.
     # Default to true.
     # @return [true, false]
-    property client_side_validation : Bool
+    property? client_side_validation : Bool
 
     # ## TLS/SSL setting
     # Set this to false to skip verifying SSL certificate when calling API from https server.
@@ -159,7 +159,7 @@ module GoogleCloudStorage
     #   config.password = "xxx"
     # end
     # ```
-    def initialize
+    def initialize(&)
       initialize
       yield self
     end
@@ -170,7 +170,7 @@ module GoogleCloudStorage
     end
 
     # Configure object with block.
-    def configure
+    def configure(&)
       yield self
     end
 
@@ -191,7 +191,7 @@ module GoogleCloudStorage
     end
 
     # Returns base URL for specified operation based on server settings
-    def base_url(operation = Nil)
+    def base_url(operation : String? = nil)
       # TODO revise below to support operation-level server setting
       # index = server_operation_index.fetch(operation, server_index)
       "#{scheme}://#{[host, base_path].join("/").gsub(/\/+/, "/")}".sub(/\/+\z/, "") # if index == Nil
@@ -202,10 +202,11 @@ module GoogleCloudStorage
     # Gets API key (with prefix if set).
     # @param [String] param_name the parameter name of API key auth
     def api_key_with_prefix(param_name)
-      if prefix = @api_key_prefix[param_name]?
-        "#{prefix} #{@api_key[param_name]}"
-      else
+      prefix = @api_key_prefix[param_name]?
+      if prefix.nil?
         @api_key[param_name]? || ""
+      else
+        "#{prefix} #{@api_key[param_name]}"
       end
     end
 
@@ -216,7 +217,7 @@ module GoogleCloudStorage
 
     # Returns Auth Settings hash for api client.
     def auth_settings
-      Hash{
+      {
         "Oauth2" => {
           "type"  => "oauth2",
           "in"    => "header",
@@ -229,7 +230,7 @@ module GoogleCloudStorage
           "key"   => "Authorization",
           "value" => "Bearer #{access_token}",
         },
-      }
+      } of String => Hash(String, String)
     end
 
     # Returns an array of Server setting
@@ -254,7 +255,7 @@ module GoogleCloudStorage
 
       index = index_string.to_i
       # check array index out of bound
-      if (index < 0 || index >= servers.size)
+      if index < 0 || index >= servers.size
         raise ArgumentError.new("Invalid index #{index} when selecting the server. Must be less than #{servers.size}")
       end
 
@@ -266,7 +267,7 @@ module GoogleCloudStorage
       # go through variable and assign a value
       server["variables"].each do |name, variable|
         if variables.has_key?(name)
-          if (!variable.has_key?("enum_values") || variable["enum_values"].includes?(variables[name]))
+          if !variable.has_key?("enum_values") || variable["enum_values"].includes?(variables[name])
             url.gsub! "{" + name.to_s + "}", variables[name]
           else
             raise ArgumentError.new("The variable `#{name}` in the server URL has invalid value #{variables[name]}. Must be #{variable["enum_values"]}.")

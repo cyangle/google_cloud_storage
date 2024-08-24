@@ -1,0 +1,13 @@
+diff --git a/src/google_cloud_storage/models/objects.cr b/src/google_cloud_storage/models/objects.cr
+index eaf708f..3e0aead 100644
+--- a/src/google_cloud_storage/models/objects.cr
++++ b/src/google_cloud_storage/models/objects.cr
+@@ -9,6 +9,8 @@
+ 
+ require "../../core"
+ 
++require "./object"
++
+ module GoogleCloudStorage
+   # A list of objects.
+   class Objects

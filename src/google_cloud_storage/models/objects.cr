@@ -9,6 +9,8 @@
 
 require "../../core"
 
+require "./object"
+
 module GoogleCloudStorage
   # A list of objects.
   class Objects

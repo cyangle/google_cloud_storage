@@ -186,39 +186,17 @@ module GoogleCloudStorage
 
       if client_side_validation?
         raise ArgumentError.new("\"destination_bucket\" is required and cannot be null") if destination_bucket.nil?
-        unless (_destination_bucket = destination_bucket).nil?
-        end
+
         raise ArgumentError.new("\"destination_object\" is required and cannot be null") if destination_object.nil?
-        unless (_destination_object = destination_object).nil?
-        end
+
         unless (_alt = alt).nil?
           OpenApi::EnumValidator.validate("alt", _alt, STORAGE_OBJECTS_COMPOSE_VALID_VALUES_FOR_ALT)
         end
-        unless (_fields = fields).nil?
-        end
-        unless (_key = key).nil?
-        end
-        unless (_oauth_token = oauth_token).nil?
-        end
-        unless (_pretty_print = pretty_print).nil?
-        end
-        unless (_quota_user = quota_user).nil?
-        end
-        unless (_upload_type = upload_type).nil?
-        end
-        unless (_user_ip = user_ip).nil?
-        end
+
         unless (_destination_predefined_acl = destination_predefined_acl).nil?
           OpenApi::EnumValidator.validate("destination_predefined_acl", _destination_predefined_acl, STORAGE_OBJECTS_COMPOSE_VALID_VALUES_FOR_DESTINATION_PREDEFINED_ACL)
         end
-        unless (_if_generation_match = if_generation_match).nil?
-        end
-        unless (_if_metageneration_match = if_metageneration_match).nil?
-        end
-        unless (_kms_key_name = kms_key_name).nil?
-        end
-        unless (_user_project = user_project).nil?
-        end
+
         unless (_compose_request = compose_request).nil?
           _compose_request.validate if _compose_request.is_a?(OpenApi::Validatable)
         end
@@ -505,62 +483,25 @@ module GoogleCloudStorage
 
       if client_side_validation?
         raise ArgumentError.new("\"source_bucket\" is required and cannot be null") if source_bucket.nil?
-        unless (_source_bucket = source_bucket).nil?
-        end
+
         raise ArgumentError.new("\"source_object\" is required and cannot be null") if source_object.nil?
-        unless (_source_object = source_object).nil?
-        end
+
         raise ArgumentError.new("\"destination_bucket\" is required and cannot be null") if destination_bucket.nil?
-        unless (_destination_bucket = destination_bucket).nil?
-        end
+
         raise ArgumentError.new("\"destination_object\" is required and cannot be null") if destination_object.nil?
-        unless (_destination_object = destination_object).nil?
-        end
+
         unless (_alt = alt).nil?
           OpenApi::EnumValidator.validate("alt", _alt, STORAGE_OBJECTS_COPY_VALID_VALUES_FOR_ALT)
         end
-        unless (_fields = fields).nil?
-        end
-        unless (_key = key).nil?
-        end
-        unless (_oauth_token = oauth_token).nil?
-        end
-        unless (_pretty_print = pretty_print).nil?
-        end
-        unless (_quota_user = quota_user).nil?
-        end
-        unless (_upload_type = upload_type).nil?
-        end
-        unless (_user_ip = user_ip).nil?
-        end
-        unless (_destination_kms_key_name = destination_kms_key_name).nil?
-        end
+
         unless (_destination_predefined_acl = destination_predefined_acl).nil?
           OpenApi::EnumValidator.validate("destination_predefined_acl", _destination_predefined_acl, STORAGE_OBJECTS_COPY_VALID_VALUES_FOR_DESTINATION_PREDEFINED_ACL)
         end
-        unless (_if_generation_match = if_generation_match).nil?
-        end
-        unless (_if_generation_not_match = if_generation_not_match).nil?
-        end
-        unless (_if_metageneration_match = if_metageneration_match).nil?
-        end
-        unless (_if_metageneration_not_match = if_metageneration_not_match).nil?
-        end
-        unless (_if_source_generation_match = if_source_generation_match).nil?
-        end
-        unless (_if_source_generation_not_match = if_source_generation_not_match).nil?
-        end
-        unless (_if_source_metageneration_match = if_source_metageneration_match).nil?
-        end
-        unless (_if_source_metageneration_not_match = if_source_metageneration_not_match).nil?
-        end
+
         unless (_projection = projection).nil?
           OpenApi::EnumValidator.validate("projection", _projection, STORAGE_OBJECTS_COPY_VALID_VALUES_FOR_PROJECTION)
         end
-        unless (_source_generation = source_generation).nil?
-        end
-        unless (_user_project = user_project).nil?
-        end
+
         unless (_object = object).nil?
           _object.validate if _object.is_a?(OpenApi::Validatable)
         end
@@ -783,39 +724,11 @@ module GoogleCloudStorage
 
       if client_side_validation?
         raise ArgumentError.new("\"bucket\" is required and cannot be null") if bucket.nil?
-        unless (_bucket = bucket).nil?
-        end
+
         raise ArgumentError.new("\"object\" is required and cannot be null") if object.nil?
-        unless (_object = object).nil?
-        end
+
         unless (_alt = alt).nil?
           OpenApi::EnumValidator.validate("alt", _alt, STORAGE_OBJECTS_DELETE_VALID_VALUES_FOR_ALT)
-        end
-        unless (_fields = fields).nil?
-        end
-        unless (_key = key).nil?
-        end
-        unless (_oauth_token = oauth_token).nil?
-        end
-        unless (_pretty_print = pretty_print).nil?
-        end
-        unless (_quota_user = quota_user).nil?
-        end
-        unless (_upload_type = upload_type).nil?
-        end
-        unless (_user_ip = user_ip).nil?
-        end
-        unless (_generation = generation).nil?
-        end
-        unless (_if_generation_match = if_generation_match).nil?
-        end
-        unless (_if_generation_not_match = if_generation_not_match).nil?
-        end
-        unless (_if_metageneration_match = if_metageneration_match).nil?
-        end
-        unless (_if_metageneration_not_match = if_metageneration_not_match).nil?
-        end
-        unless (_user_project = user_project).nil?
         end
       end
 
@@ -1033,42 +946,15 @@ module GoogleCloudStorage
 
       if client_side_validation?
         raise ArgumentError.new("\"bucket\" is required and cannot be null") if bucket.nil?
-        unless (_bucket = bucket).nil?
-        end
+
         raise ArgumentError.new("\"object\" is required and cannot be null") if object.nil?
-        unless (_object = object).nil?
-        end
+
         unless (_alt = alt).nil?
           OpenApi::EnumValidator.validate("alt", _alt, STORAGE_OBJECTS_GET_VALID_VALUES_FOR_ALT)
         end
-        unless (_fields = fields).nil?
-        end
-        unless (_key = key).nil?
-        end
-        unless (_oauth_token = oauth_token).nil?
-        end
-        unless (_pretty_print = pretty_print).nil?
-        end
-        unless (_quota_user = quota_user).nil?
-        end
-        unless (_upload_type = upload_type).nil?
-        end
-        unless (_user_ip = user_ip).nil?
-        end
-        unless (_generation = generation).nil?
-        end
-        unless (_if_generation_match = if_generation_match).nil?
-        end
-        unless (_if_generation_not_match = if_generation_not_match).nil?
-        end
-        unless (_if_metageneration_match = if_metageneration_match).nil?
-        end
-        unless (_if_metageneration_not_match = if_metageneration_not_match).nil?
-        end
+
         unless (_projection = projection).nil?
           OpenApi::EnumValidator.validate("projection", _projection, STORAGE_OBJECTS_GET_VALID_VALUES_FOR_PROJECTION)
-        end
-        unless (_user_project = user_project).nil?
         end
       end
 
@@ -1253,31 +1139,11 @@ module GoogleCloudStorage
 
       if client_side_validation?
         raise ArgumentError.new("\"bucket\" is required and cannot be null") if bucket.nil?
-        unless (_bucket = bucket).nil?
-        end
+
         raise ArgumentError.new("\"object\" is required and cannot be null") if object.nil?
-        unless (_object = object).nil?
-        end
+
         unless (_alt = alt).nil?
           OpenApi::EnumValidator.validate("alt", _alt, STORAGE_OBJECTS_GET_IAM_POLICY_VALID_VALUES_FOR_ALT)
-        end
-        unless (_fields = fields).nil?
-        end
-        unless (_key = key).nil?
-        end
-        unless (_oauth_token = oauth_token).nil?
-        end
-        unless (_pretty_print = pretty_print).nil?
-        end
-        unless (_quota_user = quota_user).nil?
-        end
-        unless (_upload_type = upload_type).nil?
-        end
-        unless (_user_ip = user_ip).nil?
-        end
-        unless (_generation = generation).nil?
-        end
-        unless (_user_project = user_project).nil?
         end
       end
 
@@ -1515,48 +1381,16 @@ module GoogleCloudStorage
 
       if client_side_validation?
         raise ArgumentError.new("\"bucket\" is required and cannot be null") if bucket.nil?
-        unless (_bucket = bucket).nil?
-        end
+
         unless (_alt = alt).nil?
           OpenApi::EnumValidator.validate("alt", _alt, STORAGE_OBJECTS_INSERT_VALID_VALUES_FOR_ALT)
         end
-        unless (_fields = fields).nil?
-        end
-        unless (_key = key).nil?
-        end
-        unless (_oauth_token = oauth_token).nil?
-        end
-        unless (_pretty_print = pretty_print).nil?
-        end
-        unless (_quota_user = quota_user).nil?
-        end
-        unless (_upload_type = upload_type).nil?
-        end
-        unless (_user_ip = user_ip).nil?
-        end
-        unless (_content_encoding = content_encoding).nil?
-        end
-        unless (_if_generation_match = if_generation_match).nil?
-        end
-        unless (_if_generation_not_match = if_generation_not_match).nil?
-        end
-        unless (_if_metageneration_match = if_metageneration_match).nil?
-        end
-        unless (_if_metageneration_not_match = if_metageneration_not_match).nil?
-        end
-        unless (_kms_key_name = kms_key_name).nil?
-        end
-        unless (_name = name).nil?
-        end
+
         unless (_predefined_acl = predefined_acl).nil?
           OpenApi::EnumValidator.validate("predefined_acl", _predefined_acl, STORAGE_OBJECTS_INSERT_VALID_VALUES_FOR_PREDEFINED_ACL)
         end
         unless (_projection = projection).nil?
           OpenApi::EnumValidator.validate("projection", _projection, STORAGE_OBJECTS_INSERT_VALID_VALUES_FOR_PROJECTION)
-        end
-        unless (_user_project = user_project).nil?
-        end
-        unless (_body = body).nil?
         end
       end
 
@@ -1797,46 +1631,17 @@ module GoogleCloudStorage
 
       if client_side_validation?
         raise ArgumentError.new("\"bucket\" is required and cannot be null") if bucket.nil?
-        unless (_bucket = bucket).nil?
-        end
+
         unless (_alt = alt).nil?
           OpenApi::EnumValidator.validate("alt", _alt, STORAGE_OBJECTS_LIST_VALID_VALUES_FOR_ALT)
         end
-        unless (_fields = fields).nil?
-        end
-        unless (_key = key).nil?
-        end
-        unless (_oauth_token = oauth_token).nil?
-        end
-        unless (_pretty_print = pretty_print).nil?
-        end
-        unless (_quota_user = quota_user).nil?
-        end
-        unless (_upload_type = upload_type).nil?
-        end
-        unless (_user_ip = user_ip).nil?
-        end
-        unless (_delimiter = delimiter).nil?
-        end
-        unless (_end_offset = end_offset).nil?
-        end
-        unless (_include_trailing_delimiter = include_trailing_delimiter).nil?
-        end
+
         unless (_max_results = max_results).nil?
           OpenApi::PrimitiveValidator.validate_min_number("max_results", _max_results, STORAGE_OBJECTS_LIST_MIN_FOR_MAX_RESULTS)
         end
-        unless (_page_token = page_token).nil?
-        end
-        unless (_prefix = prefix).nil?
-        end
+
         unless (_projection = projection).nil?
           OpenApi::EnumValidator.validate("projection", _projection, STORAGE_OBJECTS_LIST_VALID_VALUES_FOR_PROJECTION)
-        end
-        unless (_start_offset = start_offset).nil?
-        end
-        unless (_user_project = user_project).nil?
-        end
-        unless (_versions = versions).nil?
         end
       end
 
@@ -2075,46 +1880,20 @@ module GoogleCloudStorage
 
       if client_side_validation?
         raise ArgumentError.new("\"bucket\" is required and cannot be null") if bucket.nil?
-        unless (_bucket = bucket).nil?
-        end
+
         raise ArgumentError.new("\"object\" is required and cannot be null") if object.nil?
-        unless (_object = object).nil?
-        end
+
         unless (_alt = alt).nil?
           OpenApi::EnumValidator.validate("alt", _alt, STORAGE_OBJECTS_PATCH_VALID_VALUES_FOR_ALT)
         end
-        unless (_fields = fields).nil?
-        end
-        unless (_key = key).nil?
-        end
-        unless (_oauth_token = oauth_token).nil?
-        end
-        unless (_pretty_print = pretty_print).nil?
-        end
-        unless (_quota_user = quota_user).nil?
-        end
-        unless (_upload_type = upload_type).nil?
-        end
-        unless (_user_ip = user_ip).nil?
-        end
-        unless (_generation = generation).nil?
-        end
-        unless (_if_generation_match = if_generation_match).nil?
-        end
-        unless (_if_generation_not_match = if_generation_not_match).nil?
-        end
-        unless (_if_metageneration_match = if_metageneration_match).nil?
-        end
-        unless (_if_metageneration_not_match = if_metageneration_not_match).nil?
-        end
+
         unless (_predefined_acl = predefined_acl).nil?
           OpenApi::EnumValidator.validate("predefined_acl", _predefined_acl, STORAGE_OBJECTS_PATCH_VALID_VALUES_FOR_PREDEFINED_ACL)
         end
         unless (_projection = projection).nil?
           OpenApi::EnumValidator.validate("projection", _projection, STORAGE_OBJECTS_PATCH_VALID_VALUES_FOR_PROJECTION)
         end
-        unless (_user_project = user_project).nil?
-        end
+
         unless (_object2 = object2).nil?
           _object2.validate if _object2.is_a?(OpenApi::Validatable)
         end
@@ -2418,66 +2197,25 @@ module GoogleCloudStorage
 
       if client_side_validation?
         raise ArgumentError.new("\"source_bucket\" is required and cannot be null") if source_bucket.nil?
-        unless (_source_bucket = source_bucket).nil?
-        end
+
         raise ArgumentError.new("\"source_object\" is required and cannot be null") if source_object.nil?
-        unless (_source_object = source_object).nil?
-        end
+
         raise ArgumentError.new("\"destination_bucket\" is required and cannot be null") if destination_bucket.nil?
-        unless (_destination_bucket = destination_bucket).nil?
-        end
+
         raise ArgumentError.new("\"destination_object\" is required and cannot be null") if destination_object.nil?
-        unless (_destination_object = destination_object).nil?
-        end
+
         unless (_alt = alt).nil?
           OpenApi::EnumValidator.validate("alt", _alt, STORAGE_OBJECTS_REWRITE_VALID_VALUES_FOR_ALT)
         end
-        unless (_fields = fields).nil?
-        end
-        unless (_key = key).nil?
-        end
-        unless (_oauth_token = oauth_token).nil?
-        end
-        unless (_pretty_print = pretty_print).nil?
-        end
-        unless (_quota_user = quota_user).nil?
-        end
-        unless (_upload_type = upload_type).nil?
-        end
-        unless (_user_ip = user_ip).nil?
-        end
-        unless (_destination_kms_key_name = destination_kms_key_name).nil?
-        end
+
         unless (_destination_predefined_acl = destination_predefined_acl).nil?
           OpenApi::EnumValidator.validate("destination_predefined_acl", _destination_predefined_acl, STORAGE_OBJECTS_REWRITE_VALID_VALUES_FOR_DESTINATION_PREDEFINED_ACL)
         end
-        unless (_if_generation_match = if_generation_match).nil?
-        end
-        unless (_if_generation_not_match = if_generation_not_match).nil?
-        end
-        unless (_if_metageneration_match = if_metageneration_match).nil?
-        end
-        unless (_if_metageneration_not_match = if_metageneration_not_match).nil?
-        end
-        unless (_if_source_generation_match = if_source_generation_match).nil?
-        end
-        unless (_if_source_generation_not_match = if_source_generation_not_match).nil?
-        end
-        unless (_if_source_metageneration_match = if_source_metageneration_match).nil?
-        end
-        unless (_if_source_metageneration_not_match = if_source_metageneration_not_match).nil?
-        end
-        unless (_max_bytes_rewritten_per_call = max_bytes_rewritten_per_call).nil?
-        end
+
         unless (_projection = projection).nil?
           OpenApi::EnumValidator.validate("projection", _projection, STORAGE_OBJECTS_REWRITE_VALID_VALUES_FOR_PROJECTION)
         end
-        unless (_rewrite_token = rewrite_token).nil?
-        end
-        unless (_source_generation = source_generation).nil?
-        end
-        unless (_user_project = user_project).nil?
-        end
+
         unless (_object = object).nil?
           _object.validate if _object.is_a?(OpenApi::Validatable)
         end
@@ -2681,32 +2419,13 @@ module GoogleCloudStorage
 
       if client_side_validation?
         raise ArgumentError.new("\"bucket\" is required and cannot be null") if bucket.nil?
-        unless (_bucket = bucket).nil?
-        end
+
         raise ArgumentError.new("\"object\" is required and cannot be null") if object.nil?
-        unless (_object = object).nil?
-        end
+
         unless (_alt = alt).nil?
           OpenApi::EnumValidator.validate("alt", _alt, STORAGE_OBJECTS_SET_IAM_POLICY_VALID_VALUES_FOR_ALT)
         end
-        unless (_fields = fields).nil?
-        end
-        unless (_key = key).nil?
-        end
-        unless (_oauth_token = oauth_token).nil?
-        end
-        unless (_pretty_print = pretty_print).nil?
-        end
-        unless (_quota_user = quota_user).nil?
-        end
-        unless (_upload_type = upload_type).nil?
-        end
-        unless (_user_ip = user_ip).nil?
-        end
-        unless (_generation = generation).nil?
-        end
-        unless (_user_project = user_project).nil?
-        end
+
         unless (_policy = policy).nil?
           _policy.validate if _policy.is_a?(OpenApi::Validatable)
         end
@@ -2897,34 +2616,13 @@ module GoogleCloudStorage
 
       if client_side_validation?
         raise ArgumentError.new("\"bucket\" is required and cannot be null") if bucket.nil?
-        unless (_bucket = bucket).nil?
-        end
+
         raise ArgumentError.new("\"object\" is required and cannot be null") if object.nil?
-        unless (_object = object).nil?
-        end
+
         raise ArgumentError.new("\"permissions\" is required and cannot be null") if permissions.nil?
-        unless (_permissions = permissions).nil?
-        end
+
         unless (_alt = alt).nil?
           OpenApi::EnumValidator.validate("alt", _alt, STORAGE_OBJECTS_TEST_IAM_PERMISSIONS_VALID_VALUES_FOR_ALT)
-        end
-        unless (_fields = fields).nil?
-        end
-        unless (_key = key).nil?
-        end
-        unless (_oauth_token = oauth_token).nil?
-        end
-        unless (_pretty_print = pretty_print).nil?
-        end
-        unless (_quota_user = quota_user).nil?
-        end
-        unless (_upload_type = upload_type).nil?
-        end
-        unless (_user_ip = user_ip).nil?
-        end
-        unless (_generation = generation).nil?
-        end
-        unless (_user_project = user_project).nil?
         end
       end
 
@@ -3156,46 +2854,20 @@ module GoogleCloudStorage
 
       if client_side_validation?
         raise ArgumentError.new("\"bucket\" is required and cannot be null") if bucket.nil?
-        unless (_bucket = bucket).nil?
-        end
+
         raise ArgumentError.new("\"object\" is required and cannot be null") if object.nil?
-        unless (_object = object).nil?
-        end
+
         unless (_alt = alt).nil?
           OpenApi::EnumValidator.validate("alt", _alt, STORAGE_OBJECTS_UPDATE_VALID_VALUES_FOR_ALT)
         end
-        unless (_fields = fields).nil?
-        end
-        unless (_key = key).nil?
-        end
-        unless (_oauth_token = oauth_token).nil?
-        end
-        unless (_pretty_print = pretty_print).nil?
-        end
-        unless (_quota_user = quota_user).nil?
-        end
-        unless (_upload_type = upload_type).nil?
-        end
-        unless (_user_ip = user_ip).nil?
-        end
-        unless (_generation = generation).nil?
-        end
-        unless (_if_generation_match = if_generation_match).nil?
-        end
-        unless (_if_generation_not_match = if_generation_not_match).nil?
-        end
-        unless (_if_metageneration_match = if_metageneration_match).nil?
-        end
-        unless (_if_metageneration_not_match = if_metageneration_not_match).nil?
-        end
+
         unless (_predefined_acl = predefined_acl).nil?
           OpenApi::EnumValidator.validate("predefined_acl", _predefined_acl, STORAGE_OBJECTS_UPDATE_VALID_VALUES_FOR_PREDEFINED_ACL)
         end
         unless (_projection = projection).nil?
           OpenApi::EnumValidator.validate("projection", _projection, STORAGE_OBJECTS_UPDATE_VALID_VALUES_FOR_PROJECTION)
         end
-        unless (_user_project = user_project).nil?
-        end
+
         unless (_object2 = object2).nil?
           _object2.validate if _object2.is_a?(OpenApi::Validatable)
         end
@@ -3443,47 +3115,19 @@ module GoogleCloudStorage
 
       if client_side_validation?
         raise ArgumentError.new("\"bucket\" is required and cannot be null") if bucket.nil?
-        unless (_bucket = bucket).nil?
-        end
+
         unless (_alt = alt).nil?
           OpenApi::EnumValidator.validate("alt", _alt, STORAGE_OBJECTS_WATCH_ALL_VALID_VALUES_FOR_ALT)
         end
-        unless (_fields = fields).nil?
-        end
-        unless (_key = key).nil?
-        end
-        unless (_oauth_token = oauth_token).nil?
-        end
-        unless (_pretty_print = pretty_print).nil?
-        end
-        unless (_quota_user = quota_user).nil?
-        end
-        unless (_upload_type = upload_type).nil?
-        end
-        unless (_user_ip = user_ip).nil?
-        end
-        unless (_delimiter = delimiter).nil?
-        end
-        unless (_end_offset = end_offset).nil?
-        end
-        unless (_include_trailing_delimiter = include_trailing_delimiter).nil?
-        end
+
         unless (_max_results = max_results).nil?
           OpenApi::PrimitiveValidator.validate_min_number("max_results", _max_results, STORAGE_OBJECTS_WATCH_ALL_MIN_FOR_MAX_RESULTS)
         end
-        unless (_page_token = page_token).nil?
-        end
-        unless (_prefix = prefix).nil?
-        end
+
         unless (_projection = projection).nil?
           OpenApi::EnumValidator.validate("projection", _projection, STORAGE_OBJECTS_WATCH_ALL_VALID_VALUES_FOR_PROJECTION)
         end
-        unless (_start_offset = start_offset).nil?
-        end
-        unless (_user_project = user_project).nil?
-        end
-        unless (_versions = versions).nil?
-        end
+
         unless (_channel = channel).nil?
           _channel.validate if _channel.is_a?(OpenApi::Validatable)
         end

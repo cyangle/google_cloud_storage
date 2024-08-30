@@ -47,54 +47,30 @@ module GoogleCloudStorage
     def list_invalid_properties : Array(String)
       invalid_properties = Array(String).new
 
-      unless (_effective_time = @effective_time).nil?
-      end
-      unless (_is_locked = @is_locked).nil?
-      end
-      unless (_retention_period = @retention_period).nil?
-      end
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid? : Bool
-      unless (_effective_time = @effective_time).nil?
-      end
-
-      unless (_is_locked = @is_locked).nil?
-      end
-
-      unless (_retention_period = @retention_period).nil?
-      end
-
       true
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] effective_time Object to be assigned
     def effective_time=(new_value : Time?)
-      unless new_value.nil?
-      end
-
       @effective_time = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] is_locked Object to be assigned
     def is_locked=(new_value : Bool?)
-      unless new_value.nil?
-      end
-
       @is_locked = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] retention_period Object to be assigned
     def retention_period=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @retention_period = new_value
     end
 

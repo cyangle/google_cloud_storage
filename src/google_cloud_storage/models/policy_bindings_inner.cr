@@ -50,10 +50,7 @@ module GoogleCloudStorage
       unless (_condition = @condition).nil?
         invalid_properties.concat(_condition.list_invalid_properties_for("condition")) if _condition.is_a?(OpenApi::Validatable)
       end
-      unless (_members = @members).nil?
-      end
-      unless (_role = @role).nil?
-      end
+
       invalid_properties
     end
 
@@ -62,12 +59,6 @@ module GoogleCloudStorage
     def valid? : Bool
       unless (_condition = @condition).nil?
         return false if _condition.is_a?(OpenApi::Validatable) && !_condition.valid?
-      end
-
-      unless (_members = @members).nil?
-      end
-
-      unless (_role = @role).nil?
       end
 
       true
@@ -86,18 +77,12 @@ module GoogleCloudStorage
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] members Object to be assigned
     def members=(new_value : Array(String)?)
-      unless new_value.nil?
-      end
-
       @members = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] role Object to be assigned
     def role=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @role = new_value
     end
 

@@ -47,8 +47,7 @@ module GoogleCloudStorage
       unless (_items = @items).nil?
         invalid_properties.concat(OpenApi::ContainerValidator.list_invalid_properties_for(key: "items", container: _items)) if _items.is_a?(Array)
       end
-      unless (_kind = @kind).nil?
-      end
+
       invalid_properties
     end
 
@@ -57,9 +56,6 @@ module GoogleCloudStorage
     def valid? : Bool
       unless (_items = @items).nil?
         return false if _items.is_a?(Array) && !OpenApi::ContainerValidator.valid?(container: _items)
-      end
-
-      unless (_kind = @kind).nil?
       end
 
       true
@@ -78,9 +74,6 @@ module GoogleCloudStorage
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] kind Object to be assigned
     def kind=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @kind = new_value
     end
 

@@ -148,29 +148,11 @@ module GoogleCloudStorage
 
       if client_side_validation?
         raise ArgumentError.new("\"project_id\" is required and cannot be null") if project_id.nil?
-        unless (_project_id = project_id).nil?
-        end
+
         raise ArgumentError.new("\"service_account_email\" is required and cannot be null") if service_account_email.nil?
-        unless (_service_account_email = service_account_email).nil?
-        end
+
         unless (_alt = alt).nil?
           OpenApi::EnumValidator.validate("alt", _alt, STORAGE_PROJECTS_HMAC_KEYS_CREATE_VALID_VALUES_FOR_ALT)
-        end
-        unless (_fields = fields).nil?
-        end
-        unless (_key = key).nil?
-        end
-        unless (_oauth_token = oauth_token).nil?
-        end
-        unless (_pretty_print = pretty_print).nil?
-        end
-        unless (_quota_user = quota_user).nil?
-        end
-        unless (_upload_type = upload_type).nil?
-        end
-        unless (_user_ip = user_ip).nil?
-        end
-        unless (_user_project = user_project).nil?
         end
       end
 
@@ -343,29 +325,11 @@ module GoogleCloudStorage
 
       if client_side_validation?
         raise ArgumentError.new("\"project_id\" is required and cannot be null") if project_id.nil?
-        unless (_project_id = project_id).nil?
-        end
+
         raise ArgumentError.new("\"access_id\" is required and cannot be null") if access_id.nil?
-        unless (_access_id = access_id).nil?
-        end
+
         unless (_alt = alt).nil?
           OpenApi::EnumValidator.validate("alt", _alt, STORAGE_PROJECTS_HMAC_KEYS_DELETE_VALID_VALUES_FOR_ALT)
-        end
-        unless (_fields = fields).nil?
-        end
-        unless (_key = key).nil?
-        end
-        unless (_oauth_token = oauth_token).nil?
-        end
-        unless (_pretty_print = pretty_print).nil?
-        end
-        unless (_quota_user = quota_user).nil?
-        end
-        unless (_upload_type = upload_type).nil?
-        end
-        unless (_user_ip = user_ip).nil?
-        end
-        unless (_user_project = user_project).nil?
         end
       end
 
@@ -535,29 +499,11 @@ module GoogleCloudStorage
 
       if client_side_validation?
         raise ArgumentError.new("\"project_id\" is required and cannot be null") if project_id.nil?
-        unless (_project_id = project_id).nil?
-        end
+
         raise ArgumentError.new("\"access_id\" is required and cannot be null") if access_id.nil?
-        unless (_access_id = access_id).nil?
-        end
+
         unless (_alt = alt).nil?
           OpenApi::EnumValidator.validate("alt", _alt, STORAGE_PROJECTS_HMAC_KEYS_GET_VALID_VALUES_FOR_ALT)
-        end
-        unless (_fields = fields).nil?
-        end
-        unless (_key = key).nil?
-        end
-        unless (_oauth_token = oauth_token).nil?
-        end
-        unless (_pretty_print = pretty_print).nil?
-        end
-        unless (_quota_user = quota_user).nil?
-        end
-        unless (_upload_type = upload_type).nil?
-        end
-        unless (_user_ip = user_ip).nil?
-        end
-        unless (_user_project = user_project).nil?
         end
       end
 
@@ -751,35 +697,13 @@ module GoogleCloudStorage
 
       if client_side_validation?
         raise ArgumentError.new("\"project_id\" is required and cannot be null") if project_id.nil?
-        unless (_project_id = project_id).nil?
-        end
+
         unless (_alt = alt).nil?
           OpenApi::EnumValidator.validate("alt", _alt, STORAGE_PROJECTS_HMAC_KEYS_LIST_VALID_VALUES_FOR_ALT)
         end
-        unless (_fields = fields).nil?
-        end
-        unless (_key = key).nil?
-        end
-        unless (_oauth_token = oauth_token).nil?
-        end
-        unless (_pretty_print = pretty_print).nil?
-        end
-        unless (_quota_user = quota_user).nil?
-        end
-        unless (_upload_type = upload_type).nil?
-        end
-        unless (_user_ip = user_ip).nil?
-        end
+
         unless (_max_results = max_results).nil?
           OpenApi::PrimitiveValidator.validate_min_number("max_results", _max_results, STORAGE_PROJECTS_HMAC_KEYS_LIST_MIN_FOR_MAX_RESULTS)
-        end
-        unless (_page_token = page_token).nil?
-        end
-        unless (_service_account_email = service_account_email).nil?
-        end
-        unless (_show_deleted_keys = show_deleted_keys).nil?
-        end
-        unless (_user_project = user_project).nil?
         end
       end
 
@@ -962,30 +886,13 @@ module GoogleCloudStorage
 
       if client_side_validation?
         raise ArgumentError.new("\"project_id\" is required and cannot be null") if project_id.nil?
-        unless (_project_id = project_id).nil?
-        end
+
         raise ArgumentError.new("\"access_id\" is required and cannot be null") if access_id.nil?
-        unless (_access_id = access_id).nil?
-        end
+
         unless (_alt = alt).nil?
           OpenApi::EnumValidator.validate("alt", _alt, STORAGE_PROJECTS_HMAC_KEYS_UPDATE_VALID_VALUES_FOR_ALT)
         end
-        unless (_fields = fields).nil?
-        end
-        unless (_key = key).nil?
-        end
-        unless (_oauth_token = oauth_token).nil?
-        end
-        unless (_pretty_print = pretty_print).nil?
-        end
-        unless (_quota_user = quota_user).nil?
-        end
-        unless (_upload_type = upload_type).nil?
-        end
-        unless (_user_ip = user_ip).nil?
-        end
-        unless (_user_project = user_project).nil?
-        end
+
         unless (_hmac_key_metadata = hmac_key_metadata).nil?
           _hmac_key_metadata.validate if _hmac_key_metadata.is_a?(OpenApi::Validatable)
         end
@@ -1154,26 +1061,9 @@ module GoogleCloudStorage
 
       if client_side_validation?
         raise ArgumentError.new("\"project_id\" is required and cannot be null") if project_id.nil?
-        unless (_project_id = project_id).nil?
-        end
+
         unless (_alt = alt).nil?
           OpenApi::EnumValidator.validate("alt", _alt, STORAGE_PROJECTS_SERVICE_ACCOUNT_GET_VALID_VALUES_FOR_ALT)
-        end
-        unless (_fields = fields).nil?
-        end
-        unless (_key = key).nil?
-        end
-        unless (_oauth_token = oauth_token).nil?
-        end
-        unless (_pretty_print = pretty_print).nil?
-        end
-        unless (_quota_user = quota_user).nil?
-        end
-        unless (_upload_type = upload_type).nil?
-        end
-        unless (_user_ip = user_ip).nil?
-        end
-        unless (_user_project = user_project).nil?
         end
       end
 

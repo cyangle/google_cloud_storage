@@ -145,29 +145,11 @@ module GoogleCloudStorage
 
       if client_side_validation?
         raise ArgumentError.new("\"bucket\" is required and cannot be null") if bucket.nil?
-        unless (_bucket = bucket).nil?
-        end
+
         raise ArgumentError.new("\"entity\" is required and cannot be null") if entity.nil?
-        unless (_entity = entity).nil?
-        end
+
         unless (_alt = alt).nil?
           OpenApi::EnumValidator.validate("alt", _alt, STORAGE_BUCKET_ACCESS_CONTROLS_DELETE_VALID_VALUES_FOR_ALT)
-        end
-        unless (_fields = fields).nil?
-        end
-        unless (_key = key).nil?
-        end
-        unless (_oauth_token = oauth_token).nil?
-        end
-        unless (_pretty_print = pretty_print).nil?
-        end
-        unless (_quota_user = quota_user).nil?
-        end
-        unless (_upload_type = upload_type).nil?
-        end
-        unless (_user_ip = user_ip).nil?
-        end
-        unless (_user_project = user_project).nil?
         end
       end
 
@@ -337,29 +319,11 @@ module GoogleCloudStorage
 
       if client_side_validation?
         raise ArgumentError.new("\"bucket\" is required and cannot be null") if bucket.nil?
-        unless (_bucket = bucket).nil?
-        end
+
         raise ArgumentError.new("\"entity\" is required and cannot be null") if entity.nil?
-        unless (_entity = entity).nil?
-        end
+
         unless (_alt = alt).nil?
           OpenApi::EnumValidator.validate("alt", _alt, STORAGE_BUCKET_ACCESS_CONTROLS_GET_VALID_VALUES_FOR_ALT)
-        end
-        unless (_fields = fields).nil?
-        end
-        unless (_key = key).nil?
-        end
-        unless (_oauth_token = oauth_token).nil?
-        end
-        unless (_pretty_print = pretty_print).nil?
-        end
-        unless (_quota_user = quota_user).nil?
-        end
-        unless (_upload_type = upload_type).nil?
-        end
-        unless (_user_ip = user_ip).nil?
-        end
-        unless (_user_project = user_project).nil?
         end
       end
 
@@ -531,27 +495,11 @@ module GoogleCloudStorage
 
       if client_side_validation?
         raise ArgumentError.new("\"bucket\" is required and cannot be null") if bucket.nil?
-        unless (_bucket = bucket).nil?
-        end
+
         unless (_alt = alt).nil?
           OpenApi::EnumValidator.validate("alt", _alt, STORAGE_BUCKET_ACCESS_CONTROLS_INSERT_VALID_VALUES_FOR_ALT)
         end
-        unless (_fields = fields).nil?
-        end
-        unless (_key = key).nil?
-        end
-        unless (_oauth_token = oauth_token).nil?
-        end
-        unless (_pretty_print = pretty_print).nil?
-        end
-        unless (_quota_user = quota_user).nil?
-        end
-        unless (_upload_type = upload_type).nil?
-        end
-        unless (_user_ip = user_ip).nil?
-        end
-        unless (_user_project = user_project).nil?
-        end
+
         unless (_bucket_access_control = bucket_access_control).nil?
           _bucket_access_control.validate if _bucket_access_control.is_a?(OpenApi::Validatable)
         end
@@ -720,26 +668,9 @@ module GoogleCloudStorage
 
       if client_side_validation?
         raise ArgumentError.new("\"bucket\" is required and cannot be null") if bucket.nil?
-        unless (_bucket = bucket).nil?
-        end
+
         unless (_alt = alt).nil?
           OpenApi::EnumValidator.validate("alt", _alt, STORAGE_BUCKET_ACCESS_CONTROLS_LIST_VALID_VALUES_FOR_ALT)
-        end
-        unless (_fields = fields).nil?
-        end
-        unless (_key = key).nil?
-        end
-        unless (_oauth_token = oauth_token).nil?
-        end
-        unless (_pretty_print = pretty_print).nil?
-        end
-        unless (_quota_user = quota_user).nil?
-        end
-        unless (_upload_type = upload_type).nil?
-        end
-        unless (_user_ip = user_ip).nil?
-        end
-        unless (_user_project = user_project).nil?
         end
       end
 
@@ -918,30 +849,13 @@ module GoogleCloudStorage
 
       if client_side_validation?
         raise ArgumentError.new("\"bucket\" is required and cannot be null") if bucket.nil?
-        unless (_bucket = bucket).nil?
-        end
+
         raise ArgumentError.new("\"entity\" is required and cannot be null") if entity.nil?
-        unless (_entity = entity).nil?
-        end
+
         unless (_alt = alt).nil?
           OpenApi::EnumValidator.validate("alt", _alt, STORAGE_BUCKET_ACCESS_CONTROLS_PATCH_VALID_VALUES_FOR_ALT)
         end
-        unless (_fields = fields).nil?
-        end
-        unless (_key = key).nil?
-        end
-        unless (_oauth_token = oauth_token).nil?
-        end
-        unless (_pretty_print = pretty_print).nil?
-        end
-        unless (_quota_user = quota_user).nil?
-        end
-        unless (_upload_type = upload_type).nil?
-        end
-        unless (_user_ip = user_ip).nil?
-        end
-        unless (_user_project = user_project).nil?
-        end
+
         unless (_bucket_access_control = bucket_access_control).nil?
           _bucket_access_control.validate if _bucket_access_control.is_a?(OpenApi::Validatable)
         end
@@ -1124,30 +1038,13 @@ module GoogleCloudStorage
 
       if client_side_validation?
         raise ArgumentError.new("\"bucket\" is required and cannot be null") if bucket.nil?
-        unless (_bucket = bucket).nil?
-        end
+
         raise ArgumentError.new("\"entity\" is required and cannot be null") if entity.nil?
-        unless (_entity = entity).nil?
-        end
+
         unless (_alt = alt).nil?
           OpenApi::EnumValidator.validate("alt", _alt, STORAGE_BUCKET_ACCESS_CONTROLS_UPDATE_VALID_VALUES_FOR_ALT)
         end
-        unless (_fields = fields).nil?
-        end
-        unless (_key = key).nil?
-        end
-        unless (_oauth_token = oauth_token).nil?
-        end
-        unless (_pretty_print = pretty_print).nil?
-        end
-        unless (_quota_user = quota_user).nil?
-        end
-        unless (_upload_type = upload_type).nil?
-        end
-        unless (_user_ip = user_ip).nil?
-        end
-        unless (_user_project = user_project).nil?
-        end
+
         unless (_bucket_access_control = bucket_access_control).nil?
           _bucket_access_control.validate if _bucket_access_control.is_a?(OpenApi::Validatable)
         end

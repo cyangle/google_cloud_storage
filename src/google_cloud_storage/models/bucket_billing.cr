@@ -37,26 +37,18 @@ module GoogleCloudStorage
     def list_invalid_properties : Array(String)
       invalid_properties = Array(String).new
 
-      unless (_requester_pays = @requester_pays).nil?
-      end
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid? : Bool
-      unless (_requester_pays = @requester_pays).nil?
-      end
-
       true
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] requester_pays Object to be assigned
     def requester_pays=(new_value : Bool?)
-      unless new_value.nil?
-      end
-
       @requester_pays = new_value
     end
 

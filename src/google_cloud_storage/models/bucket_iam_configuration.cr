@@ -51,8 +51,7 @@ module GoogleCloudStorage
       unless (_bucket_policy_only = @bucket_policy_only).nil?
         invalid_properties.concat(_bucket_policy_only.list_invalid_properties_for("bucket_policy_only")) if _bucket_policy_only.is_a?(OpenApi::Validatable)
       end
-      unless (_public_access_prevention = @public_access_prevention).nil?
-      end
+
       unless (_uniform_bucket_level_access = @uniform_bucket_level_access).nil?
         invalid_properties.concat(_uniform_bucket_level_access.list_invalid_properties_for("uniform_bucket_level_access")) if _uniform_bucket_level_access.is_a?(OpenApi::Validatable)
       end
@@ -64,9 +63,6 @@ module GoogleCloudStorage
     def valid? : Bool
       unless (_bucket_policy_only = @bucket_policy_only).nil?
         return false if _bucket_policy_only.is_a?(OpenApi::Validatable) && !_bucket_policy_only.valid?
-      end
-
-      unless (_public_access_prevention = @public_access_prevention).nil?
       end
 
       unless (_uniform_bucket_level_access = @uniform_bucket_level_access).nil?
@@ -89,9 +85,6 @@ module GoogleCloudStorage
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] public_access_prevention Object to be assigned
     def public_access_prevention=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @public_access_prevention = new_value
     end
 

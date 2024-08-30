@@ -47,10 +47,6 @@ module GoogleCloudStorage
     def list_invalid_properties : Array(String)
       invalid_properties = Array(String).new
 
-      unless (_generation = @generation).nil?
-      end
-      unless (_name = @name).nil?
-      end
       unless (_object_preconditions = @object_preconditions).nil?
         invalid_properties.concat(_object_preconditions.list_invalid_properties_for("object_preconditions")) if _object_preconditions.is_a?(OpenApi::Validatable)
       end
@@ -60,12 +56,6 @@ module GoogleCloudStorage
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid? : Bool
-      unless (_generation = @generation).nil?
-      end
-
-      unless (_name = @name).nil?
-      end
-
       unless (_object_preconditions = @object_preconditions).nil?
         return false if _object_preconditions.is_a?(OpenApi::Validatable) && !_object_preconditions.valid?
       end
@@ -76,18 +66,12 @@ module GoogleCloudStorage
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] generation Object to be assigned
     def generation=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @generation = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] name Object to be assigned
     def name=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @name = new_value
     end
 

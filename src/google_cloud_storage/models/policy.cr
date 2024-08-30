@@ -62,14 +62,7 @@ module GoogleCloudStorage
       unless (_bindings = @bindings).nil?
         invalid_properties.concat(OpenApi::ContainerValidator.list_invalid_properties_for(key: "bindings", container: _bindings)) if _bindings.is_a?(Array)
       end
-      unless (_etag = @etag).nil?
-      end
-      unless (_kind = @kind).nil?
-      end
-      unless (_resource_id = @resource_id).nil?
-      end
-      unless (_version = @version).nil?
-      end
+
       invalid_properties
     end
 
@@ -78,18 +71,6 @@ module GoogleCloudStorage
     def valid? : Bool
       unless (_bindings = @bindings).nil?
         return false if _bindings.is_a?(Array) && !OpenApi::ContainerValidator.valid?(container: _bindings)
-      end
-
-      unless (_etag = @etag).nil?
-      end
-
-      unless (_kind = @kind).nil?
-      end
-
-      unless (_resource_id = @resource_id).nil?
-      end
-
-      unless (_version = @version).nil?
       end
 
       true
@@ -108,36 +89,24 @@ module GoogleCloudStorage
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] etag Object to be assigned
     def etag=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @etag = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] kind Object to be assigned
     def kind=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @kind = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] resource_id Object to be assigned
     def resource_id=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @resource_id = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] version Object to be assigned
     def version=(new_value : Int32?)
-      unless new_value.nil?
-      end
-
       @version = new_value
     end
 

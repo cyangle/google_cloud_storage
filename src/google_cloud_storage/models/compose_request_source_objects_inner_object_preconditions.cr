@@ -37,26 +37,18 @@ module GoogleCloudStorage
     def list_invalid_properties : Array(String)
       invalid_properties = Array(String).new
 
-      unless (_if_generation_match = @if_generation_match).nil?
-      end
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid? : Bool
-      unless (_if_generation_match = @if_generation_match).nil?
-      end
-
       true
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] if_generation_match Object to be assigned
     def if_generation_match=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @if_generation_match = new_value
     end
 

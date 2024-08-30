@@ -51,68 +51,36 @@ module GoogleCloudStorage
     def list_invalid_properties : Array(String)
       invalid_properties = Array(String).new
 
-      unless (_max_age_seconds = @max_age_seconds).nil?
-      end
-      unless (_method = @method).nil?
-      end
-      unless (_origin = @origin).nil?
-      end
-      unless (_response_header = @response_header).nil?
-      end
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid? : Bool
-      unless (_max_age_seconds = @max_age_seconds).nil?
-      end
-
-      unless (_method = @method).nil?
-      end
-
-      unless (_origin = @origin).nil?
-      end
-
-      unless (_response_header = @response_header).nil?
-      end
-
       true
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] max_age_seconds Object to be assigned
     def max_age_seconds=(new_value : Int32?)
-      unless new_value.nil?
-      end
-
       @max_age_seconds = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] method Object to be assigned
     def method=(new_value : Array(String)?)
-      unless new_value.nil?
-      end
-
       @method = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] origin Object to be assigned
     def origin=(new_value : Array(String)?)
-      unless new_value.nil?
-      end
-
       @origin = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] response_header Object to be assigned
     def response_header=(new_value : Array(String)?)
-      unless new_value.nil?
-      end
-
       @response_header = new_value
     end
 

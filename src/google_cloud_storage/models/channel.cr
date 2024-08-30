@@ -82,152 +82,72 @@ module GoogleCloudStorage
     def list_invalid_properties : Array(String)
       invalid_properties = Array(String).new
 
-      unless (_address = @address).nil?
-      end
-      unless (_expiration = @expiration).nil?
-      end
-      unless (_id = @id).nil?
-      end
-      unless (_kind = @kind).nil?
-      end
-      unless (_params = @params).nil?
-      end
-      unless (_payload = @payload).nil?
-      end
-      unless (_resource_id = @resource_id).nil?
-      end
-      unless (_resource_uri = @resource_uri).nil?
-      end
-      unless (_token = @token).nil?
-      end
-      unless (__type = @_type).nil?
-      end
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid? : Bool
-      unless (_address = @address).nil?
-      end
-
-      unless (_expiration = @expiration).nil?
-      end
-
-      unless (_id = @id).nil?
-      end
-
-      unless (_kind = @kind).nil?
-      end
-
-      unless (_params = @params).nil?
-      end
-
-      unless (_payload = @payload).nil?
-      end
-
-      unless (_resource_id = @resource_id).nil?
-      end
-
-      unless (_resource_uri = @resource_uri).nil?
-      end
-
-      unless (_token = @token).nil?
-      end
-
-      unless (__type = @_type).nil?
-      end
-
       true
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] address Object to be assigned
     def address=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @address = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] expiration Object to be assigned
     def expiration=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @expiration = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] id Object to be assigned
     def id=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @id = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] kind Object to be assigned
     def kind=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @kind = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] params Object to be assigned
     def params=(new_value : Hash(String, String)?)
-      unless new_value.nil?
-      end
-
       @params = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] payload Object to be assigned
     def payload=(new_value : Bool?)
-      unless new_value.nil?
-      end
-
       @payload = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] resource_id Object to be assigned
     def resource_id=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @resource_id = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] resource_uri Object to be assigned
     def resource_uri=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @resource_uri = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] token Object to be assigned
     def token=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @token = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] _type Object to be assigned
     def _type=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @_type = new_value
     end
 

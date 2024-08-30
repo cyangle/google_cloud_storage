@@ -92,180 +92,84 @@ module GoogleCloudStorage
     def list_invalid_properties : Array(String)
       invalid_properties = Array(String).new
 
-      unless (_age = @age).nil?
-      end
-      unless (_created_before = @created_before).nil?
-      end
-      unless (_custom_time_before = @custom_time_before).nil?
-      end
-      unless (_days_since_custom_time = @days_since_custom_time).nil?
-      end
-      unless (_days_since_noncurrent_time = @days_since_noncurrent_time).nil?
-      end
-      unless (_is_live = @is_live).nil?
-      end
-      unless (_matches_pattern = @matches_pattern).nil?
-      end
-      unless (_matches_prefix = @matches_prefix).nil?
-      end
-      unless (_matches_storage_class = @matches_storage_class).nil?
-      end
-      unless (_matches_suffix = @matches_suffix).nil?
-      end
-      unless (_noncurrent_time_before = @noncurrent_time_before).nil?
-      end
-      unless (_num_newer_versions = @num_newer_versions).nil?
-      end
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid? : Bool
-      unless (_age = @age).nil?
-      end
-
-      unless (_created_before = @created_before).nil?
-      end
-
-      unless (_custom_time_before = @custom_time_before).nil?
-      end
-
-      unless (_days_since_custom_time = @days_since_custom_time).nil?
-      end
-
-      unless (_days_since_noncurrent_time = @days_since_noncurrent_time).nil?
-      end
-
-      unless (_is_live = @is_live).nil?
-      end
-
-      unless (_matches_pattern = @matches_pattern).nil?
-      end
-
-      unless (_matches_prefix = @matches_prefix).nil?
-      end
-
-      unless (_matches_storage_class = @matches_storage_class).nil?
-      end
-
-      unless (_matches_suffix = @matches_suffix).nil?
-      end
-
-      unless (_noncurrent_time_before = @noncurrent_time_before).nil?
-      end
-
-      unless (_num_newer_versions = @num_newer_versions).nil?
-      end
-
       true
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] age Object to be assigned
     def age=(new_value : Int32?)
-      unless new_value.nil?
-      end
-
       @age = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] created_before Object to be assigned
     def created_before=(new_value : Time?)
-      unless new_value.nil?
-      end
-
       @created_before = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] custom_time_before Object to be assigned
     def custom_time_before=(new_value : Time?)
-      unless new_value.nil?
-      end
-
       @custom_time_before = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] days_since_custom_time Object to be assigned
     def days_since_custom_time=(new_value : Int32?)
-      unless new_value.nil?
-      end
-
       @days_since_custom_time = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] days_since_noncurrent_time Object to be assigned
     def days_since_noncurrent_time=(new_value : Int32?)
-      unless new_value.nil?
-      end
-
       @days_since_noncurrent_time = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] is_live Object to be assigned
     def is_live=(new_value : Bool?)
-      unless new_value.nil?
-      end
-
       @is_live = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] matches_pattern Object to be assigned
     def matches_pattern=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @matches_pattern = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] matches_prefix Object to be assigned
     def matches_prefix=(new_value : Array(String)?)
-      unless new_value.nil?
-      end
-
       @matches_prefix = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] matches_storage_class Object to be assigned
     def matches_storage_class=(new_value : Array(String)?)
-      unless new_value.nil?
-      end
-
       @matches_storage_class = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] matches_suffix Object to be assigned
     def matches_suffix=(new_value : Array(String)?)
-      unless new_value.nil?
-      end
-
       @matches_suffix = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] noncurrent_time_before Object to be assigned
     def noncurrent_time_before=(new_value : Time?)
-      unless new_value.nil?
-      end
-
       @noncurrent_time_before = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] num_newer_versions Object to be assigned
     def num_newer_versions=(new_value : Int32?)
-      unless new_value.nil?
-      end
-
       @num_newer_versions = new_value
     end
 

@@ -37,26 +37,18 @@ module GoogleCloudStorage
     def list_invalid_properties : Array(String)
       invalid_properties = Array(String).new
 
-      unless (_default_kms_key_name = @default_kms_key_name).nil?
-      end
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid? : Bool
-      unless (_default_kms_key_name = @default_kms_key_name).nil?
-      end
-
       true
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] default_kms_key_name Object to be assigned
     def default_kms_key_name=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @default_kms_key_name = new_value
     end
 

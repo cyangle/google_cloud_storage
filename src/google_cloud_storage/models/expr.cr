@@ -52,68 +52,36 @@ module GoogleCloudStorage
     def list_invalid_properties : Array(String)
       invalid_properties = Array(String).new
 
-      unless (_description = @description).nil?
-      end
-      unless (_expression = @expression).nil?
-      end
-      unless (_location = @location).nil?
-      end
-      unless (_title = @title).nil?
-      end
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid? : Bool
-      unless (_description = @description).nil?
-      end
-
-      unless (_expression = @expression).nil?
-      end
-
-      unless (_location = @location).nil?
-      end
-
-      unless (_title = @title).nil?
-      end
-
       true
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] description Object to be assigned
     def description=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @description = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] expression Object to be assigned
     def expression=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @expression = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] location Object to be assigned
     def location=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @location = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] title Object to be assigned
     def title=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @title = new_value
     end
 

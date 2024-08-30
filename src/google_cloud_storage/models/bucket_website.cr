@@ -42,40 +42,24 @@ module GoogleCloudStorage
     def list_invalid_properties : Array(String)
       invalid_properties = Array(String).new
 
-      unless (_main_page_suffix = @main_page_suffix).nil?
-      end
-      unless (_not_found_page = @not_found_page).nil?
-      end
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid? : Bool
-      unless (_main_page_suffix = @main_page_suffix).nil?
-      end
-
-      unless (_not_found_page = @not_found_page).nil?
-      end
-
       true
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] main_page_suffix Object to be assigned
     def main_page_suffix=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @main_page_suffix = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] not_found_page Object to be assigned
     def not_found_page=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @not_found_page = new_value
     end
 

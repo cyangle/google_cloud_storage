@@ -42,40 +42,24 @@ module GoogleCloudStorage
     def list_invalid_properties : Array(String)
       invalid_properties = Array(String).new
 
-      unless (_encryption_algorithm = @encryption_algorithm).nil?
-      end
-      unless (_key_sha256 = @key_sha256).nil?
-      end
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid? : Bool
-      unless (_encryption_algorithm = @encryption_algorithm).nil?
-      end
-
-      unless (_key_sha256 = @key_sha256).nil?
-      end
-
       true
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] encryption_algorithm Object to be assigned
     def encryption_algorithm=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @encryption_algorithm = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] key_sha256 Object to be assigned
     def key_sha256=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @key_sha256 = new_value
     end
 

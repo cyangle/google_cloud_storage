@@ -77,138 +77,66 @@ module GoogleCloudStorage
     def list_invalid_properties : Array(String)
       invalid_properties = Array(String).new
 
-      unless (_custom_attributes = @custom_attributes).nil?
-      end
-      unless (_etag = @etag).nil?
-      end
-      unless (_event_types = @event_types).nil?
-      end
-      unless (_id = @id).nil?
-      end
-      unless (_kind = @kind).nil?
-      end
-      unless (_object_name_prefix = @object_name_prefix).nil?
-      end
-      unless (_payload_format = @payload_format).nil?
-      end
-      unless (_self_link = @self_link).nil?
-      end
-      unless (_topic = @topic).nil?
-      end
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid? : Bool
-      unless (_custom_attributes = @custom_attributes).nil?
-      end
-
-      unless (_etag = @etag).nil?
-      end
-
-      unless (_event_types = @event_types).nil?
-      end
-
-      unless (_id = @id).nil?
-      end
-
-      unless (_kind = @kind).nil?
-      end
-
-      unless (_object_name_prefix = @object_name_prefix).nil?
-      end
-
-      unless (_payload_format = @payload_format).nil?
-      end
-
-      unless (_self_link = @self_link).nil?
-      end
-
-      unless (_topic = @topic).nil?
-      end
-
       true
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] custom_attributes Object to be assigned
     def custom_attributes=(new_value : Hash(String, String)?)
-      unless new_value.nil?
-      end
-
       @custom_attributes = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] etag Object to be assigned
     def etag=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @etag = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] event_types Object to be assigned
     def event_types=(new_value : Array(String)?)
-      unless new_value.nil?
-      end
-
       @event_types = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] id Object to be assigned
     def id=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @id = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] kind Object to be assigned
     def kind=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @kind = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] object_name_prefix Object to be assigned
     def object_name_prefix=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @object_name_prefix = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] payload_format Object to be assigned
     def payload_format=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @payload_format = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] self_link Object to be assigned
     def self_link=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @self_link = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] topic Object to be assigned
     def topic=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @topic = new_value
     end
 

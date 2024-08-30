@@ -42,40 +42,24 @@ module GoogleCloudStorage
     def list_invalid_properties : Array(String)
       invalid_properties = Array(String).new
 
-      unless (_enabled = @enabled).nil?
-      end
-      unless (_toggle_time = @toggle_time).nil?
-      end
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid? : Bool
-      unless (_enabled = @enabled).nil?
-      end
-
-      unless (_toggle_time = @toggle_time).nil?
-      end
-
       true
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] enabled Object to be assigned
     def enabled=(new_value : Bool?)
-      unless new_value.nil?
-      end
-
       @enabled = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] toggle_time Object to be assigned
     def toggle_time=(new_value : Time?)
-      unless new_value.nil?
-      end
-
       @toggle_time = new_value
     end
 

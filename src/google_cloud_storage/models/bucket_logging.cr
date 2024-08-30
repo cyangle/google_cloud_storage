@@ -42,40 +42,24 @@ module GoogleCloudStorage
     def list_invalid_properties : Array(String)
       invalid_properties = Array(String).new
 
-      unless (_log_bucket = @log_bucket).nil?
-      end
-      unless (_log_object_prefix = @log_object_prefix).nil?
-      end
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid? : Bool
-      unless (_log_bucket = @log_bucket).nil?
-      end
-
-      unless (_log_object_prefix = @log_object_prefix).nil?
-      end
-
       true
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] log_bucket Object to be assigned
     def log_bucket=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @log_bucket = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] log_object_prefix Object to be assigned
     def log_object_prefix=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @log_object_prefix = new_value
     end
 

@@ -197,70 +197,15 @@ module GoogleCloudStorage
       unless (_acl = @acl).nil?
         invalid_properties.concat(OpenApi::ContainerValidator.list_invalid_properties_for(key: "acl", container: _acl)) if _acl.is_a?(Array)
       end
-      unless (_bucket = @bucket).nil?
-      end
-      unless (_cache_control = @cache_control).nil?
-      end
-      unless (_component_count = @component_count).nil?
-      end
-      unless (_content_disposition = @content_disposition).nil?
-      end
-      unless (_content_encoding = @content_encoding).nil?
-      end
-      unless (_content_language = @content_language).nil?
-      end
-      unless (_content_type = @content_type).nil?
-      end
-      unless (_crc32c = @crc32c).nil?
-      end
-      unless (_custom_time = @custom_time).nil?
-      end
+
       unless (_customer_encryption = @customer_encryption).nil?
         invalid_properties.concat(_customer_encryption.list_invalid_properties_for("customer_encryption")) if _customer_encryption.is_a?(OpenApi::Validatable)
       end
-      unless (_etag = @etag).nil?
-      end
-      unless (_event_based_hold = @event_based_hold).nil?
-      end
-      unless (_generation = @generation).nil?
-      end
-      unless (_id = @id).nil?
-      end
-      unless (_kind = @kind).nil?
-      end
-      unless (_kms_key_name = @kms_key_name).nil?
-      end
-      unless (_md5_hash = @md5_hash).nil?
-      end
-      unless (_media_link = @media_link).nil?
-      end
-      unless (_metadata = @metadata).nil?
-      end
-      unless (_metageneration = @metageneration).nil?
-      end
-      unless (_name = @name).nil?
-      end
+
       unless (_owner = @owner).nil?
         invalid_properties.concat(_owner.list_invalid_properties_for("owner")) if _owner.is_a?(OpenApi::Validatable)
       end
-      unless (_retention_expiration_time = @retention_expiration_time).nil?
-      end
-      unless (_self_link = @self_link).nil?
-      end
-      unless (_size = @size).nil?
-      end
-      unless (_storage_class = @storage_class).nil?
-      end
-      unless (_temporary_hold = @temporary_hold).nil?
-      end
-      unless (_time_created = @time_created).nil?
-      end
-      unless (_time_deleted = @time_deleted).nil?
-      end
-      unless (_time_storage_class_updated = @time_storage_class_updated).nil?
-      end
-      unless (_updated = @updated).nil?
-      end
+
       invalid_properties
     end
 
@@ -271,99 +216,12 @@ module GoogleCloudStorage
         return false if _acl.is_a?(Array) && !OpenApi::ContainerValidator.valid?(container: _acl)
       end
 
-      unless (_bucket = @bucket).nil?
-      end
-
-      unless (_cache_control = @cache_control).nil?
-      end
-
-      unless (_component_count = @component_count).nil?
-      end
-
-      unless (_content_disposition = @content_disposition).nil?
-      end
-
-      unless (_content_encoding = @content_encoding).nil?
-      end
-
-      unless (_content_language = @content_language).nil?
-      end
-
-      unless (_content_type = @content_type).nil?
-      end
-
-      unless (_crc32c = @crc32c).nil?
-      end
-
-      unless (_custom_time = @custom_time).nil?
-      end
-
       unless (_customer_encryption = @customer_encryption).nil?
         return false if _customer_encryption.is_a?(OpenApi::Validatable) && !_customer_encryption.valid?
       end
 
-      unless (_etag = @etag).nil?
-      end
-
-      unless (_event_based_hold = @event_based_hold).nil?
-      end
-
-      unless (_generation = @generation).nil?
-      end
-
-      unless (_id = @id).nil?
-      end
-
-      unless (_kind = @kind).nil?
-      end
-
-      unless (_kms_key_name = @kms_key_name).nil?
-      end
-
-      unless (_md5_hash = @md5_hash).nil?
-      end
-
-      unless (_media_link = @media_link).nil?
-      end
-
-      unless (_metadata = @metadata).nil?
-      end
-
-      unless (_metageneration = @metageneration).nil?
-      end
-
-      unless (_name = @name).nil?
-      end
-
       unless (_owner = @owner).nil?
         return false if _owner.is_a?(OpenApi::Validatable) && !_owner.valid?
-      end
-
-      unless (_retention_expiration_time = @retention_expiration_time).nil?
-      end
-
-      unless (_self_link = @self_link).nil?
-      end
-
-      unless (_size = @size).nil?
-      end
-
-      unless (_storage_class = @storage_class).nil?
-      end
-
-      unless (_temporary_hold = @temporary_hold).nil?
-      end
-
-      unless (_time_created = @time_created).nil?
-      end
-
-      unless (_time_deleted = @time_deleted).nil?
-      end
-
-      unless (_time_storage_class_updated = @time_storage_class_updated).nil?
-      end
-
-      unless (_updated = @updated).nil?
       end
 
       true
@@ -382,81 +240,54 @@ module GoogleCloudStorage
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] bucket Object to be assigned
     def bucket=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @bucket = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] cache_control Object to be assigned
     def cache_control=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @cache_control = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] component_count Object to be assigned
     def component_count=(new_value : Int32?)
-      unless new_value.nil?
-      end
-
       @component_count = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] content_disposition Object to be assigned
     def content_disposition=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @content_disposition = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] content_encoding Object to be assigned
     def content_encoding=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @content_encoding = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] content_language Object to be assigned
     def content_language=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @content_language = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] content_type Object to be assigned
     def content_type=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @content_type = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] crc32c Object to be assigned
     def crc32c=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @crc32c = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] custom_time Object to be assigned
     def custom_time=(new_value : Time?)
-      unless new_value.nil?
-      end
-
       @custom_time = new_value
     end
 
@@ -473,99 +304,66 @@ module GoogleCloudStorage
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] etag Object to be assigned
     def etag=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @etag = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] event_based_hold Object to be assigned
     def event_based_hold=(new_value : Bool?)
-      unless new_value.nil?
-      end
-
       @event_based_hold = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] generation Object to be assigned
     def generation=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @generation = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] id Object to be assigned
     def id=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @id = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] kind Object to be assigned
     def kind=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @kind = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] kms_key_name Object to be assigned
     def kms_key_name=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @kms_key_name = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] md5_hash Object to be assigned
     def md5_hash=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @md5_hash = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] media_link Object to be assigned
     def media_link=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @media_link = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] metadata Object to be assigned
     def metadata=(new_value : Hash(String, String)?)
-      unless new_value.nil?
-      end
-
       @metadata = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] metageneration Object to be assigned
     def metageneration=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @metageneration = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] name Object to be assigned
     def name=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @name = new_value
     end
 
@@ -582,81 +380,54 @@ module GoogleCloudStorage
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] retention_expiration_time Object to be assigned
     def retention_expiration_time=(new_value : Time?)
-      unless new_value.nil?
-      end
-
       @retention_expiration_time = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] self_link Object to be assigned
     def self_link=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @self_link = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] size Object to be assigned
     def size=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @size = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] storage_class Object to be assigned
     def storage_class=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @storage_class = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] temporary_hold Object to be assigned
     def temporary_hold=(new_value : Bool?)
-      unless new_value.nil?
-      end
-
       @temporary_hold = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] time_created Object to be assigned
     def time_created=(new_value : Time?)
-      unless new_value.nil?
-      end
-
       @time_created = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] time_deleted Object to be assigned
     def time_deleted=(new_value : Time?)
-      unless new_value.nil?
-      end
-
       @time_deleted = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] time_storage_class_updated Object to be assigned
     def time_storage_class_updated=(new_value : Time?)
-      unless new_value.nil?
-      end
-
       @time_storage_class_updated = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] updated Object to be assigned
     def updated=(new_value : Time?)
-      unless new_value.nil?
-      end
-
       @updated = new_value
     end
 

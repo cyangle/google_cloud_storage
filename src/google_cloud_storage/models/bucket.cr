@@ -193,59 +193,34 @@ module GoogleCloudStorage
       unless (_cors = @cors).nil?
         invalid_properties.concat(OpenApi::ContainerValidator.list_invalid_properties_for(key: "cors", container: _cors)) if _cors.is_a?(Array)
       end
-      unless (_default_event_based_hold = @default_event_based_hold).nil?
-      end
+
       unless (_default_object_acl = @default_object_acl).nil?
         invalid_properties.concat(OpenApi::ContainerValidator.list_invalid_properties_for(key: "default_object_acl", container: _default_object_acl)) if _default_object_acl.is_a?(Array)
       end
       unless (_encryption = @encryption).nil?
         invalid_properties.concat(_encryption.list_invalid_properties_for("encryption")) if _encryption.is_a?(OpenApi::Validatable)
       end
-      unless (_etag = @etag).nil?
-      end
+
       unless (_iam_configuration = @iam_configuration).nil?
         invalid_properties.concat(_iam_configuration.list_invalid_properties_for("iam_configuration")) if _iam_configuration.is_a?(OpenApi::Validatable)
       end
-      unless (_id = @id).nil?
-      end
-      unless (_kind = @kind).nil?
-      end
-      unless (_labels = @labels).nil?
-      end
+
       unless (_lifecycle = @lifecycle).nil?
         invalid_properties.concat(_lifecycle.list_invalid_properties_for("lifecycle")) if _lifecycle.is_a?(OpenApi::Validatable)
       end
-      unless (_location = @location).nil?
-      end
-      unless (_location_type = @location_type).nil?
-      end
+
       unless (_logging = @logging).nil?
         invalid_properties.concat(_logging.list_invalid_properties_for("logging")) if _logging.is_a?(OpenApi::Validatable)
       end
-      unless (_metageneration = @metageneration).nil?
-      end
-      unless (_name = @name).nil?
-      end
+
       unless (_owner = @owner).nil?
         invalid_properties.concat(_owner.list_invalid_properties_for("owner")) if _owner.is_a?(OpenApi::Validatable)
       end
-      unless (_project_number = @project_number).nil?
-      end
+
       unless (_retention_policy = @retention_policy).nil?
         invalid_properties.concat(_retention_policy.list_invalid_properties_for("retention_policy")) if _retention_policy.is_a?(OpenApi::Validatable)
       end
-      unless (_rpo = @rpo).nil?
-      end
-      unless (_satisfies_pzs = @satisfies_pzs).nil?
-      end
-      unless (_self_link = @self_link).nil?
-      end
-      unless (_storage_class = @storage_class).nil?
-      end
-      unless (_time_created = @time_created).nil?
-      end
-      unless (_updated = @updated).nil?
-      end
+
       unless (_versioning = @versioning).nil?
         invalid_properties.concat(_versioning.list_invalid_properties_for("versioning")) if _versioning.is_a?(OpenApi::Validatable)
       end
@@ -274,9 +249,6 @@ module GoogleCloudStorage
         return false if _cors.is_a?(Array) && !OpenApi::ContainerValidator.valid?(container: _cors)
       end
 
-      unless (_default_event_based_hold = @default_event_based_hold).nil?
-      end
-
       unless (_default_object_acl = @default_object_acl).nil?
         return false if _default_object_acl.is_a?(Array) && !OpenApi::ContainerValidator.valid?(container: _default_object_acl)
       end
@@ -285,69 +257,24 @@ module GoogleCloudStorage
         return false if _encryption.is_a?(OpenApi::Validatable) && !_encryption.valid?
       end
 
-      unless (_etag = @etag).nil?
-      end
-
       unless (_iam_configuration = @iam_configuration).nil?
         return false if _iam_configuration.is_a?(OpenApi::Validatable) && !_iam_configuration.valid?
-      end
-
-      unless (_id = @id).nil?
-      end
-
-      unless (_kind = @kind).nil?
-      end
-
-      unless (_labels = @labels).nil?
       end
 
       unless (_lifecycle = @lifecycle).nil?
         return false if _lifecycle.is_a?(OpenApi::Validatable) && !_lifecycle.valid?
       end
 
-      unless (_location = @location).nil?
-      end
-
-      unless (_location_type = @location_type).nil?
-      end
-
       unless (_logging = @logging).nil?
         return false if _logging.is_a?(OpenApi::Validatable) && !_logging.valid?
-      end
-
-      unless (_metageneration = @metageneration).nil?
-      end
-
-      unless (_name = @name).nil?
       end
 
       unless (_owner = @owner).nil?
         return false if _owner.is_a?(OpenApi::Validatable) && !_owner.valid?
       end
 
-      unless (_project_number = @project_number).nil?
-      end
-
       unless (_retention_policy = @retention_policy).nil?
         return false if _retention_policy.is_a?(OpenApi::Validatable) && !_retention_policy.valid?
-      end
-
-      unless (_rpo = @rpo).nil?
-      end
-
-      unless (_satisfies_pzs = @satisfies_pzs).nil?
-      end
-
-      unless (_self_link = @self_link).nil?
-      end
-
-      unless (_storage_class = @storage_class).nil?
-      end
-
-      unless (_time_created = @time_created).nil?
-      end
-
-      unless (_updated = @updated).nil?
       end
 
       unless (_versioning = @versioning).nil?
@@ -404,9 +331,6 @@ module GoogleCloudStorage
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] default_event_based_hold Object to be assigned
     def default_event_based_hold=(new_value : Bool?)
-      unless new_value.nil?
-      end
-
       @default_event_based_hold = new_value
     end
 
@@ -433,9 +357,6 @@ module GoogleCloudStorage
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] etag Object to be assigned
     def etag=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @etag = new_value
     end
 
@@ -452,27 +373,18 @@ module GoogleCloudStorage
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] id Object to be assigned
     def id=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @id = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] kind Object to be assigned
     def kind=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @kind = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] labels Object to be assigned
     def labels=(new_value : Hash(String, String)?)
-      unless new_value.nil?
-      end
-
       @labels = new_value
     end
 
@@ -489,18 +401,12 @@ module GoogleCloudStorage
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] location Object to be assigned
     def location=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @location = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] location_type Object to be assigned
     def location_type=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @location_type = new_value
     end
 
@@ -517,18 +423,12 @@ module GoogleCloudStorage
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] metageneration Object to be assigned
     def metageneration=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @metageneration = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] name Object to be assigned
     def name=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @name = new_value
     end
 
@@ -545,9 +445,6 @@ module GoogleCloudStorage
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] project_number Object to be assigned
     def project_number=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @project_number = new_value
     end
 
@@ -564,54 +461,36 @@ module GoogleCloudStorage
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] rpo Object to be assigned
     def rpo=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @rpo = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] satisfies_pzs Object to be assigned
     def satisfies_pzs=(new_value : Bool?)
-      unless new_value.nil?
-      end
-
       @satisfies_pzs = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] self_link Object to be assigned
     def self_link=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @self_link = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] storage_class Object to be assigned
     def storage_class=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @storage_class = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] time_created Object to be assigned
     def time_created=(new_value : Time?)
-      unless new_value.nil?
-      end
-
       @time_created = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] updated Object to be assigned
     def updated=(new_value : Time?)
-      unless new_value.nil?
-      end
-
       @updated = new_value
     end
 

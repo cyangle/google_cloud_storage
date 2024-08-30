@@ -61,42 +61,18 @@ module GoogleCloudStorage
     def list_invalid_properties : Array(String)
       invalid_properties = Array(String).new
 
-      unless (_done = @done).nil?
-      end
-      unless (_kind = @kind).nil?
-      end
-      unless (_object_size = @object_size).nil?
-      end
       unless (_resource = @resource).nil?
         invalid_properties.concat(_resource.list_invalid_properties_for("resource")) if _resource.is_a?(OpenApi::Validatable)
       end
-      unless (_rewrite_token = @rewrite_token).nil?
-      end
-      unless (_total_bytes_rewritten = @total_bytes_rewritten).nil?
-      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid? : Bool
-      unless (_done = @done).nil?
-      end
-
-      unless (_kind = @kind).nil?
-      end
-
-      unless (_object_size = @object_size).nil?
-      end
-
       unless (_resource = @resource).nil?
         return false if _resource.is_a?(OpenApi::Validatable) && !_resource.valid?
-      end
-
-      unless (_rewrite_token = @rewrite_token).nil?
-      end
-
-      unless (_total_bytes_rewritten = @total_bytes_rewritten).nil?
       end
 
       true
@@ -105,27 +81,18 @@ module GoogleCloudStorage
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] done Object to be assigned
     def done=(new_value : Bool?)
-      unless new_value.nil?
-      end
-
       @done = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] kind Object to be assigned
     def kind=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @kind = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] object_size Object to be assigned
     def object_size=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @object_size = new_value
     end
 
@@ -142,18 +109,12 @@ module GoogleCloudStorage
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] rewrite_token Object to be assigned
     def rewrite_token=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @rewrite_token = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] total_bytes_rewritten Object to be assigned
     def total_bytes_rewritten=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @total_bytes_rewritten = new_value
     end
 

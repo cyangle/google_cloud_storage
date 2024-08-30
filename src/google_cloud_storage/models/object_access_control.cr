@@ -98,77 +98,18 @@ module GoogleCloudStorage
     def list_invalid_properties : Array(String)
       invalid_properties = Array(String).new
 
-      unless (_bucket = @bucket).nil?
-      end
-      unless (_domain = @domain).nil?
-      end
-      unless (_email = @email).nil?
-      end
-      unless (_entity = @entity).nil?
-      end
-      unless (_entity_id = @entity_id).nil?
-      end
-      unless (_etag = @etag).nil?
-      end
-      unless (_generation = @generation).nil?
-      end
-      unless (_id = @id).nil?
-      end
-      unless (_kind = @kind).nil?
-      end
-      unless (_object = @object).nil?
-      end
       unless (_project_team = @project_team).nil?
         invalid_properties.concat(_project_team.list_invalid_properties_for("project_team")) if _project_team.is_a?(OpenApi::Validatable)
       end
-      unless (_role = @role).nil?
-      end
-      unless (_self_link = @self_link).nil?
-      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid? : Bool
-      unless (_bucket = @bucket).nil?
-      end
-
-      unless (_domain = @domain).nil?
-      end
-
-      unless (_email = @email).nil?
-      end
-
-      unless (_entity = @entity).nil?
-      end
-
-      unless (_entity_id = @entity_id).nil?
-      end
-
-      unless (_etag = @etag).nil?
-      end
-
-      unless (_generation = @generation).nil?
-      end
-
-      unless (_id = @id).nil?
-      end
-
-      unless (_kind = @kind).nil?
-      end
-
-      unless (_object = @object).nil?
-      end
-
       unless (_project_team = @project_team).nil?
         return false if _project_team.is_a?(OpenApi::Validatable) && !_project_team.valid?
-      end
-
-      unless (_role = @role).nil?
-      end
-
-      unless (_self_link = @self_link).nil?
       end
 
       true
@@ -177,90 +118,60 @@ module GoogleCloudStorage
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] bucket Object to be assigned
     def bucket=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @bucket = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] domain Object to be assigned
     def domain=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @domain = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] email Object to be assigned
     def email=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @email = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] entity Object to be assigned
     def entity=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @entity = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] entity_id Object to be assigned
     def entity_id=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @entity_id = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] etag Object to be assigned
     def etag=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @etag = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] generation Object to be assigned
     def generation=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @generation = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] id Object to be assigned
     def id=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @id = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] kind Object to be assigned
     def kind=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @kind = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] object Object to be assigned
     def object=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @object = new_value
     end
 
@@ -277,18 +188,12 @@ module GoogleCloudStorage
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] role Object to be assigned
     def role=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @role = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] self_link Object to be assigned
     def self_link=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @self_link = new_value
     end
 

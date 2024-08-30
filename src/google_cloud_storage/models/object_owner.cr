@@ -42,40 +42,24 @@ module GoogleCloudStorage
     def list_invalid_properties : Array(String)
       invalid_properties = Array(String).new
 
-      unless (_entity = @entity).nil?
-      end
-      unless (_entity_id = @entity_id).nil?
-      end
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid? : Bool
-      unless (_entity = @entity).nil?
-      end
-
-      unless (_entity_id = @entity_id).nil?
-      end
-
       true
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] entity Object to be assigned
     def entity=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @entity = new_value
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] entity_id Object to be assigned
     def entity_id=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @entity_id = new_value
     end
 

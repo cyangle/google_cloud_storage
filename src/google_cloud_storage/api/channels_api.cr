@@ -132,20 +132,7 @@ module GoogleCloudStorage
         unless (_alt = alt).nil?
           OpenApi::EnumValidator.validate("alt", _alt, STORAGE_CHANNELS_STOP_VALID_VALUES_FOR_ALT)
         end
-        unless (_fields = fields).nil?
-        end
-        unless (_key = key).nil?
-        end
-        unless (_oauth_token = oauth_token).nil?
-        end
-        unless (_pretty_print = pretty_print).nil?
-        end
-        unless (_quota_user = quota_user).nil?
-        end
-        unless (_upload_type = upload_type).nil?
-        end
-        unless (_user_ip = user_ip).nil?
-        end
+
         unless (_channel = channel).nil?
           _channel.validate if _channel.is_a?(OpenApi::Validatable)
         end

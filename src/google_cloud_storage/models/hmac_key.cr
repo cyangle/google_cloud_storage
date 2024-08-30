@@ -48,27 +48,18 @@ module GoogleCloudStorage
     def list_invalid_properties : Array(String)
       invalid_properties = Array(String).new
 
-      unless (_kind = @kind).nil?
-      end
       unless (_metadata = @metadata).nil?
         invalid_properties.concat(_metadata.list_invalid_properties_for("metadata")) if _metadata.is_a?(OpenApi::Validatable)
       end
-      unless (_secret = @secret).nil?
-      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid? : Bool
-      unless (_kind = @kind).nil?
-      end
-
       unless (_metadata = @metadata).nil?
         return false if _metadata.is_a?(OpenApi::Validatable) && !_metadata.valid?
-      end
-
-      unless (_secret = @secret).nil?
       end
 
       true
@@ -77,9 +68,6 @@ module GoogleCloudStorage
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] kind Object to be assigned
     def kind=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @kind = new_value
     end
 
@@ -96,9 +84,6 @@ module GoogleCloudStorage
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] secret Object to be assigned
     def secret=(new_value : String?)
-      unless new_value.nil?
-      end
-
       @secret = new_value
     end
 
